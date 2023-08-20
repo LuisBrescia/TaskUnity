@@ -1,6 +1,6 @@
 # :city_sunrise: Task Unity
 
-Plataforma inovadora de resolução colaborativa de problemas que permite aos usuários formar equipes para resolver desafios de maneira eficaz e eficiente. Ao contrário dos sistemas tradicionais de freelancing, o Task Unity coloca o foco na formação de equipes multidisciplinares, permitindo que várias pessoas contribuam para uma solução coletiva.
+Plataforma de resolução colaborativa de problemas que permite aos usuários formar equipes para resolver desafios de maneira eficaz e eficiente. Ao contrário dos sistemas tradicionais de freelancing, o Task Unity coloca o foco na formação de equipes multidisciplinares, permitindo que várias pessoas contribuam para uma solução coletiva.
 
 ## Integrantes
 

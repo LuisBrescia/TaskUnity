@@ -58,7 +58,20 @@ O desenvolvimento do sistema Task Unity é justificado pela crescente número de
 
 ## 2. Participantes do processo
 
-_Apresente aqui os perfis dos usuários chave do sistema. Diversas são as informações que podem ser relevantes para a definição dos perfis dos usuários, tais como idade, gênero, aspectos culturais, nível de educação, entre outros. A pesquisa de mercado pode ser uma ferramenta poderosa para se identificar e caracterizar os perfis de usuários. Apresente claramente o papel a ser desempenhado por cada usuário._
+Os participantes do sistema serão constituidos por **contratantes** e **freelancers**. Sendo que os usuários do tipo contratante irão criar seus projetos e contratar com base em suas necessidades, já os freelancers terão como principal função oferecer suas habilidades e prestar seus serviços. Suas atividades estão descritas a seguir:
+
+**Contratante**
+
+    Cria projeto na plataforma
+    Contrata freelancers
+    Gerencia membros da equipe
+    Interage com membros da equipe
+    
+**Freelancer**
+
+    Publica seu serviço na plataforma
+    Aceita ou recusa ofertas
+    Após seu serviço ser contratado, interage com contratante e/ou membros da equipe
 
 ## 3. Modelagem do processo de negócio
 

@@ -12,7 +12,7 @@ Plataforma de resolução colaborativa de problemas que permite aos usuários fo
 
 ## Professor
 
-* Jose Laerte Pires Xavier Junior
+* José Laerte Pires Xavier Junior
 * Luiz Henrique da Costa Silva
 
 ## Instruções de utilização

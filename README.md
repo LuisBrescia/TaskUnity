@@ -1,20 +1,19 @@
-# Nome do projeto
+# :city_sunrise: Task Unity
 
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+Plataforma inovadora de resolução colaborativa de problemas que permite aos usuários formar equipes para resolver desafios de maneira eficaz e eficiente. Ao contrário dos sistemas tradicionais de freelancing, o Task Unity coloca o foco na formação de equipes multidisciplinares, permitindo que várias pessoas contribuam para uma solução coletiva.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* André Teiichi Santos Hyodo
+* Gustavo Pereira de Oliveira
+* Luis Felipe Teixeira Dias Brescia
+* Luiz Felipe Campos de Morais
+* Marcus Vinícius Carvalho de Oliveira
 
 ## Professor
 
-* Nome completo do professor 1
-* Nome completo do professor 2
-* Nome completo do professor 3
+* Jose Laerte Pires Xavier Junior
+* Luiz Henrique da Costa Silva
 
 ## Instruções de utilização
 

@@ -1,29 +1,26 @@
-# TITULO DO PROJETO
+# :city_sunrise: Task Unity
 
+* **André Teiichi Santos Hyodo, dehyodo@gmail.com**
 
-**Nome completo do Aluno 1, email do aluno 1**
+* **Gustavo Pereira de Oliveira, gpo0251588@gmail.com**
 
-**Nome completo do Aluno 2, email do aluno 2**
+* **Luís Felipe Teixeira Dias Brescia, luisfelipebrescia@gmail.com**
 
-**Nome completo do Aluno 3, email do aluno 3**
+* **Luiz Felipe Campos de Morais, lfcamposdemorais@gmail.com**
 
-**Nome completo do Aluno 4, email do aluno 4**
-
-**Nome completo do Aluno 5, email do aluno 5**
+* **Marcus Vinícius Carvalho de Oliveira, marcuscarvalhodeoliveira@gmail.com**
 
 ---
 
 Professores:
 
-** Prof. Nome do Prof 1 **
+* **José Laerte Pires Xavier Junior**
 
-** Prof. Nome do Prof 2 **
-
-** Prof. Nome do Prof 3 **
+* **Luiz Henrique da Costa Silva**
 
 ---
 
-_Curso de Engenharia de Software, Unidade Praça da Liberdade_
+_Curso de Engenharia de Software, Unidade Coaração Eucaristíco_
 
 _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Católica de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 
@@ -34,38 +31,30 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ---
 
-
 ## 1. Introdução
 
-_Apresente uma frase introdutória definindo o que será apresentado._
+_Onde as habilidades se unem para desafiar o impossível! Crie equipes colaborativas e transforme projetos complexos em conquistas notáveis._
 
 ### 1.1 Contextualização
 
-_Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere.
-A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
-A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas)._
+No cenário atual, onde a complexidade dos projetos muitas vezes exige habilidades variadas, surge uma necessidade crucial no gerenciamento eficaz de equipes de freelancers. O crescente mercado de freelancing tem transformado a maneira como as tarefas são realizadas, mas enfrentar desafios complexos e multifacetados exige mais do que apenas individualidade. Projetos que requerem a contribuição de múltiplos freelancers exigem um sistema eficiente para gerencia-los.
 
 ### 1.2 Problema
 
-_Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o trabalho trata. 
-O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar 
-o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização 
-para tal._
+Diante dessas demandas crescentes, torna-se evidente que os atuais métodos de gerenciamento de freelancers não atendem adequadamente às complexidades de equipes virtuais formadas por profissionais independentes. Gerenciar tarefas, comunicação e colaboração em um ambiente de projeto multifacetado muitas vezes resulta em confusão, desorganização e, em última instância, em resultados abaixo do potencial.
 
 ### 1.3 Objetivo geral
 
-_O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho. 
-O objetivo deve ser bem direto, específico e definido com verbos de ação (elaborar, propor, avaliar, comparar, etc.). No caso específico deste projeto, o objetivo deste trabalho é desenvolver um sistema para automação de processos para um problema específico._
+O objetivo geral deste projeto é desenvolver o sistema Task Unity, que visa fornecer uma solução eficaz para o gerenciamento de freelancers, gerenciando eles não como entidades isoladas, mas sim como uma equipe independente. Permitindo que os gerentes de projeto organizem e coordenem a colaboração entre freelancers de maneira eficiente, garantindo o alinhamento de tarefas, o monitoramento do progresso e a comunicação eficaz.
 
 #### 1.3.1 Objetivos específicos
 
-_Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer 
-concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho._
+* Desenvolvimento do Sistema: Criar uma plataforma online robusta que facilite o gerenciamento de equipes virtuais de freelancers, com recursos específicos para alocação de tarefas, acompanhamento de prazos e comunicação integrada.
+* Implementação de Recursos de Colaboração: Introduzir ferramentas de comunicação e colaboração que otimizem o fluxo de informações entre os membros da equipe, possibilitando a coordenação eficaz e o compartilhamento de recursos.
 
 ### 1.4 Justificativas
 
-_Mostre também as **justificativas** para o 
-desenvolvimento do seu trabalho e, caso deseje, destaque alguma contribuição do trabalho._
+O desenvolvimento do sistema Task Unity é justificado pela crescente número de projetos independentes, e pela necessidade de uma abordagem eficaz no gerenciamento de equipes de freelancers. A plataforma não apenas otimizará a coordenação entre os membros da equipe, mas também contribuirá para o aumento da produtividade e a qualidade do resultado final. A capacidade de atribuir tarefas, monitorar o progresso e facilitar a comunicação em uma plataforma centralizada será crucial para enfrentar os desafios atuais do gerenciamento de equipes virtuais. Ao oferecer uma solução abrangente e eficaz, o Task Unity tem o potencial de melhorar significativamente a eficiência, a colaboração e a qualidade dos projetos em um ambiente de trabalho freelance em constante evolução.
 
 ## 2. Participantes do processo
 

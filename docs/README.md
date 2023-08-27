@@ -77,7 +77,12 @@ Os participantes do sistema serão constituidos por **contratantes** e **freelan
 
 ### 3.1. Análise da situação atual
 
-_Apresente uma descrição textual de como os sistemas atuais resolvem o problema que se propõe a resolver.  Caso sua proposta seja inovadora e não existam processos claramente definidos, **apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente**, mesmo que não se utilize tecnologia computacional._
+Atualmente, o serviço de freelancer acontece das seguintes maneiras:
+
+- **Sites de contratação de freelancers**: nesses sites, o prestador de serviços(freelancer), entra e publica um anúncio de seus serviços ou produtos, para que assim um contratante possa pagar pelo próprio site e receber o que havia sido acordado, atualmente nenhum desses sites permite o gerenciamento de um projeto dentro de suas respectivas plataformas.
+  
+- **Anúncios nas redes sociais**: pode ocorrer de um freelancer publicar um anúncio nas redes sociais sobre o serviço que está prestando, para que assim algum contratante entre em contato com ele para que possam discutir valores, método de pagamento e até mesmo prazos de entrega, o grande problema com esse método do jeito que é hoje é a falta de credibilidade, a rede social não pode oferecer a integração com métodos de pagamento e um gerenciamento feito para o serviço de freelancers que uma aplicação feita para isso pode oferecer.
+
 
 ### 3.2. Descrição geral da proposta
 

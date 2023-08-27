@@ -37,7 +37,7 @@ _Onde as habilidades se unem para desafiar o impossível! Crie equipes colaborat
 
 ### 1.1 Contextualização
 
-No cenário atual, onde a complexidade dos projetos muitas vezes exige habilidades variadas, surge uma necessidade crucial no gerenciamento eficaz de equipes de freelancers. O crescente mercado de freelancing tem transformado a maneira como as tarefas são realizadas, mas enfrentar desafios complexos e multifacetados exige mais do que apenas individualidade. Projetos que requerem a contribuição de múltiplos freelancers exigem um sistema eficiente para gerencia-los.
+No cenário atual, sabe-se que mais de 60% dos brasileiros aderiram ao trabalho freelancer no último ano. Existem apps que possibilitam a busca de serviços para que os freelancers se candidatem(Fiverr, 99freelas,Upwork), porém percebemos que a complexidade dos projetos muitas vezes exige habilidades variadas, com isto, surge uma necessidade crucial no gerenciamento eficaz de equipes de freelancers. O crescente mercado de freelancing tem transformado a maneira como as tarefas são realizadas, mas enfrentar desafios complexos e multifacetados exige mais do que apenas individualidade. Projetos que requerem a contribuição de múltiplos freelancers exigem um sistema eficiente para gerencia-los.
 
 ### 1.2 Problema
 

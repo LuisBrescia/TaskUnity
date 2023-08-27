@@ -88,7 +88,23 @@ Atualmente, o serviço de freelancer acontece das seguintes maneiras:
 
 ### 3.2. Descrição geral da proposta
 
-_Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias._
+A proposta do **Taskunity** consiste em facilitar a gerência de projetos feitos por freelancers, visto que busca eliminar a dificuldade na troca de informações que ocorre ao tentar criar um projeto com vários freelancers de áreas diferentes. O taskunity busca unificar todas as informações do projeto em um só lugar, facilitar a comunicação do contratante com os freelancers participantes, a gerência dos mesmos e até a contratação de novos freelancers. Com isso, o fluxo da aplicação seguirá as seguintes etapas:
+
+**Contratante**:
+- O usuário se cadastra, fornecendo dados básicos como nome, email, senha, cpf, telefone e data de nascimento.
+- Após isso, cria o seu projeto na plataforma, contendo título, descrição do projeto, número de freelancers necessários e habilidades necessárias de cada freelancer.
+- Ele poderá buscar por freelancers com as habilidades requisitadas e contratá-los caso queira.
+- Também poderá aceitar solicitações de freelancers para participarem do projeto e contratá-los caso queira.
+- Após formada a equipe, poderá se comunicar com todos os freelancers em um só lugar, contendo um chat geral do projeto e chats individuais entre cada participante.
+- Poderá também gerir os membros da equipe, adicionando novos, excluindo atuais, mudando os cargos, etc.
+- Ao finalizado o projeto, o contratante finaliza o projeto no sistema.
+
+**Freelancer**:
+- O usuário se cadastra, fornecendo dados básicos como nome, email, senha, cpf, telefone, data de nascimento, valor cobrado por seus serviços.
+- Após isso, seu perfil será exibido na plataforma e poderá ser solicitado para participar de novos projetos.
+- Ele poderá buscar por projetos estejam necessitando de suas habilidades e solicitar para participar destes projetos.
+- Após isso, o usuário poderá interagir a partir do projeto criado pelo contratante e realizar suas tarefas.
+- Ao finalizado o projeto, aguarde a finalização do contratante no sistema.
 
 ### 3.3. Modelagem dos processos
 

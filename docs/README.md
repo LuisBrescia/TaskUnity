@@ -81,6 +81,8 @@ Atualmente, o serviço de freelancer acontece das seguintes maneiras:
 
 - **Sites de contratação de freelancers**: nesses sites, o prestador de serviços(freelancer), entra e publica um anúncio de seus serviços ou produtos, para que assim um contratante possa pagar pelo próprio site e receber o que havia sido acordado, atualmente nenhum desses sites permite o gerenciamento de um projeto dentro de suas respectivas plataformas.
   
+- **Marketplaces de Nicho**: Além dos grandes sites de contratação de freelancers, existem também marketplaces de nicho que se concentram em áreas específicas, como design gráfico, redação técnica, tradução, desenvolvimento de aplicativos e muito mais. Esses marketplaces podem oferecer uma experiência mais especializada para ambas as partes, mas a especialização em um nicho específico pode limitar as oportunidades de trabalho para os freelancers e também Comparados a grandes plataformas, os marketplaces de nicho podem ter menos tráfego e, consequentemente, menos visibilidade.
+  
 - **Anúncios nas redes sociais**: pode ocorrer de um freelancer publicar um anúncio nas redes sociais sobre o serviço que está prestando, para que assim algum contratante entre em contato com ele para que possam discutir valores, método de pagamento e até mesmo prazos de entrega, o grande problema com esse método do jeito que é hoje é a falta de credibilidade, a rede social não pode oferecer a integração com métodos de pagamento e um gerenciamento feito para o serviço de freelancers que uma aplicação feita para isso pode oferecer.
 
 

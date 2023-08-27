@@ -35,7 +35,15 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ### 1.1 Contextualização
 
-No cenário atual, sabe-se que mais de 60% dos brasileiros aderiram ao trabalho freelancer no último ano. Existem apps que possibilitam a busca de serviços para que os freelancers se candidatem(Fiverr, 99freelas,Upwork), porém percebemos que a complexidade dos projetos muitas vezes exige habilidades variadas, com isto, surge uma necessidade crucial no gerenciamento eficaz de equipes de freelancers. O crescente mercado de freelancing tem transformado a maneira como as tarefas são realizadas, mas enfrentar desafios complexos e multifacetados exige mais do que apenas individualidade. Projetos que requerem a contribuição de múltiplos freelancers exigem um sistema eficiente para gerencia-los.
+O conceito de freelancer tem raízes históricas profundas que remontam a séculos atrás, mas sua popularidade e evolução significativa ocorreram principalmente nas últimas décadas, impulsionadas pelo avanço da tecnologia e pelas mudanças nas formas de trabalho e economia.
+
+O termo "freelancer" tem sua origem no século XIX, quando escritores e jornalistas independentes eram frequentemente representados por uma lança ("lance", em inglês) em uma mão, simbolizando a liberdade, e um estoque de pena na outra, simbolizando a escrita. Ao longo do tempo, essa representação evoluiu para o termo "freelance", que descreve indivíduos que trabalham por conta própria, sem estar vinculados a um empregador específico, e que vendem seus serviços a diferentes clientes.
+
+A revolução tecnológica tornou possível que freelancers prestassem serviços remotamente para clientes de todo o mundo. Plataformas online especializadas surgiram para facilitar essa conexão, permitindo que freelancers oferecessem uma variedade de serviços, desde design gráfico, redação, programação, marketing digital até consultoria especializada. Por outro lado, empresas e indivíduos que precisavam desses serviços puderam acessar talentos globais com maior facilidade.
+
+No entanto, a natureza do trabalho freelancer também apresenta desafios. A falta de estabilidade financeira, a necessidade de lidar com questões administrativas, como impostos e seguro de saúde, e a incerteza em relação à disponibilidade de projetos são preocupações comuns enfrentadas pelos freelancers.
+
+Em resumo, o cenário atual de freelancers é o resultado de uma combinação de avanços tecnológicos, mudanças na mentalidade dos trabalhadores e na economia global. Freelancers desempenham um papel vital na economia moderna, fornecendo serviços especializados de maneira flexível e contribuindo para a transformação contínua das formas de trabalho.
 
 ### 1.2 Problema
 

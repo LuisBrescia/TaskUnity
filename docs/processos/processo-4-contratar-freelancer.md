@@ -3,13 +3,14 @@
 Apresente aqui o nome e as oportunidades de melhoria para o processo 4. 
 Em seguida, apresente o modelo do processo 4, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 4](../images/process.png "Modelo BPMN do Processo 4.")
+![Processo 4 - Contratar freelancer](../images/processo-4-contratar-freelancer.png")
 
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 4. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+Para contratar um freelancer o contratante precisará anunciar o profissional que necessita em seu time e, em seguida verificar os prestadores de serviço já cadastrados na plataforma.
+Em seguida, deverá enviar uma proposta ao freelancer que mais se adequa à vaga disponível, o qual deve analisar a proposta e aceitar ou não. 
+Ao aceitar, será incluido à equipe e começará a desempenhar as suas funções.
 
 Os tipos de dados a serem utilizados são:
 
@@ -26,11 +27,11 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Nome da atividade 1**
+**Anunciar Vagas**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
+| Nome do projeto | Caixa de Texto   |                |                   |
 | ***Exemplo:***  |                  |                |                   |
 | login           | Caixa de Texto   | formato de e-mail |                |
 | senha           | Caixa de Texto   | mínimo de 8 caracteres |           |

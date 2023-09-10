@@ -89,6 +89,11 @@ Atualmente, o serviço de freelancer acontece das seguintes maneiras:
   
 - **Anúncios nas redes sociais**: pode ocorrer de um freelancer publicar um anúncio nas redes sociais sobre o serviço que está prestando, para que assim algum contratante entre em contato com ele para que possam discutir valores, método de pagamento e até mesmo prazos de entrega, o grande problema com esse método do jeito que é hoje é a falta de credibilidade, a rede social não pode oferecer a integração com métodos de pagamento e um gerenciamento feito para o serviço de freelancers que uma aplicação feita para isso pode oferecer.
 
+Pontos fracos dos sites de freelance atuais:
+
+- **Integração do freelancer com a equipe**: sites atuais de freelance não tem suporte nenhum sobre gerenciamento de equipes, se você já tem uma equipe formada e precisa de uma ajuda extra via freelancers não há uma alternativa rápida de integra-los com sua equipe de desenvolvimento.
+
+- **Contato com múltiplos freelancer**: caso tenha contratado o serviço de mais de uma pessoa, não é possível conectar as 2 sem alguma ferramente externa.
 
 ### 3.2. Descrição geral da proposta
 

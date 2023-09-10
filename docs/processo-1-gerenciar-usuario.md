@@ -1,55 +1,53 @@
 ### 3.3.1 Processo 1 – NOME DO PROCESSO
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 1. 
-Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
+Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-mail", "senha", "data de nascimento", "telefone" e "UF". Se todas as regras de criação de usuário forem atendidas, incluindo a garantia de que "CPF", "e-mail" e "telefone" sejam únicos, o usuário será criado com êxito. Além disso, os usuários já registrados podem fazer atualizações em suas informações de cadastro.
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](images/process.png "Modelo BPMN do Processo 1.")
+![Exemplo de um Modelo BPMN do PROCESSO 1](images/processo1.png "Modelo BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+**Acessar tela de login**
 
-Os tipos de dados a serem utilizados são:
+| **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
+| ---             | ---              | ---                     | ---               |
+| login           | Caixa de Texto   | formato de e-mail       | ---               |
+| senha           | Caixa de Texto   | mínimo de 8 caracteres  | ---               |
 
-* **Área de texto** - Ccmpo texto de múltiplas linhas
-* **Caixa de texto** - campo texto de uma linha
-* **Número** - campo numérico
-* **Data** - campo do tipo data (dd-mm-aaaa)
-* **Hora** - campo do tipo hora (hh:mm:ss)
-* **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo contendo uma imagem
-* **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
-* **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
-* **Arquivo** - campo de upload de documento
-* **Link** - campo que armazena uma URL
-* **Tabela** - campo formado por uma matriz de valores
-
-**Nome da atividade 1**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| **Comandos**         |  **Destino**                   | **Tipo**        |
+| ---                  | ---                            | ---             |
+| entrar               | Fim do Processo 1              | default         |
+| cadastrar            | Início do processo de cadastro | ---             |
 
 
-**Nome da atividade 2**
+**Cadastrar usuário**
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
+| **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
+| ---             | ---              | ---                     | ---               |
+| nome            | Caixa de Texto   | ---                     | ---               |
+| CPF             | Campo numérico   | apenas números          | ---               |
+| senha           | Caixa de Texto   | oculta                  | ---               |
+| e-mail          | Caixa de Texto   | deve possuir @          | ---               |
+| data de nasc.   | Data             | ---                     | ---               |
+| telefone        | Campo numérico   | xxxxx-xxxx              | ---               |
+| UF              | Seleção única    | ---                     | UF                |
+| ct ou freelancer| Seleção única    | ---                     | ---               |
 
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| **Comandos**         |  **Destino**                   | **Tipo**        |
+| ---                  | ---                            | ---             |
+| criar usuário        | tela inicial da aplicação      | default         |
+| cancelar             | tela de login                  | cancel          |
+
+
+**Editar perfil**
+
+| **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
+| ---             | ---              | ---                     | ---               |
+| senha           | Caixa de Texto   | oculta                  | ---               |
+| e-mail          | Caixa de Texto   | deve possuir @          | ---               |
+| telefone        | Campo numérico   | xxxxx-xxxx              | ---               |
+| ct ou freelancer| Seleção única    | ---                     | UF                |
+
+| **Comandos**         |  **Destino**                   | **Tipo**        |
+| ---                  | ---                            | ---             |
+| aceitar alterações   | tela inicial da aplicação      | default         |
+| cancelar             | tela inicial da aplicação      | cancel          |

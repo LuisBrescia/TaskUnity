@@ -2,7 +2,7 @@
 
 Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-mail", "senha", "data de nascimento", "telefone" e "UF". Se todas as regras de criação de usuário forem atendidas, incluindo a garantia de que "CPF", "e-mail" e "telefone" sejam únicos, o usuário será criado com êxito. Além disso, os usuários já registrados podem fazer atualizações em suas informações de cadastro.
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](images/processo1.png "Modelo BPMN do Processo 1.")
+![Exemplo de um Modelo BPMN do PROCESSO 1](../images/processo1.png "Modelo BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 

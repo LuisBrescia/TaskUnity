@@ -2,7 +2,7 @@
 
 O processo de gerenciar projeto começa com a criação de um projeto, onde o usuário especifica os detalhes. Em seguida, vagas são abertas para freelancers, que podem se candidatar e ser selecionados com base em suas habilidades e experiência.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processo-2-gerenciar-projeto.png "Modelo BPMN do Processo 2.")
+![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processo-2-gerenciar-projeto.PNG "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades

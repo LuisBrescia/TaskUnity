@@ -16,7 +16,9 @@ Os tipos de dados a serem utilizados são:
 * **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
 * **Link** - campo que armazena uma URL
 
-**Anunciar Vagas**
+#
+
+### **Anunciar Vagas**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
@@ -31,7 +33,7 @@ Os tipos de dados a serem utilizados são:
 | Mensagem | Enviar mensagem para o contratante  | ---   |
 
 
-**Anunciar Serviço**
+### **Anunciar Serviço**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |

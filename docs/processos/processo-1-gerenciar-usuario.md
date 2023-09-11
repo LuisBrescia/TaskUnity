@@ -4,9 +4,9 @@ Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-m
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](../images/processo1.png "Modelo BPMN do Processo 1.")
 
-#### Detalhamento das atividades
+# Detalhamento das atividades
 
-**Acessar tela de login**
+### **Acessar tela de login**
 
 
 | **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
@@ -20,7 +20,7 @@ Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-m
 | cadastrar            | Início do processo de cadastro | ---             |
 
 
-**Cadastrar usuário**
+### **Cadastrar usuário**
 
 | **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
 | ---             | ---              | ---                     | ---               |
@@ -39,7 +39,7 @@ Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-m
 | cancelar             | tela de login                  | cancel          |
 
 
-**Editar perfil**
+### **Editar perfil**
 
 | **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
 | ---             | ---              | ---                     | ---               |

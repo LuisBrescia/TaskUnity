@@ -133,27 +133,27 @@ A proposta do **Taskunity** consiste em facilitar a gerência de projetos feitos
 
 O documento a seguir apresenta o detalhamento do projeto da solução. São apresentadas cinco seções que descrevem, respectivamente: diagrama de classes, diagrama de componentes, diagrama de entidade-relacionamento, tecnologias utilizadas e guias de estilo.
 
-[Projeto da solução](solution-design.md "Detalhamento do Projeto da solução: classes, componentes, der, tecnologias e guias de estilo.")
+[Projeto da solução](topicos/topico-4-solution-design.md "Detalhamento do Projeto da solução: classes, componentes, der, tecnologias e guias de estilo.")
 
 
 ## 5. Indicadores de desempenho
 
 O documento a seguir apresenta os indicadores de desempenho dos processos.
 
-[Indicadores de desempenho dos processos](performance-indicators.md)
+[Indicadores de desempenho dos processos](topicos/topico-5-performance-indicators.md)
 
 
 ## 6. Interface do sistema
 
 A sessão a seguir apresenta a descrição do produto de software desenvolvido. 
 
-[Documentação da interface do sistema](interface.md)
+[Documentação da interface do sistema](topicos/topico-6-interface.md)
 
 ## 7. Testes
 
 A sessão a seguir apresenta a descrição dos testes de unidade e testes de usabilidade realizados. 
 
-[Testes do sistema](tests.md)
+[Testes do sistema](topicos/topico-7-tests.md)
 
 ## 8. Conclusão
 

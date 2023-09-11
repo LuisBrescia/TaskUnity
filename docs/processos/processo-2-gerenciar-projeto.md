@@ -16,14 +16,8 @@ O processo de gerenciar projeto começa com a criação de um projeto, onde o us
 * **Detalhar projeto:**
     Nesta etapa, o usuário contratante adiciona todos os detalhes do projeto, incluindo seu nome, especificações, objetivos e outros elementos essenciais.
 
-<<<<<<< Updated upstream
-#
-
-### **Nome da atividade 1**
-=======
 * **Abrir vagas parar freelancers:**
     O usuário contratante abre as vagas necessárias para o desenvolvimento do projeto, especificando as habilidades e os requisitos necessários para cada vaga.
->>>>>>> Stashed changes
 
 * **Se inscrever para vaga:**
     Uma vez que um freelancer encontra um projeto que lhe interessa, ele se inscreve para a vaga e envia seu currículo, demonstrando seu interesse e qualificações.
@@ -32,12 +26,7 @@ O processo de gerenciar projeto começa com a criação de um projeto, onde o us
     O usuário contratante tem a capacidade de revisar os perfis dos candidatos, verificar suas habilidades, experiência e avaliações de projetos anteriores, antes de selecionar os freelancers mais adequados para as vagas disponíveis.
 
 
-<<<<<<< Updated upstream
-### **Nome da atividade 2**
-=======
 **Acessar pagina inicial**
->>>>>>> Stashed changes
-
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
 | Projetos  | tabela   |                |                   |

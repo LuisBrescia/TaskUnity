@@ -3,7 +3,7 @@
 Apresente aqui o nome e as oportunidades de melhoria para o processo 6. 
 Em seguida, apresente o modelo do processo 6, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 6](../images/process.png "Modelo BPMN do Processo 6.")
+![Exemplo de um Modelo BPMN do PROCESSO 6](../images/processo-comunicar-por-chat.png "Modelo BPMN do Processo 6.")
 
 
 #### Detalhamento das atividades
@@ -26,7 +26,9 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Nome da atividade 1**
+#
+
+### **Envia Mensagem**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
@@ -42,8 +44,7 @@ Os tipos de dados a serem utilizados são:
 | entrar               | Fim do Processo 1              | default           |
 | cadastrar            | Início do proceso de cadastro  |                   |
 
-
-**Nome da atividade 2**
+### **Recebe Mensagem**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |

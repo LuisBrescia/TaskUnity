@@ -10,7 +10,7 @@ Plataforma de resolução colaborativa de problemas que permite aos usuários fo
 * Luiz Felipe Campos de Morais
 * Marcus Vinícius Carvalho de Oliveira
 
-## Professor
+## Professores
 
 * José Laerte Pires Xavier Junior
 * Luiz Henrique da Costa Silva

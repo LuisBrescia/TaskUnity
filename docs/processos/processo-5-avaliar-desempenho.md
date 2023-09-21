@@ -8,7 +8,7 @@ Avaliar desempenho se refere ao contratante dar uma nota ao prestador de serviç
 
 Os tipos de dados a serem utilizados são:
 
-* **Option Select** - valores: 1 - 2 - 3 - 4 - 5 (Número de estrelas)
+* **Option Select** : Serão 5 opções referentes a um número de estrelas, podendo ser elas (1, 2, 3, 4, ou 5)
 
 #
 

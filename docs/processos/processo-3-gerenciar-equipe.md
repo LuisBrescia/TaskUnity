@@ -2,7 +2,7 @@
 
 A gerência de equipe abrange a criação, visualização e edição da equipe. Ao criar a equipe será necessário preencher os campos "título", "descrição" e "membros" (onde membros possuirão seus respectivos cargos). Após criada sua equipe, o usuário poderá gerenciar os membros da mesma.
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](../images/gerenciar_equipe.png "Modelo BPMN do Processo 1.")
+![Modelo BPMN do processo 3](/docs/images/processo-3-gerenciar-equipe.png "Modelo BPMN do processo gerência de equipe.")
 
 #### Detalhamento das atividades
 
@@ -34,7 +34,7 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 | cancelar             | cancelar processo criar        | cancel            |
 
 
-**Adicionar participante**
+**Solicitar entrada participação**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
@@ -43,7 +43,7 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| adicionar            | fim processo adicionar         | default           |
+| solicitar            | fim processo adicionar         | default           |
 | cancelar             | cancelar processo adicionar    | cancel            |
 
 

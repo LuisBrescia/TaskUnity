@@ -4,7 +4,19 @@ Para realizar o cadastro, é necessário preencher os campos "nome", "CPF", "e-m
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](../images/processo1.png "Modelo BPMN do Processo 1.")
 
-# Detalhamento das atividades
+#### Detalhamento das atividades
+
+* **Entrar na tela de login:**
+    Quando o usuário acessa o software por seu endereço, têm a possibilidade de preencher suas informações ou cadastrar uma nova conta.
+
+* **Efetuar login:**
+    Ao preencher suas informações e confirmar, o usuário é redirecionado a tela principal.
+
+* **Cadastrar usuário:**
+    Sendo um usuário sem uma conta cadastrada, ele efetua a atividade de cadastrar, que recolhe as informações do usuário e as registram no sistema, possibilitando que ele efetue login em futuras vezes.
+
+* **Editar perfil:**
+    O usuário, já cadastrado tem a possibilidade de editar suas informações pessoais caso ache necessário.
 
 ### **Acessar tela de login**
 

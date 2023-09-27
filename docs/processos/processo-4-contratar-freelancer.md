@@ -5,9 +5,20 @@
 
 #### Detalhamento das atividades
 
-Para contratar um freelancer o contratante precisará anunciar o profissional que necessita em seu time e, em seguida verificar os prestadores de serviço já cadastrados na plataforma.
-Em seguida, deverá enviar uma proposta ao freelancer que mais se adequa à vaga disponível, o qual deve analisar a proposta e aceitar ou não. 
-Ao aceitar, será incluido à equipe e começará a desempenhar as suas funções.
+* **Anunciar os serviços que precisa para seu processo:**
+    O contratante precisa registrar no sistema os serviçoes que necessita para executar o seu projeto.
+
+* **Anunciar seu serviço na plataforma:**
+    O freelancer precisa registrar no sistema o seu trabalho com seu portfólio profissional, para exibir os projetos que já trabalhou e mostrar sua experiência e estilo de trabalho.
+
+* **Enviar proposta para o freelancer:**
+    O contratante escolhe o freelancer que mais se adequa ao seu projeto e envia a sua proposta, que será analisada e respondida pelo profissional, sendo aceita ou não. O que possibilita uma contraproposta por parte do prestador de serviço.
+
+* **Apresentar mais detalhadamente as tarefas a serem desenvolvidas:**
+    Após a proposta aceita por ambas as partes, o contratante apresenta mais detalhes das tarefas que o freelancer terá que realizar e estipula prazos para entrega de resultados.
+
+* **Começar a realizar as atividades junto à equipe:**
+    Após o alinhamento dos detalhes entre contratante e freelancer, o serviço começa a ser realizado em conjunto com um time que pode ser, ou não, composto por mais freelancers responsáveis por outras atividades.
 
 Os tipos de dados a serem utilizados são:
 

@@ -15,7 +15,7 @@
     O contratante escolhe o freelancer que mais se adequa ao seu projeto e envia a sua proposta, que será analisada e respondida pelo profissional, sendo aceita ou não. O que possibilita uma contraproposta por parte do prestador de serviço.
 
 * **Apresentar mais detalhadamente as tarefas a serem desenvolvidas:**
-    Após a proposta aceita por ambas as partes, o contratante apresenta mais detalhes das tarefas que o freelancer terá que realizar e estipula prazos para entrega de resultados.
+    Após a proposta aceita por ambas as partes, o contratante apresenta mais detalhes das tarefas que o freelancer terá que realizar e estipula prazos iniciais para entrega de resultados.
 
 * **Começar a realizar as atividades junto à equipe:**
     Após o alinhamento dos detalhes entre contratante e freelancer, o serviço começa a ser realizado em conjunto com um time que pode ser, ou não, composto por mais freelancers responsáveis por outras atividades.

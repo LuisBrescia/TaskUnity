@@ -2,9 +2,11 @@
 
 ### Este processo é responsável pelo login ao site, permitindo o usuário entrar com uma conta já cadastrada ou criar uma nova.
 
+<!-- > **Autor:** Gustavo Pereira -->
+
 #
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](../images/GerenciarLogin.png "Modelo BPMN do Processo 1.")
+![BPMN Gerenciar Login](../images/bpmn/GerenciarLogin.png)
 
 ## Detalhamento das atividades
 
@@ -25,25 +27,31 @@
     Sistema valida o email e senha do usuário, caso estejam correto, o usuário é logado no site e 
     redirecionado para a tela principal, caso contrário, o sistema informa que o login está incorreto.
 
+#
+
 ### **Tela login**
 
-| **Comandos**         |  **Destino**                   | **Tipo**        |
-| ---                  | ---                            | ---             |
-| Entrar               | Entrar com uma conta já cadastrada            | default         |
+| **Comandos**         |  **Destino**                   |
+| ---                  | ---                            |
+| Entrar               | Entrar com uma conta já cadastrada            |
 | Cadastrar            | Cadastrar | ---             |
+
+#
 
 ### **Entrar com conta já cadastrada**
 
-| **Campo**       | **Tipo**         | **Restrições**          | **Valor default** |
-| ---             | ---              | ---                     | ---               |
-| email           | Caixa de Texto   | formato de e-mail       | ---               |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres  | ---               |
+| **Campo**       | **Tipo**         | **Restrições**          |
+| ---             | ---              | ---                     |
+| email           | Caixa de Texto   | formato de e-mail       |
+| senha           | Caixa de Texto   | mínimo de 8 caracteres  |
 
 | **Comandos**         |  **Destino**                   |
 | ---                  | ---                            | 
 | Entrar               | Tela inicial            | 
 
-### **Cadastrar usuário**
+#
+
+### **Cadastrar**
 
 | **Campo**       | **Tipo**         | **Restrições**          |
 | ---             | ---              | ---                     |

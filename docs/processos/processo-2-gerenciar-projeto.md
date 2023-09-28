@@ -1,29 +1,21 @@
 ### 3.3.2 Processo 2 – Gerenciar projeto
 
-O processo de gerenciar projeto começa com a criação de um projeto, onde o usuário especifica os detalhes. Em seguida, vagas são abertas para freelancers, que podem se candidatar e ser selecionados com base em suas habilidades e experiência.
+O processo de gerenciamento de projeto começa com a criação de um projeto, no qual o usuário especifica o nome, a descrição e todos os detalhes relacionados ao projeto. Esta fase inicial é fundamental para estabelecer os objetivos e requisitos do projeto de forma clara e precisa.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processo-2-gerenciar-projeto.PNG "Modelo BPMN do Processo 2.")
+![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processo2.PNG "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
 
-* **Acessar pagina inicial:**
-    Após efetuarem o login, os usuários são redirecionados para a página inicial, onde têm a oportunidade de visualizar projetos existentes e criar novos projetos.
+* **Nomear o projeto:**
+    Após o usuário iniciar o processo de criação do projeto, é necessário adicionar um nome ao projeto.
 
-* **Procurar projeto:**
-    Ao acessar a página inicial, os usuários, especialmente freelancers, têm a possibilidade de explorar projetos nos quais desejam contribuir.
+* **Descrever brevemente o projeto:**
+    Momento em que o usuário informa uma breve descrição do que se trata o projeto.
 
-* **Detalhar projeto:**
-    Nesta etapa, o usuário contratante adiciona todos os detalhes do projeto, incluindo seu nome, especificações, objetivos e outros elementos essenciais.
+* **Detalhar o projeto:**
+    Nesta subprocesso, o usuário adiciona todos os detalhes do projeto, objetivos, metas, requisitos, quantidade de vagas e as habilidades necessárias.
 
-* **Abrir vagas parar freelancers:**
-    O usuário contratante abre as vagas necessárias para o desenvolvimento do projeto, especificando as habilidades e os requisitos necessários para cada vaga.
-
-* **Se inscrever para vaga:**
-    Uma vez que um freelancer encontra um projeto que lhe interessa, ele se inscreve para a vaga e envia seu currículo, demonstrando seu interesse e qualificações.
-
-* **Adicionar freelancer ao projeto:**
-    O usuário contratante tem a capacidade de revisar os perfis dos candidatos, verificar suas habilidades, experiência e avaliações de projetos anteriores, antes de selecionar os freelancers mais adequados para as vagas disponíveis.
 
 
 **Acessar pagina inicial**

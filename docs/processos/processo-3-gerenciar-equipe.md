@@ -6,6 +6,21 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 
 #### Detalhamento das atividades
 
+* **Acessar tela de equipe:**
+    Quando o usuário está logado e tem um projeto criado, têm a possibilidade de entrar na tela de equipe.
+
+* **Criar equipe:**
+    Caso o usuário não possua uma equipe poderá criar uma. Ao preencher suas informações e confirmar, o usuário é redirecionado para a tela principal de equipe.
+
+* **Solicitar entrada participante:**
+    O usuário poderá solicitar entrada de freelancers, deixando pendente a entrada(ou não) do freelancer.
+
+* **Editar participante:**
+    O dono do projeto tem a possibilidade de editar os participantes já existentes.
+
+* **Remover participante:**
+  O dono do projeto tem a possibilidade de remover um ou mais participantes do projeto.
+
 **Acessar tela de equipe**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
@@ -34,7 +49,7 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 | cancelar             | cancelar processo criar        | cancel            |
 
 
-**Solicitar entrada participação**
+**Solicitar entrada participante**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
@@ -43,8 +58,8 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| solicitar            | fim processo adicionar         | default           |
-| cancelar             | cancelar processo adicionar    | cancel            |
+| solicitar            | fim processo solicitar         | default           |
+| cancelar             | cancelar processo solicitar    | cancel            |
 
 
 **Editar participante**

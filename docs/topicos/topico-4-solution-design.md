@@ -22,9 +22,10 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 
 ### 4.3. Modelo de dados
 
-_Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos os conceitos e atributos apresentados no item anterior._ 
+_O modelo entidade-relacionamento (MER) é uma representação visual das principais entidades e relacionamentos em um aplicativo.
+Ele ajudará a entender a estrutura dos dados e como as informações são organizadas no Task Unity_ 
 
-![Diagrama de Entidade Relacionamento de Exemplo](images/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
+![Diagrama de Entidade Relacionamento](/docs/images/DER_TaskUnity.jpg 'Diagrama de Entidade Relacionamento')
 
 ### 4.4. Tecnologias
 

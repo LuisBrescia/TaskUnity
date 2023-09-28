@@ -127,7 +127,6 @@ A proposta do **Taskunity** consiste em facilitar a gerência de projetos feitos
 
 [PROCESSO 5 - Avaliar desempenho](processos/processo-5-avaliar-desempenho.md "Detalhamento do Processo 5.")
 
-[PROCESSO 6 - Comunicar por chat](processos/processo-6-comunicar-por-chat.md "Detalhamento do Processo 6.")
 
 ## 4. Projeto da solução
 

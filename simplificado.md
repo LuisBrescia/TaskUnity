@@ -14,27 +14,27 @@
 #
 
 ### **Login**
-> [Processo Gerenciar Login](/docs/processos/GerenciarLogin.md)
+> [Processo Gerenciar Login](/docs/processos/GerenciarLogin.md) (1/2 pessoa)
 - Onde o usuário poderá entrar com sua conta ou criar uma nova conta.
 
 #
 
 ### **Profile** > Dashboard como layout
-> [Processo Gerenciar Perfil](/docs/processos/GerenciarPerfil.md)
+> [Processo Gerenciar Perfil](/docs/processos/GerenciarPerfil.md) (1/2 pessoa)
 - Onde o usuário poderá editar seu perfil, como nome, email, senha, data de nascimento, foto de perfil, e habilidades.
 - Por essa tela o usuário poderá aceitar ou recusar convites para projetos.
 
 #
 
 ### **Tasks** > Dashboard como layout
-> [Processo Gerenciar Tarefas](/docs/processos/GerenciarTarefas.md)
+> [Processo Gerenciar Tarefas](/docs/processos/GerenciarTarefas.md) (1 pessoa)
 - Exibe as tarefas que aquele usuário é responsável.
 - Terá a opção de procurar por uma nova tarefa.
 
 #
 
 ### **Projects** > Dashboard como layout
-> [Processo Gerenciar Projetos](/docs/processos/GerenciarProjetos.md)
+> [Processo Gerenciar Projetos](/docs/processos/GerenciarProjetos.md) (1 pessoa)
 - Exibe os projetos que aquele usuário é proprietário.
 - Terá um botão para criar um novo projeto.
 - Ao clicar em novo projeto, será requisitado o nome do projeto, uma descrição, e possíveis tecnologias.
@@ -44,7 +44,7 @@ terá um botão 'criar'.
 #
 
 ### **Desenvolvimento do projeto**
-> [Processo Gerenciar Desenvolvivento](/docs/processos/GerenciarDesenvolvimento.md)
+> [Processo Gerenciar Desenvolvivento](/docs/processos/GerenciarDesenvolvimento.md) (2 pessoas)
 - Tela onde o desenvolvimento do projeto será Gerenciado, ainda precisa ser planejada.
 
 # **Layouts:**

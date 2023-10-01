@@ -6,7 +6,7 @@ Plataforma de resolução colaborativa de problemas que permite aos usuários fo
 
 * André Teiichi Santos Hyodo
 * Gustavo Pereira de Oliveira
-* Luis Felipe Teixeira Dias Brescia
+* Luís Felipe Teixeira Dias Brescia
 * Luiz Felipe Campos de Morais
 * Marcus Vinícius Carvalho de Oliveira
 
@@ -27,4 +27,3 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
     * Implementação da funcionalidade X pertencente ao processo P.
 * 0.0.1
     * Trabalhando na modelagem do processo de negócio.
-

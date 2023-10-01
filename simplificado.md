@@ -33,6 +33,7 @@
 
 #
 
+```Gustavo```
 ### **Projects** > Dashboard como layout
 > [Processo Gerenciar Projetos](/docs/processos/GerenciarProjetos.md) (1 pessoa)
 - Exibe os projetos que aquele usuário é proprietário.
@@ -45,7 +46,8 @@ terá um botão 'criar'.
 
 ### **Desenvolvimento do projeto**
 > [Processo Gerenciar Desenvolvivento](/docs/processos/GerenciarDesenvolvimento.md) (2 pessoas)
-- Tela onde o desenvolvimento do projeto será Gerenciado, ainda precisa ser planejada.
+- Tela após um projeto ser aberto.
+- Aqui terá um botão 'configurações' que servirá para editar as informações do projeto, como nome, descrição, tecnologias, e membros.
 
 # **Layouts:**
 

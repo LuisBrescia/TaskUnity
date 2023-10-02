@@ -11,5 +11,4 @@ span {
     animation-delay: 2s;
 }
 
-
 </style>

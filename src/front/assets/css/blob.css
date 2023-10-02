@@ -6,20 +6,20 @@ span {
     animation: move 8s infinite linear;
     z-index: -1;
     opacity: .5;
-    filter: blur(100px);
+    filter: blur(125px);
 }
 
 @keyframes move {
     from {
         transform: scale(1);
-        filter: blur(100px) brightness(1);
+        filter: blur(125px) brightness(1);
     }
     50% {
         transform: scale(1.5) ;
-        filter: blur(100px) brightness(1.5);
+        filter: blur(125px) brightness(1.5);
     }
     to {
         transform: scale(1);
-        filter: blur(100px) brightness(1);
+        filter: blur(125px) brightness(1);
     }
 }

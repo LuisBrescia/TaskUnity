@@ -1,4 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true }
+    css: ['~/assets/css/main.css'],
+    components: [
+        { path: '~/components/buttons', pathPrefix: false },
+        { path: '~/components/cards', pathPrefix: false }
+    ],
+    modules: [
+        '@nuxtjs/tailwindcss'
+    ]
 })

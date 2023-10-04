@@ -21,7 +21,7 @@ const menuAberto = ref(false);
 
 <template>
     <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
             <nav class="xl:border-b border-neutral-200 mx-auto py-3 px-5 xl:p-8 flex items-center justify-between">
 
                 <h1 class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto">
@@ -29,19 +29,19 @@ const menuAberto = ref(false);
                 </h1>
 
                 <ul class="text-base text-neutral-200 hidden lg:block">
-                    <li class="inline-block mx-5 hover:text-white">
+                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white">
+                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
                         <NuxtLink to="#">Equipe</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white">
+                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
                         <NuxtLink to="#">Orçamento</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white">
+                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
                         <NuxtLink to="#">Contato</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white">
+                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
                         <NuxtLink to="#">Download</NuxtLink>
                     </li>
                 </ul>
@@ -51,38 +51,38 @@ const menuAberto = ref(false);
                 </NuxtLink>
 
                 <div @click="menuAberto = !menuAberto" class="lg:hidden cursor-pointer">
-                    <Icon name="solar:sort-horizontal-line-duotone" color="white" size="2rem" />
+                    <Icon name="solar:hamburger-menu-outline" color="white" size="2rem" />
                 </div>
 
+                <!-- * Menu mobile-->
                 <div id="menu" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
-                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 p-4">
+                    class="lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 p-4 h-screen">
 
-                    <div class="flex items-center gap-2 mb-5 text-xl justify-between ps-3">
+                    <div class="flex items-center gap-2 mb-12 text-xl justify-between ps-3">
                         <span class="text-xl font-bold tracking-widest">MENU</span>
                         <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
                             <Icon name="mdi:close" size="1.75rem" />
                         </span>
                     </div>
 
-                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase text-neutral-200 ps-3 pe-24">
-                        <li class="hover:text-white"><a href="#">Guia</a></li>
-                        <li class="hover:text-white"><a href="#">Equipe</a></li>
-                        <li class="hover:text-white"><a href="#">Orçamento</a></li>
-                        <li class="hover:text-white"><a href="#">Contato</a></li>
-                        <li class="hover:text-white"><a href="#">Download</a></li>
+                    <ul class="text-base flex flex-col gap-5 font-normal uppercase text-neutral-200 ps-3 pe-24">
+                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Guia</a></li>
+                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Equipe</a></li>
+                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Orçamento</a></li>
+                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Contato</a></li>
+                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Download</a></li>
                     </ul>
 
                     <NuxtLink to="/login">
-                        <WhiteButton class="mt-6 w-full">Entrar</WhiteButton>
+                        <WhiteButton class="mt-12 w-full">Entrar</WhiteButton>
                     </NuxtLink>
                 </div>
 
                 <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-                    class="escurecer fixed inset-0 bg-black opacity-25 z-10">
+                    class="escurecer fixed inset-0 bg-neutral-900 opacity-50 z-10">
                 </div>
             </nav>
-
-            <section class="mx-auto flex items-center">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -106,6 +106,132 @@ const menuAberto = ref(false);
             </section>
         </main>
     </div>
+
+    <div class="xl:px-24">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+
+                <header class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                        Guia
+                    </h1>
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                        Mini tutorial sobre o funcionamento do site.
+                    </p>
+                    <WhiteButton class="mt-12 w-36">
+                        <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
+                    </WhiteButton>
+                </header>
+
+                <RedBlob class="bottom-1/4 left-3/4" />
+                <BlueBlob class="bottom-2/4 left-2/4" />
+                <YellowBlob class="top-2/4 right-2/4" />
+                <GreenBlob class="bottom-1/4 right-3/4" />
+
+            </section>
+        </main>
+    </div>
+
+    <div class="xl:px-24">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+
+                <header class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                        Equipe
+                    </h1>
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                        Integrantes do grupo
+                    </p>
+                    <WhiteButton class="mt-12 w-36">
+                        <Icon name="solar:users-group-two-rounded-line-duotone" size="1.75rem" />
+                    </WhiteButton>
+                </header>
+
+                <RedBlob class="bottom-1/4 right-3/4" />
+                <YellowBlob class="bottom-2/4 right-2/4" />
+                <BlueBlob class="top-2/4 left-2/4" />
+                <GreenBlob class="bottom-1/4 left-3/4" />
+
+            </section>
+        </main>
+    </div>
+
+    <div class="xl:px-24">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+
+                <header class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                        Orçamento
+                    </h1>
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                        Preço médio de um projeto e como é calculado seu valor
+                    </p>
+                    <WhiteButton class="mt-12 w-36">
+                        <Icon name="solar:money-bag-line-duotone" size="1.75rem" />
+                    </WhiteButton>
+                </header>
+
+                <RedBlob class="bottom-1/4 left-3/4" />
+                <YellowBlob class="bottom-2/4 left-2/4" />
+                <BlueBlob class="top-2/4 right-2/4" />
+                <GreenBlob class="bottom-1/4 right-3/4" />
+
+            </section>
+        </main>
+    </div>
+
+    <div class="xl:px-24">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+
+                <header class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                        Contato
+                    </h1>
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                        Entrar em contato com nossa equipe
+                    </p>
+                    <WhiteButton class="mt-12 w-36">
+                        <Icon name="solar:phone-rounded-line-duotone" size="1.75rem" />
+                    </WhiteButton>
+                </header>
+
+                <RedBlob class="bottom-1/4 right-3/4" />
+                <BlueBlob class="bottom-2/4 right-2/4" />
+                <GreenBlob class="top-2/4 left-2/4" />
+                <YellowBlob class="bottom-1/4 left-3/4" />
+
+
+            </section>
+        </main>
+    </div>
+
+    <div class="xl:px-24 xl:mb-12">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+
+                <header class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                        Download
+                    </h1>
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                        Ir para o repositório do projeto
+                    </p>
+                    <WhiteButton class="mt-12 w-36">
+                        <Icon name="solar:download-minimalistic-bold-duotone" size="1.75rem" />
+                    </WhiteButton>
+                </header>
+
+                <RedBlob class="bottom-1/4 left-3/4" />
+                <BlueBlob class="bottom-2/4 left-2/4" />
+                <GreenBlob class="top-2/4 right-2/4" />
+                <YellowBlob class="bottom-1/4 right-3/4" />
+
+            </section>
+        </main>
+    </div>
 </template>
 
 <style scoped>
@@ -120,20 +246,22 @@ ul li::after {
 }
 
 ul li:hover::after {
-    width: 100%;
+    width: 60%;
 }
 
 #menu {
     filter: blur(5px);
     background: linear-gradient(to right, #22c55e11 1%, transparent 25%, transparent 75%, #eab30811 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.5px) brightness(1.2);
+    backdrop-filter: blur(7.5px);
     -webkit-backdrop-filter: blur(7.5px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0 0 0 1rem;
-    transform: translate(100%);
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+    transform: translate(100%) scaleX(75%);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -webkit-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -moz-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -ms-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #menu.active {
@@ -146,7 +274,7 @@ ul li:hover::after {
 }
 
 #menu ul li:hover::after {
-    width: 5%;
+    width: 10%;
 }
 
 .escurecer.block {
@@ -159,7 +287,7 @@ ul li:hover::after {
     }
 
     to {
-        opacity: .25;
+        opacity: .5;
     }
 }
 
@@ -176,9 +304,9 @@ section {
     transition: all 1s ease;
 }
 
-.borda-texto{
--webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: #fff;
+.borda-texto {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fafafa;
 }
 
 @media screen and (max-width: 440px) {

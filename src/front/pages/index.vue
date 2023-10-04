@@ -20,8 +20,8 @@ const menuAberto = ref(false);
 </script>
 
 <template>
-    <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+    <div class="xl:px-24 xl:mb-12">
+        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <nav class="xl:border-b border-neutral-200 mx-auto py-3 px-5 xl:p-8 flex items-center justify-between">
 
                 <h1 class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto">
@@ -105,10 +105,8 @@ const menuAberto = ref(false);
 
             </section>
         </main>
-    </div>
 
-    <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">
@@ -130,10 +128,8 @@ const menuAberto = ref(false);
 
             </section>
         </main>
-    </div>
 
-    <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">
@@ -155,10 +151,8 @@ const menuAberto = ref(false);
 
             </section>
         </main>
-    </div>
 
-    <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">
@@ -180,10 +174,8 @@ const menuAberto = ref(false);
 
             </section>
         </main>
-    </div>
 
-    <div class="xl:px-24">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">
@@ -206,10 +198,8 @@ const menuAberto = ref(false);
 
             </section>
         </main>
-    </div>
 
-    <div class="xl:px-24 xl:mb-12">
-        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto xl:shadow-2xl shadow-black xl:rounded h-screen">
+        <main class="overflow-xl:mt-12 hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <section class="mx-auto flex items-center xl:border-t border-neutral-200">
 
                 <header class="text-center max-w-3xl mx-auto">

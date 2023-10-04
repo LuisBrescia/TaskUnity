@@ -28,7 +28,7 @@ const menuAberto = ref(false);
                     TASK<span class="font-normal">UNITY</span>
                 </h1>
 
-                <ul class="text-base text-neutral-200 hidden lg:block">
+                <ul class="text-base text-neutral-300 hidden lg:block">
                     <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
@@ -51,34 +51,36 @@ const menuAberto = ref(false);
                 </NuxtLink>
 
                 <div @click="menuAberto = !menuAberto" class="lg:hidden cursor-pointer px-2">
-                    <Icon name="solar:hamburger-menu-broken" color="white" size="2rem" />
+                    <Icon name="solar:double-alt-arrow-left-broken" color="white" size="2rem" />
                 </div>
 
                 <div id="menu" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
-                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 p-8 z-20">
+                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 py-3 px-5">
 
-                    <div class="flex items-center gap-2 mb-4 text-xl justify-between">
-                        <span class="font-bold tracking-widest">MENU</span>
+
+                    <div class="flex items-center gap-2 mb-5 text-xl justify-between ps-3">
+                        <span class="font-semibold tracking-widest">MENU</span>
                         <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
-                            <Icon name="mdi:close-outline" size="1.75rem" />
+                            <Icon name="mdi:close" size="1.75rem" />
                         </span>
                     </div>
-                    
-                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase">
-                        <li><a href="#">Guia</a></li>
-                        <li><a href="#">Equipe</a></li>
-                        <li><a href="#">Orçamento</a></li>
-                        <li><a href="#">Contato</a></li>
-                        <li><a href="#">Download</a></li>
+
+                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase text-neutral-300 ps-3 pe-24">
+                        <li class="hover:text-white"><a href="#">Guia</a></li>
+                        <li class="hover:text-white"><a href="#">Equipe</a></li>
+                        <li class="hover:text-white"><a href="#">Orçamento</a></li>
+                        <li class="hover:text-white"><a href="#">Contato</a></li>
+                        <li class="hover:text-white"><a href="#">Download</a></li>
                     </ul>
 
                     <NuxtLink to="/login">
-                        <WhiteButton class="mt-6">Entrar</WhiteButton>
+                        <WhiteButton class="mt-6 w-full">Entrar</WhiteButton>
                     </NuxtLink>
                 </div>
 
                 <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-                    class="escurecer fixed inset-0 bg-black opacity-50 z-10"></div>
+                    class="escurecer fixed inset-0 bg-black opacity-50 z-10">
+                </div>
             </nav>
 
             <section class="mx-auto flex items-center">
@@ -123,8 +125,8 @@ ul li:hover::after {
 }
 
 #menu {
-    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1);
-    transform: translateX(100%);
+    transition: all .5s ease;
+    filter: blur(5px);
     background: linear-gradient(to right, #22c55e11 1%, transparent 25%, transparent 75%, #eab30811 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.1px);
@@ -132,10 +134,12 @@ ul li:hover::after {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     border-left: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 0 0 0 .25rem;
+    transform: translate(100%);
 }
 
 #menu.active {
-    transform: translateX(0);
+    filter: blur(0px);
+    transform: translate(0);
 }
 
 #menu li::after {

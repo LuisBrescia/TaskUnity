@@ -1,5 +1,5 @@
 <template>
-    <button class="font-bold text-base border-2
+    <button class="font-bold text-sm md:text-base border-2
     px-5 pt-3 pb-3 rounded-full
     text-neutral-50 border-neutral-50
     uppercase tracking-widest">

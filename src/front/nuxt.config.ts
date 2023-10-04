@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         { path: '~/components/blobs', pathPrefix: false }
     ],
     modules: [
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        'nuxt-icon'
     ]
 })

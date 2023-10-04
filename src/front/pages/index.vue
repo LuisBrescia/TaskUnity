@@ -15,20 +15,20 @@ setInterval(() => {
     else index = 0
 }, 750);
 
+const menuAberto = ref(false);
 
 </script>
 
 <template>
     <div class="xl:px-24">
-        <main class="overflow-hidden mt-12 h-fit container mx-auto shadow-2xl shadow-black rounde">
+        <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <nav class="xl:border-b border-neutral-200 mx-auto py-3 px-5 xl:p-8 flex items-center justify-between">
 
-            <nav class="border-b border-neutral-200 mx-auto p-5 flex items-center justify-between px-12 pt-8">
-
-                <h1 class="text-4xl font-black tracking-tight text-neutral-50 cursor-pointer">
+                <h1 class="text-2xl md:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer">
                     TASK<span class="font-normal">UNITY</span>
                 </h1>
 
-                <ul class="text-base text-neutral-200 hidden md:block">
+                <ul class="text-base text-neutral-200 hidden lg:block">
                     <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
@@ -46,21 +46,51 @@ setInterval(() => {
                     </li>
                 </ul>
 
-                <NuxtLink to="/login" class="p-0 m-0">
+                <NuxtLink to="/login" class="p-0 m-0 hidden lg:block">
                     <WhiteButton>Entrar</WhiteButton>
                 </NuxtLink>
+
+                <div @click="menuAberto = !menuAberto" class="lg:hidden cursor-pointer px-2">
+                    <Icon name="solar:hamburger-menu-broken" color="white" size="2rem" />
+                </div>
+
+                <div id="menu" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
+                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 p-8 z-20">
+
+                    <div class="flex items-center gap-2 mb-4 text-xl justify-between">
+                        <span class="font-bold tracking-widest">MENU</span>
+                        <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
+                            <Icon name="mdi:close-outline" size="1.75rem" />
+                        </span>
+                    </div>
+                    
+                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase">
+                        <li><a href="#">Guia</a></li>
+                        <li><a href="#">Equipe</a></li>
+                        <li><a href="#">Orçamento</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+
+                    <NuxtLink to="/login">
+                        <WhiteButton class="mt-6">Entrar</WhiteButton>
+                    </NuxtLink>
+                </div>
+
+                <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
+                    class="escurecer fixed inset-0 bg-black opacity-50 z-10"></div>
             </nav>
 
             <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                        Desenvolvimento <br/>
+                        Desenvolvimento <br />
                         <span id="trocaCor" class="text-gradient bg-gradient-to-r" :class="gradientColor">
                             &lt; re-imaginado /&gt;
                         </span>
                     </h1>
-                    <p class="text-lg md:text-2xl font-extralight text-neutral-200">
+                    <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
                         TaskUnity é um site que permite você encontrar e unir pessoas para desenvolver projetos.
                         Monte uma equipe e faça acontecer!
                     </p>
@@ -74,10 +104,6 @@ setInterval(() => {
 
             </section>
         </main>
-    </div>
-
-    <div class="container mx-auto">
-
     </div>
 </template>
 
@@ -96,17 +122,55 @@ ul li:hover::after {
     width: 100%;
 }
 
+#menu {
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1);
+    transform: translateX(100%);
+    background: linear-gradient(to right, #22c55e11 1%, transparent 25%, transparent 75%, #eab30811 100%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0 0 0 .25rem;
+}
+
+#menu.active {
+    transform: translateX(0);
+}
+
+#menu li::after {
+    margin-left: 0;
+}
+
+#menu ul li:hover::after {
+    width: 5%;
+}
+
+.escurecer.block {
+    animation: fade 1s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: .5;
+    }
+}
+
 main {
-    transform: skewX(0);
+    transform: skewX(0deg);
     transition: all 1s ease;
     background-color: black;
-    border-radius: 0.25rem;
 }
 
 section {
     position: relative;
     height: 75vh;
     max-height: 720px;
+    transition: all 1s ease;
 }
 
 /* 

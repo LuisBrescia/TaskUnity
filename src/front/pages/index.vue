@@ -24,11 +24,11 @@ const menuAberto = ref(false);
         <main class="overflow-hidden xl:mt-12 xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
             <nav class="xl:border-b border-neutral-200 mx-auto py-3 px-5 xl:p-8 flex items-center justify-between">
 
-                <h1 class="text-2xl md:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer">
-                    TASK<span class="font-normal">UNITY</span>
+                <h1 class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto">
+                    TASK<span class="text-transparent tracking-normal">UNITY</span>
                 </h1>
 
-                <ul class="text-base text-neutral-300 hidden lg:block">
+                <ul class="text-base text-neutral-200 hidden lg:block">
                     <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
@@ -50,22 +50,21 @@ const menuAberto = ref(false);
                     <WhiteButton>Entrar</WhiteButton>
                 </NuxtLink>
 
-                <div @click="menuAberto = !menuAberto" class="lg:hidden cursor-pointer px-2">
-                    <Icon name="solar:double-alt-arrow-left-broken" color="white" size="2rem" />
+                <div @click="menuAberto = !menuAberto" class="lg:hidden cursor-pointer">
+                    <Icon name="solar:sort-horizontal-line-duotone" color="white" size="2rem" />
                 </div>
 
                 <div id="menu" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
-                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 py-3 px-5">
-
+                    class=" lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 p-4">
 
                     <div class="flex items-center gap-2 mb-5 text-xl justify-between ps-3">
-                        <span class="font-semibold tracking-widest">MENU</span>
+                        <span class="text-xl font-bold tracking-widest">MENU</span>
                         <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
                             <Icon name="mdi:close" size="1.75rem" />
                         </span>
                     </div>
 
-                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase text-neutral-300 ps-3 pe-24">
+                    <ul class="text-sm flex flex-col gap-4 font-extralight uppercase text-neutral-200 ps-3 pe-24">
                         <li class="hover:text-white"><a href="#">Guia</a></li>
                         <li class="hover:text-white"><a href="#">Equipe</a></li>
                         <li class="hover:text-white"><a href="#">Orçamento</a></li>
@@ -79,7 +78,7 @@ const menuAberto = ref(false);
                 </div>
 
                 <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-                    class="escurecer fixed inset-0 bg-black opacity-50 z-10">
+                    class="escurecer fixed inset-0 bg-black opacity-25 z-10">
                 </div>
             </nav>
 
@@ -125,16 +124,16 @@ ul li:hover::after {
 }
 
 #menu {
-    transition: all .5s ease;
     filter: blur(5px);
     background: linear-gradient(to right, #22c55e11 1%, transparent 25%, transparent 75%, #eab30811 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
+    backdrop-filter: blur(7.5px) brightness(1.2);
+    -webkit-backdrop-filter: blur(7.5px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0 0 0 .25rem;
+    border-radius: 0 0 0 1rem;
     transform: translate(100%);
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #menu.active {
@@ -160,7 +159,7 @@ ul li:hover::after {
     }
 
     to {
-        opacity: .5;
+        opacity: .25;
     }
 }
 
@@ -175,6 +174,18 @@ section {
     height: 75vh;
     max-height: 720px;
     transition: all 1s ease;
+}
+
+.borda-texto{
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #fff;
+}
+
+@media screen and (max-width: 440px) {
+    header h1 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
 }
 
 /* 

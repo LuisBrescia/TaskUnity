@@ -1,18 +1,32 @@
 <script setup>
 
-const gradientColor = ref("from-red-500 via-rose-500 to-pink-500")
-let index = 0
+const gradientColor = ref("from-red-500 via-rose-300 to-pink-500");
+const fonteAlternativa = ref("font-sans");
+let indexCor = 0, indexFonte = 0;
+
+const colors = [
+    "from-indigo-500 via-sky-300 to-cyan-500",
+    "from-emerald-500 via-green-300 to-lime-500",
+    "from-yellow-500 via-amber-300 to-orange-500",
+    "from-red-500 via-rose-300 to-pink-500"
+]
+const fonts = [
+    "font-sans",
+    "font-serif",
+    "font-mono"
+]
 
 setInterval(() => {
-    const colors = [
-        "from-indigo-500 via-sky-500 to-cyan-500",
-        "from-emerald-500 via-green-500 to-lime-500",
-        "from-yellow-500 via-amber-500 to-orange-500",
-        "from-red-500 via-rose-500 to-pink-500"
-    ]
-    gradientColor.value = colors[index]
-    if (index < colors.length - 1) index++
-    else index = 0
+
+    gradientColor.value = colors[indexCor]
+    fonteAlternativa.value = fonts[indexFonte]
+
+    if (indexCor < colors.length - 1) indexCor++
+    else indexCor = 0
+
+    if (indexFonte < fonts.length - 1) indexFonte++
+    else indexFonte = 0
+
 }, 750);
 
 const menuAberto = ref(false);
@@ -20,28 +34,30 @@ const menuAberto = ref(false);
 </script>
 
 <template>
-    <div class="xl:px-24 mb-12">
-        <main class="xl:mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <nav class="xl:border-b border-neutral-200 mx-auto py-3 px-5 xl:p-8 flex items-center justify-between">
+    <div class="xl:px-24 xl:mb-12 bg-black xl:bg-white overflow-hidden">
 
-                <h1 class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto">
+        <nav class="xl:mt-12 xl:container mx-auto xl:bg-black sticky top-0 z-30 xl:rounded-t shadow">
+            <!-- * Menu fixo -->
+            <div class="relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t" id="menuFixo">
+                <h1
+                    class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto font-sans">
                     TASK<span class="text-transparent tracking-normal">UNITY</span>
                 </h1>
 
                 <ul class="text-base text-neutral-200 hidden lg:block">
-                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
+                    <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
+                    <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Equipe</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
+                    <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Orçamento</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
+                    <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Contato</NuxtLink>
                     </li>
-                    <li class="inline-block mx-5 hover:text-white hover:-skew-x-12">
+                    <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Download</NuxtLink>
                     </li>
                 </ul>
@@ -54,41 +70,50 @@ const menuAberto = ref(false);
                     <Icon name="solar:hamburger-menu-outline" color="white" size="2rem" />
                 </div>
 
-                <!-- * Menu mobile-->
-                <div id="menu" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
-                    class="lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-20 p-4 h-screen">
+                <BlueBlob class="bottom-0 right-0 hidden TEST-xl:inline" />
+                <RedBlob class="bottom-0 left-0 hidden TEST-xl:inline" />
+                <YellowBlob class="bottom-1/2 hidden TEST-xl:inline" style="left:27.5%" />
+                <GreenBlob class="top-1/2 hidden TEST-xl:inline" style="right:27.5%" />
+            </div>
 
-                    <div class="flex items-center gap-2 mb-12 text-xl justify-between ps-3">
-                        <span class="text-xl font-bold tracking-widest">MENU</span>
-                        <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
-                            <Icon name="mdi:close" size="1.75rem" />
-                        </span>
-                    </div>
+            <!-- * Menu mobile-->
+            <div id="menuMobile" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
+                class="lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-50 p-4 h-screen">
 
-                    <ul class="text-base flex flex-col gap-5 font-normal uppercase text-neutral-200 ps-3 pe-24">
-                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Guia</a></li>
-                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Equipe</a></li>
-                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Orçamento</a></li>
-                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Contato</a></li>
-                        <li class="hover:text-white hover:-skew-x-12"><a href="#">Download</a></li>
-                    </ul>
-
-                    <NuxtLink to="/login">
-                        <WhiteButton class="mt-12 w-full">Entrar</WhiteButton>
-                    </NuxtLink>
+                <div class="flex items-center gap-2 mb-12 text-xl justify-between ps-3">
+                    <span class="text-xl font-bold tracking-widest">MENU</span>
+                    <span @click="menuAberto = !menuAberto" class="flex items-center cursor-pointer">
+                        <Icon name="mdi:close" size="1.75rem" />
+                    </span>
                 </div>
 
-                <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-                    class="escurecer fixed inset-0 bg-neutral-900 opacity-50 z-10">
-                </div>
-            </nav>
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+                <ul class="text-base flex flex-col gap-5 font-normal uppercase text-neutral-200 ps-3 pe-24">
+                    <li class="hover:text-white"><a href="#">Guia</a></li>
+                    <li class="hover:text-white"><a href="#">Equipe</a></li>
+                    <li class="hover:text-white"><a href="#">Orçamento</a></li>
+                    <li class="hover:text-white"><a href="#">Contato</a></li>
+                    <li class="hover:text-white"><a href="#">Download</a></li>
+                </ul>
+
+                <NuxtLink to="/login">
+                    <WhiteButton class="mt-12 w-full">Entrar</WhiteButton>
+                </NuxtLink>
+            </div>
+
+            <!-- * Escurecer -->
+            <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
+                class="escurecer fixed inset-0 bg-neutral-900 opacity-50 z-10">
+            </div>
+        </nav>
+
+        <main class="overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded-b h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                         Desenvolvimento <br />
-                        <span id="trocaCor" class="text-gradient bg-gradient-to-r" :class="gradientColor">
-                            &lt; re-imaginado /&gt;
+                        <span id="trocaCor" class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
+                            &lt;<span id="trocaFonte" :class="fonteAlternativa">re-imaginado</span>/&gt;
                         </span>
                     </h1>
                     <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
@@ -106,8 +131,8 @@ const menuAberto = ref(false);
             </section>
         </main>
 
-        <main class="mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+        <main class="xl:mt-12 xl:overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -129,8 +154,8 @@ const menuAberto = ref(false);
             </section>
         </main>
 
-        <main class="mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+        <main class="xl:mt-12 xl:overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -152,8 +177,8 @@ const menuAberto = ref(false);
             </section>
         </main>
 
-        <main class="mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+        <main class="xl:mt-12 xl:overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -175,8 +200,8 @@ const menuAberto = ref(false);
             </section>
         </main>
 
-        <main class="mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+        <main class="xl:mt-12 xl:overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -199,8 +224,8 @@ const menuAberto = ref(false);
             </section>
         </main>
 
-        <main class="mt-12 overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
-            <section class="mx-auto flex items-center xl:border-t border-neutral-200">
+        <main class="xl:mt-12 xl:overflow-hidden xl:h-fit xl:container mx-auto shadow-2xl shadow-black xl:rounded h-screen">
+            <section class="mx-auto flex items-center">
 
                 <header class="text-center max-w-3xl mx-auto">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
@@ -236,16 +261,21 @@ ul li::after {
 }
 
 ul li:hover::after {
-    width: 60%;
+    width: 100%;
 }
 
-#menu {
+#menuFixo:first-child {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#menuMobile {
     filter: blur(5px);
-    background: linear-gradient(to right, #22c55e11 1%, transparent 25%, transparent 75%, #eab30811 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
-    border-left: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
     transform: translate(100%) scaleX(75%);
     transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     -webkit-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -254,16 +284,16 @@ ul li:hover::after {
     -o-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-#menu.active {
+#menuMobile.active {
     filter: blur(0px);
     transform: translate(0);
 }
 
-#menu li::after {
+#menuMobile li::after {
     margin-left: 0;
 }
 
-#menu ul li:hover::after {
+#menuMobile ul li:hover::after {
     width: 10%;
 }
 
@@ -291,6 +321,10 @@ section {
     position: relative;
     height: 75vh;
     max-height: 720px;
+    transition: all 1s ease;
+}
+
+nav {
     transition: all 1s ease;
 }
 

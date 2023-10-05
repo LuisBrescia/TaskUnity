@@ -12,7 +12,7 @@ button {
     position: relative;
     overflow: hidden;
     transition: all 0.2s ease;
-    background: linear-gradient(to right, #22c55e22 1%, transparent 40%, transparent 60%, #eab30822 100%);
+    background: linear-gradient(to right, #fafafa22 1%, transparent 40%, transparent 60%, #fafafa22 100%);
 }
 
 button:hover {
@@ -37,6 +37,6 @@ button::before {
 }
 
 button:hover::before {
-    transform: translateX(15em);
+    transform: translateX(16rem);
 }
 </style>

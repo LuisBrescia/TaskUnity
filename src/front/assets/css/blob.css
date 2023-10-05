@@ -1,25 +1,38 @@
 span {
-    width: 500px;
+    width: 400px;
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
+    border-radius: 9999px;
     position: absolute;
     animation: move 8s infinite linear;
     z-index: -1;
-    opacity: .5;
-    filter: blur(100px) saturate(1.25);
+    filter: blur(125px);
 }
+
+nav span {
+    width: 250px;
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    position: absolute;
+    animation: move 8s infinite linear;
+    z-index: -1;
+    filter: blur(62.5px);
+}
+
+nav span, span {filter: blur(25px); opacity: .5;}
 
 @keyframes move {
     from {
-        transform: scale(1);
-        filter: blur(100px) saturate(1.25) brightness(1);
+        transform: scale(1) rotate(0) skewY(5deg);
     }
     50% {
-        transform: scale(1.5) ;
-        filter: blur(100px) saturate(1.25) brightness(1.5);
+        transform: scale(1.25) rotate(180deg) skewX(5deg);
     }
     to {
-        transform: scale(1);
-        filter: blur(100px) saturate(1.25) brightness(1);
+        transform: scale(1) rotate(360deg) skewY(5deg);
     }
 }
+
+/* @media screen and (min-width: 768px) {
+    
+} */
+    

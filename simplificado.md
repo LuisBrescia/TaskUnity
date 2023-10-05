@@ -30,26 +30,28 @@ Obs: Subir arquivo login.vue em \src\front\pages\
 ```Luiz Felipe```
 ### **Profile** > Dashboard como layout
 > [Processo Gerenciar Perfil](/docs/processos/GerenciarPerfil.md) (1/2 pessoa)
-- Esta tela usará o layout do dashboard por padrão "\src\front\layout\default.vue"
+- Esta tela usará o layout do dashboard por padrão "\src\front\layout\dashboard.vue"
 - Usuário poderá editar seu perfil, alterando nome, senha, foto de perfil, e habilidades.
 
 Obs: Subir arquivo profile.vue em \src\front\pages\
         
 #
 
-```Não definido```
+```André Hyodo```
 ### **Tasks** > Dashboard como layout
 > [Processo Gerenciar Tarefas](/docs/processos/GerenciarTarefas.md) (1 pessoa)
-- Esta tela usará o layout do dashboard por padrão "\src\front\layout\default.vue"
-- Exibe as tarefas que aquele usuário é responsável.
-- Terá a opção de procurar por uma nova tarefa.
+- Esta tela usará o layout do dashboard por padrão "\src\front\layout\dashboard.vue"
+-  Terá uma seção que contém as tarefas que aquele usuário está encarregado de fazer, deverá ser possível ordenar, seja por 'tempo para entregar', 'ordem alfabética', 'duração estimada'
+- Deverá ter uma seção destinada a encontrar tarefas novas
+
+Obs: Subir arquivo tasks.vue em \src\front\pages\
 
 #
 
 ```Gustavo Pereira```
 ### **Projects** > Dashboard como layout
 > [Processo Gerenciar Projetos](/docs/processos/GerenciarProjetos.md) (1 pessoa)
-- Esta tela usará o layout do dashboard por padrão "\src\front\layout\default.vue"
+- Esta tela usará o layout do dashboard por padrão "\src\front\layout\dashboard.vue"
 - Exibe os projetos que aquele usuário é proprietário.
 - Deverá ter um botão para criar um novo projeto.
 - Ao clicar em novo projeto, será requisitado o nome do projeto, uma descrição, e possíveis tecnologias a serem utilizadas.
@@ -59,11 +61,18 @@ Obs: Subir arquivo projects.vue em \src\front\pages\
 
 #
 
-```Não definido```
+```Marcus Vinicius & Luís Brescia```
 ### **Desenvolvimento do projeto**
 > [Processo Gerenciar Desenvolvivento](/docs/processos/GerenciarDesenvolvimento.md) (2 pessoas)
 - Tela após um projeto ser aberto.
+- Será dividido em criar tarefas e gerenciar equipe.
 - Aqui terá um botão 'configurações' que servirá para editar as informações do projeto, como nome, descrição, tecnologias, e membros.
+
+    **Marcus Vinicius:**
+- Na seção gerenciar equipe será possível adicionar novos membros, editar cargo, e remove-los.
+
+    **Luís Brescia:**
+- Na seção tarefas será possivel criar tarefas estimando seu tempo, e designa-las para um membro da equipe.
 
 # **Layouts:**
 

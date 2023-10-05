@@ -34,8 +34,7 @@ const menuAberto = ref(false);
 </script>
 
 <template>
-    <div class="xl:px-24 xl:mb-12 bg-black xl:bg-white overflow-hidden">
-
+    <div class="xl:px-24 xl:mb-12 bg-black xl:bg-white">
         <nav class="xl:mt-12 xl:container mx-auto xl:bg-black sticky top-0 z-30 xl:rounded-t shadow">
             <!-- * Menu fixo -->
             <div class="relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t" id="menuFixo">

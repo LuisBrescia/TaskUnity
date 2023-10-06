@@ -7,8 +7,4 @@
 
 @import url('@/assets/css/blob.css');
 
-span {
-    animation-delay: 2s;
-}
-
 </style>

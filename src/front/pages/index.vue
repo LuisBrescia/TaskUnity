@@ -7,10 +7,10 @@ const fonteAlternativa = ref("font-sans");
 let indexCor = 0, indexFonte = 0;
 
 const colors = [
-    "from-indigo-500 via-sky-300 to-cyan-200",
-    "from-emerald-500 via-green-300 to-lime-200",
-    "from-yellow-500 via-amber-300 to-orange-200",
-    "from-red-500 via-rose-300 to-pink-200"
+    "from-indigo-500 via-sky-300 to-cyan-500",
+    "from-emerald-500 via-green-300 to-lime-500",
+    "from-yellow-500 via-amber-300 to-orange-500",
+    "from-red-500 via-rose-300 to-pink-500"
 ]
 // const fonts = [
 //     "font-serif",
@@ -59,9 +59,10 @@ const handleScroll = () => {
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
             :class="{'nav-blur' : isScrolling}" id="menuFixo">
-                <h1
-                    class="text-2xl lg:text-4xl font-black tracking-tight text-neutral-50 cursor-pointer borda-texto font-sans">
-                    TASK<span class="text-transparent tracking-normal">UNITY</span>
+                <h1 class="text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
+                    <Icon name="iconamoon:3d" color="white" size="2.75rem" />
+                    <span>&nbsp;TASK</span>
+                    <span class="text-transparent tracking-normal">UNITY</span>
                 </h1>
 
                 <ul class="text-base text-neutral-300 hidden lg:block">
@@ -120,13 +121,13 @@ const handleScroll = () => {
         <section class="flex items-center mt-24">
 
             <header class="text-center max-w-3xl mx-auto">
-                <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
+                <h1 class="text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Desenvolvimento <br />
                     <span id="trocaCor" class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
                         &lt;re-imaginado/&gt;
                     </span>
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     TaskUnity é um site que permite você encontrar e unir pessoas para desenvolver projetos.
                     Monte uma equipe e faça acontecer!
                 </p>
@@ -310,7 +311,7 @@ nav {
     border-bottom-color:  rgba(255, 255, 255, 0.10);
 }
 
-.borda-texto {
+.text-border {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #fafafa;
 }

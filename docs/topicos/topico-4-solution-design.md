@@ -29,42 +29,93 @@ Ele ajudará a entender a estrutura dos dados e como as informações são organ
 
 ### 4.4. Tecnologias
 
-_Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas. Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário._
-
 | **Dimensão**   | **Tecnologia**  |
 | ---            | ---             |
-| Persistência   | Hibernate       |
-| Front end      | HTML+CSS+JS     |
+| Versionamento  | Git             |
+| Front end      | Vue.js          |
+| Front end      | Tailwindcss     |
 | Back end       | Java SpringBoot |
 | Log do sistema | Log4J           |
 | Teste          | JUnit           |
-| Deploy         | Github Pages    |
+| Deploy         | Vercel          |
 
 
 ### 4.5. Guias de estilo
 
-Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+## Identidade Visual
 
-Explique as guias de estilo utilizadas no seu projeto.
+#### **Geral:**
 
-## Design
+- Site predominantemente escuro
+- Paleta utiliza todo o espectro de cor (arco-íris)
+- Branco bastante presente como cor complementar
 
-Detalhe os layouts que serão utilizados. Apresente onde será colocado o logo do sistema. Defina os menus padrões, entre outras coisas.
+#### **Tipografia:**
+  
+- Raleway
+- Tailwind sans
+- Tailwind serif
+- Tailwind mono
 
+#### **Ícones:**
+
+ - module nuxt-icon
+
+#### **Favicon:**
+
+- iconamoon:3d-light
+
+## Técnicas Utilizadas
+
+#### **Glassmorphism:**
+
+- Header
+- Article
+- UserCard
+- WhiteButton
+- Navbar
+
+#### **Neomorphism:**
+- BlueBlob
+- GreenBlob
+- RedBlob
+- YellowBlob
 
 ## Cores
 
-Apresente a paleta de cores que será utilizada. Uma ferramenta interessante para a criação de palestas de cores é o *Adobe Color* ([https://color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)).
+#### **Fundo:**
 
+ - background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15),  rgb(15, 15, 0),  rgb(15, 0, 15), rgb(0, 0, 15));
 
-## Tipografia
+#### **Principais:**
 
-Apresente as fontes que serão utilizadas e sua função no site. As principais funções são: Título de página, Título de seção, Rótulos de componentes e Corpo de Texto.
+- Azul: #3b82f6
+- Verde: #22c55e
+- Vermelho: #ef4444
+- Amarelo: #eab308
+- Neutro claro: #fafafa
+- Neutro escuro: #0f0f0f
 
+## Layouts
 
-## Iconografia
+#### **Default:**
 
-Defina os ícones que serão utilizados e suas respectivas funções.
+- /
+- /projects/<parametro>
+
+#### **Dashboard:**
+
+- /profile
+- /tasks
+- /projects
+
+## Aspectos de responsividade
+
+#### **Menu mobile:**
+- Lateral, abrindo da direita para a esquerda
+
+#### **Dashboard**
+- Localizado no inferior da tela
 
 Apresente os estilos CSS criados para cada um dos elementos apresentados.
 Outras seções podem ser adicionadas neste documento para apresentar padrões de componentes, de menus, etc.
@@ -72,6 +123,8 @@ Outras seções podem ser adicionadas neste documento para apresentar padrões d
 ### **Homepage**
 
 ![Homepage](/docs/images/home.png)
+
+
 
 > **Links Úteis**:
 >

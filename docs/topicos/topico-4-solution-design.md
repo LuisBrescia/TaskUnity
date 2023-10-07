@@ -124,8 +124,6 @@ Outras seções podem ser adicionadas neste documento para apresentar padrões d
 
 ![Homepage](/docs/images/home.png)
 
-
-
 > **Links Úteis**:
 >
 > - [Como criar um guia de estilo de design da Web](https://edrodrigues.com.br/blog/como-criar-um-guia-de-estilo-de-design-da-web/#)

@@ -2,15 +2,15 @@
 
 const menuAberto = ref(false);
 const isScrolling = ref(false);
-const gradientColor = ref("from-red-400 via-rose-300 to-pink-500");
+const gradientColor = ref("from-red-400 via-rose-500 to-pink-400");
 const fonteAlternativa = ref("font-sans");
 let indexCor = 0, indexFonte = 0;
 
 const colors = [
-    "from-indigo-400 via-sky-300 to-cyan-500",
-    "from-emerald-400 via-green-300 to-lime-500",
-    "from-yellow-400 via-amber-300 to-orange-500",
-    "from-red-400 via-rose-300 to-pink-500"
+    "from-indigo-400 via-sky-500 to-cyan-400",
+    "from-emerald-400 via-green-500 to-lime-400",
+    "from-yellow-400 via-amber-500 to-orange-400",
+    "from-red-400 via-rose-500 to-pink-400"
 ]
 // const fonts = [
 //     "font-serif",
@@ -33,11 +33,11 @@ setInterval(() => {
 }, 750);
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('scroll', handleScroll);
 });
 
 const handleScroll = () => {
@@ -55,11 +55,12 @@ const handleScroll = () => {
 <template>
     <main class="overflow-hidden">
 
-        <nav class="fixed top-0 z-30 w-full" :class="{'nav-blur' : isScrolling}">
+        <nav class="fixed top-0 z-30 w-full" :class="{ 'nav-blur': isScrolling }">
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
-            id="menuFixo">
-                <h1 class="text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
+                id="menuFixo">
+                <h1
+                    class="text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
                     <Icon name="iconamoon:3d-light" color="white" size="2.75rem" />
                     <span>&nbsp;TASK</span>
                     <span class="text-transparent tracking-normal">UNITY</span>
@@ -99,7 +100,8 @@ const handleScroll = () => {
 
                 <div class="flex items-center gap-2 mb-12 text-xl justify-between ps-3">
                     <span class="text-xl font-bold tracking-widest">MENU</span>
-                    <span @click="menuAberto = !menuAberto" class="text-neutral-300 hover:text-white flex items-center cursor-pointer">
+                    <span @click="menuAberto = !menuAberto"
+                        class="text-neutral-300 hover:text-white flex items-center cursor-pointer">
                         <Icon name="mdi:close" size="1.75rem" />
                     </span>
                 </div>
@@ -118,36 +120,191 @@ const handleScroll = () => {
             </div>
         </nav>
 
-        <section class="flex items-center mt-24">
+        <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
-                <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
-                    Desenvolvimento <br />
-                    <span id="trocaCor" class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
-                        &lt;re-imaginado/&gt;
-                    </span>
-                </h1>
-                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    TaskUnity é um site que permite você encontrar e unir pessoas para desenvolver projetos.
-                    Monte uma equipe e faça acontecer!
-                </p>
-                <div class="flex gap-5 justify-center">
-                    <WhiteButton class="mt-12">Começe agora</WhiteButton>
+            <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
+
+                <div class="flex w-full">
+                    <article class="flex-1 rounded-3xl text-center shadow-lg p-5 hidden xl:block">
+                        <Icon name="cryptocurrency-color:btg" size="2rem" />
+                        <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
+                        <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
+                    </article>
                 </div>
-            </header>
 
-            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%"/>
-            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%"/>
+                <div class="flex w-full">
+                    <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-3xl shadow-lg">
+                        <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
+                            Desenvolvimento <br />
+                            <span class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
+                                &lt;re-imaginado/&gt;
+                            </span>
+                        </h1>
+                        <p class="text-lg md:text-2xl font-light px-3 md:px-0 max-w-3xl mx-auto">
+                            TaskUnity é um site que permite você encontrar e unir pessoas para desenvolver projetos.
+                            Monte uma equipe e faça acontecer!
+                        </p>
+                        <div class="flex gap-5 justify-center">
+                            <WhiteButton class="mt-12">Começe agora</WhiteButton>
+                        </div>
+                    </header>
+                </div>
 
-            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;"/>
-            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;"/>
+                <div class="flex w-full sm:gap-5 flex-wrap">
+                    <article class="flex-1 sm:rounded-3xl text-center shadow-lg p-5 xl:hidden block">
+                        <Icon name="cryptocurrency-color:btg" size="2rem" />
+                        <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
+                        <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
+                    </article>
 
-            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;"/>
-            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;"/>
+                    <article class="flex-1 sm:rounded-3xl text-center shadow-lg p-5">
+                        <Icon name="cryptocurrency-color:chsb" size="2rem" />
+                        <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
+                        <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
+                    </article>
+                </div>
 
-            <BlueBlob class="right-3/4 animate-ping" style="top: 20%"/>
-            <BlueBlob class="right-3/4 animate-spin" style="top: 20%"/>
+            </div>
 
+            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%" />
+            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%" />
+
+            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
+            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
+
+            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
+            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
+
+            <BlueBlob class="right-3/4 animate-ping" style="top: 20%" />
+            <BlueBlob class="right-3/4 animate-spin" style="top: 20%" />
+
+        </section>
+
+        <section id="taskers">
+
+            <h1 class="mb-12 text-center text-5xl md:text-7xl font-black text-gradient bg-gradient-to-r font-mono tracking-tighter"
+                :class="gradientColor">
+                &lt;Taskers/&gt;
+            </h1>
+            <!-- <div class="text-center font-light mt-3 mb-12 text-2xl text-neutral-200">
+                Exemplos de prestadores de serviços
+            </div> -->
+
+            <div class="container mx-auto" id="scroll">
+                <div class="flex gap-5 py-5" id="scroll-inner">
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">André Hyodo</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Dublador</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Gustavo Pereira</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor java</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Luís Brescia</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Designer Gráfico</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Luiz Campos</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Fotógrafo</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Marcus Viniciús</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor Mobile</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">André Hyodo</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Dublador</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Gustavo Pereira</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor java</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Luís Brescia</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Designer Gráfico</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Luiz Campos</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Fotógrafo</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                    <article class="border rounded-3xl p-5 text-start shadow">
+                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
+                        <div class="text-2xl font-black tracking-wider">Marcus Viniciús</div>
+                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor Mobile</div>
+                        <div class="text-base mt-3 max-w-xs">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
+                            id,
+                            officia dicta?
+                        </div>
+                    </article>
+
+                </div>
+            </div>
         </section>
 
         <section class="flex items-center">
@@ -252,14 +409,14 @@ ul li:hover::after {
 }
 
 .nav-blur {
-    backdrop-filter: blur(10px) brightness(0.9);
-    -webkit-backdrop-filter: blur(10px) brightness(0.9);
+    backdrop-filter: blur(25px) brightness(0.75);
+    -webkit-backdrop-filter: blur(25px) brightness(0.75);
     border-bottom: 2px solid #ffffff1a;
 }
 
 #menuMobile {
     filter: blur(5px);
-    background: rgba(0, 0, 0, 1);
+    background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15), rgb(15, 0, 15));
     /* backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); */
     border-left: 1px solid rgba(255, 255, 255, 0.10);
@@ -286,22 +443,48 @@ ul li:hover::after {
 
 section {
     position: relative;
-    height: 75vh;
-    max-height: 720px;
     transition: all 1s ease;
+    min-height: 50vh;
+    margin-bottom: 10rem;
+}
+
+section:first-of-type {
+    min-height: 100vh;
 }
 
 header {
-    backdrop-filter: blur(50px) brightness(0.9);
-    -webkit-backdrop-filter: blur(50px) brightness(0.9);
-    border: 2px solid #ffffff1a;
-    width: 48rem;
-    transition: all .5s ease;
+    width: 50rem;
 }
 
-header:hover {
+#taskers article {
+    min-width: 364px;
+    backdrop-filter: blur(50px) brightness(0.75) !important;
+    -webkit-backdrop-filter: blur(50px) brightness(0.75) !important;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+#taskers article:hover {
+    background-color: rgba(255, 255, 255, .01);
+}
+
+article {
+    min-width: 10rem;
+}
+
+header,
+article {
+    backdrop-filter: blur(50px) brightness(0.75);
+    -webkit-backdrop-filter: blur(50px) brightness(0.75);
+    transition: all .5s ease;
+    border-top: 2px solid #ffffff1a;
+    border-bottom: 2px solid #ffffff1a;
+}
+
+header:hover,
+article:hover {
     border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.02);  
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-0.5rem);
 }
 
 .text-border {
@@ -324,9 +507,55 @@ header:hover {
 }
 
 @media screen and (max-width: 440px) {
-    header h1 {
+    h1 {
         font-size: 2.5rem;
         line-height: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 640px) {
+
+    header,
+    article {
+        border-right: 2px solid #ffffff1a;
+        border-left: 2px solid #ffffff1a;
+    }
+}
+
+#scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+#scroll::-webkit-scrollbar {
+    display: none;
+}
+
+#scroll-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    animation: scroll-horizontal 20s linear infinite;
+    width: max-content;
+}
+
+#scroll-inner:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-horizontal {
+    to {
+        transform: translateX(calc(-50% - 0.625rem));
     }
 }
 </style>

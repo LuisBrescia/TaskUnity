@@ -8,7 +8,7 @@
 
 <style scoped>
 button {
-    transition: all .2s ease, background .5s ease;
+    transition: all .5s ease;
     position: relative;
     overflow: hidden;
     border: 2px solid #ffffff1a;
@@ -21,7 +21,7 @@ button.disabled {
 }
 
 button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-0.25rem);
     border-color: rgba(255, 255, 255, 0.2);
 }
 

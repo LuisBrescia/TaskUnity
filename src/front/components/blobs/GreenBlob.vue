@@ -1,5 +1,5 @@
 <template>
-    <span class="bg-gradient-to-r from-emerald-900 via-green-700 to-lime-500"></span>
+    <span class="bg-gradient-to-r from-emerald-800 via-green-600 to-lime-400"></span>
 </template>
 
 

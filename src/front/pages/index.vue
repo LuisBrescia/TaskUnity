@@ -2,15 +2,15 @@
 
 const menuAberto = ref(false);
 const isScrolling = ref(false);
-const gradientColor = ref("from-red-500 via-rose-300 to-pink-500");
+const gradientColor = ref("from-red-400 via-rose-300 to-pink-500");
 const fonteAlternativa = ref("font-sans");
 let indexCor = 0, indexFonte = 0;
 
 const colors = [
-    "from-indigo-500 via-sky-300 to-cyan-500",
-    "from-emerald-500 via-green-300 to-lime-500",
-    "from-yellow-500 via-amber-300 to-orange-500",
-    "from-red-500 via-rose-300 to-pink-500"
+    "from-indigo-400 via-sky-300 to-cyan-500",
+    "from-emerald-400 via-green-300 to-lime-500",
+    "from-yellow-400 via-amber-300 to-orange-500",
+    "from-red-400 via-rose-300 to-pink-500"
 ]
 // const fonts = [
 //     "font-serif",
@@ -55,17 +55,17 @@ const handleScroll = () => {
 <template>
     <main class="overflow-hidden">
 
-        <nav class="fixed top-0 z-30 w-full" :class="{'border-b' : isScrolling}">
+        <nav class="fixed top-0 z-30 w-full" :class="{'nav-blur' : isScrolling}">
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
-            :class="{'nav-blur' : isScrolling}" id="menuFixo">
+            id="menuFixo">
                 <h1 class="text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
-                    <Icon name="iconamoon:3d" color="white" size="2.75rem" />
+                    <Icon name="iconamoon:3d-light" color="white" size="2.75rem" />
                     <span>&nbsp;TASK</span>
                     <span class="text-transparent tracking-normal">UNITY</span>
                 </h1>
 
-                <ul class="text-base text-neutral-300 hidden lg:block">
+                <ul class="text-base hidden lg:block">
                     <li class="inline-block mx-5 hover:text-white">
                         <NuxtLink to="#">Guia</NuxtLink>
                     </li>
@@ -120,8 +120,8 @@ const handleScroll = () => {
 
         <section class="flex items-center mt-24">
 
-            <header class="text-center max-w-3xl mx-auto">
-                <h1 class="text-5xl md:text-7xl tracking-tight font-black mb-12">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
+                <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                     Desenvolvimento <br />
                     <span id="trocaCor" class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
                         &lt;re-imaginado/&gt;
@@ -131,28 +131,32 @@ const handleScroll = () => {
                     TaskUnity é um site que permite você encontrar e unir pessoas para desenvolver projetos.
                     Monte uma equipe e faça acontecer!
                 </p>
-                <WhiteButton class="mt-12">Começe já</WhiteButton>
+                <div class="flex gap-5 justify-center">
+                    <WhiteButton class="mt-12">Começe agora</WhiteButton>
+                </div>
             </header>
 
-            <BlueBlob class="bottom-1/4 right-3/4 animate-ping" />
-            <GreenBlob class="bottom-2/4 right-2/4 animate-ping" />
-            <RedBlob class="top-2/4 left-2/4 animate-ping" />
-            <YellowBlob class="bottom-1/4 left-3/4 animate-ping" />
+            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%"/>
+            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%"/>
 
-            <BlueBlob class="bottom-1/4 right-3/4 animate-spin"/>
-            <GreenBlob class="bottom-2/4 right-2/4 animate-spin"/>
-            <RedBlob class="top-2/4 left-2/4 animate-spin"/>
-            <YellowBlob class="bottom-1/4 left-3/4 animate-spin"/>
+            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;"/>
+            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;"/>
+
+            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;"/>
+            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;"/>
+
+            <BlueBlob class="right-3/4 animate-ping" style="top: 20%"/>
+            <BlueBlob class="right-3/4 animate-spin" style="top: 20%"/>
 
         </section>
 
         <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     Mini tutorial sobre o funcionamento do site.
                 </p>
                 <WhiteButton class="mt-12 w-36">
@@ -164,11 +168,11 @@ const handleScroll = () => {
 
         <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Equipe
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     Integrantes do grupo
                 </p>
                 <WhiteButton class="mt-12 w-36">
@@ -176,25 +180,15 @@ const handleScroll = () => {
                 </WhiteButton>
             </header>
 
-            <BlueBlob class="bottom-1/4 right-3/4 animate-ping" />
-            <GreenBlob class="bottom-2/4 right-2/4 animate-ping" />
-            <RedBlob class="top-2/4 left-2/4 animate-ping" />
-            <YellowBlob class="bottom-1/4 left-3/4 animate-ping" />
-            
-            <BlueBlob class="bottom-1/4 right-3/4 animate-spin"/>
-            <GreenBlob class="bottom-2/4 right-2/4 animate-spin"/>
-            <RedBlob class="top-2/4 left-2/4 animate-spin"/>
-            <YellowBlob class="bottom-1/4 left-3/4 animate-spin"/>
-
         </section>
 
         <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Orçamento
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     Preço médio de um projeto e como é calculado seu valor
                 </p>
                 <WhiteButton class="mt-12 w-36">
@@ -206,11 +200,11 @@ const handleScroll = () => {
 
         <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Contato
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     Entrar em contato com nossa equipe
                 </p>
                 <WhiteButton class="mt-12 w-36">
@@ -218,25 +212,15 @@ const handleScroll = () => {
                 </WhiteButton>
             </header>
 
-            <BlueBlob class="bottom-1/4 right-3/4 animate-ping" />
-            <GreenBlob class="bottom-2/4 right-2/4 animate-ping" />
-            <RedBlob class="top-2/4 left-2/4 animate-ping" />
-            <YellowBlob class="bottom-1/4 left-3/4 animate-ping" />
-            
-            <BlueBlob class="bottom-1/4 right-3/4 animate-spin"/>
-            <GreenBlob class="bottom-2/4 right-2/4 animate-spin"/>
-            <RedBlob class="top-2/4 left-2/4 animate-spin"/>
-            <YellowBlob class="bottom-1/4 left-3/4 animate-spin"/>
-
         </section>
 
         <section class="flex items-center">
 
-            <header class="text-center max-w-3xl mx-auto">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Download
                 </h1>
-                <p class="text-lg md:text-2xl font-extralight text-neutral-200 px-3 md:px-0">
+                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
                     Ir para o repositório do projeto
                 </p>
                 <WhiteButton class="mt-12 w-36">
@@ -248,7 +232,7 @@ const handleScroll = () => {
 
         <!-- * Efeito de escurecer a tela -->
         <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-            class="escurecer fixed inset-0 bg-neutral-900 opacity-50 z-10"></div>
+            class="escurecer fixed inset-0 bg-black opacity-80 z-10"></div>
     </main>
 </template>
 
@@ -268,22 +252,23 @@ ul li:hover::after {
 }
 
 .nav-blur {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) brightness(0.9);
+    -webkit-backdrop-filter: blur(10px) brightness(0.9);
+    border-bottom: 2px solid #ffffff1a;
 }
 
 #menuMobile {
     filter: blur(5px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 1);
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
     border-left: 1px solid rgba(255, 255, 255, 0.10);
     transform: translate(100%) scaleX(75%);
-    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -webkit-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -moz-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -ms-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -o-transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
 }
 
 #menuMobile.active {
@@ -306,9 +291,17 @@ section {
     transition: all 1s ease;
 }
 
-nav {
-    transition: all 1s ease;
-    border-bottom-color:  rgba(255, 255, 255, 0.10);
+header {
+    backdrop-filter: blur(50px) brightness(0.9);
+    -webkit-backdrop-filter: blur(50px) brightness(0.9);
+    border: 2px solid #ffffff1a;
+    width: 48rem;
+    transition: all .5s ease;
+}
+
+header:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);  
 }
 
 .text-border {
@@ -326,7 +319,7 @@ nav {
     }
 
     to {
-        opacity: .5;
+        opacity: .8;
     }
 }
 

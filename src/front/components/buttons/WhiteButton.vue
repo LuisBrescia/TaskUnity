@@ -1,7 +1,6 @@
 <template>
-    <button class="font-bold text-sm md:text-base border-2
-    px-5 pt-3 pb-3 rounded-full
-    text-white border-white 
+    <button class="font-bold text-sm md:text-base
+    px-5 pt-3 pb-3 rounded-full 
     uppercase tracking-widest shadow">
         <slot />
     </button>
@@ -9,15 +8,21 @@
 
 <style scoped>
 button {
-    transition: all 0.2s ease;
+    transition: all .2s ease, background .5s ease;
     position: relative;
     overflow: hidden;
-    transition: all 0.2s ease;
-    background: linear-gradient(to bottom, #ffffff1d, transparent, #ffffff1d);
+    border: 2px solid #ffffff1a;
+    color: #fff;
+}
+
+button.disabled {
+    border: 2px solid #ffffff1a;
+    color: #ffffff1d;
 }
 
 button:hover {
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 button:active {

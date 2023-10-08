@@ -59,32 +59,26 @@ const handleScroll = () => {
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
                 id="menuFixo">
-                <h1
-                    class="text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
+                <h2
+                    class="flex-1 text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
                     <Icon name="iconamoon:3d-light" color="white" size="2.75rem" />
                     <span>&nbsp;TASK</span>
                     <span class="text-transparent tracking-normal">UNITY</span>
-                </h1>
+                </h2>
 
-                <ul class="text-base hidden lg:block">
+                <ul class="flex-1 text-base hidden lg:block text-center">
                     <li class="inline-block mx-5 hover:text-white">
-                        <NuxtLink to="#">Guia</NuxtLink>
+                        <a href="#">Home</a>
                     </li>
                     <li class="inline-block mx-5 hover:text-white">
-                        <NuxtLink to="#">Equipe</NuxtLink>
+                        <a href="#guia">Guia</a>
                     </li>
                     <li class="inline-block mx-5 hover:text-white">
-                        <NuxtLink to="#">Orçamento</NuxtLink>
-                    </li>
-                    <li class="inline-block mx-5 hover:text-white">
-                        <NuxtLink to="#">Contato</NuxtLink>
-                    </li>
-                    <li class="inline-block mx-5 hover:text-white">
-                        <NuxtLink to="#">Download</NuxtLink>
+                        <a href="#equipe">Equipe</a>
                     </li>
                 </ul>
 
-                <NuxtLink to="/login" class="p-0 m-0 hidden lg:block">
+                <NuxtLink to="/login" class="flex-1 text-end p-0 m-0 hidden lg:block">
                     <WhiteButton>Entrar</WhiteButton>
                 </NuxtLink>
 
@@ -107,11 +101,15 @@ const handleScroll = () => {
                 </div>
 
                 <ul class="text-base flex flex-col gap-5 font-normal uppercase text-neutral-300 ps-3 pe-24">
-                    <li class="hover:text-white"><a href="#">Guia</a></li>
-                    <li class="hover:text-white"><a href="#">Equipe</a></li>
-                    <li class="hover:text-white"><a href="#">Orçamento</a></li>
-                    <li class="hover:text-white"><a href="#">Contato</a></li>
-                    <li class="hover:text-white"><a href="#">Download</a></li>
+                    <li class="inline-block mx-5 hover:text-white">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="inline-block mx-5 hover:text-white">
+                        <a href="#guia">Guia</a>
+                    </li>
+                    <li class="inline-block mx-5 hover:text-white">
+                        <a href="#equipe">Equipe</a>
+                    </li>
                 </ul>
 
                 <NuxtLink to="/login">
@@ -120,7 +118,7 @@ const handleScroll = () => {
             </div>
         </nav>
 
-        <section class="flex items-center">
+        <section id="home" class="flex items-center">
 
             <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
 
@@ -180,212 +178,98 @@ const handleScroll = () => {
 
         </section>
 
-        <section id="taskers">
-
-            <h1 class="mb-12 text-center text-5xl md:text-7xl font-black text-gradient bg-gradient-to-r font-mono tracking-tighter"
-                :class="gradientColor">
-                &lt;Taskers/&gt;
-            </h1>
-            <!-- <div class="text-center font-light mt-3 mb-12 text-2xl text-neutral-200">
-                Exemplos de prestadores de serviços
-            </div> -->
-
-            <div class="container mx-auto" id="scroll">
-                <div class="flex gap-5 py-5" id="scroll-inner">
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">André Hyodo</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Dublador</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Gustavo Pereira</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor java</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Luís Brescia</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Designer Gráfico</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Luiz Campos</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Fotógrafo</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Marcus Viniciús</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor Mobile</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">André Hyodo</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Dublador</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Gustavo Pereira</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor java</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Luís Brescia</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Designer Gráfico</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Luiz Campos</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Fotógrafo</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                    <article class="border rounded-3xl p-5 text-start shadow">
-                        <div class=" bg-white opacity-5 rounded-full mb-3 h-24 aspect-square"></div>
-                        <div class="text-2xl font-black tracking-wider">Marcus Viniciús</div>
-                        <div class="text-lg text-neutral-200 uppercase font-light">Desenvolvedor Mobile</div>
-                        <div class="text-base mt-3 max-w-xs">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos reiciendis adipisci cum
-                            id,
-                            officia dicta?
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="flex items-center">
+        <section id="guia" class="flex items-start">
 
             <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
                 <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Mini tutorial sobre o funcionamento do site.
+                    Mini tutorial sobre o funcionamento do site, será desenvolvido assim que as telas principais estiverem
+                    prontas.
                 </p>
-                <WhiteButton class="mt-12 w-36">
+                <WhiteButton class="mt-12 w-36 animate-bounce">
                     <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
                 </WhiteButton>
             </header>
 
         </section>
 
-        <section class="flex items-center">
+        <section id="equipe">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
-                <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                    Equipe
-                </h1>
-                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Integrantes do grupo
-                </p>
-                <WhiteButton class="mt-12 w-36">
-                    <Icon name="solar:users-group-two-rounded-line-duotone" size="1.75rem" />
-                </WhiteButton>
-            </header>
+            <h1 class="mb-12 text-center text-5xl md:text-7xl font-black text-gradient bg-gradient-to-r font-mono tracking-tighter"
+                :class="gradientColor">
+                &lt; Equipe /&gt;
+            </h1>
 
+            <div class="container mx-auto" id="scroll">
+                <div class="flex gap-5 py-5" id="scroll-inner">
+
+                    <TaskerCard name="André Hyodo" role="Roteirista" img="andre">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sapiente magnam labore itaque
+                        vero consectetur, corporis necessitatibus!
+                    </TaskerCard>
+
+                    <TaskerCard name="Gustavo Pereira" role="Dublador" img="gustavo">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta non tempora vel quibusdam
+                        quasi.
+                    </TaskerCard>
+
+                    <TaskerCard name="Luís Brescia" role="Guitarrista" img="brescia">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
+                    </TaskerCard>
+
+                    <TaskerCard name="Luiz Campos" role="Fotógrafo" img="luiz">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat corporis ea sed?
+                    </TaskerCard>
+
+                    <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, suscipit adipisci! Porro.
+                    </TaskerCard>
+
+                    <TaskerCard name="André Hyodo" role="Roteirista" img="andre">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sapiente magnam labore itaque
+                        vero consectetur, corporis necessitatibus!
+                    </TaskerCard>
+
+                    <TaskerCard name="Gustavo Pereira" role="Dublador" img="gustavo">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta non tempora vel quibusdam
+                        quasi.
+                    </TaskerCard>
+
+                    <TaskerCard name="Luís Brescia" role="Guitarrista" img="brescia">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
+                    </TaskerCard>
+
+                    <TaskerCard name="Luiz Campos" role="Fotógrafo" img="luiz">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat corporis ea sed?
+                    </TaskerCard>
+
+                    <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, suscipit adipisci! Porro.
+                    </TaskerCard>
+
+                </div>
+            </div>
         </section>
 
-        <section class="flex items-center">
+        <footer>
+            <div class="container mx-auto flex justify-between items-center mb-5">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
-                <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                    Orçamento
-                </h1>
-                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Preço médio de um projeto e como é calculado seu valor
-                </p>
-                <WhiteButton class="mt-12 w-36">
-                    <Icon name="solar:money-bag-line-duotone" size="1.75rem" />
-                </WhiteButton>
-            </header>
+                <div class="text-xl font-sans">
+                    <Icon name="octicon:logo-github-16" color="white" size="4rem" class="cursor-pointer opacity-80 hover:opacity-100" />
+                </div>
+                
+                <div class="opacity-80">
+                    <span class="text-base font-sans">Luís Brescia &nbsp;</span>
+                    <Icon name="mdi:heart" color="red" size="1rem" />
+                </div>
 
-        </section>
-
-        <section class="flex items-center">
-
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
-                <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                    Contato
-                </h1>
-                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Entrar em contato com nossa equipe
-                </p>
-                <WhiteButton class="mt-12 w-36">
-                    <Icon name="solar:phone-rounded-line-duotone" size="1.75rem" />
-                </WhiteButton>
-            </header>
-
-        </section>
-
-        <section class="flex items-center">
-
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
-                <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                    Download
-                </h1>
-                <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Ir para o repositório do projeto
-                </p>
-                <WhiteButton class="mt-12 w-36">
-                    <Icon name="solar:download-minimalistic-bold-duotone" size="1.75rem" />
-                </WhiteButton>
-            </header>
-
-        </section>
+                <div class="flex gap-5">
+                    <Icon name="mdi:nuxt" color="white" size="2rem" class="cursor-pointer opacity-80 hover:opacity-100" />
+                </div>
+            </div>
+        </footer>
 
         <!-- * Efeito de escurecer a tela -->
         <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
@@ -416,7 +300,7 @@ ul li:hover::after {
 
 #menuMobile {
     filter: blur(5px);
-    background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15), rgb(15, 0, 15));
+    background: rgb(0, 0, 0);
     /* backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); */
     border-left: 1px solid rgba(255, 255, 255, 0.10);
@@ -456,14 +340,14 @@ header {
     width: 50rem;
 }
 
-#taskers article {
+#equipe article {
     min-width: 364px;
     backdrop-filter: blur(50px) brightness(0.75) !important;
     -webkit-backdrop-filter: blur(50px) brightness(0.75) !important;
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .2);
 }
 
-#taskers article:hover {
+#equipe article:hover {
     background-color: rgba(255, 255, 255, .01);
 }
 

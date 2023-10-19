@@ -1,6 +1,6 @@
 ## 5. Indicadores de desempenho
 
-_Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classes e no DER. Colocar no mínimo 5 indicadores._
+A seguir está contemplado os indicadores utilizados no projeto TaskUnity.
 
 Perspectivas de medidas de avaliação de desempenho de processos:
 
@@ -9,14 +9,10 @@ Perspectivas de medidas de avaliação de desempenho de processos:
 * Aprendizado e Crescimento
 * Processos internos
 
-Veja o link [Heflo - Types of Process Performance Metrics](https://www.heflo.com/blog/business-management/process-performance-metrics/)
-
-_Usar o seguinte modelo:_
-
 | **Indicador** | **Objetivos** | **Descrição** | **Fonte dados** | **Perspectiva** |
 | ---           | ---           | ---           | ---             | ---             |
-| Percentual de reclamações | Avaliar quantitativamente as reclamações | Percentual de reclamações em relação ao total atendimento | Tabela reclamações | Aprendizado e Crescimento |
-| Taxa de Requisições abertas | Melhorar a prestação de serviços medindo a porcentagem de requisições | Mede % de requisições atendidas na semana | Tabela solicitações | Processos internos |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês | Tabela Pedidos | Clientes |
-
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classes e no DER.
+| Taxa de projetos criados | Crescer o número de projetos cadastrados | Percentual de projetos criados semanalmente | Tabela projetos | Aprendizado e Crescimento |
+| Taxa de usuários cadastrados | Crescer o número de usuários cadastrados | Percentual de usuários cadastrados mensalmente | Tabela de usuários | Aprendizado e Crescimento |
+| Conversão de contratação de freelancers | Aumentar o número de freelancers contratados por busca | Percentual de freelancers contratados por busca feita por usuário | Tabela usuários e projetos | Processos internos |
+| Percentual de projetos concluídos | Avaliar quantitativamente os projetos concluídos | Percentual de projetos concluídos por total de projetos | Tabela projetos | Clientes |
+| Retorno sobre investimento | Avaliar os investimentos feitos com base no lucro obtido | Mede o lucro obtido sobre cada investimento realizado, visando justificar(ou não) os investimentos atuais | X | Financeiro |

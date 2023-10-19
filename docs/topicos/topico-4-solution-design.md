@@ -32,7 +32,7 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 _O modelo entidade-relacionamento (MER) é uma representação visual das principais entidades e relacionamentos em um aplicativo.
 Ele ajudará a entender a estrutura dos dados e como as informações são organizadas no Task Unity_ 
 
-![Diagrama de Entidade Relacionamento](/docs/images/DER_TaskUnity.jpg 'Diagrama de Entidade Relacionamento')
+![Diagrama de Entidade Relacionamento](/assets/database/DiagramaEntidadeRelacionamento.png 'Diagrama de Entidade Relacionamento')
 
 ### 4.4. Tecnologias
 

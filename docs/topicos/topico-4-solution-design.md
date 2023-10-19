@@ -2,9 +2,16 @@
 
 ### 4.1. Diagrama de classes
 
-![Diagrama de classes](images/classes.gif "Diagrama de classes")
+![Diagrama de classes](../images/Diagrama%20de%20classes/DiagramaClasses.png "Diagrama de classes")
 
-_Acrescente uma breve descrição sobre o diagrama apresentado. Descreva cada uma de suas classes._
+#### Detalhamento do diagrama
+
+* **Usuário:**
+    Possui os dados do usuário do sistema, podendo ser contratante ou freelancer.
+* **Equipe:**
+    Possui os dados da Equipe a ser criada, reunindo todos os freelancers que irão trabalhar em conjunto no projeto.
+* **Projeto:**
+    Possui os dados do projeto criado pelo contratante, onde serão reunidas as Equipes criadas para trabalhar em determinado projeto.
 
 ### 4.2. Diagrama de componentes
 

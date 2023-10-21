@@ -13,28 +13,14 @@
 * **Projeto:**
     Possui os dados do projeto criado pelo contratante, onde serão reunidas as Equipes criadas para trabalhar em determinado projeto.
 
-### 4.2. Diagrama de componentes
-
-_Apresente o diagrama de componentes da aplicação, indicando os elementos da arquitetura e as interfaces entre eles. Faça uma descrição sucinta dos componentes indicando o papel de cada um deles dentro da arquitetura/estilo/padrão arquitetural. Indique também quais componentes serão reutilizados (navegadores, SGBDs, middlewares, etc), quais componentes serão adquiridos por serem proprietários e quais componentes precisam ser desenvolvidos._
-
-![Diagrama de componentes](images/componentes.png "Diagrama de componentes")
-
-_Apresente uma descrição detalhada dos artefatos que constituem o diagrama de componentes._
-
-Exemplo: conforme diagrama apresentado, as entidades participantes da solução são:
-
-- **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
-- **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
-
-
-### 4.3. Modelo de dados
+### 4.2. Modelo de dados
 
 _O modelo entidade-relacionamento (MER) é uma representação visual das principais entidades e relacionamentos em um aplicativo.
 Ele ajudará a entender a estrutura dos dados e como as informações são organizadas no Task Unity_ 
 
 ![Diagrama de Entidade Relacionamento](/assets/database/DiagramaEntidadeRelacionamento.png 'Diagrama de Entidade Relacionamento')
 
-### 4.4. Tecnologias
+### 4.3. Tecnologias
 
 | **Dimensão**   | **Tecnologia**  |
 | ---            | ---             |
@@ -47,7 +33,7 @@ Ele ajudará a entender a estrutura dos dados e como as informações são organ
 | Deploy         | Vercel          |
 
 
-### 4.5. Guias de estilo
+### 4.4. Guias de estilo
 
 ## Identidade Visual
 

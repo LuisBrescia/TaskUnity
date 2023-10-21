@@ -6,6 +6,8 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 
 #### Detalhamento das atividades
 
+**Atividades dos contratantes:**
+
 * **Acessar tela de equipe:**
     Quando o usuário está logado e tem um projeto criado, têm a possibilidade de entrar na tela de equipe.
 
@@ -20,6 +22,12 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 
 * **Remover participante:**
   O dono do projeto tem a possibilidade de remover um ou mais participantes do projeto.
+
+**Atividade do freelancer:**
+
+* **Aceitar/Recusar participação:**
+    Ao ser solicitado para entrar na equipe, o freelancer tem a possibilidade de aceitar ou recusar a solicitação.
+
 
 **Acessar tela de equipe**
 
@@ -85,4 +93,15 @@ A gerência de equipe abrange a criação, visualização e edição da equipe. 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
 | remover              | fim processo remover           | default           |
-| cancelar             | cancelar processo remover       | cancel            |
+| cancelar             | cancelar processo remover      | cancel            |
+
+**Aceitar/Recusar participação**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| deseja aceitar  | Caixa de Texto   |                |                   |
+
+| **Comandos**         |  **Destino**                      | **Tipo**          |
+| ---                  | ---                               | ---               |
+| aceitar              | fim processo aceitar/recusar      | default           |
+| recusar              | cancelar processo aceitar/recusar | cancel            |

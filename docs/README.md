@@ -125,7 +125,7 @@ A proposta do **Taskunity** consiste em facilitar a gerência de projetos feitos
 
 [PROCESSO 4 - Contratar freelancer](processos/processo-4-contratar-freelancer.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Avaliar desempenho](processos/processo-5-avaliar-desempenho.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - ](processos/processo-5-gerenciar-perfil.md "Detalhamento do Processo 5.")
 
 
 ## 4. Projeto da solução

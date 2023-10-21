@@ -50,9 +50,9 @@
 
         </aside>
         <div class="w-full py-5 px-8">
-            <div class="flex items-center tracking-widest font-normal text-4xl capitalize relative text-neutral-300">
-                <span id="titulo-pagina" :data-text="paginaAtual">{{ paginaAtual  }}</span>
-                <span id="titulo-pagina-branco">{{ paginaAtual }}</span> 
+            <div class="flex items-center tracking-tighter font-black text-4xl uppercase relative text-neutral-300 font-mono">
+                <span id="titulo-pagina">/{{ paginaAtual  }}</span>
+                <span id="titulo-pagina-branco">/{{ paginaAtual }}</span> 
             </div>
 
             <div class="my-3 relative">
@@ -156,25 +156,24 @@ main {
 #titulo-pagina-branco {
     position: absolute;
     top: 1px;
-    left: 2px;
+    left: -2px;
 }
 
 .linha-colorida {
     background: linear-gradient(to right, transparent, #0ea5e9, transparent,  #22c55e, transparent,  #eab308, transparent,  #f43f5e, transparent );
-    height: 1.5px;
+    height: 3px;
     border: none;
     background-size: 200%;
     animation: move-background 5s linear infinite;
 }
 
 .linha-branca {
-    height: 1.5px;
+    height: 1px;
     width: 100%;
     border: none;
     background: #d4d4d4;
     position: absolute;
     top: 1px;
-    left: 2px;
 }
 
 @keyframes move-background {
@@ -203,7 +202,7 @@ export default {
     },
     watch: {
     '$route'() {
-      this.paginaAtual = this.$route.path.substring(1);
+        this.paginaAtual = this.$route.path.substring(1);
     }
   }
 }

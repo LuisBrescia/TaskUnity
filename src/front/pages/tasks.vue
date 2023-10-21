@@ -8,6 +8,6 @@
 
 <template>
 
-<h1 class="text-7xl tracking-tighter mb-3">Tasks</h1> 
+Resto da página Tasks
 
 </template>

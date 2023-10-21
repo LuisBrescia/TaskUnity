@@ -1,4 +1,4 @@
-# 3.3.6 Processo 6 - Gerenciar perfil
+# 3.3.5 Processo 5 - Gerenciar perfil
 
 ### Este processo é responsável por lidar com quaisquer alterações no perfil do usuário, como foto de perfil, nome, senha, habilidades, experiências profissionais, etc... 
 

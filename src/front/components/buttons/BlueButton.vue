@@ -11,18 +11,18 @@ button {
     transition: all .5s ease;
     position: relative;
     overflow: hidden;
-    border: 2px solid #ffffff1a;
-    color: #fff;
+    border: 2px solid #0ea5e933;
+    color: #0ea5e9;
 }
 
 button.disabled {
-    border: 2px solid #ffffff1a;
+    border: 2px solid #0ea5e91a;
     color: #ffffff1d;
 }
 
 button:hover {
     transform: translateY(-0.25rem);
-    border-color: #ffffff33;
+    border-color: #0ea5e966;
 }
 
 button:active {

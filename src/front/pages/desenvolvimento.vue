@@ -36,26 +36,38 @@
             <main class="flex flex-col">        
                 <ul class="my-12">
                 <li class="flex justify-between items-center mb-5 gap-8">
-                    <div class="text-xl">Tarefa 1</div>
+                    <div class="text-xl font-mono">Tarefa 1</div>
                     <div class="flex gap-2">
-                        <WhiteButton class="text-sm" style="box-shadow: none;">Editar</WhiteButton>
-                        <WhiteButton class="text-sm" style="box-shadow: none;">Excluir</WhiteButton>
+                        <BlueButton class="rounded-xl">
+                            <Icon name="material-symbols:edit" size="1.25rem"/>
+                        </BlueButton>
+                        <RedButton class="rounded-xl">
+                            <Icon name="material-symbols:delete" size="1.25rem"/>
+                        </RedButton>
                     </div>
                 </li>
 
                 <li class="flex justify-between items-center mb-5 gap-8">
-                    <div class="text-xl">Tarefa 2</div>
+                    <div class="text-xl font-mono">Tarefa 2</div>
                     <div class="flex gap-2">
-                        <WhiteButton class="text-sm" style="box-shadow: none;">Editar</WhiteButton>
-                        <WhiteButton class="text-sm" style="box-shadow: none;">Excluir</WhiteButton>
+                        <BlueButton class="rounded-xl">
+                            <Icon name="material-symbols:edit" size="1.25rem"/>
+                        </BlueButton>
+                        <RedButton class="rounded-xl">
+                            <Icon name="material-symbols:delete" size="1.25rem"/>
+                        </RedButton>
                     </div>
                 </li>
 
                 <li class="flex justify-between items-center mb-5 gap-8">
-                    <div class="text-xl">Tarefa 3</div>
+                    <div class="text-xl font-mono">Tarefa 3</div>
                     <div class="flex gap-2">
-                        <WhiteButton class="text-xs" style="box-shadow: none;">Editar</WhiteButton>
-                        <WhiteButton class="text-xs" style="box-shadow: none;">Excluir</WhiteButton>
+                        <BlueButton class="rounded-xl">
+                            <Icon name="material-symbols:edit" size="1.25rem"/>
+                        </BlueButton>
+                        <RedButton class="rounded-xl">
+                            <Icon name="material-symbols:delete" size="1.25rem"/>
+                        </RedButton>
                     </div>
                 </li>
             </ul>

@@ -78,7 +78,7 @@ const handleScroll = () => {
                     </li>
                 </ul>
 
-                <NuxtLink to="/login" class="flex-1 text-end p-0 m-0 hidden lg:block">
+                <NuxtLink to="/login" class="flex-1 text-end p-0 m-0 hidden lg:flex justify-end">
                     <WhiteButton>Entrar</WhiteButton>
                 </NuxtLink>
 

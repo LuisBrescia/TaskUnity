@@ -5,7 +5,7 @@ span {
     position: absolute;
     /* animation: move 8s infinite linear; */
     z-index: -1;
-    filter: blur(10px);
+    filter: blur(50px);
 }
 
 @keyframes move {

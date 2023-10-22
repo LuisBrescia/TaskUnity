@@ -7,7 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-
-    Resto da página Profile
-    
+    Resto da página Profile.  
 </template>

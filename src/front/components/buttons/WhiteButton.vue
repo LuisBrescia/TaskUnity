@@ -1,7 +1,7 @@
 <template>
     <button class="font-bold text-sm md:text-base
     px-5 pt-3 pb-3 rounded-full 
-    uppercase tracking-widest shadow">
+    uppercase tracking-widest shadow flex items-center justify-center">
         <slot />
     </button>
 </template>

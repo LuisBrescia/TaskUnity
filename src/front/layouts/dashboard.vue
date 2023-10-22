@@ -1,6 +1,6 @@
 <template>
     <main class="flex">
-        <aside class="flex flex-col h-screen py-5 px-8 overflow-hidden items-center justify-between">
+        <aside class="flex flex-col h-screen p-8 overflow-hidden items-center justify-between">
 
             <!-- <NuxtLink to="/">
                 <Icon name="iconamoon:3d-light" color="white" size="3rem" class="mb-4"/>
@@ -15,7 +15,7 @@
                 </NuxtLink>
                 <NuxtLink to="/tasks" exact>
                     <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
-                        <Icon name="material-symbols:price-change-outline-rounded" size="1.75rem" />
+                        <Icon name="tdesign:task" size="1.75rem" />
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Tarefas</span>
                     </div>
                 </NuxtLink>
@@ -36,23 +36,23 @@
                 </NuxtLink>
             </div>
 
-            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%; filter: blur(50px)" />
-            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%; filter: blur(50px)" />
+            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%;"/>
+            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%;"/>
 
-            <YellowBlob class="animate-ping" style="top: 65%; left: 55%; filter: blur(50px)" />
-            <YellowBlob class="animate-spin" style="top: 65%; left: 55%; filter: blur(50px)" />
+            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;"/>
+            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;"/>
 
-            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%; filter: blur(50px)" />
-            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%; filter: blur(50px)" />
+            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;"/>
+            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;"/>
 
-            <BlueBlob class="right-3/4 animate-ping" style="top: 20%; filter: blur(50px)" />
-            <BlueBlob class="right-3/4 animate-spin" style="top: 20%; filter: blur(50px)" />
+            <BlueBlob class="right-3/4 animate-ping" style="top: 20%;"/>
+            <BlueBlob class="right-3/4 animate-spin" style="top: 20%;"/>
 
         </aside>
-        <div class="w-full py-5 px-8">
-            <div class="flex items-center tracking-tighter font-black text-4xl uppercase relative text-neutral-300 font-mono">
-                <span id="titulo-pagina">/{{ paginaAtual  }}</span>
-                <span id="titulo-pagina-branco">/{{ paginaAtual }}</span> 
+        <div class="w-full py-5 px-8 bg-black">
+            <div class="flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
+                <span id="titulo-pagina">&lt;{{ paginaAtual  }}/&gt;</span>
+                <span id="titulo-pagina-branco">&lt;{{ paginaAtual }}/&gt;</span> 
             </div>
 
             <div class="my-3 relative">
@@ -71,12 +71,13 @@ aside {
     color: #fff;
     backdrop-filter: blur(25px) brightness(0.75);
     -webkit-backdrop-filter: blur(25px) brightness(0.75);
-    border-right: 1px solid #d4d4d4;
+    border-right: 2px solid #ffffff1a;
     background-color: #000;
+    transition: all .5s ease;
 }
 
-main {
-    background: linear-gradient(144deg, #050809, #0f0f0f);
+aside:hover {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .item-dashboard span {
@@ -104,21 +105,20 @@ main {
     align-items: center;
     justify-content: center;
     padding: .75rem 1rem;
-    /* filter: drop-shadow(0 0 .75rem #fff); */
+    filter: drop-shadow(0 0 .75rem #fff);
     transition: background-color .3s ease-in-out, color .3s ease-in-out, outline-color .5s ease-in-out;
     position: relative;
 }
 
 .item-dashboard:hover {
     backdrop-filter: saturate(125%);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     animation: pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
 .item-dashboard.active {
     backdrop-filter: saturate(125%);
-    background-color: rgba(0, 0, 0, 0.1);
     outline: 2px solid #d4d4d4;
 }
 

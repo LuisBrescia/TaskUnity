@@ -6,21 +6,21 @@
 
 #
 
-![BPMN Gerenciar Login](../images/bpmn/GerenciarLogin.png)
+![BPMN Gerenciar Login](../images/processos/GerenciarLogin.png)
 
 ## Detalhamento das atividades
 
-### **Cadastrar**
+### **Entrar com uma conta já cadastrada:**
+
+    O usuário insere seu email e senha, e clica no botão entrar.
+
+### **Cadastrar uma nova conta**
 
     O usuário insere seu email, senha, data de nascimento, e clica no botão cadastrar.
 
 ### **Validar email**
 
     O sistema valida se o email inserido já está cadastrado no sistema, caso esteja, o sistema informa que o email já está cadastrado, caso contrário, o sistema cadastra o usuário e o redireciona para a tela de login.
-
-### **Entrar com uma conta já cadastrada:**
-
-    O usuário insere seu email e senha, e clica no botão entrar.
 
 ### **Validar login:**
 
@@ -51,7 +51,7 @@
 
 #
 
-### **Cadastrar**
+### **Cadastrar uma nova conta**
 
 | **Campo**       | **Tipo**         | **Restrições**          |
 | ---             | ---              | ---                     |

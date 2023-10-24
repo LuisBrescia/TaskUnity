@@ -6,7 +6,6 @@
             <header class="text-3xl font-semibold tracking-tighter">Dados do projeto</header>
 
             <main class="my-12">
-
                 <section class="mb-5">
                     <div class="text-sm font-thin text-neutral-500 tracking-widest">Nome</div>
                     <div class="text-xl font-normal">Projeto 1</div>
@@ -24,7 +23,6 @@
                         et, quaerat corporis aliquam laborum vero earum incidunt hic praesentium?
                     </div>
                 </section>
-
             </main>
 
         </DefaultCard>

@@ -1,12 +1,20 @@
 <template>
     <main class="flex">
-        <aside class="flex flex-col h-screen p-8 overflow-hidden items-center justify-between">
+
+        
+        <aside class="flex flex-col h-screen p-8 overflow-hidden items-center justify-between sticky top-0">
 
             <!-- <NuxtLink to="/">
                 <Icon name="iconamoon:3d-light" color="white" size="3rem" class="mb-4"/>
             </NuxtLink>  -->
 
             <div class="flex flex-col gap-12 items-center">
+                <NuxtLink to="/" exact>
+                    <div class="item-dashboard rounded-3xl text-neutral-300">
+                        <Icon name="iconamoon:3d-light" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Início</span>
+                    </div>
+                </NuxtLink>
                 <NuxtLink to="/projects" exact>
                     <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">
                         <Icon name="material-symbols:ad-group-outline-rounded" size="1.75rem" />
@@ -19,19 +27,13 @@
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Tarefas</span>
                     </div>
                 </NuxtLink>
-                <NuxtLink to="/profile" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/profile') }">
-                        <Icon name="material-symbols:person-2-outline" size="1.75rem" class="p-0 m-0" />
-                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
-                    </div>
-                </NuxtLink>
             </div>
 
             <div class="flex flex-col gap-12 items-center">
-                <NuxtLink to="/">
-                    <div class="item-dashboard rounded-3xl text-neutral-300 mb-5">
-                        <Icon name="material-symbols:house-outline-rounded" size="1.75rem" />
-                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Início</span>
+                <NuxtLink to="/profile" exact>
+                    <div class="item-dashboard rounded-3xl text-neutral-300 mb-5" :class="{ 'active': isLinkActive('/profile') }">
+                        <Icon name="material-symbols:person-2-outline" size="1.75rem" class="p-0 m-0" />
+                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
                     </div>
                 </NuxtLink>
             </div>
@@ -49,6 +51,7 @@
             <BlueBlob class="right-3/4 animate-spin" style="top: 20%;"/>
 
         </aside>
+
         <div class="w-full py-5 px-8 bg-black">
             <div class="flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
                 <span id="titulo-pagina">&lt;{{ paginaAtual  }}/&gt;</span>
@@ -73,7 +76,7 @@ aside {
     -webkit-backdrop-filter: blur(25px) brightness(0.75);
     border-right: 2px solid #ffffff1a;
     background-color: #000;
-    transition: all .5s ease;
+    transition: border-color .5s ease;
 }
 
 aside:hover {

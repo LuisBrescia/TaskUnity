@@ -16,7 +16,7 @@
     
 ### **Criar usuário:**
 
-O sistema cadastra o usuário e o redireciona para a tela de login..
+    O sistema cadastra o usuário e o redireciona para a tela de login.
 
 ### **Validar email**
 

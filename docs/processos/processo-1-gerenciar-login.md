@@ -10,17 +10,21 @@
 
 ## Detalhamento das atividades
 
-### **Entrar com uma conta já cadastrada:**
-
-    O usuário insere seu email e senha, e clica no botão entrar.
-
 ### **Cadastrar uma nova conta**
 
     O usuário insere seu email, senha, data de nascimento, e clica no botão cadastrar.
 
+### **Entrar com uma conta já cadastrada:**
+
+    O usuário insere seu email e senha, e clica no botão entrar.
+    
+### **Criar usuário:**
+
+    O sistema cadastra o usuário e o redireciona para a tela de login.
+
 ### **Validar email**
 
-    O sistema valida se o email inserido já está cadastrado no sistema, caso esteja, o sistema informa que o email já está cadastrado, caso contrário, o sistema cadastra o usuário e o redireciona para a tela de login.
+    O sistema valida se o email inserido já está cadastrado no sistema, caso esteja, o sistema informa que o email já está cadastrado.
 
 ### **Validar login:**
 

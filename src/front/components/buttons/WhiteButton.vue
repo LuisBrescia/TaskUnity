@@ -1,8 +1,10 @@
 <template>
     <button class="font-bold text-sm md:text-base
     px-5 pt-3 pb-3 rounded-full 
-    uppercase tracking-widest shadow flex items-center justify-center">
+    uppercase tracking-widest shadow">
+    <span class="flex items-center justify-center">
         <slot />
+    </span>
     </button>
 </template>
 
@@ -11,18 +13,13 @@ button {
     transition: all .5s ease;
     position: relative;
     overflow: hidden;
-    border: 2px solid #ffffff1a;
+    border: 2px solid rgba(255, 255, 255, 0.1);
     color: #fff;
-}
-
-button.disabled {
-    border: 2px solid #ffffff1a;
-    color: #ffffff1d;
 }
 
 button:hover {
     transform: translateY(-0.25rem);
-    border-color: #ffffff33;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 button:active {

@@ -74,9 +74,14 @@
                 <Icon name="carbon:task-add" size="1.5rem" class="mr-2" />
                 <span>Criar tarefa</span>
             </WhiteButton>
+
         </main>
 
         </DefaultCard>
+
+        <el-dialog v-model="showModalTask">
+            <span>Ola</span>
+        </el-dialog>
 
     </div>
 
@@ -98,6 +103,11 @@ export default {
     methods: {
         teste() {
             alert('Teste')
+        }
+    },
+    data() {
+        return {
+            showModalTask: false
         }
     }
 }

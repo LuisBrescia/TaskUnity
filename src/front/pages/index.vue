@@ -188,7 +188,7 @@ const handleScroll = () => {
                     Mini tutorial sobre o funcionamento do site, será desenvolvido assim que as telas principais estiverem
                     prontas.
                 </p>
-                <WhiteButton class="mt-12 w-36 animate-bounce mx-auto">
+                <WhiteButton class="mt-12 w-36 animate-bounce">
                     <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
                 </WhiteButton>
             </header>

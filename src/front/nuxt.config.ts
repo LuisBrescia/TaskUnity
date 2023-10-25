@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     app: {
         head: {
@@ -10,14 +9,21 @@ export default defineNuxtConfig({
     },
 
     css: ['~/assets/css/main.css'],
+
     components: [
         { path: '~/components/buttons', pathPrefix: false },
         { path: '~/components/cards', pathPrefix: false },
         { path: '~/components/blobs', pathPrefix: false },
         { path: '~/components/inputs', pathPrefix: false }
     ],
+
     modules: [
         '@nuxtjs/tailwindcss',
-        'nuxt-icon'
-    ]
+        'nuxt-icon',
+        '@element-plus/nuxt'
+    ],
+
+    elementPlus: { 
+        themes: ['dark']
+    }
 })

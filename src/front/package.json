@@ -10,8 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.6",
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "element-plus": "^2.4.1",
     "nuxt": "^3.7.4",
     "nuxt-icon": "^0.5.0",
     "vue": "^3.3.4",

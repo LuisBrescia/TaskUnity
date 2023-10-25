@@ -1,13 +1,4 @@
-<script setup>
-
-definePageMeta({
-    layout: 'dashboard'
-})
-
-</script>
-
 <template>
-
     <main class="flex gap-5 mt-5">
         <Card3D linkParaProjeto="/desenvolvimento">
             <template #title>
@@ -27,5 +18,12 @@ definePageMeta({
             </div>
         </DefaultCard>
     </main>
-
 </template>
+
+<script setup>
+
+definePageMeta({
+    layout: 'dashboard'
+})
+
+</script>

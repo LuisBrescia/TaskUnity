@@ -11,9 +11,11 @@ const props = defineProps({
 })
 </script>
 
-<style scoped>
+<style>
 .input {
-    max-width: 190px;
+    width: 250px;
+    max-width: 250px;
+    min-height: 44px;
     height: 44px;
     background-color: #181818;
     border-radius: .5rem;
@@ -30,6 +32,10 @@ const props = defineProps({
     font-weight: bold;
     color: #D3D3D3;
     transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.input-group{
+    width: 250px;
 }
 
 .input:hover,

@@ -1,22 +1,26 @@
 ### 3.3.2 Processo 2 – Gerenciar projeto
 
-O processo de gerenciamento de projeto começa com a criação de um projeto, no qual o usuário especifica o nome, a descrição e todos os detalhes relacionados ao projeto. Esta fase inicial é fundamental para estabelecer os objetivos e requisitos do projeto de forma clara e precisa.
+O processo de gerenciamento de projeto começa assim que o usuário acessa a tela de projetos. O usuário poderá acessar seus projetos (se já tiver algum) ou criar um novo projeto.
 
 ![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processos/GerenciarProjetos.png "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
 
-* **Nomear o projeto:**
-    Após o usuário iniciar o processo de criação do projeto, é necessário adicionar um nome ao projeto.
+* **Acessar tela de projetos:**
+    Assim que o usuário acessar tela projetos, sera possível ver quais os projetos que pertence ao usuário e também a opção de criar um novo projeto.
 
-* **Descrever brevemente o projeto:**
-    Momento em que o usuário informa uma breve descrição do que se trata o projeto.
+* **Acessar projeto:**
+    Se o usuário ja tiver algum projeto cadastro, será possível abrir o detalhamento do projeto, onde terá todas as informações referentes ao projeto.
 
-* **Detalhar o projeto:**
-    Nesta subprocesso, o usuário adiciona todos os detalhes do projeto, objetivos, metas, requisitos, quantidade de vagas e as habilidades necessárias.
+* **Detalhar as informações do projeto:**
+    se o usuário escolher criar um novo projeto, ele sera redirecionado para a tela de criação, onde ele informará todos os detalhes do projeto, como nome, descrição e as ferramentas que serão utilizadas.
 
+* **Confirmar a criação do projeto:**
+    assim que o usuário terminar de detalhar o projeto, ele poderá finalizar a criação do projeto.
 
+* **Editar projeto:**
+    assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de editar as informações do projeto.
 
 **Acessar pagina inicial**
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
@@ -28,7 +32,7 @@ O processo de gerenciamento de projeto começa com a criação de um projeto, no
 | criar projeto | detalhamento | default  |
 
 
-**Procurar projeto**
+**Acessar projeto**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
@@ -39,7 +43,7 @@ O processo de gerenciamento de projeto começa com a criação de um projeto, no
 | Clicar no projeto | Se inscrever |          |
 
 
-**Detalhar projeto**
+**Detalhar as informações do projeto**
 
 | **Campo** | **Tipo**       | **Restrições** | **Valor default** |
 | --------- | -------------- | -------------- | ----------------- |
@@ -49,7 +53,7 @@ O processo de gerenciamento de projeto começa com a criação de um projeto, no
 | vagas     | caixa de texto |                |                   |
 
 
-**Abrir vagas parar freelancers**
+**Confirmar a criação do projeto**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
@@ -60,7 +64,7 @@ O processo de gerenciamento de projeto começa com a criação de um projeto, no
 | publicar vagas | avaliar candidato |          |
 
 
-**Se inscrever para vaga**
+**Editar projeto:**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
@@ -69,14 +73,3 @@ O processo de gerenciamento de projeto começa com a criação de um projeto, no
 | **Comandos** | **Destino**      | **Tipo** |
 | ------------ | ---------------- | -------- |
 | inscrever-se | enviar currículo |          |
-
-
-**Adicionar freelancer ao projeto**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --------- | -------- | -------------- | ----------------- |
-| Projeto   |          |                |                   |
-
-| **Comandos**         | **Destino**      | **Tipo** |
-| -------------------- | ---------------- | -------- |
-| contratar freelancer | fim da aplicação |          |

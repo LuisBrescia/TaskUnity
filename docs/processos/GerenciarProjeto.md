@@ -2,7 +2,7 @@
 
 O processo de gerenciamento de projeto começa com a criação de um projeto, no qual o usuário especifica o nome, a descrição e todos os detalhes relacionados ao projeto. Esta fase inicial é fundamental para estabelecer os objetivos e requisitos do projeto de forma clara e precisa.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](../processos/images/GerenciarProjetos.png "Modelo BPMN do Processo 2.")
+![Exemplo de um Modelo BPMN do PROCESSO 2](../images/processos/GerenciarProjetos.png "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades

@@ -55,6 +55,43 @@ onMounted(() => {
 
 </script>
 
+
+<template>
+<main class="h-screen flex items-center justify-center">
+<div>
+  <form
+  @submit.prevent="() => (isSignUp ? signUp() : login())"
+  class="flex flex-col gap-2"
+  >
+    <input
+    type="email"
+    placeholder="Email"
+    v-model="email"
+    class="p-2 bg-gray-600 rounded"
+    />
+    <input
+    type="password"
+    placeholder="Senha"
+    v-model="password"
+    class="p-2 bg-gray-600 rounded"
+    />
+    <button type="submit" class="p-2 text-white bg-green-500 rounded">
+      <span v-if="isSignUp"> Cadastrat </span>
+      <span v-else> Entrar </span>
+    </button>
+    </form>
+    <button
+    @click="isSignUp = !isSignUp"
+    class="w-full mt-8 text-sm text-center underline text-slate-300"
+    >
+    <span v-if="isSignUp"> Já possui uma conta? Entre com seu usuário </span>
+    <span v-else> Criar nova conta </span>
+  </button>
+</div>
+
+</main>
+</template>
+
 <style scoped>
 .main {
   position: relative;

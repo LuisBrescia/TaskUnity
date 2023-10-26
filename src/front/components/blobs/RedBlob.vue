@@ -5,7 +5,7 @@
 
 <style scoped>
 
-@import url('@/assets/css/blob.css');
+@import url('@/assets/scss/blob.scss');
 
 span {
     animation-delay: .25s;

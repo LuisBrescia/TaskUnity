@@ -119,13 +119,13 @@ A proposta do **Taskunity** consiste em facilitar a gerência de projetos feitos
 
 [PROCESSO 1 - Gerenciar Login](processos/GerenciarLogin.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Gerenciar Projeto](processos/GerenciarProjetos.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Gerenciar Projeto](processos/GerenciarProjeto.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Gerenciar Equipe](processos/GerenciarEquipes.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Gerenciar Equipe](processos/GerenciarEquipe.md "Detalhamento do Processo 3.")
 
 [PROCESSO 4 - Contratar Freelancer](processos/ContratarFreelancer.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Gerenciar Tarefas](processos/GerenciarTarefas.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Gerenciar Tarefa](processos/GerenciarTarefa.md "Detalhamento do Processo 5.")
 
 
 ## 4. Projeto da solução

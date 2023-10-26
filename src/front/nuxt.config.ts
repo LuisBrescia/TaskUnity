@@ -33,7 +33,8 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'nuxt-icon',
         '@element-plus/nuxt',
-        '@nuxtjs/supabase'
+        '@nuxtjs/supabase',
+        '@nuxtjs/color-mode',
     ],
 
     elementPlus: {

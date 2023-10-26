@@ -17,9 +17,25 @@
                 <span class="button_top"> Criar </span>
             </button>
 
+            <el-row>
+                <el-tag v-for="tag in dynamicTags" :key="tag.name" :type="tag.type" class="mx-1" closable :disable-transitions="false"
+                    @close="handleClose(tag)">
+                    {{ tag.name }}
+                </el-tag>
+
+                <el-input v-if="inputVisible" ref="InputRef" v-model="inputValue" class="ml-1 w-20" size="small"
+                    @keyup.enter="handleInputConfirm" @blur="handleInputConfirm" />
+
+                <el-button v-else class="button-new-tag ml-1" size="small" @click="showInput">
+                    + New Tag
+                </el-button>
+            </el-row>
+
         </form>
     </div>
 </template>
+
+
 
 <style scoped>
 .form-container {
@@ -140,36 +156,36 @@
 
 button {
     /* Variables */
-  --button_radius: 0.75em;
-  --button_color: #e8e8e8;
-  --button_outline_color: #000000;
-  font-size: 17px;
-  font-weight: bold;
-  border: none;
-  border-radius: var(--button_radius);
-  background: var(--button_outline_color);
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
 }
 
 .button_top {
-  display: block;
-  box-sizing: border-box;
-  border: 2px solid var(--button_outline_color);
-  border-radius: var(--button_radius);
-  padding: 0.75em 1.5em;
-  background: linear-gradient(to bottom right, #fb7185, #f43f5e);
-  color: var(--button_outline_color);
-  transform: translateY(-0.2em);
-  transition: transform 0.1s ease;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: linear-gradient(to bottom right, #fb7185, #f43f5e);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
 }
 
 button:hover .button_top {
     /* Pull the button upwards when hovered */
-  transform: translateY(-0.33em);
+    transform: translateY(-0.33em);
 }
 
 button:active .button_top {
     /* Push the button downwards when pressed */
-  transform: translateY(0);
+    transform: translateY(0);
 }
 </style>
   
@@ -178,5 +194,42 @@ button:active .button_top {
 definePageMeta({
     layout: 'dashboard'
 })
+
+const inputValue = ref('')
+const inputVisible = ref(false)
+const InputRef = ref(null)
+
+const dynamicTags = ref([
+    { name: 'Flutter', type: '' },
+    { name: 'Vue', type: 'success' },
+    { name: 'Blender', type: 'error' },
+    { name: 'Javascript', type: 'warning' },
+    { name: 'Laravel', type: 'danger' },
+])
+
+const handleClose = (tag) => {
+    dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
+}
+
+const showInput = () => {
+    inputVisible.value = true
+    nextTick(() => {
+        InputRef.value.input.focus()
+    })
+}
+
+const handleInputConfirm = () => {
+    if (inputValue.value) {
+
+        let tag = {
+            name: inputValue.value,
+            type: 'success'
+        }
+
+        dynamicTags.value.push(tag)
+    }
+    inputVisible.value = false
+    inputValue.value = ''
+}
 
 </script>

@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    --el-bg-color: #626aef;
+    --el-text-color: #fff;
+    --el-border-color: #fff;
+    --el-border-width: 2px;
+    --el-border-radius: 0.25rem;
+    --el-padding: 0.5rem 1rem;
+    --el-font-size: 1rem;
+    --el-font-weight: 500;
+    --el-font-family: 'Raleway', sans-serif;
+    --el-font-style: normal;
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626);

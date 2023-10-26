@@ -70,7 +70,7 @@
                 </li>
             </ul>
             
-            <WhiteButton @click="showModalTask = true">
+            <WhiteButton>
                 <Icon name="carbon:task-add" size="1.5rem" class="mr-2" />
                 <span>Criar tarefa</span>
             </WhiteButton>
@@ -79,37 +79,20 @@
 
         </DefaultCard>
 
-        <el-dialog v-model="showModalTask">
-            <span>Ola</span>
-        </el-dialog>
 
     </div>
 
-    <ModalTask v-if="showModalTask" @close="showModalTask = false" />
 </template>
 
-<style scoped>
+<script setup>
 
-</style>
-
-<script>
+const { projectId } = useRoute().params;
+/*
+> const dadosProjeto = await TaskUnityApi.get(`/projects/${projectId}`);
+*/
 
 definePageMeta({
     layout: 'dashboard'
 })
-
-export default {
-    name: 'Desenvolvimento',
-    methods: {
-        teste() {
-            alert('Teste')
-        }
-    },
-    data() {
-        return {
-            showModalTask: false
-        }
-    }
-}
 
 </script>

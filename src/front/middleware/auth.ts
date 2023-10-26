@@ -7,5 +7,4 @@ export default defineNuxtRouteMiddleware((to) =>{
         navigateTo('/profile')
     }
 
-
 })

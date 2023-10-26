@@ -65,7 +65,18 @@
             </div>
         </div>
     </div>
-</template>\
+</template>
+
+<script setup>
+
+const props = defineProps({
+    linkParaProjeto: {
+        type: String,
+        default: '/desenvolvimento'
+    }
+})
+
+</script>
 
 <style scoped>
 .card {
@@ -162,5 +173,6 @@
 }
 
 .save:hover .svg {
-    fill: #ced8de;
-}</style>
+    fill: #facc15;
+}
+</style>

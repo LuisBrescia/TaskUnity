@@ -2,7 +2,7 @@
 
 A gerência de equipe abrange a criação, visualização e edição da equipe. Ao criar a equipe será necessário preencher os campos "título", "descrição" e "membros" (onde membros possuirão seus respectivos cargos). Após criada sua equipe, o usuário poderá gerenciar os membros da mesma.
 
-![Modelo BPMN do processo 3](/docs/images/processo-3-gerenciar-equipe.png "Modelo BPMN do processo gerência de equipe.")
+![Modelo BPMN do processo 3](/docs/images/processos/GerenciarEquipe.png "Modelo BPMN do processo gerência de equipe.")
 
 #### Detalhamento das atividades
 

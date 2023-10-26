@@ -8,7 +8,19 @@ export default defineNuxtConfig({
         }
     },
 
-    css: ['~/assets/css/main.css'],
+    css: [
+        '~/assets/scss/main.scss',
+    ],
+
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
+                },
+            },
+        },
+    },
 
     components: [
         { path: '~/components/buttons', pathPrefix: false },
@@ -20,10 +32,18 @@ export default defineNuxtConfig({
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-icon',
-        '@element-plus/nuxt'
+        '@element-plus/nuxt',
+        '@nuxtjs/color-mode'
     ],
 
-    elementPlus: { 
-        themes: ['dark']
-    }
+    elementPlus: {
+        icon: 'ElIcon',
+        importStyle: 'scss',
+        themes: ['dark'],
+    },
+
+    colorMode: {
+        classSuffix: '',
+        preference: 'dark',
+    },
 })

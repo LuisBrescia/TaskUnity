@@ -13,7 +13,6 @@
         </Card3D>
 
         <DefaultCard class="relative" style="width: 300px; border-style: dashed;">
-            
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Icon name="carbon:add" size="5rem" />
             </div>

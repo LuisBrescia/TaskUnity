@@ -5,6 +5,6 @@
 
 <style scoped>
 
-@import url('@/assets/css/blob.css');
+@import url('@/assets/scss/blob.scss');
 
 </style>

@@ -3,9 +3,9 @@ span {
     aspect-ratio: 1 / 1;
     border-radius: 9999px;
     position: absolute;
-    /* animation: move 8s infinite linear; */
     z-index: -1;
     filter: blur(50px);
+    /* animation: move 8s infinite linear; */
 }
 
 @keyframes move {
@@ -22,8 +22,3 @@ span {
         filter: blur(0px);
     }
 }
-
-/* @media screen and (min-width: 768px) {
-    
-} */
-    

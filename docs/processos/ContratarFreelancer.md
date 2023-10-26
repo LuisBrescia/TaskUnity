@@ -1,6 +1,6 @@
 ### 3.3.4 Processo 4 – Contratar Freelancer
 
-![Processo 4 - Contratar freelancer](../images/processo-4-contratar-freelancer.png)
+![Processo 4 - Contratar freelancer](../images/processos/ContratarFreelancer.png)
 
 
 #### Detalhamento das atividades

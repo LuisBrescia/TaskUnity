@@ -1,13 +1,15 @@
 <template>
-    <DefaultCard>
-        <div class="flex justify-between items-center">
-            <div class="sub-container1">
-                <div class="text-lg font-normal">{{ name }}</div>
-                <div class="text-sm font-thin text-neutral-500 tracking-widest">{{ role }}</div>
+    <div style="width: 250px;">
+        <DefaultCard>
+            <div class="flex justify-between items-center">
+                <div class="sub-container1">
+                    <div class="text-lg font-normal">{{ name }}</div>
+                    <div class="text-sm font-thin text-neutral-500 tracking-widest">{{ role }}</div>
+                </div>
+                <RemoveButton></RemoveButton>
             </div>
-            <RemoveButton></RemoveButton>
-        </div>
-    </DefaultCard>
+        </DefaultCard>
+    </div>
 </template>
 
 <script setup>
@@ -20,5 +22,8 @@ const props = defineProps({
 <style scoped>
 .sub-container1 {
     padding-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>

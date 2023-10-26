@@ -22,12 +22,16 @@ definePageMeta({
                     </WhiteButton>
                 </div>
             </div>
-            <NuxtLink to="/contratar-freelancer">
-                <BlueButton>Buscar Taskers</BlueButton>
-            </NuxtLink>
-            <NuxtLink to="/profile">
-                <WhiteButton>Criar Equipe</WhiteButton>
-            </NuxtLink>
+            <div>
+                <NuxtLink to="/contratar-freelancer">
+                    <BlueButton>Buscar Taskers</BlueButton>
+                </NuxtLink>
+            </div>
+            <div>
+                <NuxtLink to="/profile">
+                    <WhiteButton>Criar Equipe</WhiteButton>
+                </NuxtLink>
+            </div>
         </form>
     </main>
 </template>

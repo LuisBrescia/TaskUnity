@@ -6,13 +6,13 @@
 
 #
 
-![BPMN Gerenciar Perfil](../images/bpmn/GerenciarTarefas.png)
+![BPMN Gerenciar Perfil](../images/processos/GerenciarTarefas.png)
 
 ## Detalhamento das atividades
 
 > Obs: algumas sugestões abaixo, processo ainda não foi discutido com o grupo.
 
-### **Procurar uma tarefa**
+### **Pesquisar por uma nova tarefa**
 
     Usuário insere parametros de busca como preço oferecido e habilidades requisistadas, e é carregada para ele uma lista de tarefas que se encaixam nos parâmetros de busca, tarefas essas que em sua atribuição, foi selecionado a opção "abrir para o público" pelo dono do projeto.
 
@@ -24,4 +24,6 @@
 
     Ao clicar em "candidatar-se", tarefa é redirecionada para a seção "candidaturas pendentes", na própria tela de tarefas.
 
-### **Gerenciar tarefa já atribuída**
+### **Visualizar Solicitação de tarefas**
+
+    Nesta aba o usuário tem a opção de cancelar candidatura para uma tarefa

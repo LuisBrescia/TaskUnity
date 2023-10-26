@@ -11,9 +11,6 @@
 * **Anunciar seu serviço na plataforma:**
     O freelancer precisa registrar no sistema o seu trabalho com seu portfólio profissional, para exibir os projetos que já trabalhou e mostrar sua experiência e estilo de trabalho.
 
-* **Enviar proposta para o freelancer:**
-    O contratante escolhe o freelancer que mais se adequa ao seu projeto e envia a sua proposta, que será analisada e respondida pelo profissional, sendo aceita ou não. O que possibilita uma contraproposta por parte do prestador de serviço.
-
 * **Apresentar mais detalhadamente as tarefas a serem desenvolvidas:**
     Após a proposta aceita por ambas as partes, o contratante apresenta mais detalhes das tarefas que o freelancer terá que realizar e estipula prazos iniciais para entrega de resultados.
 

@@ -29,7 +29,7 @@
                 </NuxtLink>
 
                 <NuxtLink to="/create-team" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
+                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/create-team') }">
                         
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/marcus.jpg" />
@@ -40,22 +40,12 @@
                 </NuxtLink>
 
                 <NuxtLink to="/contratar-freelancer" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
+                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/contratar-freelancer') }">
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/andre.jpg" />
                         </div>
 
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Andre</span>
-                    </div>
-                </NuxtLink>
-
-                <NuxtLink to="/desenvolvimento" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
-                        <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
-                            <img src="/img/brescia.jpg" />
-                        </div>
-
-                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Luís</span>
                     </div>
                 </NuxtLink>
 

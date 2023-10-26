@@ -1,6 +1,8 @@
 <template>
     <main class="flex gap-5 mt-5">
-        <Card3D linkParaProjeto="/desenvolvimento">
+
+        <!-- > Aqui terá um v-for percorrendo os projetos daquele usuário -->
+        <Card3D linkParaProjeto="/projects/1">
             <template #title>
                 <h2>Título do Projeto</h2>
             </template>
@@ -9,7 +11,6 @@
                     fase de desenvolvimento</p>
             </template>
         </Card3D>
-
 
         <DefaultCard class="relative" style="width: 300px; border-style: dashed;">
             

@@ -1,7 +1,18 @@
-<script setup>
+<script setup lang="ts">
 
 definePageMeta({
-    layout: 'dashboard'
+    layout: 'dashboard',
+    middleware: ['auth']
+})
+
+
+const user = useSupabaseUser()
+onMounted(() =>{
+  watchEffect(() => {
+    if (!user.value){
+      navigateTo('/login')
+    }
+  })
 })
 
 </script>

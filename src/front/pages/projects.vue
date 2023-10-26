@@ -3,7 +3,7 @@
 
         <CardProject>
             <template #title>
-                <h2 class="text-2xl font-semibold tracking-tighter>Título do Projeto">Título do projeto</h2>
+                <h2 class="text-2xl font-semibold tracking-tighter">Título do projeto</h2>
             </template>
             <template #description>
                 <p>25/10/2023</p>

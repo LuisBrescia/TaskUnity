@@ -44,8 +44,8 @@ Este processo é responsável pelo login ao site, permitindo o usuário entrar c
 
 | **Campo**       | **Tipo**         | **Restrições**          |
 | ---             | ---              | ---                     |
-| email           | Caixa de Texto   | formato de e-mail       |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres  |
+| email          | Caixa de Texto   | formato de e-mail           |
+| senha           | Caixa de Texto   | oculta                  |
 
 | **Comandos**         |  **Destino**                   |
 | ---                  | ---                            | 

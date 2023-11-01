@@ -1,7 +1,7 @@
 <template>
     <el-row>
         <el-col :span="16" :offset="4">
-            <el-tabs tab-position="top" type="border-card" v-model="activeName" @tab-click="handleClick">
+            <el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">
 
                 <el-tab-pane label="Minhas Tarefas" name="myTasks">
                     <span>Quando tiver tarefas vinculadas a você, elas aparecerão aqui.</span>

@@ -35,7 +35,50 @@
     </div>
 </template>
 
+<script setup>
 
+definePageMeta({
+    layout: 'dashboard'
+})
+
+const inputValue = ref('')
+const inputVisible = ref(false)
+const InputRef = ref(null)
+
+const dynamicTags = ref([
+    { name: 'Flutter', type: '' },
+    { name: 'Vue', type: 'success' },
+    { name: 'Blender', type: 'error' },
+    { name: 'Javascript', type: 'warning' },
+    { name: 'Laravel', type: 'danger' },
+])
+
+const handleClose = (tag) => {
+    dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
+}
+
+const showInput = () => {
+    inputVisible.value = true
+    nextTick(() => {
+        InputRef.value.input.focus()
+    })
+}
+
+const handleInputConfirm = () => {
+    if (inputValue.value) {
+
+        let tag = {
+            name: inputValue.value,
+            type: 'success'
+        }
+
+        dynamicTags.value.push(tag)
+    }
+    inputVisible.value = false
+    inputValue.value = ''
+}
+
+</script>
 
 <style scoped>
 .form-container {
@@ -179,57 +222,10 @@ button {
 }
 
 button:hover .button_top {
-    /* Pull the button upwards when hovered */
     transform: translateY(-0.33em);
 }
 
 button:active .button_top {
-    /* Push the button downwards when pressed */
     transform: translateY(0);
 }
 </style>
-  
-<script setup>
-
-definePageMeta({
-    layout: 'dashboard'
-})
-
-const inputValue = ref('')
-const inputVisible = ref(false)
-const InputRef = ref(null)
-
-const dynamicTags = ref([
-    { name: 'Flutter', type: '' },
-    { name: 'Vue', type: 'success' },
-    { name: 'Blender', type: 'error' },
-    { name: 'Javascript', type: 'warning' },
-    { name: 'Laravel', type: 'danger' },
-])
-
-const handleClose = (tag) => {
-    dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
-}
-
-const showInput = () => {
-    inputVisible.value = true
-    nextTick(() => {
-        InputRef.value.input.focus()
-    })
-}
-
-const handleInputConfirm = () => {
-    if (inputValue.value) {
-
-        let tag = {
-            name: inputValue.value,
-            type: 'success'
-        }
-
-        dynamicTags.value.push(tag)
-    }
-    inputVisible.value = false
-    inputValue.value = ''
-}
-
-</script>

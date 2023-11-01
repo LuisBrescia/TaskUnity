@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-    <main style="display: flex;">
+
         <form action="/" class="form">
             <FormInput name="nome">Nome da Equipe</FormInput>
             <TextAreaInput>Descrição</TextAreaInput>
@@ -14,7 +14,7 @@ definePageMeta({
                 <div class="members">
                     <TaskerFormCard name="Membro 1" role="Developer"></TaskerFormCard>
                     <TaskerFormCard name="Membro 2" role="Developer"></TaskerFormCard>
-                    <TaskerFormCard name="Membro 3" role="Designer"></TaskerFormCard>
+                <TaskerFormCard name="Membro 3" role="Designer"></TaskerFormCard>
                     <TaskerFormCard name="Membro 4" role="Designer"></TaskerFormCard>
                     <TaskerFormCard name="Membro 5" role="Designer"></TaskerFormCard>
                     <WhiteButton>
@@ -33,7 +33,7 @@ definePageMeta({
                 </NuxtLink>
             </div>
         </form>
-    </main>
+
 </template>
 
 <style scoped>

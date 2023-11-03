@@ -1,6 +1,8 @@
 package taskunity.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import taskunity.models.User;
 import taskunity.services.UserService;
@@ -9,11 +11,8 @@ import taskunity.services.UserService;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    UserService userService;
 
     @GetMapping
     public String getAllUsers() {
@@ -26,8 +25,9 @@ public class UserController {
     }
 
     @PostMapping
-    public String createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    @ResponseStatus(HttpStatus.CREATED)
+    public String createUser(@RequestBody User newUser) {
+        return userService.createUser(newUser);
     }
 
     @PutMapping("/{userId}")

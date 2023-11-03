@@ -1,6 +1,8 @@
 package taskunity.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import taskunity.models.Task;
 import taskunity.services.TaskService;
@@ -9,11 +11,8 @@ import taskunity.services.TaskService;
 @RequestMapping("/tasks")
 public class TaskController {
 
-    private final TaskService taskService;
-
-    public TaskController(TaskService taskService) {
-        this.taskService = taskService;
-    }
+    @Autowired
+    TaskService taskService;
 
     @GetMapping
     public String getAllTasks() {
@@ -26,6 +25,7 @@ public class TaskController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public String createTask(@RequestBody Task task) {
         return taskService.createTask(task);
     }

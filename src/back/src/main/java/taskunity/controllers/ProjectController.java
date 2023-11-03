@@ -1,6 +1,8 @@
 package taskunity.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import taskunity.models.Project;
 import taskunity.services.ProjectService;
@@ -9,7 +11,8 @@ import taskunity.services.ProjectService;
 @RequestMapping("/projects")
 public class ProjectController {
     
-    private final ProjectService projectService;
+    @Autowired
+    ProjectService projectService;
 
     public ProjectController(ProjectService projectService) {
         this.projectService = projectService;
@@ -26,6 +29,7 @@ public class ProjectController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public String createProject(@RequestBody Project project) {
         return projectService.createProject(project);
     }

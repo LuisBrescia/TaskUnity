@@ -16,9 +16,9 @@ public class UserService {
         return "Detalhes do usuário com ID " + userId;
     }
 
-    public String createUser(User user) {
+    public String createUser(User newUser) {
         // > Lógica para criar um novo usuário com os dados fornecidos
-        return "Usuário criado com sucesso";
+        return "Usuário criado com sucesso " + newUser;
     }
 
     public String updateUser(Long userId, User user) {

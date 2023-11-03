@@ -5,6 +5,7 @@ public class User {
     private Long id;
     private String username;
     private String email;
+    private Project[] projects;
 
     // * Construtores
     public User() {
@@ -39,6 +40,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Project[] getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Project[] projects) {
+        this.projects = projects;
     }
 
     @Override

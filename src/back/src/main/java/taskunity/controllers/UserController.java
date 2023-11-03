@@ -15,6 +15,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping
+    public String getAllUsers() {
+        return userService.getAllUsers();
+    }
+
     @GetMapping("/{userId}")
     public String getUser(@PathVariable Long userId) {
         return userService.getUser(userId);
@@ -22,12 +27,12 @@ public class UserController {
 
     @PostMapping
     public String createUser(@RequestBody User user) {
-        return userService.createUser(user.getUsername(), user.getEmail());
+        return userService.createUser(user);
     }
 
     @PutMapping("/{userId}")
     public String updateUser(@PathVariable Long userId, @RequestBody User user) {
-        return userService.updateUser(userId, user.getUsername(), user.getEmail());
+        return userService.updateUser(userId, user);
     }
 
     @DeleteMapping("/{userId}")

@@ -1,4 +1,4 @@
-package models;
+package taskunity.models;
 
 public class User {
 

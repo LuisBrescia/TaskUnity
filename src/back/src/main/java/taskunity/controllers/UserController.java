@@ -1,8 +1,9 @@
-package controllers;
+package taskunity.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import models.User;
-import services.UserService;
+
+import taskunity.models.User;
+import taskunity.services.UserService;
 
 @RestController
 @RequestMapping("/users")
@@ -34,4 +35,3 @@ public class UserController {
         return userService.deleteUser(userId);
     }
 }
-

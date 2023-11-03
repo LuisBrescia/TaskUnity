@@ -1,4 +1,4 @@
-package services;
+package taskunity.services;
 
 import org.springframework.stereotype.Service;
 

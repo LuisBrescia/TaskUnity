@@ -2,38 +2,64 @@
 definePageMeta({
     layout: 'dashboard'
 })
+
+var members = ref([])
+
+function addMember() {
+    members.value.push({ name: "Membro", role: "Função" })
+}
+
+function removeMember(member) {
+    members.value.splice(members.value.indexOf(member), 1)
+}
+
+function changeMembersLabel() {
+    document.getElementById("membersLabel").innerHTML = `Membros (${members.value.length})`
+}
+
+function isMembersEmpty(){
+    if(members.value.length > 0){
+        return false
+    }
+    return true
+}
+
+function alertSearchMembers(){
+    alert("Adicione ao menos um membro.")
+}
+
+const disabled = true
+
 </script>
 
 <template>
-
-        <form action="/" class="form">
+    <main class="flex">
+        <form action="/projects" class="form">
             <FormInput name="nome">Nome da Equipe</FormInput>
-            <TextAreaInput>Descrição</TextAreaInput>
+            <TextAreaInput name="descricao">Descrição</TextAreaInput>
             <div>
-                <label class="label">Membros</label>
+                <label id="membersLabel" class="label">Membros (0)</label>
                 <div class="members">
-                    <TaskerFormCard name="Membro 1" role="Developer"></TaskerFormCard>
-                    <TaskerFormCard name="Membro 2" role="Developer"></TaskerFormCard>
-                <TaskerFormCard name="Membro 3" role="Designer"></TaskerFormCard>
-                    <TaskerFormCard name="Membro 4" role="Designer"></TaskerFormCard>
-                    <TaskerFormCard name="Membro 5" role="Designer"></TaskerFormCard>
-                    <WhiteButton>
+                    <div name="membros[]" v-for="member in members">
+                        <TaskerFormCard :name="member.name" :role="member.role"
+                            :removeClick="() => { removeMember(member); changeMembersLabel() }">
+                        </TaskerFormCard>
+                    </div>
+                    <WhiteButton @click="addMember(); changeMembersLabel()" type="button" style="width: 250px;">
                         <Icon name="tdesign:add" />
                     </WhiteButton>
                 </div>
             </div>
             <div>
-                <NuxtLink to="/contratar-freelancer">
-                    <BlueButton>Buscar Taskers</BlueButton>
+                <NuxtLink :to="isMembersEmpty() ? null : {path: 'contratar-freelancer', query: {members: members.length}}">
+                    <BlueButton type="button" @click="isMembersEmpty() ? alertSearchMembers() : null">Buscar Taskers</BlueButton>
                 </NuxtLink>
             </div>
             <div>
-                <NuxtLink to="/profile">
-                    <WhiteButton>Criar Equipe</WhiteButton>
-                </NuxtLink>
+                <WhiteButton>Criar Equipe</WhiteButton>
             </div>
         </form>
-
+    </main>
 </template>
 
 <style scoped>

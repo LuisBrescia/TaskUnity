@@ -6,7 +6,7 @@
                     <div class="text-lg font-normal">{{ name }}</div>
                     <div class="text-sm font-thin text-neutral-500 tracking-widest">{{ role }}</div>
                 </div>
-                <RemoveButton></RemoveButton>
+                <RemoveButton type="button" @click="removeClick()"></RemoveButton>
             </div>
         </DefaultCard>
     </div>
@@ -15,7 +15,8 @@
 <script setup>
 const props = defineProps({
     name: String,
-    role: String
+    role: String,
+    removeClick: Function
 })
 </script>
 

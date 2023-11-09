@@ -13,63 +13,70 @@ O processo de gerenciamento de projeto começa assim que o usuário acessa a tel
 * **Acessar projeto:**
     Se o usuário ja tiver algum projeto cadastro, será possível abrir o detalhamento do projeto, onde terá todas as informações referentes ao projeto.
 
-* **Detalhar as informações do projeto:**
+* **Criar novo projeto:**
     se o usuário escolher criar um novo projeto, ele sera redirecionado para a tela de criação, onde ele informará todos os detalhes do projeto, como nome, descrição e as ferramentas que serão utilizadas.
 
-* **Confirmar a criação do projeto:**
-    assim que o usuário terminar de detalhar o projeto, ele poderá finalizar a criação do projeto.
+* **Excluir projeto:**
+    assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de excluir o projeto.
 
 * **Editar projeto:**
     assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de editar as informações do projeto.
 
-**Acessar pagina inicial**
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --------- | -------- | -------------- | ----------------- |
-| Projetos  | tabela   |                |                   |
 
-| **Comandos**  | **Destino**  | **Tipo** |
-| ------------- | ------------ | -------- |
-| criar projeto | detalhamento | default  |
+
 
 
 **Acessar projeto**
 
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --------- | -------- | -------------- | ----------------- |
-| Projetos  | tabela   |                |                   |
 
-| **Comandos**      | **Destino**  | **Tipo** |
-| ----------------- | ------------ | -------- |
-| Clicar no projeto | Se inscrever |          |
-
-
-**Detalhar as informações do projeto**
-
-| **Campo** | **Tipo**       | **Restrições** | **Valor default** |
-| --------- | -------------- | -------------- | ----------------- |
-| nome      | caixa de texto |                |                   |
-| detalhe   | caixa de texto |                |                   |
-| objetivo  | caixa de texto |                |                   |
-| vagas     | caixa de texto |                |                   |
-
-
-**Confirmar a criação do projeto**
+**Acessar pagina de projetos**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
-| Projeto   |          |                |                   |
+| Projetos  | cards    |                |                   |
 
-| **Comandos**   | **Destino**       | **Tipo** |
-| -------------- | ----------------- | -------- |
-| publicar vagas | avaliar candidato |          |
+| **Comandos** | **Destino**                      | **Tipo** |
+| ------------ | -------------------------------- | -------- |
+| Criar        | início processo de criar projeto | edit     |
 
 
-**Editar projeto:**
+**Criar projeto**
+
+| **Campo**       | **Tipo**       | **Restrições** | **Valor default** |
+| --------------- | -------------- | -------------- | ----------------- |
+| nome do projeto | Caixa de Texto |                |                   |
+| descrição       | Caixa de Texto |                |                   |
+| ferramentas     | Área de texto  |                |                   |
+
+
+| **Comandos** | **Destino**             | **Tipo** |
+| ------------ | ----------------------- | -------- |
+| criar        | fim processo criar      | default  |
+| cancelar     | cancelar processo criar | cancel   |
+
+
+**Editar projeto**
+
+| **Campo**       | **Tipo**       | **Restrições** | **Valor default** |
+| --------------- | -------------- | -------------- | ----------------- |
+| nome do projeto | Caixa de Texto |                |                   |
+| descrição       | Caixa de Texto |                |                   |
+| ferramentas     | Área de texto  |                |                   |
+
+
+| **Comandos** | **Destino**              | **Tipo** |
+| ------------ | ------------------------ | -------- |
+| editar       | fim processo editar      | default  |
+| cancelar     | cancelar processo editar | cancel   |
+
+
+**Excluir projeto**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --------- | -------- | -------------- | ----------------- |
-| Projeto   |          |                |                   |
+| Projeto   | card     |                |                   |
 
-| **Comandos** | **Destino**      | **Tipo** |
-| ------------ | ---------------- | -------- |
-| inscrever-se | enviar currículo |          |
+| **Comandos** | **Destino**               | **Tipo** |
+| ------------ | ------------------------- | -------- |
+| exluir       | fim processo remover      | default  |
+| cancelar     | cancelar processo remover | cancel   |

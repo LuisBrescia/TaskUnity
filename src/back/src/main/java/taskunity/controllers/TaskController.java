@@ -1,43 +1,52 @@
 package taskunity.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 
 import taskunity.models.Task;
 import taskunity.services.TaskService;
 
 @RestController
 @RequestMapping("/tasks")
+@Validated
 public class TaskController {
 
     @Autowired
-    TaskService taskService;
+    private TaskService taskService;
 
-    @GetMapping
-    public String getAllTasks() {
-        return taskService.getAllTasks();
-    }
-
-    @GetMapping("/{taskId}")
-    public String getTask(@PathVariable Long taskId) {
-        return taskService.getTask(taskId);
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> findById(@PathVariable Long id) {
+        Task obj = this.taskService.findById(id);
+        return ResponseEntity.ok(obj);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public String createTask(@RequestBody Task task) {
-        return taskService.createTask(task);
-    }
-    
-    @PutMapping("/{taskId}")
-    public String updateTask(@PathVariable Long taskId, @RequestBody Task task) {
-        return taskService.updateTask(taskId, task);
+    @Validated
+    public ResponseEntity<Void> create(@RequestBody Task obj) {
+        this.taskService.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
-    @DeleteMapping("/{taskId}")
-    public String deleteTask(@PathVariable Long taskId) {
-        return taskService.deleteTask(taskId);
+    @PutMapping("/{id}")
+    @Validated
+    public ResponseEntity<Void> update(@RequestBody Task obj, @PathVariable Long id) {
+        obj.setId(id);
+        this.taskService.update(obj);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        this.taskService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

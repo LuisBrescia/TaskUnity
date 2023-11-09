@@ -41,7 +41,6 @@ public class UserService {
     public User create(User obj) {
         obj.setId(null);
         obj = this.userRepository.save(obj);
-        this.taskRepository.saveAll(obj.getTasks());
         return obj;
     }
 
@@ -53,6 +52,14 @@ public class UserService {
             throw new RuntimeException("Não é possível excluir pois há entidades relacionadas!");
         }
     }
+
+    // @Transactional
+    // public User update(User obj) {
+    //     User newObj = findById(User.getId());
+    //     this.UserService.update(obj);
+    //     newObj.setPassword(this.bCryptPasswordEncoder.encode(obj.getPassword()));
+    //     return this.userRepository.save(newObj);
+    // }
 
 
 }

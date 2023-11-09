@@ -1,64 +1,85 @@
 package taskunity.models;
 
-public class Task {
 
-    private Long id;
-    private String name;
-    private String description;
-    private Project project;
-    private User owner;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class Task {
     
-    // * Construtores
+    public interface CreateTask {}
+    public interface UpdateTask {}
+
+    public static final String TABLE_NAME = "Task";
+
+    @Id
+    @Column(name = "task_id", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long task_id;
+
+    @Column(name = "title", length = 255, nullable = false, unique = true)
+    private String title;
+
+    @Column(name = "description", length = 255, nullable = false, unique = true)
+    private String description;
+
+    @Column(name = "completed", nullable = false)
+    private Integer completed;
+
+    @Column(name = "project_id", nullable = false)
+    private Integer project_id;
+
+
     public Task() {
     }
 
-    public Task(Long id, String name, String description, Project project, User owner) {
-        this.id = id;
-        this.name = name;
+
+    public Task(Long task_id, String title, String description, Integer completed, Integer project_id) {
+        this.task_id = task_id;
+        this.title = title;
         this.description = description;
-        this.project = project;
-        this.owner = owner;
+        this.completed = completed;
+        this.project_id = project_id;
     }
 
-    // * Getters e Setters
-    public Long getId() {
-        return id;
+    public Long getTask_id() {
+        return this.task_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTask_id(Long task_id) {
+        this.task_id = task_id;
     }
 
-    public String getname() {
-        return name;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setname(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getdescription() {
-        return description;
+    public String getDescription() {
+        return this.description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public Project getproject() {
-        return project;
+    public Integer getCompleted() {
+        return this.completed;
     }
 
-    public void setproject(Project project) {
-        this.project = project;
+    public void setCompleted(Integer completed) {
+        this.completed = completed;
     }
 
-    public User getowner() {
-        return owner;
+    public Integer getProject_id() {
+        return this.project_id;
     }
 
-    public void setowner(User owner) {
-        this.owner = owner;
+    public void setProject_id(Integer project_id) {
+        this.project_id = project_id;
     }
-
 }

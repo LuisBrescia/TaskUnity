@@ -1,29 +1,65 @@
 package taskunity.services;
 
+import java.io.Serial;
+import java.util.List;
+import java.util.Objects;
+
 import org.springframework.stereotype.Service;
 import taskunity.models.Task;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import taskunity.models.Task;
+import taskunity.models.User;
+import taskunity.repositories.TaskRepository;
+
 
 @Service
 public class TaskService {
 
-    public String getAllTasks() {
-        return "Todas as tasks";
+    @Autowired
+    private TaskRepository taskRepository;
+
+    @Autowired
+    private UserService userService;
+
+    public Task findById(Long id) {
+        Task task = this.taskRepository.findById(id).orElseThrow(() -> new RuntimeException(
+                "Tarefa não encontrada! Id: " + id + ", Tipo: " + Task.class.getName()));
+
+        return task;
     }
 
-    public String getTask(Long taskId) {
-        return "Detalhes da task com ID " + taskId;
+    @Transactional
+    public Task create(Task obj) {
+
+        obj.setTask_id(null);
+        obj.setTitle(obj.getTitle());
+        obj = this.taskRepository.save(obj);
+        return obj;
     }
 
-    public String createTask(Task task) {
-        return "Task criada com sucesso!";
+    @Transactional
+    public Task update(Task obj) {
+        Task newObj = findById(obj.getTask_id());
+        newObj.setDescription(obj.getDescription());
+        return this.taskRepository.save(newObj);
     }
 
-    public String updateTask(Long taskId, Task task) {
-        return "Task com ID " + taskId + " atualizada com sucesso!";
+    public void delete(Long id) {
+        findById(id);
+        try {
+            this.taskRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Não é possível excluir pois há entidades relacionadas!");
+        }
     }
 
-    public String deleteTask(Long taskId) {
-        return "Task com ID " + taskId + " excluída com sucesso!";
-    }
     
 }
+
+
+
+
+

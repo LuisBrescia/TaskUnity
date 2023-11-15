@@ -1,7 +1,7 @@
 <template>
     <main class="flex gap-5 mt-5">
 
-        <NuxtLink to="/desenvolvimento" exact>
+        <NuxtLink to="/projects/123" exact>
             <CardProject>
                 <template #title>
                     <h2 class="text-2xl font-semibold tracking-tighter">Título do projeto</h2>

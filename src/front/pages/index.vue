@@ -1,57 +1,3 @@
-<script setup>
-
-const menuAberto = ref(false);
-const isScrolling = ref(false);
-const gradientColor = ref("from-red-400 via-rose-500 to-pink-400");
-const fonteAlternativa = ref("font-sans");
-let indexCor = 0, indexFonte = 0;
-
-const colors = [
-    "from-indigo-400 via-sky-500 to-cyan-400",
-    "from-emerald-400 via-green-500 to-lime-400",
-    "from-yellow-400 via-amber-500 to-orange-400",
-    "from-red-400 via-rose-500 to-pink-400"
-]
-// const fonts = [
-//     "font-serif",
-//     "font-cursive",
-//     "font-mono",
-//     "font-marker"
-// ]
-
-setInterval(() => {
-
-    gradientColor.value = colors[indexCor]
-    // fonteAlternativa.value = fonts[indexFonte]
-
-    if (indexCor < colors.length - 1) indexCor++
-    else indexCor = 0
-
-    // if (indexFonte < fonts.length - 1) indexFonte++
-    // else indexFonte = 0
-
-}, 750);
-
-onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-});
-
-onBeforeUnmount(() => {
-    window.removeEventListener('scroll', handleScroll);
-});
-
-const handleScroll = () => {
-    isScrolling.value = window.scrollY > 100;
-    // clearTimeout(isScrolling.value);
-
-    // isScrolling.value = setTimeout(() => {
-    //     isScrolling.value = false;
-    // }, 100);
-}
-
-
-</script>
-
 <template>
     <main class="overflow-hidden">
 
@@ -276,7 +222,59 @@ const handleScroll = () => {
             class="escurecer fixed inset-0 bg-black opacity-80 z-10"></div>
     </main>
 </template>
+<script setup>
 
+const menuAberto = ref(false);
+const isScrolling = ref(false);
+const gradientColor = ref("from-red-400 via-rose-500 to-pink-400");
+const fonteAlternativa = ref("font-sans");
+let indexCor = 0, indexFonte = 0;
+
+const colors = [
+    "from-indigo-400 via-sky-500 to-cyan-400",
+    "from-emerald-400 via-green-500 to-lime-400",
+    "from-yellow-400 via-amber-500 to-orange-400",
+    "from-red-400 via-rose-500 to-pink-400"
+]
+// const fonts = [
+//     "font-serif",
+//     "font-cursive",
+//     "font-mono",
+//     "font-marker"
+// ]
+
+setInterval(() => {
+
+    gradientColor.value = colors[indexCor]
+    // fonteAlternativa.value = fonts[indexFonte]
+
+    if (indexCor < colors.length - 1) indexCor++
+    else indexCor = 0
+
+    // if (indexFonte < fonts.length - 1) indexFonte++
+    // else indexFonte = 0
+
+}, 750);
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
+
+const handleScroll = () => {
+    isScrolling.value = window.scrollY > 100;
+    // clearTimeout(isScrolling.value);
+
+    // isScrolling.value = setTimeout(() => {
+    //     isScrolling.value = false;
+    // }, 100);
+}
+
+
+</script>
 <style scoped>
 ul li::after {
     content: "";
@@ -370,12 +368,6 @@ article:hover {
     background: rgba(255, 255, 255, 0.02);
     transform: translateY(-0.5rem);
 }
-
-.text-border {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fafafa;
-}
-
 .escurecer.block {
     animation: fade 1s ease;
 }
@@ -384,7 +376,6 @@ article:hover {
     from {
         opacity: 0;
     }
-
     to {
         opacity: .8;
     }

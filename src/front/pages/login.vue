@@ -1,26 +1,90 @@
 <template>
-  <section class="max-w-xl mx-auto flex items-center">
-    <DefaultCard class="w-full">
+  <main class="flex">
+    <section id="formulario" class="flex flex-col p-10 relative overflow-hidden">
 
-      <h1>Login</h1>
-
-      <TextInput label="Email" inputType="email" inputName="email" required="false"/>
-
-      <TextInput label="Senha" inputType="password" inputName="password" required="false" />
-
-      <NuxtLink to="/profile">
-        <BlueButton>Entrar</BlueButton>
+      <NuxtLink to="/">
+        <header class="flex-1 text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
+          <span>TASK</span>
+          <span class="text-transparent tracking-normal">UNITY</span>
+        </header>
       </NuxtLink>
 
-    </DefaultCard>
-  </section>
+      <article class="mt-12">
+        <div class="text-2xl font-bold">Crie uma conta e começe agora mesmo!</div>
+        <div class="text-lg">
+          Já cadastrado na plataforma? <NuxtLink to="/login" class="text-rainbow">Entre com sua conta.</NuxtLink>
+        </div>
+      </article>
+
+      <div class="my-12">
+        <InputText value="Nome" />
+        <InputText value="Email" type="email" />
+        <InputText value="Senha" type="password" />
+      </div>
+
+      <NuxtLink to="/profile">
+        <WhiteButton class="w-full">
+          Criar Conta
+        </WhiteButton>
+      </NuxtLink>
+      
+      <div style="filter: brightness(0.75); z-index: -9999;" class="absolute w-full h-full">
+        <RedBlob class="left-3/4 bottom-2/4 animate-ping"/>
+        <RedBlob class="left-3/4 bottom-2/4 animate-spin"/>
+        <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
+        <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
+        <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
+        <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
+        <BlueBlob class="right-3/4 top-2/4 animate-ping"/>
+        <BlueBlob class="right-3/4 top-2/4 animate-spin"/>
+      </div>
+
+    </section>
+
+    <section class="flex-1 relative overflow-hidden" id="espacoVazio">
+      <!-- <RedBlob class="left-3/4 bottom-2/4 animate-ping"/>
+      <RedBlob class="left-3/4 bottom-2/4 animate-spin"/>
+      <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
+      <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
+      <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
+      <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
+      <BlueBlob class="right-3/4 top-2/4 animate-ping"/>
+      <BlueBlob class="right-3/4 top-2/4 animate-spin"/> -->
+    </section>
+
+  </main>
 </template>
 
 <script setup>
 </script>
 
 <style scoped>
-section {
+main {
   min-height: 100vh;
 }
+
+#formulario {
+  min-width: 40rem;
+  border-right: 2px solid #ffffff1a;
+  transition: filter .3s ease-in-out, border-color .3s ease-in-out;
+}
+
+#formulario:hover {
+  border-color: rgba(255, 255, 255, 0.2)
+}
+
+.text-rainbow {
+  background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200%;
+  animation: move-background 2s linear infinite;
+  text-decoration: underline;
+}
+
+#espacoVazio {
+  background-color: black;
+}
+
 </style>

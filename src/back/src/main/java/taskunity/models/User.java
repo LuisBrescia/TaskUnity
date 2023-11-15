@@ -1,63 +1,25 @@
 package taskunity.models;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.stream.Collectors;
-
-import org.antlr.v4.runtime.misc.NotNull;
-import org.springframework.boot.convert.DataSizeUnit;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "User")
 public class User {
 
-    public interface CreateUser {}
-    public interface UpdateUser {}
-
-    public static final String TABLE_NAME = "user";
-
-    @Id
-    @Column(name = "user_id", unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name", length = 255, nullable = false, unique = true)
     private String username;
-
-    @Column(name = "email", length = 255, nullable = false, unique = true)
     private String email;
+    private Project[] projects;
 
-    @Column(name = "tasks_completed", nullable = false)
-    private Integer tasks_completed;
-
-    @Column(name = "password_hash", length = 255, nullable = false)
-    private String password;
-
-
+    // * Construtores
     public User() {
     }
 
-    public User(Long id, String username, String password) {
+    public User(Long id, String username, String email) {
         this.id = id;
         this.username = username;
-        this.password = password;
+        this.email = email;
     }
 
+    // * Getters e Setters
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
@@ -65,21 +27,28 @@ public class User {
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        return this.password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    public Project[] getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Project[] projects) {
+        this.projects = projects;
+    }
 
     @Override
     public String toString() {

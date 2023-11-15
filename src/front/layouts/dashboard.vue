@@ -1,7 +1,7 @@
 <template>
     <main class="flex">
 
-        
+
         <aside class="flex flex-col h-screen p-8 overflow-hidden items-center justify-between sticky top-0">
 
             <!-- <NuxtLink to="/">
@@ -16,7 +16,8 @@
                     </div>
                 </NuxtLink>
                 <NuxtLink to="/projects" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">
+                    <div class="item-dashboard rounded-3xl text-neutral-300"
+                        :class="{ 'active': isLinkActive('/projects') }">
                         <Icon name="material-symbols:ad-group-outline-rounded" size="1.75rem" />
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Projetos</span>
                     </div>
@@ -29,8 +30,9 @@
                 </NuxtLink>
 
                 <NuxtLink to="/create-team" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/create-team') }">
-                        
+                    <div class="item-dashboard rounded-3xl text-neutral-300"
+                        :class="{ 'active': isLinkActive('/create-team') }">
+
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/marcus.jpg" />
                         </div>
@@ -40,7 +42,8 @@
                 </NuxtLink>
 
                 <NuxtLink to="/contratar-freelancer" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300" :class="{ 'active': isLinkActive('/contratar-freelancer') }">
+                    <div class="item-dashboard rounded-3xl text-neutral-300"
+                        :class="{ 'active': isLinkActive('/contratar-freelancer') }">
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/andre.jpg" />
                         </div>
@@ -53,56 +56,60 @@
 
             <div class="flex flex-col gap-12 items-center">
                 <NuxtLink to="/profile" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300 mb-5" :class="{ 'active': isLinkActive('/profile') }">
+                    <div class="item-dashboard rounded-3xl text-neutral-300 mb-5"
+                        :class="{ 'active': isLinkActive('/profile') }">
                         <Icon name="material-symbols:person-2-outline" size="1.75rem" class="p-0 m-0" />
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
                     </div>
                 </NuxtLink>
             </div>
 
-            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%;"/>
-            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%;"/>
+            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%;" />
+            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%;" />
 
-            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;"/>
-            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;"/>
+            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
+            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
 
-            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;"/>
-            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;"/>
+            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
+            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
 
-            <BlueBlob class="right-3/4 animate-ping" style="top: 20%;"/>
-            <BlueBlob class="right-3/4 animate-spin" style="top: 20%;"/>
+            <BlueBlob class="right-3/4 animate-ping" style="top: 20%;" />
+            <BlueBlob class="right-3/4 animate-spin" style="top: 20%;" />
 
         </aside>
 
-        <div class="w-full py-5 px-8 bg-black">
-            <div class="flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
-                <span id="titulo-pagina">&lt;{{ paginaAtual  }}/&gt;</span>
-                <span id="titulo-pagina-branco">&lt;{{ paginaAtual }}/&gt;</span> 
+        <div class="w-full py-3 px-5 bg-black">
+            <div class="flex items-end">
+                
+                <div class="flex-1 my-3 relative mr-5">
+                    <hr class="linha-branca w-full rounded-full" />
+                    <hr class="linha-colorida w-full rounded-full" />
+                </div>
+
+                <div class="w-fit flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
+                    <span id="titulo-pagina">[{{ paginaAtual }}]</span>
+                    <span id="titulo-pagina-branco">[{{ paginaAtual }}]</span>
+                </div>
             </div>
 
-            <div class="my-3 relative">
-                <hr class="linha-branca w-full rounded-full" />
-                <hr class="linha-colorida w-full rounded-full" />
-            </div>
-            
             <slot />
         </div>
     </main>
 </template>
 
 <style scoped>
-
 aside {
     color: #fff;
     backdrop-filter: blur(25px) brightness(0.75);
     -webkit-backdrop-filter: blur(25px) brightness(0.75);
-    border-right: 2px solid #ffffff1a;
     background-color: #000;
     transition: border-color .5s ease;
+    border-right: 2px solid #ffffff1a;
+    transition: filter .3s ease-in-out, border-color .3s ease-in-out;
 }
 
 aside:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(225, 255, 255, 0.2);
 }
 
 .item-dashboard span {
@@ -172,10 +179,11 @@ aside:hover {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right, transparent, #0ea5e9, transparent,  #22c55e, transparent,  #eab308, transparent,  #f43f5e, transparent );
+    /* background-image: linear-gradient(to right, transparent, #0ea5e9, transparent, #22c55e, transparent, #eab308, transparent, #f43f5e, transparent); */
+    background-image: linear-gradient(to right,  #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     width: 100%;
     background-size: 200%;
-    animation: move-background 5s linear infinite;
+    animation: move-background 10s linear infinite;
 }
 
 #titulo-pagina-branco {
@@ -185,11 +193,11 @@ aside:hover {
 }
 
 .linha-colorida {
-    background: linear-gradient(to right, transparent, #0ea5e9, transparent,  #22c55e, transparent,  #eab308, transparent,  #f43f5e, transparent );
+    background: linear-gradient(to right,  #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     height: 3px;
     border: none;
     background-size: 200%;
-    animation: move-background 5s linear infinite;
+    animation: move-background 10s linear infinite;
 }
 
 .linha-branca {
@@ -200,17 +208,6 @@ aside:hover {
     position: absolute;
     top: 1px;
 }
-
-@keyframes move-background {
-    0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: -200% center;
-  }
-}
-
 </style>
 
 <script>
@@ -220,15 +217,15 @@ export default {
             return this.$route.path === route;
         }
     },
-    data () {
+    data() {
         return {
             paginaAtual: this.$route.path.substring(1)
         }
     },
     watch: {
-    '$route'() {
-        this.paginaAtual = this.$route.path.substring(1);
+        '$route'() {
+            this.paginaAtual = this.$route.path.substring(1);
+        }
     }
-  }
 }
 </script>

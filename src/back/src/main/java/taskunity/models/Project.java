@@ -1,5 +1,8 @@
 package taskunity.models;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="projects")
 public class Project {
 
     private Long id;

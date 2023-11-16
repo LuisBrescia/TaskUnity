@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
+@Table(name="tasks")
 public class Task {
     
     public interface CreateTask {}

@@ -1,61 +1,46 @@
 package taskunity.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="users")
 public class User {
-
-    private Long id;
-    private String username;
-    private String email;
-    private Project[] projects;
-
-    // * Construtores
-    public User() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int uid;
+    private String name;
+    private String password;
+    private int size;
+    public User() { 
     }
-
-    public User(Long id, String username, String email) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
+    public User(String name, String password, int size) {
+        this.name = name;
+        this.password = password;
+        this.size = size;
     }
-
-    // * Getters e Setters
-    public Long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    public String getEmail() {
-        return email;
+    public int getSize() {
+        return size;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSize(int size) {
+        this.size = size;
     }
-
-    public Project[] getProjects() {
-        return projects;
+    public int getUid() {
+        return uid;
     }
-
-    public void setProjects(Project[] projects) {
-        this.projects = projects;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    
 }

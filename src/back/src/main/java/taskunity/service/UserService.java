@@ -1,7 +1,8 @@
-package taskunity.services;
+package taskunity.service;
 
 import org.springframework.stereotype.Service;
-import taskunity.models.User;
+
+import taskunity.model.User;
 
 @Service
 public class UserService {
@@ -11,22 +12,22 @@ public class UserService {
         return "Todos os usuários";
     }
 
-    public String getUser(Long userId) {
+    public String getUser(Integer userId) {
         // > Lógica para buscar e retornar os detalhes do usuário com o ID especificado
         return "Detalhes do usuário com ID " + userId;
     }
 
-    public String createUser(User newUser) {
-        // > Lógica para criar um novo usuário com os dados fornecidos
-        return "Usuário criado com sucesso " + newUser;
+    // > Lógica para criar um novo usuário com os dados fornecidos
+    public User createUser(User newUser) {
+        return newUser;
     }
 
-    public String updateUser(Long userId, User user) {
+    public String updateUser(Integer userId, User updatedUser) {
         // > Lógica para atualizar as informações do usuário com o ID especificado
         return "Usuário com ID " + userId + " atualizado com sucesso";
     }
 
-    public String deleteUser(Long userId) {
+    public String deleteUser(Integer userId) {
         // > Lógica para excluir o usuário com o ID especificado
         return "Usuário com ID " + userId + " excluído com sucesso";
     }

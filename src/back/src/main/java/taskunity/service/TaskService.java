@@ -1,7 +1,8 @@
-package taskunity.services;
+package taskunity.service;
 
 import org.springframework.stereotype.Service;
-import taskunity.models.Task;
+
+import taskunity.model.Task;
 
 @Service
 public class TaskService {
@@ -10,19 +11,19 @@ public class TaskService {
         return "Todas as tasks";
     }
 
-    public String getTask(Long taskId) {
+    public String getTask(Integer taskId) {
         return "Detalhes da task com ID " + taskId;
     }
 
-    public String createTask(Task task) {
-        return "Task criada com sucesso!";
+    public String createTask(Task newTask) {
+        return "Task criada com sucesso!" + newTask;
     }
 
-    public String updateTask(Long taskId, Task task) {
+    public String updateTask(Integer taskId, Task updatedTask) {
         return "Task com ID " + taskId + " atualizada com sucesso!";
     }
 
-    public String deleteTask(Long taskId) {
+    public String deleteTask(Integer taskId) {
         return "Task com ID " + taskId + " excluída com sucesso!";
     }
     

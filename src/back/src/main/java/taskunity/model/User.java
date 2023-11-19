@@ -1,46 +1,49 @@
-package taskunity.models;
+package taskunity.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name="\"user\"")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int uid;
+    private Integer id;
+
     private String name;
+
     private String password;
-    private int size;
+
     public User() { 
     }
-    public User(String name, String password, int size) {
+
+    public User(String name, String password) {
         this.name = name;
         this.password = password;
-        this.size = size;
     }
+
+    public Integer getId() {
+        return this.id;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getPassword() {
-        return password;
+        return this.password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getSize() {
-        return size;
+
+    @Override
+    public String toString() {
+        return "User{id=" + getId() + ", name='" + getName() + "', password='" + getPassword() + "'}";
     }
-    public void setSize(int size) {
-        this.size = size;
-    }
-    public int getUid() {
-        return uid;
-    }
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-    
 }

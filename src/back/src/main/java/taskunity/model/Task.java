@@ -12,21 +12,25 @@ public class Task {
 
     private String name;
     private Boolean completed;
-    private Integer project_id;
-    private Integer user_id;
+    private Integer project;
+    private Integer tasker;
 
     public Task() {
     }
 
-    public Task(String name, Boolean completed, Integer project_id, Integer user_id) {
+    public Task(String name, Boolean completed, Integer project, Integer tasker) {
         this.name = name;
         this.completed = completed;
-        this.project_id = project_id;
-        this.user_id = user_id;
+        this.project = project;
+        this.tasker = tasker;
     }
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,14 +50,14 @@ public class Task {
     }
 
     public Integer getProject() {
-        return this.project_id;
+        return this.project;
     }
 
-    public Integer getUser() {
-        return this.user_id;
+    public Integer gettasker() {
+        return this.tasker;
     }
 
-    public void setUser(Integer user_id) {
-        this.user_id = user_id;
+    public void settasker(Integer tasker) {
+        this.tasker = tasker;
     }
 }

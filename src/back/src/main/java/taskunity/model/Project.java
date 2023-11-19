@@ -11,18 +11,22 @@ public class Project {
     private Integer id;
 
     private String name;
-    private Integer owner_id;
+    private Integer owner;
 
     public Project() {
     }
 
-    public Project(String name, int owner_id) {
+    public Project(String name, int owner) {
         this.name = name;
-        this.owner_id = owner_id;
+        this.owner = owner;
     }
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -34,10 +38,10 @@ public class Project {
     }
 
     public Integer getOwner() {
-        return owner_id;
+        return owner;
     }
 
-    public void setOwner(int owner_id) {
-        this.owner_id = owner_id;
+    public void setOwner(int owner) {
+        this.owner = owner;
     }
 }

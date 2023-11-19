@@ -26,6 +26,10 @@ public class User {
         return this.id;
     }
 
+    public void setId(Integer id){
+        this.id = id;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -40,10 +44,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{id=" + getId() + ", name='" + getName() + "', password='" + getPassword() + "'}";
     }
 }

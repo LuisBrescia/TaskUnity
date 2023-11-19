@@ -1,22 +1,19 @@
 package taskunity.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
 import taskunity.model.Task;
 import taskunity.repository.TaskRepository;
-import taskunity.service.TaskService;
 
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-
-    @Autowired
-    TaskService taskService;
 
     @Autowired
     TaskRepository taskRepository;
@@ -32,19 +29,29 @@ public class TaskController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public String createTask(@RequestBody Task newTask) {
-        return taskService.createTask(newTask);
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        Task savedTask = taskRepository.save(task);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedTask);
     }
     
-    @PutMapping("/{taskId}")
-    public String updateTask(@PathVariable Integer taskId, @RequestBody Task updatedTask) {
-        return taskService.updateTask(taskId, updatedTask);
+    @PutMapping("/{id}")
+    public ResponseEntity<Task> updateTask(@PathVariable Integer id, @RequestBody Task task) {
+        if (taskRepository.existsById(id)) {
+            task.setId(id);
+            Task savedTask = taskRepository.save(task);
+            return ResponseEntity.ok(savedTask);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
-    @DeleteMapping("/{taskId}")
-    public String deleteTask(@PathVariable Integer taskId) {
-        return taskService.deleteTask(taskId);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteTask(@PathVariable Integer id) {
+        if (taskRepository.existsById(id)) {
+            taskRepository.deleteById(id);
+            return ResponseEntity.ok("Task com ID " + id + " excluída com sucesso.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Task com ID " + id + " não encontrada.");
+        }
     }
-
 }

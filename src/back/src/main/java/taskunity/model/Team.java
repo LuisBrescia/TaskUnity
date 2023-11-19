@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,9 +17,14 @@ public class Team {
     private Long id;
     private String name;
     private String description;
-    private ArrayList<User> members;
+    @ManyToOne
+    private User[] members;
 
-    public Team(String name, String description, ArrayList<User> members) {
+    public Team() {
+
+    }
+
+    public Team(String name, String description, User[] members) {
         this.name = name;
         this.description = description;
         this.members = members;
@@ -32,7 +38,7 @@ public class Team {
         return description;
     }
 
-    public ArrayList<User> getMembers() {
+    public User[] getMembers() {
         return members;
     }
 
@@ -44,7 +50,7 @@ public class Team {
         this.description = description;
     }
 
-    public void setMembers(ArrayList<User> members) {
+    public void setMembers(User[] members) {
         this.members = members;
     }
 }

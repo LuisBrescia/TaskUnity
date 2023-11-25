@@ -24,8 +24,13 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Project> getUser(@PathVariable Integer id) {
+    public Optional<Project> getProject(@PathVariable Integer id) {
         return projectRepository.findById(id);
+    }
+
+    @GetMapping("/{name}")
+    public List<Project> getProjectByName(@PathVariable String name) {
+        return projectRepository.findByName(name);
     }
 
     @PostMapping

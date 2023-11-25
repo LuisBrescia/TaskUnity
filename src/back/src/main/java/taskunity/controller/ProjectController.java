@@ -28,11 +28,6 @@ public class ProjectController {
         return projectRepository.findById(id);
     }
 
-    @GetMapping("/{name}")
-    public List<Project> getProjectByName(@PathVariable String name) {
-        return projectRepository.findByName(name);
-    }
-
     @PostMapping
     public ResponseEntity<Project> createProject(@RequestBody Project project) {
         Project savedProject = projectRepository.save(project);

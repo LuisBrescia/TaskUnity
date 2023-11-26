@@ -1,13 +1,22 @@
 <template>
     <div class="form__group field mb-3">
-        <input :type="type" class="form__field py-2" placeholder="&nbsp;" :name="value" required>
-        <!-- <hr class="linha-horizontal"> -->
+        <input 
+          :type="type" 
+          :name="value" 
+          :disabled="disabled"
+          :value="modelValue"
+          @input="$emit('update:modelValue', $event.target.value)"
+          class="form__field py-2" 
+          placeholder="&nbsp;" 
+          required 
+        >
+        <hr class="linha-horizontal">
         <label :for="value" class="form__label">{{ value  }}</label>
     </div>
 </template>
 
 <script setup>
-    const props = defineProps({
+    defineProps({
         value: {
             type: String,
             required: true
@@ -15,6 +24,14 @@
         type: {
             type: String,
             default: 'text'
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        modelValue: {
+            type: String,
+            default: ''
         }
     });
 </script>
@@ -23,12 +40,20 @@
 
 .linha-horizontal {
   width: 100%;
-  height: 1px;
+  height: 2px;
+  border-radius: 10px;
   border: none;
-  background: linear-gradient(90deg, #bbb5, #eee, #bbb5);
+  background: linear-gradient(90deg, transparent, #bbb5 90%, transparent);
   background-size: 200%;
   animation: move-background 3s linear infinite;
   opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.form__group input:focus+.linha-horizontal {
+  background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
+  background-size: 200%;
+  animation: move-background 3s linear infinite;
 }
 
 .form__field,
@@ -43,13 +68,9 @@
   width: 100%;
 }
 
-.form__field:focus .linha-horizontal {
-  display: none;
-}
-
 .form__group .linha-horizontal {
   position: absolute;
-  top: 71%;
+  top: 85%;
   z-index: 3;
 }
 
@@ -75,26 +96,17 @@
   cursor: text;
   top: 20px;
 }
-
-.form__field:focus {
-  padding-bottom: 6px;
-  border-width: 2px;
-  border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
-  border-image-slice: 1;
-}
-
 .form__field:focus~.form__label {
   position: absolute;
   top: -1px;
   display: block;
   font-size: 1rem;
+  width: fit-content;
+  white-space: nowrap;
   background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  width: fit-content;
-  white-space: nowrap;
   background-size: 200%;
   animation: move-background 3s linear infinite;
 }
@@ -120,22 +132,6 @@
   background-size: 200%;
   animation: move-background 3s linear infinite;
   color: #eee;
-}
-
-.form__group:nth-of-type(3) .linha-horizontal {
-  animation-delay: -50ms;
-}
-
-.form__group:nth-of-type(4) .linha-horizontal {
-  animation-delay: -100ms;
-}
-
-.form__group:nth-of-type(5) .linha-horizontal {
-  animation-delay: -150ms;
-}
-
-.form__group input:focus+.linha-horizontal {
-  opacity: 0;
 }
 
 </style>

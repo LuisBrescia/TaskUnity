@@ -33,9 +33,15 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200%;
-    animation: move-background 2s linear infinite;
-    text-decoration: underline;
-  }  
+    animation: move-background 3s linear infinite;
+}  
+
+.text-rainbow:hover {
+    border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
+    border-image-slice: 1;
+    border-bottom: 1px solid transparent;
+    animation: none;
+}
 
 html {
     scroll-behavior: smooth;

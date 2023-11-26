@@ -42,23 +42,23 @@ public class Project {
         this.name = name;
     }
 
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String gettools() {
+    public String getTools() {
         return tools;
     }
 
-    public void settools(String tools) {
+    public void setTools(String tools) {
         this.tools = tools;
     }
 
-    public String getstDartate() {
+    public String getStartDate() {
         return startDate;
     }
 

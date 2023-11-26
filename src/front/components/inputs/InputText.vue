@@ -79,8 +79,8 @@
 .form__field:focus {
   padding-bottom: 6px;
   border-width: 2px;
-  /* border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
-  border-image-slice: 1; */
+  border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
+  border-image-slice: 1;
 }
 
 .form__field:focus~.form__label {
@@ -88,14 +88,15 @@
   top: -1px;
   display: block;
   font-size: 1rem;
-  background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
+  background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   width: fit-content;
   white-space: nowrap;
-  color: var(--color-indigo);
+  background-size: 200%;
+  animation: move-background 3s linear infinite;
 }
 
 .form__field:required,

@@ -89,7 +89,7 @@
                             Monte uma equipe e faça acontecer!
                         </p>
                         <div class="flex gap-5 justify-center">
-                            <WhiteButton class="mt-12">Começe agora</WhiteButton>
+                            <WhiteButton class="mt-12" @click="comecarAgora">Começe agora</WhiteButton>
                         </div>
                     </header>
                 </div>
@@ -273,7 +273,12 @@ const handleScroll = () => {
     // }, 100);
 }
 
+function comecarAgora() {
+    console.log("Começar agora");    
+}
 
+const { data } = await useFetch('https://taskunity-api.onrender.com/users');
+console.log(data);
 </script>
 <style scoped>
 ul li::after {

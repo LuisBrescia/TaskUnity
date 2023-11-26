@@ -1,5 +1,8 @@
 package taskunity.repository;
 
-public class TeamRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import taskunity.model.Team;
+
+public interface TeamRepository extends JpaRepository<Team, Integer> {
+
 }

@@ -56,6 +56,9 @@
 </template>
 
 <script setup>
+
+apiFetch('/users', { mode: 'no-cors' }).then(res => console.log(res))
+
 </script>
 
 <style scoped>

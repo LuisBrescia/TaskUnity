@@ -3,7 +3,7 @@ package taskunity.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
 
     @Id
@@ -11,13 +11,18 @@ public class Project {
     private Integer id;
 
     private String name;
+    private String description;
+    private String tools;
+    private String startDate;
     private Integer owner;
 
     public Project() {
     }
 
-    public Project(String name, int owner) {
+    public Project(String name, String description, String tools, int owner) {
         this.name = name;
+        this.description = description;
+        this.tools = tools;
         this.owner = owner;
     }
 
@@ -35,6 +40,30 @@ public class Project {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getdescription() {
+        return description;
+    }
+
+    public void setdescription(String description) {
+        this.description = description;
+    }
+
+    public String gettools() {
+        return tools;
+    }
+
+    public void settools(String tools) {
+        this.tools = tools;
+    }
+
+    public String getstDartate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public Integer getOwner() {

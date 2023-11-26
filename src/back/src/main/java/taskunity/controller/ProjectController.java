@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +32,7 @@ public class ProjectController {
 
     @PostMapping
     public ResponseEntity<Project> createProject(@RequestBody Project project) {
+        project.setStartDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         Project savedProject = projectRepository.save(project);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProject);
     }

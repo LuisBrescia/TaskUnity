@@ -30,12 +30,23 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        User usuarioComAqueleNomeJaExiste = userRepository.findByName(user.getName());
+
+        if (usuarioComAqueleNomeJaExiste == null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+        }
+
         User savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User user) {
+
+        if (userRepository.findByName(user.getName()) == null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+        }
+
         if (userRepository.existsById(id)) {
             user.setId(id);
             User savedUser = userRepository.save(user);

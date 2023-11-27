@@ -5,11 +5,6 @@ export const apiFetch = (url, options = {}) => {
     ...options,
     async onResponseError({ request, response, optionsError }) {
 
-      if (response.status == 400 || response.status == 401) {
-        authStore.logout()
-        return navigateTo('/')
-      }
-
       if (options.onResponseError) {
         options.onResponseError({ request, response, optionsError })
       }

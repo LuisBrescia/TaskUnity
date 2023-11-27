@@ -24,7 +24,7 @@
                     </li>
                 </ul>
 
-                <NuxtLink to="/login" class="flex-1 text-end p-0 m-0 hidden lg:flex justify-end">
+                <NuxtLink to="/login?modo=entrar" class="flex-1 text-end p-0 m-0 hidden lg:flex justify-end">
                     <WhiteButton>Entrar</WhiteButton>
                 </NuxtLink>
 
@@ -58,7 +58,7 @@
                     </li>
                 </ul>
 
-                <NuxtLink to="/login">
+                <NuxtLink to="/login?modo=entrar">
                     <WhiteButton class="mt-12 w-full">Entrar</WhiteButton>
                 </NuxtLink>
             </div>
@@ -89,7 +89,9 @@
                             Monte uma equipe e faça acontecer!
                         </p>
                         <div class="flex gap-5 justify-center">
-                            <WhiteButton class="mt-12">Começe agora</WhiteButton>
+                            <NuxtLink to="/login?modo=cadastrar">
+                                <WhiteButton class="mt-12" @click="comecarAgora">Começe agora</WhiteButton>
+                            </NuxtLink>
                         </div>
                     </header>
                 </div>
@@ -236,24 +238,11 @@ const colors = [
     "from-yellow-400 via-amber-500 to-orange-400",
     "from-red-400 via-rose-500 to-pink-400"
 ]
-// const fonts = [
-//     "font-serif",
-//     "font-cursive",
-//     "font-mono",
-//     "font-marker"
-// ]
 
 setInterval(() => {
-
     gradientColor.value = colors[indexCor]
-    // fonteAlternativa.value = fonts[indexFonte]
-
     if (indexCor < colors.length - 1) indexCor++
     else indexCor = 0
-
-    // if (indexFonte < fonts.length - 1) indexFonte++
-    // else indexFonte = 0
-
 }, 750);
 
 onMounted(() => {
@@ -265,15 +254,8 @@ onBeforeUnmount(() => {
 });
 
 const handleScroll = () => {
-    isScrolling.value = window.scrollY > 100;
-    // clearTimeout(isScrolling.value);
-
-    // isScrolling.value = setTimeout(() => {
-    //     isScrolling.value = false;
-    // }, 100);
+    isScrolling.value = window.scrollY > 100;   
 }
-
-
 </script>
 <style scoped>
 ul li::after {

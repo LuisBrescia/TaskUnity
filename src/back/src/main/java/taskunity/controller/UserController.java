@@ -30,12 +30,10 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        User usuarioComAqueleNomeJaExiste = userRepository.findByName(user.getName());
-
-        if (usuarioComAqueleNomeJaExiste == null) {
+        if (userRepository.findByName(user.getName()) != null) {
+            System.out.println("Já existe um usuário com o nome de:  " + user.getName());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
-
         User savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

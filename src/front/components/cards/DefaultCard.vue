@@ -1,6 +1,6 @@
 <template>
 
-    <div class="border p-5 card rounded-3xl">
+    <div class="border card rounded-3xl p-12">
         <slot />
     </div>
 </template>
@@ -19,6 +19,5 @@
     background: rgba(255, 255, 255, 0.05);
     transform: translateY(-0.5rem);
 }
-
 
 </style>

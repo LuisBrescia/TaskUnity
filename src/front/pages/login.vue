@@ -1,7 +1,7 @@
 <template>
-  <main class="flex justify-center items-center">
-    <DefaultCard class="overflow-hidden max-w-xl relative w-11/12 h-full">
-      <section class="flex flex-col p-8 h-full">
+  <main class="flex justify-center items-center overflow-hidden">
+    <div class="relative max-w-xl w-11/12 h-full flex flex-col my-5">
+      <DefaultCard class="w-full h-full">
         <NuxtLink to="/">
           <header class="flex-1 text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
             <span>TASK</span>
@@ -16,7 +16,7 @@
           </div>
         </article>
         <article class="mt-12" v-else>
-          <div class="text-2xl font-bold">Insira seu usuário e senha!</div>
+          <div class="text-2xl font-bold">Bem vindo de volta!</div>
           <div class="text-lg">
             Ainda não cadastrado? <span @click="changeModo" class="cursor-pointer text-rainbow">Crie uma conta.</span>
           </div>
@@ -27,6 +27,7 @@
           <InputText value="Senha" type="password" v-model="formData.password" />
           <InputText value="Email" type="email" v-model="formData.email"  v-if="modo == 'cadastrar'" />
           <div class="text-sm text-end">
+            <span class="opacity-0">.</span>
             <span class="text-red-500">{{ status }}</span>
           </div>
           <InputText class="opacity-0" disabled="true" v-if="modo != 'cadastrar'" />
@@ -37,20 +38,19 @@
         </WhiteButton>
         <WhiteButton class="w-full" @click="entrar" v-else>
           Entrar
-        </WhiteButton>
-      
-        <div style="filter: brightness(0.75); z-index: -9999;" class="absolute w-full h-full">
-          <RedBlob class="left-3/4 bottom-2/4 animate-ping"/>
-          <RedBlob class="left-3/4 bottom-2/4 animate-spin"/>
-          <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
-          <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
-          <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
-          <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
-          <BlueBlob class="right-3/4 top-2/4 animate-ping"/>
-          <BlueBlob class="right-3/4 top-2/4 animate-spin"/>
-        </div>
-      </section>
-    </DefaultCard>
+        </WhiteButton>  
+      </DefaultCard>
+      <div style="z-index: -9999;" class="absolute w-full h-full">
+        <RedBlob class="left-3/4 bottom-2/4 animate-ping" style="width: 150px;"/>
+        <RedBlob class="left-3/4 bottom-2/4 animate-spin" style="width: 150px;"/>
+        <YellowBlob class="animate-ping" style="top: 65%; left: 60%; width: 150px;" />
+        <YellowBlob class="animate-spin" style="top: 65%; left: 60%; width: 150px;" />
+        <GreenBlob class="animate-ping" style="bottom: 65%; right: 60%; width: 150px;" />
+        <GreenBlob class="animate-spin" style="bottom: 65%; right: 60%; width: 150px;" />
+        <BlueBlob class="right-3/4 top-2/4 animate-ping" style="width: 150px;"/>
+        <BlueBlob class="right-3/4 top-2/4 animate-spin" style="width: 150px;"/>
+      </div>
+    </div>
   </main>
 </template>
 

@@ -25,6 +25,16 @@ public class ProjectController {
         return projectRepository.findAll();
     }
 
+    @GetMapping("/owner/{idOwner}")
+    public List<Project> getProjectsByOwner(@PathVariable Integer idOwner) {
+        return projectRepository.findByOwner(idOwner);
+    }
+
+    @GetMapping("/tools/{toolName}")
+    public List<Project> getProjectByTool(@PathVariable String toolName) {
+        return projectRepository.findByTools(toolName);
+    }
+
     @GetMapping("/{id}")
     public Optional<Project> getProject(@PathVariable Integer id) {
         return projectRepository.findById(id);

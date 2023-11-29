@@ -2,7 +2,6 @@
     <el-row>
         <el-col :span="16" :offset="4">
             <el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">
-
                 <el-tab-pane label="Minhas Tarefas" name="myTasks">
                     <span>Quando tiver tarefas vinculadas a você, elas aparecerão aqui.</span>
                     <DefaultCard>
@@ -17,7 +16,6 @@
                 <el-tab-pane label="Cadidaturas Pendentes" name="pendingTasks">
                     <span>Candidaturas Pendentes</span>
                 </el-tab-pane>
-
             </el-tabs>
         </el-col>
     </el-row>

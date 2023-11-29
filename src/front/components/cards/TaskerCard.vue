@@ -1,5 +1,5 @@
 <template>
-    <article class="border rounded-3xl p-5 text-center shadow">
+    <article class="border rounded p-5 text-center shadow">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
         <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
         <div class="text-2xl font-black tracking-wider">{{ name }}</div>

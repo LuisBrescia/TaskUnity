@@ -1,7 +1,6 @@
 <template>
     <main class="flex gap-5 mt-5">
 
-
         <!-- <div v-for="project in projects" :key="project.id">
             <NuxtLink :to="`/projects/${project.id}`" exact>
                 <CardProject>

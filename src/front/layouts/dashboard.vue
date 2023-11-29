@@ -1,13 +1,6 @@
 <template>
     <main class="flex">
-
-
         <aside class="flex flex-col h-screen p-8 overflow-hidden items-center justify-between sticky top-0">
-
-            <!-- <NuxtLink to="/">
-                <Icon name="iconamoon:3d-light" color="white" size="3rem" class="mb-4"/>
-            </NuxtLink>  -->
-
             <div class="flex flex-col gap-12 items-center">
                 <NuxtLink to="/" exact>
                     <div class="item-dashboard rounded-3xl text-neutral-300">
@@ -29,14 +22,20 @@
                     </div>
                 </NuxtLink>
 
+                <NuxtLink to="/profile" exact>
+                    <div class="item-dashboard rounded-3xl text-neutral-300"
+                        :class="{ 'active': isLinkActive('/profile') }">
+                        <Icon name="material-symbols:person-outline" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
+                    </div>
+                </NuxtLink>
+
                 <NuxtLink to="/create-team" exact>
                     <div class="item-dashboard rounded-3xl text-neutral-300"
                         :class="{ 'active': isLinkActive('/create-team') }">
-
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/marcus.jpg" />
                         </div>
-
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Marcus</span>
                     </div>
                 </NuxtLink>
@@ -47,51 +46,23 @@
                         <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                             <img src="/img/andre.jpg" />
                         </div>
-
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Andre</span>
                     </div>
                 </NuxtLink>
-
             </div>
-
-            <div class="flex flex-col gap-12 items-center">
-                <NuxtLink to="/profile" exact>
-                    <div class="item-dashboard rounded-3xl text-neutral-300 mb-5"
-                        :class="{ 'active': isLinkActive('/profile') }">
-                        <Icon name="material-symbols:person-2-outline" size="1.75rem" class="p-0 m-0" />
-                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
-                    </div>
-                </NuxtLink>
-            </div>
-
-            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%;" />
-            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%;" />
-
-            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
-            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
-
-            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
-            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
-
-            <BlueBlob class="right-3/4 animate-ping" style="top: 20%;" />
-            <BlueBlob class="right-3/4 animate-spin" style="top: 20%;" />
-
         </aside>
 
-        <div class="w-full py-3 px-5 bg-black">
+        <div class="w-full py-3 px-5">
             <div class="flex items-end">
-                
-                <div class="flex-1 my-3 relative mr-5">
+                <!-- <div class="flex-1 my-3 relative mr-5">
                     <hr class="linha-branca w-full rounded-full" />
                     <hr class="linha-colorida w-full rounded-full" />
-                </div>
-
-                <div class="w-fit flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
+                </div> -->
+                <!-- <div class="w-fit flex items-center tracking-tighter font-black text-4xl relative text-neutral-300 font-mono">
                     <span id="titulo-pagina">[{{ paginaAtual }}]</span>
                     <span id="titulo-pagina-branco">[{{ paginaAtual }}]</span>
-                </div>
+                </div> -->
             </div>
-
             <slot />
         </div>
     </main>
@@ -100,16 +71,16 @@
 <style scoped>
 aside {
     color: #fff;
-    backdrop-filter: blur(25px) brightness(0.75);
-    -webkit-backdrop-filter: blur(25px) brightness(0.75);
-    background-color: #000;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     transition: border-color .5s ease;
     border-right: 2px solid #ffffff1a;
-    transition: filter .3s ease-in-out, border-color .3s ease-in-out;
+    transition: all .5s ease, height 0s;
 }
 
 aside:hover {
     border-color: rgba(225, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .item-dashboard span {
@@ -190,23 +161,6 @@ aside:hover {
     position: absolute;
     top: 1px;
     left: -2px;
-}
-
-.linha-colorida {
-    background: linear-gradient(to right,  #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
-    height: 3px;
-    border: none;
-    background-size: 200%;
-    animation: move-background 10s linear infinite;
-}
-
-.linha-branca {
-    height: 1px;
-    width: 100%;
-    border: none;
-    background: #d4d4d4;
-    position: absolute;
-    top: 1px;
 }
 </style>
 

@@ -9,14 +9,14 @@
 
 .card {
     border: 2px solid #ffffff1a;
-    backdrop-filter: blur(50px) brightness(0.75);
-    -webkit-backdrop-filter: blur(50px) brightness(0.75);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     transition: all .5s ease;
 }
 .card:hover {
     border: 2px solid #ffffff3a;
     border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
     transform: translateY(-0.5rem);
 }
 

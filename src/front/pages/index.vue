@@ -65,9 +65,7 @@
         </nav>
 
         <section id="home" class="flex items-center">
-
             <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
-
                 <div class="flex w-full">
                     <article class="flex-1 rounded-3xl text-center shadow-lg p-5 hidden xl:block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
@@ -80,7 +78,7 @@
                     <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-3xl shadow-lg">
                         <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                             Desenvolvimento <br />
-                            <span class="text-gradient bg-gradient-to-r font-mono" :class="gradientColor">
+                            <span class="text-rainbow font-mono">
                                 &lt;re-imaginado/&gt;
                             </span>
                         </h1>
@@ -111,19 +109,6 @@
                 </div>
 
             </div>
-
-            <RedBlob class="left-3/4 animate-ping" style="bottom: 20%" />
-            <RedBlob class="left-3/4 animate-spin" style="bottom: 20%" />
-
-            <YellowBlob class="animate-ping" style="top: 65%; left: 55%;" />
-            <YellowBlob class="animate-spin" style="top: 65%; left: 55%;" />
-
-            <GreenBlob class="animate-ping" style="bottom: 65%; right: 55%;" />
-            <GreenBlob class="animate-spin" style="bottom: 65%; right: 55%;" />
-
-            <BlueBlob class="right-3/4 animate-ping" style="top: 20%" />
-            <BlueBlob class="right-3/4 animate-spin" style="top: 20%" />
-
         </section>
 
         <section id="guia" class="flex items-start">
@@ -145,8 +130,7 @@
 
         <section id="equipe">
 
-            <h1 class="mb-12 text-center text-5xl md:text-7xl font-black text-gradient bg-gradient-to-r font-mono tracking-tighter"
-                :class="gradientColor">
+            <h1 class="mb-12 mx-auto text-5xl md:text-7xl font-black text-rainbow font-mono tracking-tighter w-fit">
                 &lt; Equipe /&gt;
             </h1>
 
@@ -205,9 +189,10 @@
             <div class="container mx-auto flex justify-between items-center mb-5">
 
                 <div class="text-xl font-sans">
-                    <Icon name="octicon:logo-github-16" color="white" size="4rem" class="cursor-pointer opacity-80 hover:opacity-100" />
+                    <Icon name="octicon:logo-github-16" color="white" size="4rem"
+                        class="cursor-pointer opacity-80 hover:opacity-100" />
                 </div>
-                
+
                 <div class="opacity-80">
                     <span class="text-base font-sans">Luís Brescia &nbsp;</span>
                     <Icon name="mdi:heart" color="red" size="1rem" />
@@ -220,30 +205,18 @@
         </footer>
 
         <!-- * Efeito de escurecer a tela -->
-        <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-            class="escurecer fixed inset-0 bg-black opacity-80 z-10"></div>
+        <div 
+            @click="menuAberto = !menuAberto" 
+            :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
+            class="escurecer fixed inset-0 bg-black opacity-80 z-10" 
+        />
     </main>
 </template>
 <script setup>
 
 const menuAberto = ref(false);
 const isScrolling = ref(false);
-const gradientColor = ref("from-red-400 via-rose-500 to-pink-400");
-const fonteAlternativa = ref("font-sans");
 let indexCor = 0, indexFonte = 0;
-
-const colors = [
-    "from-indigo-400 via-sky-500 to-cyan-400",
-    "from-emerald-400 via-green-500 to-lime-400",
-    "from-yellow-400 via-amber-500 to-orange-400",
-    "from-red-400 via-rose-500 to-pink-400"
-]
-
-setInterval(() => {
-    gradientColor.value = colors[indexCor]
-    if (indexCor < colors.length - 1) indexCor++
-    else indexCor = 0
-}, 750);
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
@@ -254,7 +227,7 @@ onBeforeUnmount(() => {
 });
 
 const handleScroll = () => {
-    isScrolling.value = window.scrollY > 100;   
+    isScrolling.value = window.scrollY > 100;
 }
 </script>
 <style scoped>
@@ -273,9 +246,8 @@ ul li:hover::after {
 }
 
 .nav-blur {
-    backdrop-filter: blur(25px) brightness(0.75);
-    -webkit-backdrop-filter: blur(25px) brightness(0.75);
-    border-bottom: 2px solid #ffffff1a;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 }
 
 #menuMobile {
@@ -322,8 +294,8 @@ header {
 
 #equipe article {
     min-width: 364px;
-    backdrop-filter: blur(50px) brightness(0.75) !important;
-    -webkit-backdrop-filter: blur(50px) brightness(0.75) !important;
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(50px) !important;
     background-color: rgba(0, 0, 0, .2);
 }
 
@@ -337,8 +309,8 @@ article {
 
 header,
 article {
-    backdrop-filter: blur(50px) brightness(0.75);
-    -webkit-backdrop-filter: blur(50px) brightness(0.75);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     transition: all .5s ease;
     border-top: 2px solid #ffffff1a;
     border-bottom: 2px solid #ffffff1a;
@@ -350,6 +322,7 @@ article:hover {
     background: rgba(255, 255, 255, 0.02);
     transform: translateY(-0.5rem);
 }
+
 .escurecer.block {
     animation: fade 1s ease;
 }
@@ -358,6 +331,7 @@ article:hover {
     from {
         opacity: 0;
     }
+
     to {
         opacity: .8;
     }
@@ -414,5 +388,4 @@ article:hover {
     to {
         transform: translateX(calc(-50% - 0.625rem));
     }
-}
-</style>
+}</style>

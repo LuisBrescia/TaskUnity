@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     // background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626);
-    background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15));
+    // background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15));
+    background: #030303;
     color: #fafafa;
     font-size: x-large;
     /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f0f0f0' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
@@ -36,7 +37,7 @@ body {
     animation: move-background 3s linear infinite;
 }  
 
-.text-rainbow:hover {
+.text-rainbow.link:hover {
     border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
     border-image-slice: 1;
     border-bottom: 1px solid transparent;
@@ -45,6 +46,23 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+.linha-colorida {
+    background: linear-gradient(to right,  #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
+    height: 3px;
+    border: none;
+    background-size: 200%;
+    animation: move-background 10s linear infinite;
+}
+
+.linha-branca {
+    height: 1px;
+    width: 100%;
+    border: none;
+    background: #d4d4d4;
+    position: absolute;
+    top: 1px;
 }
 
 /* scroll */

@@ -11,7 +11,9 @@
           required 
         >
         <hr class="linha-horizontal">
-        <label :for="value" class="form__label">{{ value  }}</label>
+        <label :for="value" class="form__label">
+          {{ value  }}
+        </label>
     </div>
 </template>
 
@@ -119,7 +121,8 @@
 .form__label {
   position: absolute;
   top: -1px;
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   pointer-events: none;
   background: linear-gradient(90deg, #eee 80%, #bbb5 90%, #eee);

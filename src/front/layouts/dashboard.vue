@@ -26,20 +26,20 @@
             <NuxtLink to="/projects" exact>
                 <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">
                     <Icon name="material-symbols:ad-group-outline-rounded" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Projetos</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Projetos</span>
                 </div>
             </NuxtLink>
             <NuxtLink to="/tasks" exact>
                 <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
                     <Icon name="tdesign:task" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Tarefas</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Tarefas</span>
                 </div>
             </NuxtLink>
 
             <NuxtLink to="/profile" exact>
                 <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/profile') }">
                     <Icon name="material-symbols:person-outline" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Perfil</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Perfil</span>
                 </div>
             </NuxtLink>
 
@@ -49,7 +49,7 @@
                     <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                         <img src="/img/marcus.jpg" />
                     </div>
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Marcus</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Marcus</span>
                 </div>
             </NuxtLink>
             <NuxtLink to="/contratar-freelancer" exact>
@@ -58,14 +58,14 @@
                     <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
                         <img src="/img/andre.jpg" />
                     </div>
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Andre</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Andre</span>
                 </div>
             </NuxtLink>
 
             <NuxtLink to="/" exact>
                 <div class="item-dashboard text-neutral-300">
                     <Icon name="material-symbols:logout" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Sair</span>
+                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Sair</span>
                 </div>
             </NuxtLink>
         </aside>

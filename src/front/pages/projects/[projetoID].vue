@@ -91,9 +91,8 @@ import { useRoute } from 'vue-router';
 const projeto = ref(null);
 
 onMounted(async () => {
-    const { params } = useRoute(); // useRoute retorna a instância do Vue Router, não é uma função
+    const { params } = useRoute();
 
-    // Agora, você pode acessar o parâmetro projectId diretamente
     const projectId = params.projetoID;
 
     try {
@@ -104,6 +103,25 @@ onMounted(async () => {
         console.error('Erro ao obter dados do projeto:', error);
     }
 });
+
+const deleteProject = async (projectId) => {
+    try {
+        const response = await fetch(`http://localhost:8080/projects/${projectId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            console.log('Projeto excluído com sucesso!');
+        } else {
+            console.error('Erro ao excluir o projeto:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro ao excluir o projeto:', error);
+    }
+};
 
 definePageMeta({
     layout: 'dashboard'

@@ -1,33 +1,41 @@
-<template>
-    <main>
-        <div class="teams">
-            <div name="teams[]" v-for="team in teams">
-            <TeamCard :name="team.name" :description="team.description" />
-        </div>
-        </div>
-        <NuxtLink to="/teams/create-team" style="padding-top: 10px;">
-            <WhiteButton>Criar Equipe</WhiteButton>
-        </NuxtLink>
-    </main>
-</template>
-
 <script setup>
-const activeName = ref('myTeams');
+const router = useRouter();
 
 definePageMeta({
     layout: 'dashboard'
 })
 
-const teams = ref({})
+window.onload = loadTeams()
+var teams = ref([])
 
-apiFetch('/teams').then(res => {
-    teams.value = res.data
-    console.log(res)
-    }).catch(err => {
-        console.log(err)
-    })
-    
+function loadTeams() {
+    console.log("Load teams")
+    apiFetch('/teams')
+        .then(res => {
+            teams.value = res.data
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+}
+
+function openTeam() {
+    router.push(`/teams/${id}`);
+}
 </script>
+
+<template>
+    <main>
+        <div class="teams">
+            <div name="teams[]" v-for="team in teams">
+                <TeamCard :name="team.name" :members="team.members" @click="openTeam(team.id)"></TeamCard>
+            </div>
+        </div>
+        <NuxtLink to="/teams/create-team">
+            <WhiteButton>Criar Equipe</WhiteButton>
+        </NuxtLink>
+    </main>
+</template>
 
 <style scoped>
 .teams {

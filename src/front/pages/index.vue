@@ -1,6 +1,5 @@
 <template>
     <main class="overflow-hidden">
-
         <nav class="fixed top-0 z-30 w-full" :class="{ 'nav-blur': isScrolling }">
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
@@ -67,7 +66,7 @@
         <section id="home" class="flex items-center">
             <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
                 <div class="flex w-full">
-                    <article class="flex-1 rounded-3xl text-center shadow-lg p-5 hidden xl:block">
+                    <article class="flex-1 rounded text-center shadow-lg p-5 hidden xl:block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
@@ -75,7 +74,7 @@
                 </div>
 
                 <div class="flex w-full">
-                    <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-3xl shadow-lg">
+                    <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded shadow-lg">
                         <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                             Desenvolvimento <br />
                             <span class="text-rainbow font-mono">
@@ -95,13 +94,13 @@
                 </div>
 
                 <div class="flex w-full sm:gap-5 flex-wrap">
-                    <article class="flex-1 sm:rounded-3xl text-center shadow-lg p-5 xl:hidden block">
+                    <article class="flex-1 sm:rounded text-center shadow-lg p-5 xl:hidden block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
                     </article>
 
-                    <article class="flex-1 sm:rounded-3xl text-center shadow-lg p-5">
+                    <article class="flex-1 sm:rounded text-center shadow-lg p-5">
                         <Icon name="cryptocurrency-color:chsb" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
@@ -113,7 +112,7 @@
 
         <section id="guia" class="flex items-start">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-3xl shadow-lg">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
@@ -296,12 +295,9 @@ header {
     min-width: 364px;
     backdrop-filter: blur(50px) !important;
     -webkit-backdrop-filter: blur(50px) !important;
-    background-color: rgba(0, 0, 0, .2);
-}
-
-#equipe article:hover {
-    background-color: rgba(255, 255, 255, .01);
-}
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+} 
 
 article {
     min-width: 10rem;
@@ -316,10 +312,9 @@ article {
     border-bottom: 2px solid #ffffff1a;
 }
 
-header:hover,
-article:hover {
+header:hover, article:hover {
     border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-0.5rem);
 }
 

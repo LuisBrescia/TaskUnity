@@ -1,7 +1,7 @@
 <template>
     <div class="flex mt-12 gap-12">
 
-        <DefaultCard v-if="projeto">
+        <DefaultCard v-if="projeto" class="p-5">
 
             <header class="text-3xl font-semibold tracking-tighter">Dados do projeto</header>
 
@@ -42,10 +42,8 @@
 
         </DefaultCard>
 
-        <DefaultCard>
-
+        <DefaultCard class="p-5">
             <header class="text-3xl font-semibold tracking-tighter">Tarefas</header>
-
             <main class="flex flex-col">
                 <ul class="my-12">
                     <li class="flex justify-between items-center mb-5 gap-8">
@@ -99,43 +97,49 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-
 const projeto = ref(null);
+const route = useRoute();
+const router = useRouter(); 
+const projectId = route.params.projetoID;
 
-onMounted(async () => {
-    const { params } = useRoute();
+try {
+    const response = await fetch(`http://localhost:8080/projects/${projectId}`);
+    const data = await response.json();
+    projeto.value = data;
+} catch (error) {
+    console.error('Erro ao obter dados do projeto:', error);
+}
 
-    const projectId = params.projetoID;
 
-    try {
-        const response = await fetch(`http://localhost:8080/projects/${projectId}`);
-        const data = await response.json();
-        projeto.value = data;
-    } catch (error) {
-        console.error('Erro ao obter dados do projeto:', error);
-    }
-});
+// const deleteProject = async (projectId) => {
+//     try {
+//         const response = await fetch(`http://localhost:8080/projects/${projectId}`, {
+//             method: 'DELETE',
+//             headers: {
+//              'Content-Type': 'application/json',
+//             },
+//         });
 
-const deleteProject = async (projectId) => {
-    try {
-        const response = await fetch(`http://localhost:8080/projects/${projectId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+//         if (response.ok) {
+//             console.log('Projeto excluído com sucesso!');
+//         } else {
+//             console.error('Erro ao excluir o projeto:', response.statusText);
+//         }
+//     } catch (error) {
+//         console.error('Erro ao excluir o projeto:', error);
+//     }
+// };
 
-        if (response.ok) {
-            console.log('Projeto excluído com sucesso!');
-        } else {
-            console.error('Erro ao excluir o projeto:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Erro ao excluir o projeto:', error);
-    }
-};
+function deleteProject(projectId) {
+    apiFetch(`/projects/${projectId}`, {
+        method: 'DELETE'
+    }).then(res => {
+        console.log("Response:", res);
+        router.push('/projects');
+    }).catch(err => {
+        console.log(err)
+    })
+}
 
 const saveEditedProject = async () => {
     try {

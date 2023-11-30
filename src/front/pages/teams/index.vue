@@ -1,5 +1,5 @@
 <script setup>
-const activeName = ref('myTeams');
+const router = useRouter();
 
 definePageMeta({
     layout: 'dashboard'
@@ -8,26 +8,30 @@ definePageMeta({
 window.onload = loadTeams()
 var teams = ref([])
 
-function loadTeams(){
+function loadTeams() {
     console.log("Load teams")
     apiFetch('/teams')
-    .then(res => {
-        teams.value = res.data
-        console.log(res)
-    }).catch(err => {
-        console.log(err)
-    })
+        .then(res => {
+            teams.value = res.data
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+}
+
+function openTeam() {
+    router.push(`/teams/${id}`);
 }
 </script>
 
 <template>
-    <main class="">
+    <main>
         <div class="teams">
             <div name="teams[]" v-for="team in teams">
-            <TeamCard :name="team.name" :description="team.description"></TeamCard>
+                <TeamCard :name="team.name" :members="team.members" @click="openTeam(team.id)"></TeamCard>
+            </div>
         </div>
-        </div>
-        <NuxtLink to="/teams/create-team" style="padding-top: 10px;">
+        <NuxtLink to="/teams/create-team">
             <WhiteButton>Criar Equipe</WhiteButton>
         </NuxtLink>
     </main>

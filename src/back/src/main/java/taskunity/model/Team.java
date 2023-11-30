@@ -1,13 +1,15 @@
 package taskunity.model;
 
 import java.util.List;
+
+import jakarta.persistence.ElementCollection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,8 +21,9 @@ public class Team {
 
     private String name;
     private String description;
+    private Integer owner;
 
-    @OneToMany
+    @ElementCollection
     private List<User> members;
 
     public Team() {
@@ -41,12 +44,20 @@ public class Team {
         return description;
     }
 
+    public Integer getOwner() {
+        return owner;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setOwner(Integer owner) {
+        this.owner = owner;
     }
 
     public List<User> getMembers() {

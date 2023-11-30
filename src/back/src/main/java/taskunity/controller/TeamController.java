@@ -28,6 +28,12 @@ public class TeamController {
         return teamRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Team> getUser(@PathVariable Integer id) {
+        System.out.println("Getting team by id");
+        return teamRepository.findById(id);
+    }
+
     // @GetMapping("")
     // public List<Team> getAllTeamsFromUserId(Integer id){
     // System.out.println("Getting all teams from user: " + id);

@@ -1,3 +1,35 @@
+<template>
+    <main class="flex">
+        <form action="/projects" class="form">
+            <FormInput name="nome">Nome da Equipe</FormInput>
+            <TextAreaInput name="descricao">Descrição</TextAreaInput>
+            <div>
+                <label id="membersLabel" class="label">Membros (0)</label>
+                <div class="members">
+                    <div name="membros[]" v-for="member in members">
+                        <TaskerFormCard :name="member.name" :role="member.role"
+                            :removeClick="() => { removeMember(member); changeMembersLabel() }">
+                        </TaskerFormCard>
+                    </div>
+                    <WhiteButton @click="addMember(); changeMembersLabel()" type="button" style="width: 250px;">
+                        <Icon name="tdesign:add" />
+                    </WhiteButton>
+                </div>
+            </div>
+            <div>
+                <NuxtLink :to="isMembersEmpty() ? null : { path: '/contratar-freelancer', query: { members: members.length } }">
+                    <BlueButton type="button" @click="isMembersEmpty() ? alertSearchMembers() : null">
+                        Buscar Taskers
+                    </BlueButton>
+                </NuxtLink>
+            </div>
+            <div>
+                <WhiteButton @click="createTeam">Criar Equipe</WhiteButton>
+            </div>
+        </form>
+    </main>
+</template>
+
 <script setup>
 definePageMeta({
     layout: 'dashboard'
@@ -52,39 +84,7 @@ function createTeam() {
         })
 
 }
-
 </script>
-
-<template>
-    <main class="flex">
-        <form action="/projects" class="form">
-            <FormInput name="nome">Nome da Equipe</FormInput>
-            <TextAreaInput name="descricao">Descrição</TextAreaInput>
-            <div>
-                <label id="membersLabel" class="label">Membros (0)</label>
-                <div class="members">
-                    <div name="membros[]" v-for="member in members">
-                        <TaskerFormCard :name="member.name" :role="member.role"
-                            :removeClick="() => { removeMember(member); changeMembersLabel() }">
-                        </TaskerFormCard>
-                    </div>
-                    <WhiteButton @click="addMember(); changeMembersLabel()" type="button" style="width: 250px;">
-                        <Icon name="tdesign:add" />
-                    </WhiteButton>
-                </div>
-            </div>
-            <div>
-                <NuxtLink :to="isMembersEmpty() ? null : { path: '/contratar-freelancer', query: { members: members.length } }">
-                    <BlueButton type="button" @click="isMembersEmpty() ? alertSearchMembers() : null">Buscar Taskers
-                    </BlueButton>
-                </NuxtLink>
-            </div>
-            <div>
-                <WhiteButton @click="createTeam">Criar Equipe</WhiteButton>
-            </div>
-        </form>
-    </main>
-</template>
 
 <style scoped>
 .form {

@@ -2,6 +2,8 @@ package taskunity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import taskunity.repository.UserRepository;
 import taskunity.model.User;
@@ -16,18 +18,18 @@ public class AuthController {
     private UserRepository userRepository;
 
     @PostMapping
-    public String authenticate(@RequestBody User BodyUser) {
+    public ResponseEntity<String> authenticate(@RequestBody User BodyUser) {
 
         User user = userRepository.findByName(BodyUser.getName());
 
         if ( user == null) {
-            return "Usuário não encontrado";
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
         }
 
         if (user.getPassword().equals(BodyUser.getPassword())) {
-            return "token";
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user.getId().toString());
         } else {
-            return "Senha incorreta";
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha incorreta");
         }
     }
 }

@@ -21,6 +21,10 @@
                     <div class="text-xl font-normal max-w-md">{{ projeto.description }}</div>
                 </section>
 
+                <BlueButton class="rounded-xl" v-if="!editing" @click="saveEditedProject(projeto.id)">
+                    <Icon name="material-symbols:edit" size="1.25rem" />
+                </BlueButton>
+
                 <RedButton class="rounded-xl" @click="deleteProject(projeto.id)">
                     <Icon name="material-symbols:delete" size="1.25rem" />
                 </RedButton>
@@ -120,6 +124,31 @@ const deleteProject = async (projectId) => {
         }
     } catch (error) {
         console.error('Erro ao excluir o projeto:', error);
+    }
+};
+
+const saveEditedProject = async () => {
+    try {
+        const response = await fetch(`http://localhost:8080/projects/${projeto.value.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: 'Novo Nome',
+                description: 'Nova Descrição',
+                tools: 'Nova ferramenta'
+            }),
+        });
+
+        if (response.ok) {
+            console.log('Projeto editado com sucesso!');
+            editing.value = false;
+        } else {
+            console.error('Erro ao editar o projeto:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro ao editar o projeto:', error);
     }
 };
 

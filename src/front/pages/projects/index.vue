@@ -16,13 +16,14 @@
 
         <section class="flex gap-5 flex-wrap w-full">
             <div v-for="project in projects" :key="project.id" class="flex-1">
-                <DefaultCard class="cursor-pointer overflow-auto w-full" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project.id)">
+                <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project.id)">
                     <header>
                         <h2 class="text-4xl font-semibold tracking-tighter">{{ project.name }} ({{ project.id }})</h2>                       
+                        <hr class="my-2 linha-colorida">
                         <h4 class="text-2xl">Criação: {{ project.startDate }}</h4>
                         <h4 class="text-2xl">Owner: {{ project.owner }}</h4>
                     </header>
-                    <hr class="my-2 linha-colorida">
+                    
                     <section>
                         <h4 class="font-black uppercase">Feramentas:</h4>
                         <ul v-for="(tool, idx) in project.tools">
@@ -33,7 +34,7 @@
                 </DefaultCard>
             </div>
             <div class="flex-1">
-                <DefaultCard class="cursor-pointer relative" style="min-width: 360px; height: 360px; border-style: dashed;" @click="createProject">
+                <DefaultCard class="cursor-pointer relative p-8" style="min-width: 360px; height: 360px; border-style: dashed;" @click="createProject">
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <Icon name="carbon:add" size="5rem" />
                     </div>

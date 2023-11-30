@@ -34,6 +34,11 @@ public class UserController {
             System.out.println("Já existe um usuário com o nome de:  " + user.getName());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
+
+        if (user.getName() == null || user.getPassword() == null || user.getEmail() == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
         User savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

@@ -31,9 +31,10 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxtjs/tailwindcss',
+        '@pinia/nuxt',
         'nuxt-icon',
         '@element-plus/nuxt',
-        '@nuxtjs/color-mode',
+        '@nuxtjs/color-mode'
     ],
 
     elementPlus: {

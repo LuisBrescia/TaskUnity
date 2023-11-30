@@ -1,7 +1,7 @@
 <template>
   <main class="overflow-hidden flex justify-center items-center">
     <div class="relative max-w-xl w-11/12">
-      <DefaultCard>
+      <DefaultCard class="p-12">
         <NuxtLink to="/">
           <header class="text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
             <span>TASK</span>
@@ -34,7 +34,7 @@
           />
           <div class="text-sm text-end">
             <span class="opacity-0">.</span>
-            <span class="text-red-500">{{ status }}</span>
+            <span :class="{ 'text-green-500': success, 'text-red-500': !success  }">{{ status }}</span>
           </div>
         </div>
 
@@ -60,19 +60,37 @@
 <script setup>
 
 const route = useRoute();
+const router = useRouter();
 const modo = ref(route.query.modo);
 
 const status = ref('')
+const success = ref(false)
 
 const formData = ref({
-  name: null,
-  password: null,
-  email: null
+  name: '',
+  password: '',
+  email: ''
 })
 
-const router = useRouter();
-
 function criarConta() {
+
+  success.value = false
+
+  if (formData.value.name.length < 4 ) {
+    status.value = 'Nome deve conter ao menos 4 caracteres'
+    return
+  } 
+
+  if (formData.value.password.length < 8) {
+    status.value = 'Senha deve conter ao menos 8 caracteres'
+    return
+  }
+
+  if (formData.value.email.length < 10) {
+    status.value = 'Email inválido'
+    return
+  }
+
   apiFetch('/users', {
     method: 'POST',
     body: {
@@ -82,21 +100,21 @@ function criarConta() {
     }
   })
   .then((res) => {
-    console.log(res)
-
-    if (res.status == 200) {
-      router.push('/profile');
-    } else {
-      status.value = res.data
-    }
-
+    success.value = true 
+    if (res.status == 201) {
+      status.value = 'Conta criada com sucesso'
+    } 
   }).catch((err) => {
-    console.log(err)
+    success.value = false
+    if (err.status == 409) {
+      status.value = 'Já existe um usuário com esse nome'
+    } else if (err.status == 400) {
+      status.value = 'Preencha todos os campos'
+    }
   })
 }
 
 function entrar() {
-  console.log('Enviando', formData.value)
   apiFetch('/auth', {
     method: 'POST',
     body: {
@@ -104,14 +122,21 @@ function entrar() {
       password: formData.value.password
     }
   }).then((res) => {
-    console.log(res)
-    if (res.data == 'token') {
-      router.push('/profile');
+    success.value = true
+    if (res.status == 202) {
+      router.push('/projects');
     } else {
       status.value = res.data
     }
   }).catch((err) => {
-    console.log(err)
+    success.value = false
+    if (err.status == 401) {
+      status.value = 'Senha incorreta'
+    } else if (err.status == 404) {
+      status.value = 'Usuário não encontrado'
+    } else {
+      status.value = 'Erro desconhecido'
+    }
   })
 }
 

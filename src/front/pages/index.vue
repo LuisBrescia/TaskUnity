@@ -299,10 +299,6 @@ header {
     animation: move-background 3s linear infinite;
 } 
 
-/* #equipe article:nth-child(even) {
-    background: rgb(38, 38, 135)
-} */
-
 article {
     min-width: 10rem;
 }

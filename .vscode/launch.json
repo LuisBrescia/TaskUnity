@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TaskunityApplication<taskunity>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "taskunity.TaskunityApplication",
+            "projectName": "taskunity",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

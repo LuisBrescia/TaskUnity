@@ -10,7 +10,10 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    @Lob
     private String description;
+
     private String tools;
     private String startDate;
     private Integer owner;

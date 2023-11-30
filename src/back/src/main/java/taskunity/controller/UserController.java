@@ -63,5 +63,10 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User com ID " + id + " não encontrado.");
         }
     }
+
+    @GetMapping("/Function/{function}")
+    public List<User> getUserFunction(@PathVariable String function) {
+        return userRepository.findByFunction(function);
+    }
 }
 

@@ -29,7 +29,7 @@
                             <li>{{ idx + 1 }} - {{ tool }}</li>
                         </ul>
                     </section>
-                    <p class="text-base">{{ project.description }}</p>
+                    <!--<p class="text-base">{{ project.description }}</p>-->
                 </DefaultCard>
             </div>
             <div class="flex-1">

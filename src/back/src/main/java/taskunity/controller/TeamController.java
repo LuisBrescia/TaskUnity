@@ -1,6 +1,10 @@
 package taskunity.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,11 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import taskunity.model.Team;
+import taskunity.model.User;
 import taskunity.repository.TeamRepository;
 
 @RestController
 @RequestMapping("/teams")
 public class TeamController {
+
     @Autowired
     private TeamRepository teamRepository;
 
@@ -53,5 +59,35 @@ public class TeamController {
                     teamRepository.deleteById(id);
                     return ResponseEntity.ok("Time excluído com sucesso!");
                 }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Time com id " + id + " não encontrado."));
+    }
+
+    @GetMapping("/{teamId}/memberNames")
+    public ResponseEntity<List<String>> getMemberNamesByTeamId(@PathVariable Integer teamId) {
+        Optional<Team> optionalTeam = teamRepository.findById(teamId);
+
+        if (optionalTeam.isPresent()) {
+            Team team = optionalTeam.get();
+            List<String> memberNames = team.getMemberNames();
+            return ResponseEntity.ok(memberNames);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+        }
+    }
+
+    @PostMapping("/{teamId}/addMember")
+    public ResponseEntity<String> addMemberToTeam(
+            @PathVariable Integer teamId,
+            @RequestBody User user
+    ) {
+        Optional<Team> optionalTeam = teamRepository.findById(teamId);
+
+        if (optionalTeam.isPresent()) {
+            Team team = optionalTeam.get();
+            team.getMembers().add(user);
+
+            return ResponseEntity.ok("Member added to the team successfully on team : " + team.getName() + " with : "+ team.getMemberNames());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team " + teamId + " not found, mr: " + user.getName());
+        }
     }
 }

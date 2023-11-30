@@ -41,9 +41,7 @@
                 <NuxtLink to="/contratar-freelancer" exact>
                     <div class="item-dashboard rounded-3xl text-neutral-300"
                         :class="{ 'active': isLinkActive('/contratar-freelancer') }">
-                        <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
-                            <img src="/img/andre.jpg" />
-                        </div>
+                        <Icon name="material-symbols:person-outline" size="1.75rem" />
                         <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Andre</span>
                     </div>
                 </NuxtLink>

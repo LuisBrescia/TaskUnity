@@ -43,15 +43,13 @@
                 </div>
             </NuxtLink>
 
-            <NuxtLink to="/create-team" exact>
-                <div class="item-dashboard text-neutral-300"
-                    :class="{ 'active': isLinkActive('/create-team') }">
-                    <div class="rounded-full overflow-hidden" style="width: 1.75rem; aspect-ratio: 1/1;">
-                        <img src="/img/marcus.jpg" />
-                    </div>
-                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Marcus</span>
+            <NuxtLink to="/teams" exact>
+                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/teams') }">
+                    <Icon name="fluent:people-team-16-regular" size="1.75rem" />
+                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Equipes</span>
                 </div>
             </NuxtLink>
+
             <NuxtLink to="/contratar-freelancer" exact>
                 <div class="item-dashboard text-neutral-300"
                     :class="{ 'active': isLinkActive('/contratar-freelancer') }">

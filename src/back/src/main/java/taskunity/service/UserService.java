@@ -31,4 +31,9 @@ public class UserService {
         // > Lógica para excluir o usuário com o ID especificado
         return "Usuário com ID " + userId + " excluído com sucesso";
     }
+
+    public String getUserFunction(String function) {
+        // > Lógica para buscar usuário com função específicas
+        return "Usuário exerce a função de: "+ function;
+    }
 }

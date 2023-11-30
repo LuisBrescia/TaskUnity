@@ -12,6 +12,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String function;
 
     public User() { 
     }
@@ -52,4 +53,13 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setUserFunction(String function){
+        this.function = function;
+    }
+
+    public String getUserFunction(){
+        return this.function;
+    }
+
 }

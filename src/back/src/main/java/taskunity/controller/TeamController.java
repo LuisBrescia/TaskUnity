@@ -1,6 +1,7 @@
 package taskunity.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,12 @@ public class TeamController {
     public List<Team> findAll() {
         System.out.println("Getting all teams");
         return teamRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Team> getUser(@PathVariable Integer id) {
+        System.out.println("Getting team by id");
+        return teamRepository.findById(id);
     }
 
     // @GetMapping("")

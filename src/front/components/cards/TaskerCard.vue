@@ -1,11 +1,15 @@
 <template>
-    <article class="border rounded p-5 text-center shadow">
+    <article class="border rounded p-5 text-center shadow overflow-hidden">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
         <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
         <div class="text-2xl font-black tracking-wider">{{ name }}</div>
         <div class="text-base text-start mt-3 max-w-xs">
             <slot/>
         </div>
+        <!-- <RedBlob class="animate-ping left-3/4" style="top: 75%;" />
+        <YellowBlob class="animate-ping left-3/4" style="top: 50%;" />
+        <BlueBlob class="animate-ping right-3/4" style="top: 25%;" />
+        <GreenBlob class="animate-ping right-3/4" style="top: 0%;" /> -->
     </article>
 </template>
 
@@ -20,3 +24,13 @@ const props = defineProps({
 const filename = ref(`/img/${props.img}.jpg`); 
 
 </script>
+
+<style scoped>
+
+    article:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.02);
+        transform: translateY(-0.5rem);
+    }
+
+</style>

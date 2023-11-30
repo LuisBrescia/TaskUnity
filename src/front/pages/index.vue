@@ -295,12 +295,13 @@ header {
     min-width: 364px;
     backdrop-filter: blur(50px) !important;
     -webkit-backdrop-filter: blur(50px) !important;
-    background-color: rgba(0, 0, 0, .2);
-}
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+} 
 
-#equipe article:hover {
-    background-color: rgba(255, 255, 255, .01);
-}
+/* #equipe article:nth-child(even) {
+    background: rgb(38, 38, 135)
+} */
 
 article {
     min-width: 10rem;
@@ -315,10 +316,9 @@ article {
     border-bottom: 2px solid #ffffff1a;
 }
 
-header:hover,
-article:hover {
+header:hover, article:hover {
     border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-0.5rem);
 }
 

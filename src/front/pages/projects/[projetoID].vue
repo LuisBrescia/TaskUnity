@@ -21,9 +21,19 @@
                     <div class="text-xl font-normal max-w-md">{{ projeto.description }}</div>
                 </section>
 
-                <BlueButton class="rounded-xl" v-if="!editing" @click="saveEditedProject(projeto.id)">
+                <BlueButton v-if="!editing" class="rounded-xl" @click="editProject">
                     <Icon name="material-symbols:edit" size="1.25rem" />
                 </BlueButton>
+
+                <form v-if="editing" @submit.prevent="saveEditedProject">
+                    <!-- Adicionar campos de formulário para editar os dados do projeto -->
+                    <BlueButton type="submit" class="rounded-xl">
+                        <Icon name="material-symbols:done" size="1.25rem" />
+                    </BlueButton>
+                    <WhiteButton class="ml-2" @click="cancelEdit">
+                        <Icon name="material-symbols:clear" size="1.25rem" />
+                    </WhiteButton>
+                </form>
 
                 <RedButton class="rounded-xl" @click="deleteProject(projeto.id)">
                     <Icon name="material-symbols:delete" size="1.25rem" />

@@ -53,11 +53,13 @@ const handleSubmit = async () => {
     const name = document.getElementById('name').value;
     const description = document.getElementById('textarea').value;
     const tools = document.getElementById('tools').value;
+    const owner = 1; //temporariamente!!!
 
     const data = {
         name,
         description,
         tools,
+        owner
     };
 
     try {

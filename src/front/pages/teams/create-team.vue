@@ -17,18 +17,41 @@ function changeMembersLabel() {
     document.getElementById("membersLabel").innerHTML = `Membros (${members.value.length})`
 }
 
-function isMembersEmpty(){
-    if(members.value.length > 0){
+function isMembersEmpty() {
+    if (members.value.length > 0) {
         return false
     }
     return true
 }
 
-function alertSearchMembers(){
+function alertSearchMembers() {
     alert("Adicione ao menos um membro.")
 }
 
-const disabled = true
+function createTeam() {
+    console.log(document.getElementById('nome').value)
+    apiFetch('/teams', {
+        method: 'POST',
+        body: {
+            name: document.getElementById('nome').value,
+            description: document.getElementById('descricao').value,
+            members: members.value
+        }
+    })
+        .then((res) => {
+            console.log(res)
+
+            if (res.status == 200) {
+                router.push('/profile');
+            } else {
+                status.value = res.data
+            }
+
+        }).catch((err) => {
+            console.log(err)
+        })
+
+}
 
 </script>
 
@@ -51,12 +74,13 @@ const disabled = true
                 </div>
             </div>
             <div>
-                <NuxtLink :to="isMembersEmpty() ? null : {path: 'contratar-freelancer', query: {members: members.length}}">
-                    <BlueButton type="button" @click="isMembersEmpty() ? alertSearchMembers() : null">Buscar Taskers</BlueButton>
+                <NuxtLink :to="isMembersEmpty() ? null : { path: '/contratar-freelancer', query: { members: members.length } }">
+                    <BlueButton type="button" @click="isMembersEmpty() ? alertSearchMembers() : null">Buscar Taskers
+                    </BlueButton>
                 </NuxtLink>
             </div>
             <div>
-                <WhiteButton>Criar Equipe</WhiteButton>
+                <WhiteButton @click="createTeam">Criar Equipe</WhiteButton>
             </div>
         </form>
     </main>

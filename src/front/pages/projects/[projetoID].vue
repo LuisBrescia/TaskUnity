@@ -20,6 +20,10 @@
                     <div class="text-sm font-thin text-neutral-500 tracking-widest">Descrição</div>
                     <div class="text-xl font-normal max-w-md">{{ projeto.description }}</div>
                 </section>
+
+                <RedButton class="rounded-xl" @click="deleteProject(projeto.id)">
+                    <Icon name="material-symbols:delete" size="1.25rem" />
+                </RedButton>
             </main>
 
         </DefaultCard>

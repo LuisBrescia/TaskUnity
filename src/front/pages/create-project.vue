@@ -1,25 +1,28 @@
 <template>
     <div class="form-container">
-        <form class="form">
+        <form class="form" @submit.prevent="handleSubmit">
             <div class="form-group">
                 <label for="name">Nome do projeto</label>
-                <input type="text" id="name" name="name" required="">
+                <input type="text" id="name" required="">
             </div>
             <div class="form-group">
                 <label for="textarea">Descrição</label>
-                <textarea name="textarea" id="textarea" rows="10" cols="50" required="">          </textarea>
+                <textarea id="textarea" rows="10" cols="50" required=""></textarea>
             </div>
             <div class="form-group">
                 <label for="textarea">Ferramentas</label>
-                <textarea name="textarea" id="textarea" rows="10" cols="50" required="">          </textarea>
+                <textarea id="tools" rows="10" cols="50" required=""></textarea>
             </div>
             <button>
                 <span class="button_top"> Criar </span>
             </button>
 
-            <el-row>
-                <el-tag v-for="tag in dynamicTags" :key="tag.name" :type="tag.type" class="mx-1" closable :disable-transitions="false"
-                    @close="handleClose(tag)">
+            <div v-if="projectCreated" class="success-message">
+                Projeto criado com sucesso!
+            </div>
+            <!-- <el-row>
+                <el-tag v-for="tag in dynamicTags" :key="tag.name" :type="tag.type" class="mx-1" closable
+                    :disable-transitions="false" @close="handleClose(tag)">
                     {{ tag.name }}
                 </el-tag>
 
@@ -29,7 +32,7 @@
                 <el-button v-else class="button-new-tag ml-1" size="small" @click="showInput">
                     + New Tag
                 </el-button>
-            </el-row>
+            </el-row> -->
 
         </form>
     </div>
@@ -41,46 +44,95 @@ definePageMeta({
     layout: 'dashboard'
 })
 
-const inputValue = ref('')
-const inputVisible = ref(false)
-const InputRef = ref(null)
+import { ref, onMounted } from 'vue';
 
-const dynamicTags = ref([
-    { name: 'Flutter', type: '' },
-    { name: 'Vue', type: 'success' },
-    { name: 'Blender', type: 'error' },
-    { name: 'Javascript', type: 'warning' },
-    { name: 'Laravel', type: 'danger' },
-])
+const projectCreated = ref(false);
+const router = useRouter();
 
-const handleClose = (tag) => {
-    dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
-}
+const handleSubmit = async () => {
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('textarea').value;
+    const tools = document.getElementById('tools').value;
 
-const showInput = () => {
-    inputVisible.value = true
-    nextTick(() => {
-        InputRef.value.input.focus()
-    })
-}
+    const data = {
+        name,
+        description,
+        tools,
+    };
 
-const handleInputConfirm = () => {
-    if (inputValue.value) {
+    try {
+        const response = await fetch('http://localhost:8080/projects', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
 
-        let tag = {
-            name: inputValue.value,
-            type: 'success'
+        if (response.ok) {
+            projectCreated.value = true;
+
+            // Redirecionar para a tela de projetos após 2 segundos
+            setTimeout(() => {
+                router.push('/projects');
+            }, 2000);
+        } else {
+            console.error('Erro ao criar o projeto:', response.statusText);
         }
-
-        dynamicTags.value.push(tag)
+    } catch (error) {
+        console.error('Erro ao criar o projeto:', error);
     }
-    inputVisible.value = false
-    inputValue.value = ''
-}
+};
+
+onMounted(() => {
+    // Se precisar de lógica específica quando o componente é montado, você pode adicioná-la aqui.
+});
+
+// const inputValue = ref('')
+// const inputVisible = ref(false)
+// const InputRef = ref(null)
+
+// const dynamicTags = ref([
+//     { name: 'Flutter', type: '' },
+//     { name: 'Vue', type: 'success' },
+//     { name: 'Blender', type: 'error' },
+//     { name: 'Javascript', type: 'warning' },
+//     { name: 'Laravel', type: 'danger' },
+// ])
+
+// const handleClose = (tag) => {
+//     dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
+// }
+
+// const showInput = () => {
+//     inputVisible.value = true
+//     nextTick(() => {
+//         InputRef.value.input.focus()
+//     })
+// }
+
+// const handleInputConfirm = () => {
+//     if (inputValue.value) {
+
+//         let tag = {
+//             name: inputValue.value,
+//             type: 'success'
+//         }
+
+//         dynamicTags.value.push(tag)
+//     }
+//     inputVisible.value = false
+//     inputValue.value = ''
+// }
 
 </script>
 
 <style scoped>
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}
 .form-container {
     width: 400px;
     background: linear-gradient(#212121, #212121) padding-box,

@@ -110,6 +110,10 @@ try {
     console.error('Erro ao obter dados do projeto:', error);
 }
 
+apiFetch(`projects/${projectId}`).then( (res) => {
+    projetoEspecifico.value = res.data;
+})
+
 
 // const deleteProject = async (projectId) => {
 //     try {

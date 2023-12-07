@@ -1,6 +1,6 @@
 <template>
     <div class="input-group">
-        <label class="label"><slot /></label>
+        <label class="label">{{ name }}</label>
         <input :name="name" :id="name" class="input" required="true"/>
     </div>
 </template>

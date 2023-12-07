@@ -3,18 +3,18 @@
         <form class="form" @submit.prevent="handleSubmit">
             <div class="form-group">
                 <label for="name">Nome do projeto</label>
-                <input type="text" id="name" required="">
+                <input type="text" v-model="projetoNome" required="">
             </div>
             <div class="form-group">
                 <label for="textarea">Descrição</label>
-                <textarea id="textarea" rows="10" cols="50" required=""></textarea>
+                <textarea v-model="projetoDescricao" rows="10" cols="50" required=""></textarea>
             </div>
             <div class="form-group">
                 <label for="textarea">Ferramentas</label>
-                <textarea id="tools" rows="10" cols="50" required=""></textarea>
+                <textarea v-model="projetoFerramentas" rows="10" cols="50" required=""></textarea>
             </div>
-            <button>
-                <span class="button_top"> Criar </span>
+            <button @click="handleSubmit">
+                <span class="button_top">Criar</span>
             </button>
 
             <div v-if="projectCreated" class="success-message">
@@ -44,88 +44,32 @@ definePageMeta({
     layout: 'dashboard'
 })
 
-import { ref, onMounted } from 'vue';
-
 const projectCreated = ref(false);
 const router = useRouter();
+const projetoNome = ref('');
+const projetoDescricao = ref('');
+const projetoFerramentas = ref('');
 
-const handleSubmit = async () => {
-    const name = document.getElementById('name').value;
-    const description = document.getElementById('textarea').value;
-    const tools = document.getElementById('tools').value;
-    const owner = 1; //temporariamente!!!
-
-    const data = {
-        name,
-        description,
-        tools,
-        owner
-    };
-
-    try {
-        const response = await fetch('http://localhost:8080/projects', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-            projectCreated.value = true;
-
-            // Redirecionar para a tela de projetos após 2 segundos
-            setTimeout(() => {
-                router.push('/projects');
-            }, 2000);
-        } else {
-            console.error('Erro ao criar o projeto:', response.statusText);
+function handleSubmit() {
+    apiFetch('/projects', {
+        method: 'POST',
+        body: {
+            name: projetoNome.value,
+            description: projetoDescricao.value,
+            tools: projetoFerramentas.value,
+            owner: 1
         }
-    } catch (error) {
-        console.error('Erro ao criar o projeto:', error);
-    }
+    })
+        .then(res => {
+            console.log(res)
+            if (res.status == 201) {
+                router.push('/projects');
+            }
+        }).catch(err => {
+            console.log(err)
+        
+    })
 };
-
-onMounted(() => {
-    
-});
-
-// const inputValue = ref('')
-// const inputVisible = ref(false)
-// const InputRef = ref(null)
-
-// const dynamicTags = ref([
-//     { name: 'Flutter', type: '' },
-//     { name: 'Vue', type: 'success' },
-//     { name: 'Blender', type: 'error' },
-//     { name: 'Javascript', type: 'warning' },
-//     { name: 'Laravel', type: 'danger' },
-// ])
-
-// const handleClose = (tag) => {
-//     dynamicTags.value.splice(dynamicTags.value.indexOf(tag), 1)
-// }
-
-// const showInput = () => {
-//     inputVisible.value = true
-//     nextTick(() => {
-//         InputRef.value.input.focus()
-//     })
-// }
-
-// const handleInputConfirm = () => {
-//     if (inputValue.value) {
-
-//         let tag = {
-//             name: inputValue.value,
-//             type: 'success'
-//         }
-
-//         dynamicTags.value.push(tag)
-//     }
-//     inputVisible.value = false
-//     inputValue.value = ''
-// }
 
 </script>
 

@@ -7,7 +7,7 @@
                     <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5 my-5">
                         <div>ID: {{ tarefa.id  }}</div>
                         <div>NOME: {{ tarefa.name  }}</div>
-                        <div>Status: {{ tarefa.completed  }}</div>
+                        <div>Status: {{ tarefa.completed ? "Completa" : "Em andamento" }}</div>
                         <div>Projeto: {{ tarefa.project  }}</div>
                         <div>User responsável: {{ tarefa.tasker  }}</div>
 

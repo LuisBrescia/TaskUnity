@@ -3,7 +3,6 @@ package taskunity.model;
 import java.util.List;
 
 import jakarta.persistence.ElementCollection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.Entity;

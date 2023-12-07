@@ -69,9 +69,17 @@ public class UserController {
         }
     }
 
-    @GetMapping("/Function/{function}")
+    @GetMapping("/function/{function}")
     public List<User> getUserFunction(@PathVariable String function) {
+        if (function.equals("todos")) {
+            return userRepository.findAll();
+        }
         return userRepository.findByFunction(function);
+    }
+
+    @GetMapping("/name/{name}")
+    public User getUserByName(@PathVariable String name) {
+        return userRepository.findByName(name);
     }
 }
 

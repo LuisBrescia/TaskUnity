@@ -1,7 +1,7 @@
 export const apiFetch = (url, options = {}) => {
   const config = useRuntimeConfig()
 
-  return $fetch(`https://taskunity-api.onrender.com${url}`, {
+  return $fetch(`http://localhost:8080${url}`, {
     ...options,
     async onResponse({ request, response, options }) {
       response._data = {

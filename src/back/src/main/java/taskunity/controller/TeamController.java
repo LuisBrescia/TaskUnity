@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.boot.TempTableDdlTransactionHandling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import taskunity.model.Team;
 import taskunity.model.User;
 import taskunity.repository.TeamRepository;
+import taskunity.repository.UserRepository;
 
 @RestController
 @RequestMapping("/teams")
@@ -19,6 +21,8 @@ public class TeamController {
 
     @Autowired
     private TeamRepository teamRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping
     public List<Team> findAll() {
@@ -79,19 +83,33 @@ public class TeamController {
     }
 
     @PostMapping("/{teamId}/addMember")
-    public ResponseEntity<String> addMemberToTeam(
-            @PathVariable Integer teamId,
+    public ResponseEntity<?> addMemberToTeam(
+            @PathVariable("teamId") Integer teamId,
             @RequestBody User user
     ) {
-        Optional<Team> optionalTeam = teamRepository.findById(teamId);
+        // Optional<Team> optionalTeam = teamRepository.findById(teamId);
+        // User addUser = userRepository.findByName(user.getName());
 
-        if (optionalTeam.isPresent()) {
-            Team team = optionalTeam.get();
-            team.getMembers().add(user);
+        // int id = addUser.getId();
 
-            return ResponseEntity.ok("Member added to the team successfully on team : " + team.getName() + " with : "+ team.getMemberNames());
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team " + teamId + " not found, mr: " + user.getName());
-        }
+        // if (optionalTeam.isPresent()) {
+        //     Team team = optionalTeam.get();
+        //     if (userRepository.existsById(id)) {
+        //         team.addMembers(addUser);
+        //         return ResponseEntity.ok("Member added to the team successfully on team : " + team.getName() + " with : "+ team.getMemberNames());
+        //     } else {
+        //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        //     }
+        // } else {
+        //     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team " + teamId + " not found, mr: " + user.getName());
+        // }
+
+        User newMember = userRepository.findByName(user.getName());
+        return teamRepository.findById(teamId)
+            .map(record -> {
+                record.addMembers(newMember);
+                Team updated = teamRepository.save(record);
+                return ResponseEntity.ok(updated);
+            }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }

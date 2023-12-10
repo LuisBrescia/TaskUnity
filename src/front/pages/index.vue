@@ -87,7 +87,7 @@
                         </p>
                         <div class="flex gap-5 justify-center">
                             <NuxtLink to="/login?modo=cadastrar">
-                                <WhiteButton class="mt-12" @click="comecarAgora">Começe agora</WhiteButton>
+                                <WhiteButton class="mt-12">Começe agora</WhiteButton>
                             </NuxtLink>
                         </div>
                     </header>
@@ -206,18 +206,15 @@
         </footer>
 
         <!-- * Efeito de escurecer a tela -->
-        <div 
-            @click="menuAberto = !menuAberto" 
-            :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-            class="escurecer fixed inset-0 bg-black opacity-80 z-10" 
-        />
+        <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
+            class="escurecer fixed inset-0 bg-black opacity-80 z-10" />
     </main>
 </template>
+
 <script setup>
 
 const menuAberto = ref(false);
 const isScrolling = ref(false);
-let indexCor = 0, indexFonte = 0;
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
@@ -231,7 +228,9 @@ const handleScroll = () => {
     isScrolling.value = window.scrollY > 100;
 }
 </script>
+
 <style scoped>
+
 ul li::after {
     content: "";
     display: block;
@@ -299,7 +298,7 @@ header {
     -webkit-backdrop-filter: blur(50px) !important;
     background-size: 200%;
     animation: move-background 3s linear infinite;
-} 
+}
 
 article {
     min-width: 10rem;
@@ -314,7 +313,8 @@ article {
     border-bottom: 2px solid #ffffff1a;
 }
 
-header:hover, article:hover {
+header:hover,
+article:hover {
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.05);
     transform: translateY(-0.5rem);

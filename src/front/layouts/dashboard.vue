@@ -70,6 +70,9 @@
 
 <script setup>
 
+import { useUserStore } from '@/stores/userStore.js';
+
+const userStore = useUserStore();
 const router = useRouter();
 
 function modalSair() {
@@ -78,6 +81,7 @@ function modalSair() {
         cancelButtonText: 'Cancelar',
         type: 'warning'
     }).then(() => {
+        userStore.logout();
         router.push('/');
     }).catch(() => { });
 }

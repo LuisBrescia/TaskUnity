@@ -46,21 +46,25 @@
 
 <script setup>
 
-const projects = ref({});
+import { useUserStore } from '@/stores/userStore.js';
+
+const userStore = useUserStore();
+const projects = ref(userStore.projects);
 const router = useRouter();
 
+console.log("Projetos carregados", userStore.projects);
 
 definePageMeta({
     layout: 'dashboard'
 })
 
-apiFetch('/projects')
-    .then(res => {
-        projects.value = res.data
-        console.log(res)
-    }).catch(err => {
-        console.log(err)
-    })
+// apiFetch('/projects')
+//     .then(res => {
+//         projects.value = res.data
+//         console.log(res)
+//     }).catch(err => {
+//         console.log(err)
+//     })
 
 function createProject() {
     console.log('Criar projeto');

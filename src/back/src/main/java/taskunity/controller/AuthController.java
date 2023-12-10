@@ -18,18 +18,18 @@ public class AuthController {
     private UserRepository userRepository;
 
     @PostMapping
-    public ResponseEntity<String> authenticate(@RequestBody User BodyUser) {
+    public ResponseEntity<User> authenticate(@RequestBody User BodyUser) {
 
         User user = userRepository.findByName(BodyUser.getName());
 
         if ( user == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
         if (user.getPassword().equals(BodyUser.getPassword())) {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user.toString());
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha incorreta");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
 }

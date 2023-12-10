@@ -59,6 +59,10 @@
 
 <script setup>
 
+import { useUserStore } from '@/stores/userStore.js';
+
+const userStore = useUserStore();
+
 const route = useRoute();
 const router = useRouter();
 const modo = ref(route.query.modo);
@@ -123,8 +127,28 @@ function entrar() {
     }
   }).then((res) => {
     success.value = true
+    status.value = 'Logado com sucesso'
+    console.log("Response login", res)
+
     if (res.status == 202) {
       router.push('/projects');
+      userStore.setInfo(res.data);
+
+      apiFetch(`/projects?owner=${res.data.id}`)
+        .then(res => {
+          console.log("Projectos do usuario", res)
+          userStore.setProjects(res.data)
+        }).catch(err => {
+          console.log(err)
+        })
+      
+      apiFetch(`/tasks?tasker=${res.data.id}`)
+        .then(res => {
+          userStore.setTasks(res.data)
+        }).catch(err => {
+          console.log(err)
+        })
+
     } else {
       status.value = res.data
     }
@@ -135,6 +159,7 @@ function entrar() {
     } else if (err.status == 404) {
       status.value = 'Usuário não encontrado'
     } else {
+      console.log("UNKNOWN", err)
       status.value = 'Erro desconhecido'
     }
   })

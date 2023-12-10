@@ -1,43 +1,52 @@
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore({
+export const useUserStore = defineStore("userStore", {
     state: () => ({
-        userInfo: [],
-        userProjects: [],
-        userTasks: [],
+        info: null,
+        projects: null,
+        tasks: null,
     }),
+    getters: {
+        getInfo() {
+            return this.info
+        },
+
+        getProjects() {
+            return this.projects
+        },
+
+        getTasks() {
+            return this.tasks
+        },
+    },
     actions: {
-        async fetchUser(userId) {
-            const response = await apiFetch(`/users/${userId}`)
-            this.setUserInfo(response.data)
+
+        // async fetchProjects() {
+        //     const response = await apiFetch(`/projects?owner=${this.info.id}`)
+        //     this.setProjects(response.data)
+        // },
+
+        // async fetchTasks() {
+        //     const response = await apiFetch(`/tasks?tasker=${this.info.id}`)
+        //     this.setTasks(response.data)
+        // },
+
+        setInfo(user) {
+            this.info = user;
         },
 
-        async fetchUserProjects(userId) {
-            const response = await apiFetch(`/projects?owner=${userId}`)
-            this.setUserProjects(response.data)
+        setProjects(projects) {
+            this.projects = projects;
         },
 
-        async fetchUserTasks(userId) {
-            const response = await apiFetch(`/tasks?owner=${userId}`)
-            this.setUserTasks(response.data)
-        },
-
-        setUserInfo(user) {
-            this.userInfo = user
-        },
-
-        setUserProjects(projects) {
-            this.userProjects = projects
-        },
-
-        setUserTasks(tasks) {
-            this.userTasks = tasks
+        setTasks(tasks) {
+            this.tasks = tasks;
         },
 
         logout() {
-            this.userInfo = []
-            this.userProjects = []
-            this.userTasks = []
+            this.info = null;
+            this.projects = null;
+            this.tasks = null;
         },
     },
 })

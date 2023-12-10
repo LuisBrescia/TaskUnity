@@ -13,17 +13,13 @@
 
 <script setup>
 
+import { useUserStore } from '@/stores/userStore.js';
+
 definePageMeta({
   layout: 'dashboard'
 })
 
-const user = ref({});
-
-apiFetch('/users/3').then(res => {
-    user.value = res.data;
-    console.log(user.value);
-}).catch(err => {
-    console.log(err)
-})
+const userStore = useUserStore();
+const user = ref(userStore.info);
 
 </script>

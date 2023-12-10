@@ -1,5 +1,5 @@
 <template>
-    <div class="border card rounded">
+    <div class="border card rounded-custom">
         <slot />
     </div>
 </template>
@@ -14,8 +14,8 @@
 }
 .card:hover {
     border: 2px solid #ffffff3a;
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
     /* transform: translateY(-0.5rem); */
 }
 

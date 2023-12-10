@@ -27,7 +27,7 @@ public class AuthController {
         }
 
         if (user.getPassword().equals(BodyUser.getPassword())) {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user.getId().toString());
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user.toString());
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha incorreta");
         }

@@ -1,6 +1,6 @@
 <template>
     <button class="font-bold text-sm md:text-base
-    px-5 pt-3 pb-3 rounded 
+    px-5 pt-3 pb-3 rounded-custom 
     uppercase tracking-widest">
     <span class="flex items-center justify-center">
         <slot />

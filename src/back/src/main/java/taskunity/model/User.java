@@ -62,4 +62,13 @@ public class User {
         return this.function;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            ", password='" + getPassword() + "'" +
+            "}";
+    }
+
 }

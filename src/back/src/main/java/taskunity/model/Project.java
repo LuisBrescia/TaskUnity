@@ -10,8 +10,6 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
-    @Lob
     private String description;
 
     private String tools;
@@ -21,7 +19,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String name, String description, String tools, int owner) {
+    public Project(String name, String description, String tools, String startDate, int owner) {
         this.name = name;
         this.description = description;
         this.tools = tools;
@@ -72,7 +70,7 @@ public class Project {
         return owner;
     }
 
-    public void setOwner(int owner) {
+    public void setOwner(Integer owner) {
         this.owner = owner;
     }
 }

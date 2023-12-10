@@ -1,8 +1,10 @@
 <template>
-    <button class="font-bold text-sm md:text-base
-    px-5 pt-3 pb-3 rounded
-    uppercase tracking-widest shadow">
-    <span class="flex items-center justify-center">
+    <button 
+        class="font-bold text-sm md:text-base
+        px-5 pt-3 pb-3 rounded-custom
+        uppercase tracking-widest shadow"
+    >
+    <span class="flex items-center justify-center text-rainbow">
         <slot />
     </span>
     </button>
@@ -36,10 +38,20 @@ button::before {
     top: 0;
     background: linear-gradient(to right, transparent 1%, #fff 40%, #fff 60%, transparent 100%);
     opacity: .2;
-    transition: transform 1.5s ease;
+    transition: all 1.5s ease;
+}
+
+button span {
+    filter: grayscale(1) brightness(2);
+    transition: filter 1s ease;
+}
+
+button:hover span {
+    filter: grayscale(0);
 }
 
 button:hover::before {
     transform: translateX(16rem);
+    opacity: 0;
 }
 </style>

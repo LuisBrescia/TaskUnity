@@ -66,7 +66,7 @@
         <section id="home" class="flex items-center">
             <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
                 <div class="flex w-full">
-                    <article class="flex-1 rounded text-center shadow-lg p-5 hidden xl:block">
+                    <article class="flex-1 rounded-custom text-center shadow-lg p-5 hidden xl:block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="flex w-full">
-                    <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded shadow-lg">
+                    <header class="flex-1 text-center py-8 px-0 md:px-5 rounded-custom shadow-lg">
                         <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                             Desenvolvimento <br />
                             <span class="text-rainbow font-mono">
@@ -94,13 +94,13 @@
                 </div>
 
                 <div class="flex w-full sm:gap-5 flex-wrap">
-                    <article class="flex-1 sm:rounded text-center shadow-lg p-5 xl:hidden block">
+                    <article class="flex-1 rounded-custom text-center shadow-lg p-5 xl:hidden block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
                     </article>
 
-                    <article class="flex-1 sm:rounded text-center shadow-lg p-5">
+                    <article class="flex-1 rounded-custom text-center shadow-lg p-5">
                         <Icon name="cryptocurrency-color:chsb" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
@@ -112,7 +112,7 @@
 
         <section id="guia" class="flex items-start">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded shadow-lg">
+            <header class="text-center max-w-3xl mx-auto p-8 rounded-custom shadow-lg">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
@@ -184,8 +184,8 @@
             </div>
         </section>
 
-        <footer>
-            <div class="container mx-auto flex justify-between items-center mb-5">
+        <footer class="px-12 py-2">
+            <div class="container mx-auto flex justify-between items-center">
 
                 <div class="text-xl font-sans">
                     <Icon name="octicon:logo-github-16" color="white" size="4rem"
@@ -193,8 +193,10 @@
                 </div>
 
                 <div class="opacity-80">
-                    <span class="text-base font-sans">Luís Brescia &nbsp;</span>
-                    <Icon name="mdi:heart" color="red" size="1rem" />
+                    <NuxtLink to="https://luisbrescia.onrender.com" target="_blank">
+                        <Icon name="noto:desktop-computer" color="red" size="1rem" />
+                        <span class="text-base font-sans ml-2">Luís Brescia</span>
+                    </NuxtLink>
                 </div>
 
                 <div class="flex gap-5">
@@ -383,4 +385,5 @@ header:hover, article:hover {
     to {
         transform: translateX(calc(-50% - 0.625rem));
     }
-}</style>
+}
+</style>

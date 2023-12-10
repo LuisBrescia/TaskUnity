@@ -21,13 +21,13 @@ public class ProjectController {
     ProjectRepository projectRepository;
 
     @GetMapping
-    public List<Project> getAllProjects() {
-        return projectRepository.findAll();
-    }
+    public List<Project> getAllProjects(@RequestParam(name = "owner", required = false) Integer ownerId) {
 
-    @GetMapping("/owner/{idOwner}")
-    public List<Project> getProjectsByOwner(@PathVariable Integer idOwner) {
-        return projectRepository.findByOwner(idOwner);
+        if (ownerId != null) {
+            return projectRepository.findByOwner(ownerId);
+        } else {
+            return projectRepository.findAll();
+        }
     }
 
     @GetMapping("/tools/{toolName}")

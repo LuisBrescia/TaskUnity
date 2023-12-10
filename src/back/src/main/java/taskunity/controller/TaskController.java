@@ -19,7 +19,12 @@ public class TaskController {
     TaskRepository taskRepository;
 
     @GetMapping
-    public List<Task> getAllTasks() {
+    public List<Task> getAllTasks(@RequestParam(name = "tasker", required = false) Integer taskerId) {
+
+        if ( taskerId != null ) {
+            return taskRepository.findByTasker(taskerId);
+        } 
+        
         return taskRepository.findAll();
     }
 

@@ -1,8 +1,8 @@
 <template>
-    <article class="border rounded p-5 text-center shadow overflow-hidden">
+    <article class="border rounded-custom p-5 text-center shadow overflow-hidden">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
         <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
-        <div class="text-2xl font-black tracking-wider">{{ name }}</div>
+        <div class="text-2xl font-black tracking-wider text-rainbow">{{ name }}</div>
         <div class="text-base text-start mt-3 max-w-xs">
             <slot/>
         </div>
@@ -33,4 +33,12 @@ const filename = ref(`/img/${props.img}.jpg`);
         transform: translateY(-0.5rem);
     }
 
+    .text-rainbow {
+        filter: grayscale(1) brightness(1.5);
+        transition: all 1s ease;
+    }	
+
+    article:hover .text-rainbow {
+        filter: grayscale(0) brightness(1);
+    }
 </style>

@@ -37,6 +37,10 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode'
     ],
 
+    imports: {
+        dirs: ['stores'],
+    },
+
     elementPlus: {
         importStyle: 'scss',
         themes: ['dark'],

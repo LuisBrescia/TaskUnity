@@ -22,53 +22,70 @@
         <div class="flex-1 w-full py-3 px-5" style="height: 90svh">
             <slot />
         </div>
-        <aside class="sticky flex w-fit mx-auto mb-10">
-            <NuxtLink to="/projects" exact>
-                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">
-                    <Icon name="material-symbols:ad-group-outline-rounded" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Projetos</span>
-                </div>
-            </NuxtLink>
-            <NuxtLink to="/tasks" exact>
-                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
-                    <Icon name="tdesign:task" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Tarefas</span>
-                </div>
-            </NuxtLink>
+        <div class="fixed w-full flex justify-center bottom-0 py-10 pointer-events-none">
+            <aside class="flex rounded-custom pointer-events-auto">
+                <NuxtLink to="/projects" exact>
+                    <div class="item-dashboard primeiro-item text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">
+                        <Icon name="material-symbols:ad-group-outline-rounded" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Projetos</span>
+                    </div>
+                </NuxtLink>
+                <NuxtLink to="/tasks" exact>
+                    <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/tasks') }">
+                        <Icon name="tdesign:task" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Tarefas</span>
+                    </div>
+                </NuxtLink>
 
-            <NuxtLink to="/profile" exact>
-                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/profile') }">
-                    <Icon name="material-symbols:person-outline" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Perfil</span>
-                </div>
-            </NuxtLink>
+                <NuxtLink to="/profile" exact>
+                    <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/profile') }">
+                        <Icon name="material-symbols:person-outline" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Perfil</span>
+                    </div>
+                </NuxtLink>
 
-            <NuxtLink to="/teams" exact>
-                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/teams') }">
-                    <Icon name="fluent:people-team-16-regular" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Equipes</span>
-                </div>
-            </NuxtLink>
+                <NuxtLink to="/teams" exact>
+                    <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/teams') }">
+                        <Icon name="fluent:people-team-16-regular" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-extrabold uppercase p-0 m-0">Equipes</span>
+                    </div>
+                </NuxtLink>
 
-            <NuxtLink to="/contratar-freelancer" exact>
-                <div class="item-dashboard text-neutral-300" :class="{ 'active': isLinkActive('/contratar-freelancer') }">
-                    <Icon name="material-symbols:person-outline" size="1.75rem" />
-                    <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Contratar Freelancer</span>
-                </div>
-            </NuxtLink>
+                <NuxtLink to="/contratar-freelancer" exact>
+                    <div class="item-dashboard text-neutral-300"
+                        :class="{ 'active': isLinkActive('/contratar-freelancer') }">
+                        <Icon name="simple-icons:freelancer" size="1.75rem" />
+                        <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Contratar</span>
+                    </div>
+                </NuxtLink>
 
-            <NuxtLink to="/" exact>
-                <div class="item-dashboard text-neutral-300">
+                <div class="item-dashboard ultimo-item text-neutral-300 cursor-pointer" @click="modalSair">
                     <Icon name="material-symbols:logout" size="1.75rem" />
                     <span class="mt-1 tracking-widest font-black uppercase p-0 m-0">Sair</span>
                 </div>
-            </NuxtLink>
-        </aside>
+            </aside>
+        </div>
     </main>
 </template>
 
+<script setup>
+
+const router = useRouter();
+
+function modalSair() {
+    ElMessageBox.confirm('Deseja realmente sair?', 'Sair', {
+        confirmButtonText: 'Sair',
+        cancelButtonText: 'Cancelar',
+        type: 'warning'
+    }).then(() => {
+        router.push('/');
+    }).catch(() => { });
+}
+
+</script>
+
 <style scoped>
-.blobs > * {
+.blobs>* {
     width: 25vh;
     filter: blur(100px);
 }
@@ -79,16 +96,14 @@ main {
 
 aside {
     color: #fff;
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    transition: border-color .5s ease;
+    background: #030303;
     border: 2px solid #ffffff1a;
-    transition: all .3s ease;
+    transition: all .3s ease, border-color .5s ease;
 }
 
 aside:hover {
     border-color: rgba(225, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.02);
+    background: #050505;
 }
 
 .item-dashboard span {
@@ -99,7 +114,7 @@ aside:hover {
     text-align: center;
     background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     background-size: 200%;
-    animation: move-background 3s linear infinite; 
+    animation: move-background 3s linear infinite;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     opacity: 0;
@@ -124,6 +139,16 @@ aside:hover {
     transition: background-color .3s ease-in-out, color .3s ease-in-out, outline-color .3s ease-in-out;
     position: relative;
 }
+
+.primeiro-item {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.ultimo-item {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+} 
 
 .item-dashboard:hover {
     color: #fff;

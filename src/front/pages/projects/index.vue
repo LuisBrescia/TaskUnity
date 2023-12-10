@@ -1,5 +1,5 @@
 <template>
-    <main class="flex gap-5 mt-5">
+    <main class="flex gap-5 mt-5 justify-center">
 
         <!-- <div v-for="project in projects" :key="project.id">
             <NuxtLink :to="`/projects/${project.id}`" exact>
@@ -14,7 +14,7 @@
             </NuxtLink>
         </div> -->
 
-        <section class="flex gap-5 flex-wrap w-full">
+        <section class="flex gap-5 flex-wrap w-full max-w-7xl">
             <div v-for="project in projects" :key="project.id" class="flex-1">
                 <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project.id)">
                     <header>
@@ -30,7 +30,7 @@
                             <li>{{ idx + 1 }} - {{ tool }}</li>
                         </ul>
                     </section>
-                    <!--<p class="text-base">{{ project.description }}</p>-->
+                    <!-- <p class="text-base">{{ project.description }}</p> -->
                 </DefaultCard>
             </div>
             <div class="flex-1">

@@ -7,4 +7,5 @@ import taskunity.model.Task;
 
 public interface TaskRepository extends JpaRepository<Task, Integer> {
     List<Task> findByName(String name);
+    List<Task> findByTasker(Integer tasker);
 }

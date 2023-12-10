@@ -8,6 +8,5 @@ import taskunity.model.Project;
 
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
     List<Project> findByTools(String tool);
-
     List<Project> findByOwner(Integer owner);
 }

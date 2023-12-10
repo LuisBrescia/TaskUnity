@@ -24,7 +24,7 @@
 
         <div class="my-12" style="transition: all 0.5s ease !important">
           <InputText value="Nome" v-model="formData.name" />
-          <InputText value="Senha" type="password" v-model="formData.password" />
+          <InputText value="Senha" type="password" v-model="formData.password" @keypress.enter="submitForm" />
           <InputText 
             value="Email" 
             type="email" 
@@ -138,6 +138,14 @@ function entrar() {
       status.value = 'Erro desconhecido'
     }
   })
+}
+
+function submitForm() {
+  if (modo.value == 'cadastrar') {
+    criarConta()
+  } else {
+    entrar()
+  }
 }
 
 function changeModo() {

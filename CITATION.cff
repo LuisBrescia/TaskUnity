@@ -1,31 +1,40 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
+  - TaskUnity
+abstract:
+  "
+  Criar um projeto e atribuir tarefas necessarias para completa-lo a outras pessoas
+  "
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Teixeira Dias Brescia
+    given-names: Luís Felipe
+  - family-names: Santos Hyodo
+    given-names: André Teiichi
+  - family-names: Pereira de Oliveira
+    given-names: Gustavo
+  - family-names: Campos de Morais
+    given-names: Luiz Felipe
+  - family-names: Carvalho de Oliveira 
+    given-names: Marcus Vinicius
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: da Costa Silva
+    given-names: Luiz Henrique
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Peixoto
+    given-names: José Laerte
 keywords:
-  - 
-  - 
-repository-code: 
+  - Springboot
+  - Postgres
+  - Nuxt 3
+  - Vue 3
+  - Cypress
+  - Tailwind Css
+  - Trabalho Interdisciplinar
+  - Java
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2023-2-ti2-3740100-taskunity 
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2023-12-14

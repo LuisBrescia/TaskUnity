@@ -14,7 +14,7 @@
             </div>
 
             <div class="text-base mt-5">
-                <span class="text-lg font-bold text-neutral-300">Dados do projeto:</span>
+                <span class="text-lg font-bold text-neutral-300">Dados do usuario:</span>
                 <ul>
                     <li>
                         ID : {{ tarefaTasker.id }}
@@ -102,7 +102,7 @@ apiFetch(`/tasks/${route.params.taskID}`)
         apiFetch(`/projects/${tarefa.value.project}`)
             .then(res => {
                 tarefaProjeto.value = res.data;
-                console.log(tarefaProjeto.value)
+                console.log("Tarefas daquele projeto", tarefaProjeto.value)
             }).catch(err => {
                 console.log(err)
             })

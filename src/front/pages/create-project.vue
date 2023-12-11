@@ -40,6 +40,10 @@
 
 <script setup>
 
+import { useUserStore } from '@/stores/userStore.js';
+
+const userStore = useUserStore();
+
 definePageMeta({
     layout: 'dashboard'
 })
@@ -51,34 +55,39 @@ const projetoDescricao = ref('');
 const projetoFerramentas = ref('');
 
 function handleSubmit() {
+
+    let novoProjeto = {
+        name: projetoNome.value,
+        description: projetoDescricao.value,
+        tools: projetoFerramentas.value,
+        owner: userStore.info.id
+    }
+
+    console.log(novoProjeto);
+
     apiFetch('/projects', {
         method: 'POST',
-        body: {
-            name: projetoNome.value,
-            description: projetoDescricao.value,
-            tools: projetoFerramentas.value,
-            owner: 1
-        }
+        body: novoProjeto
     })
         .then(res => {
             console.log(res)
             if (res.status == 201) {
+                userStore.projects.push(res.data);
                 router.push('/projects');
             }
         }).catch(err => {
             console.log(err)
-        
-    })
+        })
 };
 
 </script>
 
 <style scoped>
-
 .success-message {
     color: green;
     margin-top: 10px;
 }
+
 .form-container {
     width: 400px;
     background: linear-gradient(#212121, #212121) padding-box,

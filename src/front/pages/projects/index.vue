@@ -48,23 +48,15 @@
 
 import { useUserStore } from '@/stores/userStore.js';
 
+definePageMeta({
+    layout: 'dashboard'
+})
+
 const userStore = useUserStore();
 const projects = ref(userStore.projects);
 const router = useRouter();
 
 console.log("Projetos carregados", userStore.projects);
-
-definePageMeta({
-    layout: 'dashboard'
-})
-
-// apiFetch('/projects')
-//     .then(res => {
-//         projects.value = res.data
-//         console.log(res)
-//     }).catch(err => {
-//         console.log(err)
-//     })
 
 function createProject() {
     console.log('Criar projeto');
@@ -72,7 +64,6 @@ function createProject() {
 }
 
 function abrirProjeto(id) {
-    console.log('Abrir projeto: ' + id);
     router.push(`/projects/${id}`);
 }
 

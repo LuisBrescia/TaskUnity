@@ -33,22 +33,18 @@
 
 <script setup>
 
-const activeName = ref('myTasks');
-
-const handleClick = (tab, event) => {
-    console.log(tab, event);
-};
-
-const tarefas = ref({})
-
-apiFetch('/tasks').then((res) => {
-    tarefas.value = res.data
-}).catch((err) => {
-    console.log(err)
-})
+import { useUserStore } from '@/stores/userStore.js';
 
 definePageMeta({
     layout: 'dashboard'
 })
+
+const userStore = useUserStore();
+const activeName = ref('myTasks');
+const tarefas = ref(userStore.tasks)
+
+const handleClick = (tab, event) => {
+    console.log(tab, event);
+};
 
 </script>

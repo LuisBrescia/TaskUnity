@@ -69,6 +69,10 @@ public class Team {
                 .collect(Collectors.toList());
     }
 
+    public void addMembers(User user) {
+        this.members.add(user);
+    }
+
     public void setMembers(List<User> members) {
         this.members = members;
     }

@@ -20,8 +20,7 @@ public class Project {
     private String startDate;
     private Integer owner;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Task> tasks;
+    private List<Integer> tasksID;
 
     public Project() {
     }
@@ -81,11 +80,11 @@ public class Project {
         this.owner = owner;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public List<Integer> getTasks() {
+        return tasksID;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void setTasks(List<Integer> tasks) {
+        this.tasksID = tasks;
     }
 }

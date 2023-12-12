@@ -26,9 +26,7 @@
                     
                     <section>
                         <h4 class="font-black uppercase">Feramentas:</h4>
-                        <ul v-for="(tool, idx) in project.tools">
-                            <li>{{ idx + 1 }} - {{ tool }}</li>
-                        </ul>
+                        <p>{{  project.tools  }}</p>
                     </section>
                     <!-- <p class="text-base">{{ project.description }}</p> -->
                 </DefaultCard>

@@ -19,11 +19,15 @@ public class TaskController {
     TaskRepository taskRepository;
 
     @GetMapping
-    public List<Task> getAllTasks(@RequestParam(name = "tasker", required = false) Integer taskerId) {
+    public List<Task> getAllTasks(@RequestParam(name = "tasker", required = false) Integer taskerId, @RequestParam(name = "project", required = false) Integer projectId) {
 
         if ( taskerId != null ) {
             return taskRepository.findByTasker(taskerId);
         } 
+        
+        if ( projectId != null ) {
+            return taskRepository.findByProject(projectId);
+        }
         
         return taskRepository.findAll();
     }

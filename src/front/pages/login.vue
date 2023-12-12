@@ -131,13 +131,14 @@ function entrar() {
     console.log("Response login", res)
 
     if (res.status == 202) {
-      router.push('/projects');
+      
       userStore.setInfo(res.data);
 
       apiFetch(`/projects?owner=${res.data.id}`)
         .then(res => {
           console.log("Projectos do usuario", res)
           userStore.setProjects(res.data)
+          router.push('/projects');
         }).catch(err => {
           console.log(err)
         })

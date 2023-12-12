@@ -1,177 +1,56 @@
 <template>
-    <div class="flex mt-12 gap-12">
+    <main class="flex h-screen border justify-between gap-5">
 
-        <DefaultCard v-if="projeto" class="p-5">
+        <div class="border m-5 mr-0">
+            <DefaultCard class="p-5 m-5">
+                <header class="font-bold text-4xl text-rainbow ">Equipe</header>
+            </DefaultCard>
+        </div>
 
-            <header class="text-3xl font-semibold tracking-tighter">Dados do projeto</header>
+        <div class="border m-5 mx-0">
+            <DefaultCard class="p-5 m-5">
+                <header class="font-bold text-4xl text-rainbow">{{ projeto.name }} ({{ projeto.id }})</header>
+            </DefaultCard>
+        </div>
 
-            <main class="my-12">
-                <section class="mb-5">
-                    <div class="text-sm font-thin text-neutral-500 tracking-widest">Nome</div>
-                    <div class="text-xl font-normal">{{ projeto.name }}</div>
-                </section>
+        <div class="border m-5 ml-0">
+            <DefaultCard class="p-5 m-5">
+                <header class="font-bold text-4xl text-rainbow ">Tarefas</header>
+            </DefaultCard>
+            <div class="flex overflow-hidden gap-5 m-5 flex-wrap">
+                <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5">
+                    <header class="font-bold text-2xl">{{ tarefa.name }}</header>
+                    <p class="text-lg">{{ tarefa.description }}</p>
+                </DefaultCard>
+            </div>
+        </div>
 
-                <section class="mb-5">
-                    <div class="text-sm font-thin text-neutral-500 tracking-widest">Data de início</div>
-                    <div class="text-xl font-normal">{{ projeto.startDate }}</div>
-                </section>
-
-                <section class="mb-5">
-                    <div class="text-sm font-thin text-neutral-500 tracking-widest">Descrição</div>
-                    <div class="text-xl font-normal max-w-md">{{ projeto.description }}</div>
-                </section>
-
-                <BlueButton v-if="!editing" class="rounded-xl" @click="editProject">
-                    <Icon name="material-symbols:edit" size="1.25rem" />
-                </BlueButton>
-
-                <form v-if="editing" @submit.prevent="saveEditedProject">
-                    <!-- Adicionar campos de formulário para editar os dados do projeto -->
-                    <BlueButton type="submit" class="rounded-xl">
-                        <Icon name="material-symbols:done" size="1.25rem" />
-                    </BlueButton>
-                    <WhiteButton class="ml-2" @click="cancelEdit">
-                        <Icon name="material-symbols:clear" size="1.25rem" />
-                    </WhiteButton>
-                </form>
-
-                <RedButton class="rounded-xl" @click="deleteProject(projeto.id)">
-                    <Icon name="material-symbols:delete" size="1.25rem" />
-                </RedButton>
-            </main>
-
-        </DefaultCard>
-
-        <DefaultCard class="p-5">
-            <header class="text-3xl font-semibold tracking-tighter">Tarefas</header>
-            <main class="flex flex-col">
-                <ul class="my-12">
-                    <li class="flex justify-between items-center mb-5 gap-8">
-                        <div class="text-xl font-mono">Tarefa 1</div>
-                        <div class="flex gap-2">
-                            <BlueButton class="rounded-xl">
-                                <Icon name="material-symbols:edit" size="1.25rem" />
-                            </BlueButton>
-                            <RedButton class="rounded-xl">
-                                <Icon name="material-symbols:delete" size="1.25rem" />
-                            </RedButton>
-                        </div>
-                    </li>
-
-                    <li class="flex justify-between items-center mb-5 gap-8">
-                        <div class="text-xl font-mono">Tarefa 2</div>
-                        <div class="flex gap-2">
-                            <BlueButton class="rounded-xl">
-                                <Icon name="material-symbols:edit" size="1.25rem" />
-                            </BlueButton>
-                            <RedButton class="rounded-xl">
-                                <Icon name="material-symbols:delete" size="1.25rem" />
-                            </RedButton>
-                        </div>
-                    </li>
-
-                    <li class="flex justify-between items-center mb-5 gap-8">
-                        <div class="text-xl font-mono">Tarefa 3</div>
-                        <div class="flex gap-2">
-                            <BlueButton class="rounded-xl">
-                                <Icon name="material-symbols:edit" size="1.25rem" />
-                            </BlueButton>
-                            <RedButton class="rounded-xl">
-                                <Icon name="material-symbols:delete" size="1.25rem" />
-                            </RedButton>
-                        </div>
-                    </li>
-                </ul>
-
-                <WhiteButton>
-                    <Icon name="carbon:task-add" size="1.5rem" class="mr-2" />
-                    <span>Criar tarefa</span>
-                </WhiteButton>
-
-            </main>
-
-        </DefaultCard>
-
-
-    </div>
+    </main>
 </template>
 
 <script setup>
-const projeto = ref(null);
+
+const projeto = ref({});
+const tarefas = ref({});
 const route = useRoute();
-const router = useRouter(); 
-const projectId = route.params.projetoID;
 
-try {
-    const response = await fetch(`http://localhost:8080/projects/${projectId}`);
-    const data = await response.json();
-    projeto.value = data;
-} catch (error) {
-    console.error('Erro ao obter dados do projeto:', error);
-}
+// const router = useRouter(); 
 
-apiFetch(`projects/${projectId}`).then( (res) => {
-    projetoEspecifico.value = res.data;
+apiFetch(`/projects/${route.params.projetoID}`).then( (res) => {
+    projeto.value = res.data;
+    console.log("Projeto:", projeto.value);
 })
 
-
-// const deleteProject = async (projectId) => {
-//     try {
-//         const response = await fetch(`http://localhost:8080/projects/${projectId}`, {
-//             method: 'DELETE',
-//             headers: {
-//              'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             console.log('Projeto excluído com sucesso!');
-//         } else {
-//             console.error('Erro ao excluir o projeto:', response.statusText);
-//         }
-//     } catch (error) {
-//         console.error('Erro ao excluir o projeto:', error);
-//     }
-// };
-
-function deleteProject(projectId) {
-    apiFetch(`/projects/${projectId}`, {
-        method: 'DELETE'
-    }).then(res => {
-        console.log("Response:", res);
-        router.push('/projects');
-    }).catch(err => {
-        console.log(err)
-    })
-}
-
-const saveEditedProject = async () => {
-    try {
-        const response = await fetch(`http://localhost:8080/projects/${projeto.value.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: 'Novo Nome',
-                description: 'Nova Descrição',
-                tools: 'Nova ferramenta'
-            }),
-        });
-
-        if (response.ok) {
-            console.log('Projeto editado com sucesso!');
-            editing.value = false;
-        } else {
-            console.error('Erro ao editar o projeto:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Erro ao editar o projeto:', error);
-    }
-};
-
-definePageMeta({
-    layout: 'dashboard'
-});
+apiFetch(`/tasks?project=${route.params.projetoID}`).then( (res) => {
+    tarefas.value = res.data;
+    console.log("Projeto:", projeto.value);
+})
 
 </script>
+
+<style scoped>
+    main div {
+        flex-basis: 33%;
+        flex-grow: 1;
+    }
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <DefaultCard class="cursor-pointer overflow-auto w-full p-5" style="min-width: 360px; height: 360px;">
+    <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;">
         <h2 class="text-4xl font-semibold tracking-tighter center">{{ name }}</h2>
         <hr class="my-2 linha-colorida">
         <section>

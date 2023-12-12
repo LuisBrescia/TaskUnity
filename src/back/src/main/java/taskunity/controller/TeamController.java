@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.boot.TempTableDdlTransactionHandling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,6 +53,7 @@ public class TeamController {
                 .map(record -> {
                     record.setName(team.getName());
                     record.setDescription(team.getDescription());
+                    record.setOwner(team.getOwner());
                     record.setMembers(team.getMembers());
                     Team updated = teamRepository.save(record);
                     return ResponseEntity.ok(updated);

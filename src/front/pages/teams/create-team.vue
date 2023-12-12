@@ -1,8 +1,8 @@
 <template>
     <main class="flex">
         <form action="/projects" class="form">
-            <FormInput name="nome">Nome da Equipe</FormInput>
-            <TextAreaInput name="descricao">Descrição</TextAreaInput>
+            <FormInput name="Nome"></FormInput>
+            <TextAreaInput name="Descricao">Descrição</TextAreaInput>
             <div>
                 <label id="membersLabel" class="label">Membros (0)</label>
                 <div class="members">

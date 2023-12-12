@@ -1,15 +1,13 @@
 <template>
-    <div style="width: 250px;">
-        <DefaultCard>
-            <div class="flex justify-between items-center">
-                <div class="sub-container1">
-                    <div class="text-lg font-normal">{{ name }}</div>
-                    <div class="text-sm font-thin text-neutral-500 tracking-widest">{{ role }}</div>
-                </div>
-                <RemoveButton type="button" @click="removeClick()"></RemoveButton>
+    <DefaultCard class="p-5" style="width: 250px;">
+        <div class="flex justify-between items-center">
+            <div class="sub-container1">
+                <div class="text-lg font-normal">{{ name }}</div>
+                <div class="text-sm font-thin text-neutral-500 tracking-widest">{{ role }}</div>
             </div>
-        </DefaultCard>
-    </div>
+            <RemoveButton type="button" @click="removeClick()"></RemoveButton>
+        </div>
+    </DefaultCard>
 </template>
 
 <script setup>

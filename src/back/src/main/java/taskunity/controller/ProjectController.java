@@ -14,8 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 import taskunity.model.Project;
+import taskunity.model.Task;
 import taskunity.repository.ProjectRepository;
-
+import taskunity.repository.TaskRepository;
 
 @RestController
 @RequestMapping("/projects")
@@ -23,6 +24,8 @@ public class ProjectController {
 
     @Autowired
     ProjectRepository projectRepository;
+    @Autowired
+    TaskRepository taskRepository;
 
     @GetMapping
     public List<Project> getAllProjects(@RequestParam(name = "owner", required = false) Integer ownerId) {
@@ -39,7 +42,6 @@ public class ProjectController {
     public List<Project> getProjectByIdOwner(@PathVariable Integer ownerId) {
         return projectRepository.findByOwner(ownerId);
     }
-    
 
     @GetMapping("/tools/{toolName}")
     public List<Project> getProjectByTool(@PathVariable String toolName) {
@@ -72,6 +74,21 @@ public class ProjectController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProject(@PathVariable Integer id) {
         if (projectRepository.existsById(id)) {
+            Optional<Project> optionalProject = projectRepository.findById(id);
+            if (optionalProject.isPresent()) {
+                Project project = optionalProject.get();
+
+                if (taskRepository != null) {
+                    List<Task> tasks = project.getTasks();
+                    for (Task task : tasks) {
+                        taskRepository.deleteById(task.getId());
+                    }
+                } else {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                            .body("Erro interno do servidor: taskRepository não está sendo corretamente inicializado.");
+                }
+            }
+
             projectRepository.deleteById(id);
             return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
         } else {

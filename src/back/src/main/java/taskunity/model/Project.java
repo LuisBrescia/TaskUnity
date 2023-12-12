@@ -1,5 +1,7 @@
 package taskunity.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +19,9 @@ public class Project {
     private String tools;
     private String startDate;
     private Integer owner;
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Task> tasks;
 
     public Project() {
     }
@@ -74,5 +79,13 @@ public class Project {
 
     public void setOwner(Integer owner) {
         this.owner = owner;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

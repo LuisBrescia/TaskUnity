@@ -1,5 +1,5 @@
 <template>
-  <main class="overflow-hidden flex justify-center items-center">
+  <main v-if="!onLoading" class="overflow-hidden flex justify-center items-center">
     <div class="relative max-w-xl w-11/12">
       <DefaultCard class="p-12">
         <NuxtLink to="/">
@@ -55,6 +55,11 @@
       <BlueBlob class="right-3/4 top-2/4 animate-spin"/> -->
     </div>
   </main>
+  <main v-else class="flex h-screen justify-center items-center">
+    <div class="relative max-w-xl w-full">
+        <div class="animate-pulse rounded-full h-28 flex justify-center items-center w-full" />
+    </div>
+  </main>
 </template>
 
 <script setup>
@@ -69,6 +74,8 @@ const modo = ref(route.query.modo);
 
 const status = ref('')
 const success = ref(false)
+
+const onLoading = ref(false)
 
 const formData = ref({
   name: '',
@@ -107,6 +114,8 @@ function criarConta() {
     success.value = true 
     if (res.status == 201) {
       status.value = 'Conta criada com sucesso'
+      userStore.setInfo(res.data);
+      router.push('/projects');
     } 
   }).catch((err) => {
     success.value = false
@@ -134,8 +143,8 @@ function entrar() {
       
       userStore.setInfo(res.data);
       setTimeout(() => {
-        status.value = 'Carregando...'
-      }, 2000);
+        onLoading.value = true
+      }, 1000);
       apiFetch(`/projects?owner=${res.data.id}`)
         .then(res => {
           console.log("Projectos do usuario", res)

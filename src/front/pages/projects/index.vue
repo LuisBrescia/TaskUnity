@@ -18,7 +18,7 @@
 
         <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto">
             <div v-for="project in projects" :key="project.id" class="flex-1">
-                <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project.id)">
+                <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project)">
                     <header>
                         <h2 class="text-4xl font-semibold tracking-tighter">{{ project.name }} ({{ project.id }})</h2>                       
                         <hr class="my-2 linha-colorida">
@@ -37,7 +37,7 @@
                 <DefaultCard 
                     class="cursor-pointer relative p-8" 
                     style="min-width: 360px; height: 360px; border-style: dashed;" 
-                    @click="createProject"
+                    @click="dialogCriarProjeto = true"
                 >
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <Icon name="carbon:add" size="5rem" />
@@ -47,13 +47,29 @@
         </section>
     </main>
 
-    <el-dialog v-model="criandoProjeto" title="criarProjeto">
-        <span>This is a message</span>
+    <el-dialog v-model="dialogEditarProjeto" :title="`Deseja abrir o projeto ${projetoEditado.name}?`">
+        <span>{{ projetoEditado.description }}</span>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="dialogVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="dialogVisible = false">
-                  Confirm
+                <el-button @click="dialogEditarProjeto = false">Cancelar</el-button>
+                <el-button type="primary" @click="router.push(`projects/${projetoEditado.id}`)">
+                  Abrir
+                </el-button>
+            </span>
+        </template>
+    </el-dialog>
+
+    <el-dialog v-model="dialogCriarProjeto" title="Criar projeto">
+        <div>Nome:</div>
+        <el-input v-model="modelNovoProjeto.name" placeholder="Nome do projeto" size="large" />
+
+        <div class="mt-5">Descrição:</div>
+        <el-input v-model="modelNovoProjeto.description" placeholder="Descrição do projeto" size="large" />
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button @click="dialogCriarProjeto = false">Cancel</el-button>
+                <el-button type="success" @click="criarProjeto">
+                  Criar
                 </el-button>
             </span>
         </template>
@@ -71,16 +87,45 @@ definePageMeta({
 const userStore = useUserStore();
 const projects = ref(userStore.projects);
 const router = useRouter();
-const criandoProjeto = ref(false);
 
-console.log("Projetos carregados", userStore.projects);
+const dialogCriarProjeto = ref(false);
+const dialogEditarProjeto = ref(false);
 
-function createProject() {
-    console.log("Criando projeto");
+const projetoEditado = ref({});
+
+const modelNovoProjeto = ref({
+    name: '',
+    description: '',
+    owner: userStore.info.id,
+});
+
+function criarProjeto() {
+    dialogCriarProjeto.value = true;
+    apiFetch('/projects', {
+        method: 'POST',
+        body: {
+            name: modelNovoProjeto.value.name,
+            description: modelNovoProjeto.value.description,
+            owner: modelNovoProjeto.value.owner,
+        }
+    }).then((response) => {
+        if (response.status === 201) {
+            
+            userStore.projects.push(response.data);
+            dialogCriarProjeto.value = false;
+
+            ElNotification({
+                title: 'Sucesso',
+                message: 'Projeto criado com sucesso',
+                type: 'success'
+            });
+        }
+    });
 }
 
-function abrirProjeto(id) {
-    router.push(`/projects/${id}`);
+function abrirProjeto(projeto) {
+    projetoEditado.value = projeto; 
+    dialogEditarProjeto.value = true;
 }
 
 </script>

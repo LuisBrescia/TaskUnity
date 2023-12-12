@@ -82,13 +82,13 @@ public class ProjectController {
                 taskRepository.deleteByProjectId(id);
                 projectRepository.deleteById(id);
     
-                return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
+                return ResponseEntity.ok("Project com ID " + id + " excluido com sucesso.");
             } else {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                         .body("Erro interno do servidor: Projeto não encontrado.");
             }
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Project com ID " + id + " não encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Project com ID " + id + " nao encontrado.");
         }
     }
 }

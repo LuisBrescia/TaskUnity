@@ -1,26 +1,30 @@
-<template> 
-    <main v-if="carregado" class="flex h-screen justify-between gap-5">
-        <div class="m-5 mx-0">
-            <DefaultCard class="p-5 m-5">
-                <header class="font-bold text-4xl">{{ projeto.name }}</header>
-            </DefaultCard>
-            <el-button type="danger" class="m-5" @click="deletarProjeto">Deletar</el-button>
-        </div>
+<template>
+    <main v-if="carregado" class="flex h-screen justify-center gap-5 py-12">
+        <el-card shadow="never" class="box-card">
+            <template #header>
+                <div class="card-header">
+                    <span>{{ projeto.name }}</span>
+                    <el-button type="danger" @click="deletarProjeto" :icon="ElIconDelete">Deletar projeto</el-button>
+                </div>
+            </template>
+            <el-button class="button" plain>Operation button</el-button>
+            <template #footer>Footer content</template>
+        </el-card>
 
-        <div class="m-5 ml-0">
-            <DefaultCard class="p-5 m-5">
-                <header class="font-bold text-4xl">Tarefas</header>
-            </DefaultCard>
-            <div class="flex overflow-hidden gap-5 m-5 flex-wrap">
-                <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5">
-                    <header class="font-bold text-2xl">{{ tarefa.name }}</header>
-                    <p class="text-lg">{{ tarefa.description }}</p>
-                </DefaultCard>
-            </div>
-        </div>
+        <el-card shadow="never" class="box-card">
+            <template #header>
+                <div class="card-header">
+                    <span>Tarefa</span>
+                    <el-button type="success" @click="dialogCriarTarefa = true" :icon="ElIconPlus">Adicionar tarefa</el-button>
+                </div>
+            </template>
+            <div v-for="tarefa in tarefas" :key="tarefa.id" class="text item">{{ 'List item ' + tarefa.name }}</div>
+            <template #footer>Footer content</template>
+        </el-card>
+        
     </main>
     <main v-else class="flex h-screen justify-center items-center">
-        <div class="relative max-w-xl">
+        <div class="relative max-w-xl w-full">
             <div class="animate-pulse rounded-full h-28 flex justify-center items-center" />
         </div>
     </main>
@@ -32,6 +36,32 @@
             </DefaultCard>
         </div>
     </NuxtLink>
+
+    <el-dialog v-model="dialogCriarTarefa" title="Criar tarefa">
+        <div>Nome:</div>
+        <el-input v-model="modelNovaTarefa.name" placeholder="Nome da tarefa" size="large" />
+
+        <div class="mt-5">Descrição:</div>
+        <el-input v-model="modelNovaTarefa.description" placeholder="Descrição da tarefa" size="large" />
+
+        <div class="mt-5">Atribuição:</div>
+        <el-select size="large">
+            <el-option
+                v-for="projeto in userStore.projects"
+                :key="projeto.id"
+                :label="projeto.name"
+                :value="projeto.id"
+            />
+        </el-select>
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button @click="dialogCriarTarefa = false">Cancel</el-button>
+                <el-button type="success" @click="criarTarefa">
+                  Criar
+                </el-button>
+            </span>
+        </template>
+    </el-dialog>
 </template>
 
 <script setup>
@@ -40,34 +70,28 @@ import { useUserStore } from '@/stores/userStore.js'
 
 const userStore = useUserStore();
 const projeto = ref({});
-// const projeto = ref(userStore.projects.find(projeto => projeto.id == route.params.projetoID));
 const tarefas = ref({});
 const route = useRoute();
 const router = useRouter();
 const carregado = ref(false);
 
+const dialogCriarTarefa = ref(false);
+const modelNovaTarefa = ref({
+    name: '',
+    completed: false,
+    project: route.params.projetoID,
+    tasker: null
+})
+
 projeto.value = userStore.projects.find(projeto => projeto.id == route.params.projetoID);
 
-// apiFetch(`/projects/${route.params.projetoID}`).then( (res) => {
-//     projeto.value = res.data;
-//     console.log("Projeto:", projeto.value);
-//     carregado.value = true;
-// })
-
-apiFetch(`/tasks?project=${route.params.projetoID}`).then( (res) => {
+apiFetch(`/tasks?project=${route.params.projetoID}`).then((res) => {
     tarefas.value = res.data;
     console.log("Projeto:", projeto.value);
     carregado.value = true;
 })
 
 function deletarProjeto() {
-    // apiFetch(`/projects/${route.params.projetoID}`, {
-    //     method: 'DELETE'
-    // }).then((res) => {
-    //     console.log("Projeto deletado:", res.data);
-        
-    //     router.push('/projects');
-    // })
     ElMessageBox.confirm('Tem certeza que deseja deletar este projeto?', 'Aviso', {
         confirmButtonText: 'Sim',
         cancelButtonText: 'Não',
@@ -90,6 +114,28 @@ function deletarProjeto() {
     })
 }
 
+function criarTarefa() {
+    apiFetch('/tasks', {
+        method: 'POST',
+        body: {
+            name: modelNovaTarefa.value.name,
+            completed: modelNovaTarefa.value.completed,
+            project: modelNovaTarefa.value.project,
+            tasker: modelNovaTarefa.value.tasker
+        }
+    }).then((res) => {
+        if (res.status == 201) {
+            tarefas.value.push(res.data);
+            dialogCriarTarefa.value = false;
+            ElNotification({
+                title: 'Sucesso',
+                message: 'Tarefa criada com sucesso',
+                type: 'success'
+            });
+        }
+    })
+}
+
 definePageMeta({
     layout: 'empty'
 })
@@ -97,8 +143,27 @@ definePageMeta({
 </script>
 
 <style scoped>
-    main div {
-        flex-basis: 50%;
-        flex-grow: 1;
-    }
+/* main div {
+    flex-basis: 50%;
+    flex-grow: 1;
+} */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.item {
+    margin-bottom: 18px;
+}
+
+.box-card {
+    width: 480px;
+}
+
 </style>

@@ -1,7 +1,5 @@
 package taskunity.model;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -19,8 +17,6 @@ public class Project {
     private String tools;
     private String startDate;
     private Integer owner;
-
-    private List<Integer> tasksID;
 
     public Project() {
     }
@@ -78,13 +74,5 @@ public class Project {
 
     public void setOwner(Integer owner) {
         this.owner = owner;
-    }
-
-    public List<Integer> getTasks() {
-        return tasksID;
-    }
-
-    public void setTasks(List<Integer> tasks) {
-        this.tasksID = tasks;
     }
 }

@@ -29,11 +29,18 @@ public class ProjectController {
     @Transactional
     @GetMapping
     public List<Project> getAllProjects(@RequestParam(name = "owner", required = false) Integer ownerId) {
+
         if (ownerId != null) {
             return projectRepository.findByOwner(ownerId);
         } else {
             return projectRepository.findAll();
         }
+    }
+
+    @Transactional
+    @GetMapping("/owner/{ownerId}")
+    public List<Project> getProjectByIdOwner(@PathVariable Integer ownerId) {
+        return projectRepository.findByOwner(ownerId);
     }
 
     @GetMapping("/tools/{toolName}")
@@ -64,24 +71,22 @@ public class ProjectController {
         }
     }
 
+    @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProject(@PathVariable Integer id) {
         if (projectRepository.existsById(id)) {
             Optional<Project> optionalProject = projectRepository.findById(id);
+    
             if (optionalProject.isPresent()) {
-                Project project = optionalProject.get();
-
-                if (taskRepository != null) {
-                    List<Integer> tasks = project.getTasks();
-                    for (Integer task : tasks) {
-                        taskRepository.deleteById(task);
-                    }
-                } else {
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro interno do servidor: taskRepository não está sendo corretamente inicializado.");
-                }
+    
+                taskRepository.deleteByProjectId(id);
+                projectRepository.deleteById(id);
+    
+                return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("Erro interno do servidor: Projeto não encontrado.");
             }
-            projectRepository.deleteById(id);
-            return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Project com ID " + id + " não encontrado.");
         }

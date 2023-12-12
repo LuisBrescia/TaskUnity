@@ -133,7 +133,9 @@ function entrar() {
     if (res.status == 202) {
       
       userStore.setInfo(res.data);
-
+      setTimeout(() => {
+        status.value = 'Carregando...'
+      }, 2000);
       apiFetch(`/projects?owner=${res.data.id}`)
         .then(res => {
           console.log("Projectos do usuario", res)

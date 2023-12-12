@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="team")
+@Table(name = "team")
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +33,10 @@ public class Team {
         this.name = name;
         this.description = description;
         this.members = members;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {

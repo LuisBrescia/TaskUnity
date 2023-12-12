@@ -1,5 +1,7 @@
 <template>
-    <main class="flex gap-5 mt-5 justify-center">
+    <main class="gap-5 justify-center">
+
+        <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header>
 
         <!-- <div v-for="project in projects" :key="project.id">
             <NuxtLink :to="`/projects/${project.id}`" exact>
@@ -14,7 +16,7 @@
             </NuxtLink>
         </div> -->
 
-        <section class="flex gap-5 flex-wrap w-full max-w-7xl">
+        <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto">
             <div v-for="project in projects" :key="project.id" class="flex-1">
                 <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project.id)">
                     <header>
@@ -32,7 +34,11 @@
                 </DefaultCard>
             </div>
             <div class="flex-1">
-                <DefaultCard class="cursor-pointer relative p-8" style="min-width: 360px; height: 360px; border-style: dashed;" @click="createProject">
+                <DefaultCard 
+                    class="cursor-pointer relative p-8" 
+                    style="min-width: 360px; height: 360px; border-style: dashed;" 
+                    @click="createProject"
+                >
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <Icon name="carbon:add" size="5rem" />
                     </div>
@@ -40,6 +46,18 @@
             </div>
         </section>
     </main>
+
+    <el-dialog v-model="criandoProjeto" title="criarProjeto">
+        <span>This is a message</span>
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button @click="dialogVisible = false">Cancel</el-button>
+                <el-button type="primary" @click="dialogVisible = false">
+                  Confirm
+                </el-button>
+            </span>
+        </template>
+    </el-dialog>
 </template>
 
 <script setup>
@@ -53,12 +71,12 @@ definePageMeta({
 const userStore = useUserStore();
 const projects = ref(userStore.projects);
 const router = useRouter();
+const criandoProjeto = ref(false);
 
 console.log("Projetos carregados", userStore.projects);
 
 function createProject() {
-    console.log('Criar projeto');
-    router.push('/create-project');
+    console.log("Criando projeto");
 }
 
 function abrirProjeto(id) {
@@ -68,6 +86,10 @@ function abrirProjeto(id) {
 </script>
 
 <style lang="scss" scoped>
+
+.edit #iconeNovoProjeto {
+    opacity: 0.5;
+}
 .scroll-personalizado {
     scrollbar-color: #ffffff1a #ffffff1a;
     scrollbar-width: thin;

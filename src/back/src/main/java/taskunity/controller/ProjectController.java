@@ -71,26 +71,24 @@ public class ProjectController {
         }
     }
 
+    @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProject(@PathVariable Integer id) {
         if (projectRepository.existsById(id)) {
             Optional<Project> optionalProject = projectRepository.findById(id);
+    
             if (optionalProject.isPresent()) {
                 Project project = optionalProject.get();
-
-                if (taskRepository != null) {
-                    List<Task> tasks = project.getTasks();
-                    for (Task task : tasks) {
-                        taskRepository.deleteById(task.getId());
-                    }
-                } else {
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                            .body("Erro interno do servidor: taskRepository não está sendo corretamente inicializado.");
-                }
+    
+                taskRepository.deleteByProjectId(id);
+    
+                projectRepository.deleteById(id);
+    
+                return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("Erro interno do servidor: Projeto não encontrado.");
             }
-
-            projectRepository.deleteById(id);
-            return ResponseEntity.ok("Project com ID " + id + " excluído com sucesso.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Project com ID " + id + " não encontrado.");
         }

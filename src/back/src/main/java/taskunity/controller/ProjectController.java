@@ -3,6 +3,9 @@ package taskunity.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -12,6 +15,7 @@ import java.util.Optional;
 
 import taskunity.model.Project;
 import taskunity.repository.ProjectRepository;
+
 
 @RestController
 @RequestMapping("/projects")
@@ -29,6 +33,13 @@ public class ProjectController {
             return projectRepository.findAll();
         }
     }
+
+    @Transactional
+    @GetMapping("/owner/{ownerId}")
+    public List<Project> getProjectByIdOwner(@PathVariable Integer ownerId) {
+        return projectRepository.findByOwner(ownerId);
+    }
+    
 
     @GetMapping("/tools/{toolName}")
     public List<Project> getProjectByTool(@PathVariable String toolName) {

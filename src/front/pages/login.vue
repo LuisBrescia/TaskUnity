@@ -114,6 +114,8 @@ function criarConta() {
     success.value = true 
     if (res.status == 201) {
       status.value = 'Conta criada com sucesso'
+      userStore.setInfo(res.data);
+      router.push('/projects');
     } 
   }).catch((err) => {
     success.value = false

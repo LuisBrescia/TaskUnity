@@ -9,22 +9,25 @@
             <hr class="mt-2 mb-5 linha-colorida">
             
             <p class="text-base">
-                <div class="text-lg">Progresso:</div>
+                <div class="text-lg font-bold">Progresso:</div>
                 <div>
                     <Icon name="material-symbols:done" color="green" /> Completas: {{ tarefasCompletas.length }}
                 </div>
                 <div> 
-                    <Icon name="material-symbols:close" color="red" />  Incompletas: {{ tarefas.length - tarefasCompletas.length }}
+                    <Icon name="material-symbols:clock-loader-10" color="yellow" />  Em análise: {{ tarefasEmAnalise.length }}
+                </div>
+                <div> 
+                    <Icon name="material-symbols:close" color="red" />  Incompletas: {{ tarefasIncompletas.length }}
                 </div>
             </p>
 
             <DefaultCard class="text-base border mt-5 rounded-custom p-3">
-                <small>Descrição:</small>
-                <p>{{ projeto.description }}</p>
+                <small class="font-bold">Descrição:</small>
+                <p class="font-thin">{{ projeto.description }}</p>
             </DefaultCard>
         </DefaultCard>
 
-        <DefaultCard class="p-5 w-96 h-fit">
+        <DefaultCard class="p-5 h-fit">
             <header class="flex justify-between">
                 <span>Tarefas</span>
                 <el-button type="success" text circle @click="abrirDialogTarefa" :icon="ElIconPlus" />
@@ -35,14 +38,29 @@
             <div 
                 v-for="(tarefa, idx) in tarefas" 
                 :key="tarefa.id" 
-                class="item-tarefa mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0" 
-                :class="{ 'border-green-500': tarefa.completed, 'border-red-500': !tarefa.completed }"
+                class="item-tarefa mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0 flex gap-5" 
+                :class="{ 
+                    'border-green-500': tarefa.completed === true, 
+                    'border-yellow-500': tarefa.completed === false, 
+                    'border-red-500': tarefa.completed === null 
+                }"
             >
-                <div class="text-lg flex justify-between items-center">
-                    <span>{{ tarefa.name }}</span>
-                    <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
-                </div>
-                <p class="text-base mt-2">{{ tarefa.description }}</p>
+                <section class="w-96">
+                    <div class="text-lg flex justify-between items-center">
+                        <span>{{ tarefa.name }}</span>
+                        <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
+                    </div>
+                    <p class="text-base my-2">{{ tarefa.description }}</p>
+                </section>
+                <section class="w-96">
+                    <div class="text-lg flex justify-between items-center">
+                        <span>Atribuição: {{ tarefa.tasker ? getTasker(tarefa.tasker).name : "Não atribuída" }}</span>  
+                        <el-button type="info" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconSwitch" />
+                    </div>
+                    <div class="text-base flex justify-between items-center my-2">
+                        <span v-if="tarefa.completed" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>  
+                    </div>
+                </section>
             </div>
         </DefaultCard>
     </main>
@@ -155,6 +173,10 @@ const atribuicoes = [
   }
 ]
 
+function getTasker(taskerID) {
+    return userStore.users.find(user => user.id == taskerID);
+}
+
 function abrirDialogTarefa(tarefa = {}, idx = 0) {
     modelTarefa.value = {...tarefa};
     posicaoTarefa.value = idx;
@@ -163,7 +185,15 @@ function abrirDialogTarefa(tarefa = {}, idx = 0) {
 }
 
 const tarefasCompletas = computed(() => {
-  return tarefas.value.filter(tarefa => tarefa.completed)
+  return tarefas.value.filter(tarefa => tarefa.completed === true)
+})
+
+const tarefasEmAnalise = computed(() => {
+  return tarefas.value.filter(tarefa => tarefa.completed === false)
+})
+
+const tarefasIncompletas = computed(() => {
+    return tarefas.value.filter(tarefa => tarefa.completed === null)
 })
 
 function salvarTarefa() {

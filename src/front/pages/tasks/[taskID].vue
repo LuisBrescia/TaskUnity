@@ -1,12 +1,13 @@
 <template>
-
-    <!-- Colocar uma seta no canto superior esquerdo para voltar para tasks -->
-    <NuxtLink class="w-10 h-10" to="/tasks">
-        <!-- Seta virada para esquerda -->
-        <Icon name="material-symbols:arrow-back-ios-rounded" size="2.5rem" />
+    <NuxtLink to="/tasks">
+        <div class="fixed bottom-0 right-0 m-5 backdrop-brightness-50 rounded-custom">
+            <DefaultCard class="px-5 py-3">
+                <header class="text-2xl">Voltar</header>
+            </DefaultCard>
+        </div>
     </NuxtLink>
 
-    <div class="flex mt-12 gap-12">
+    <!-- <div class="flex mt-12 gap-12">
         <DefaultCard class="p-5">
             <header class="text-2xl uppercase font-bold">{{ tarefa.name }} ({{ tarefa.id  }})</header>
             <p class="text-base mt-5">{{ tarefa.description }}</p>
@@ -61,51 +62,51 @@
                 <RedButton @click="alteraStatus" v-else>Cancelar</RedButton>
                 <WhiteButton>Adicionar comentário</WhiteButton>
             </section>
-        </DefaultCard>
-    </div>
+        </DefaultCard> 
+    </div> -->
 </template>
 
 <script setup>
 
 import { useUserStore } from '@/stores/userStore.js';
 
-const userStore = useUserStore();
-const route = useRoute();
+// const userStore = useUserStore();
+// const route = useRoute();
 
-const tarefa = ref({});
-tarefa.value = userStore.tasks.find(task => task.id == route.value.params.taskID);
+// const tarefa = ref({});
+// tarefa.value = userStore.tasks.find(task => task.id == route.value.params.taskID);
 
-const tarefaTasker = ref({});
-tarefaTasker.value = userStore.info;
+// const tarefaTasker = ref({});
+// tarefaTasker.value = userStore.info;
 
-const tarefaProjeto = ref({});
+// const tarefaProjeto = ref({});
 
-function alteraStatus() {
-    tarefa.value.completed = !tarefa.value.completed;
-    apiFetch(`/tasks/${tarefa.value.id}`, {
-        method: 'PUT',
-        body: tarefa.value
-    })
-        .then(res => {
-            console.log(res)
-            userStore.tasks = userStore.tasks.map(task => {
-                if (task.id == tarefa.value.id) {
-                    return tarefa.value;
-                }
-                return task;
-            })
-        }).catch(err => {
-            console.log(err)
-        })
-}
+// function alteraStatus() {
+//     tarefa.value.completed = !tarefa.value.completed;
+//     apiFetch(`/tasks/${tarefa.value.id}`, {
+//         method: 'PUT',
+//         body: tarefa.value
+//     })
+//         .then(res => {
+//             console.log(res)
+//             userStore.tasks = userStore.tasks.map(task => {
+//                 if (task.id == tarefa.value.id) {
+//                     return tarefa.value;
+//                 }
+//                 return task;
+//             })
+//         }).catch(err => {
+//             console.log(err)
+//         })
+// }
 
-apiFetch(`/projects/${tarefa.value.project}`)
-        .then(res => {
-            tarefaProjeto.value = res.data;
-            console.log("Tarefas daquele projeto", tarefaProjeto.value)
-        }).catch(err => {
-            console.log(err)
-        })
+// apiFetch(`/projects/${tarefa.value.project}`)
+//         .then(res => {
+//             tarefaProjeto.value = res.data;
+//             console.log("Tarefas daquele projeto", tarefaProjeto.value)
+//         }).catch(err => {
+//             console.log(err)
+//         })
 
 
 </script>

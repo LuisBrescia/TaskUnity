@@ -161,6 +161,13 @@ function entrar() {
           console.log(err)
         })
 
+      apiFetch(`/users`)
+        .then(res => {
+          userStore.setUsers(res.data)
+        }).catch(err => {
+          console.log(err)
+        })
+
     } else {
       status.value = res.data
     }

@@ -5,8 +5,9 @@
                 <el-tab-pane label="Minhas Tarefas" name="myTasks">
                     
                     <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5 my-5">
-                        <div>ID: {{ tarefa.id  }}</div>
-                        <div>NOME: {{ tarefa.name  }}</div>
+                        <div>Id: {{ tarefa.id  }}</div>
+                        <div>Nome: {{ tarefa.name  }}</div>
+                        <div>Descrição: {{ tarefa.description  }}</div>
                         <div>Status: {{ tarefa.completed ? "Completa" : "Em andamento" }}</div>
                         <div>Projeto: {{ tarefa.project  }}</div>
                         <div>User responsável: {{ tarefa.tasker  }}</div>
@@ -41,7 +42,8 @@ definePageMeta({
 
 const userStore = useUserStore();
 const activeName = ref('myTasks');
-const tarefas = ref(userStore.tasks)
+const tarefas = ref({})
+tarefas.value = userStore.tasks;
 
 const handleClick = (tab, event) => {
     console.log(tab, event);

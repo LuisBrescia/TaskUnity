@@ -1,30 +1,48 @@
 <template>
     <main v-if="carregado" class="flex h-screen justify-center gap-5 py-12">
-        <DefaultCard class="p-5 w-96 h-1/2">
+        <DefaultCard class="p-5 w-96 h-fit">
             <header class="flex justify-between">
                 <span>{{ projeto.name }}</span>
                 <el-button type="info" text circle @click="abrirDialogEditarProjeto" :icon="ElIconTools" />
             </header>
-            <hr class="my-2 linha-colorida">
-            <p class="text-lg">
-                {{ projeto.description }}
+        
+            <hr class="mt-2 mb-5 linha-colorida">
+            
+            <p class="text-base">
+                <div class="text-lg">Progresso:</div>
+                <div>
+                    <Icon name="material-symbols:done" color="green" /> Completas: {{ tarefasCompletas.length }}
+                </div>
+                <div> 
+                    <Icon name="material-symbols:close" color="red" />  Incompletas: {{ tarefas.length - tarefasCompletas.length }}
+                </div>
             </p>
+
+            <DefaultCard class="text-base border mt-5 rounded-custom p-3">
+                <small>Descrição:</small>
+                <p>{{ projeto.description }}</p>
+            </DefaultCard>
         </DefaultCard>
 
-        <DefaultCard class="p-5 w-96 h-1/2">
+        <DefaultCard class="p-5 w-96 h-fit">
             <header class="flex justify-between">
                 <span>Tarefas</span>
-                <el-button type="success" text @click="abrirDialogTarefa" :icon="ElIconPlus">Nova</el-button>
+                <el-button type="success" text circle @click="abrirDialogTarefa" :icon="ElIconPlus" />
             </header>
 
-            <hr class="my-2 linha-colorida">
+            <hr class="mt-2 mb-5 linha-colorida">
 
-            <div v-for="(tarefa, idx) in tarefas" :key="tarefa.id" class="mb-2">
-                <div class="text-lg flex justify-between items-center border">
+            <div 
+                v-for="(tarefa, idx) in tarefas" 
+                :key="tarefa.id" 
+                class="item-tarefa mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0" 
+                :class="{ 'border-green-500': tarefa.completed, 'border-red-500': !tarefa.completed }"
+            >
+                <div class="text-lg flex justify-between items-center">
                     <span>{{ tarefa.name }}</span>
                     <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
                 </div>
-                <p class="text-base border">{{ tarefa.description }}</p>
+                <p class="text-base mt-2">{{ tarefa.description }}</p>
             </div>
         </DefaultCard>
     </main>
@@ -144,6 +162,10 @@ function abrirDialogTarefa(tarefa = {}, idx = 0) {
     console.log("Tarefa:", tarefa);
 }
 
+const tarefasCompletas = computed(() => {
+  return tarefas.value.filter(tarefa => tarefa.completed)
+})
+
 function salvarTarefa() {
 
     modelTarefa.value.project = route.params.projetoID;
@@ -164,10 +186,17 @@ function salvarTarefa() {
                     message: 'Tarefa criada com sucesso',
                     type: 'success'
                 });
-                if (modelTarefa.value.atribuicao == 'self') {
+                if (modelTarefa.value.atribuicao == 'self' || modelTarefa.value.tasker == userStore.info.id) {
                     if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
                         userStore.tasks.push(res.data);
                     }
+                    userStore.tasks = userStore.tasks.map(tarefa => {
+                        if (tarefa.id == modelTarefa.value.id) {
+                            return res.data;
+                        } else {
+                            return tarefa;
+                        }
+                    })
                 }
             }
         })
@@ -183,10 +212,17 @@ function salvarTarefa() {
                 message: 'Tarefa editada com sucesso',
                 type: 'success'
             });
-            if (modelTarefa.value.atribuicao == 'self') {
+            if (modelTarefa.value.atribuicao == 'self' || modelTarefa.value.tasker == userStore.info.id) {
                 if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
                     userStore.tasks.push(res.data);
                 }
+                userStore.tasks = userStore.tasks.map(tarefa => {
+                    if (tarefa.id == modelTarefa.value.id) {
+                        return res.data;
+                    } else {
+                        return tarefa;
+                    }
+                })
             }
         })
     }

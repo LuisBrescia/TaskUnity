@@ -11,6 +11,7 @@ public class Task {
     private Integer id;
 
     private String name;
+    private String description;
     private Boolean completed;
     private Integer project;
     private Integer tasker;
@@ -53,11 +54,19 @@ public class Task {
         return this.project;
     }
 
-    public Integer gettasker() {
+    public Integer getTasker() {
         return this.tasker;
     }
 
-    public void settasker(Integer tasker) {
+    public void setTasker(Integer tasker) {
         this.tasker = tasker;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

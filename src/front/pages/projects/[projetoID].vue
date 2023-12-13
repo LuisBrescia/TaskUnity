@@ -17,11 +17,14 @@
                 <el-button type="success" text @click="abrirDialogTarefa" :icon="ElIconPlus">Nova</el-button>
             </header>
 
-            <hr class="mt-2 mb-5 linha-colorida">
+            <hr class="my-2 linha-colorida">
 
-            <div v-for="(tarefa, idx) in tarefas" :key="tarefa.id" class="text-lg mb-3 flex justify-between items-center">
-                <span>{{ tarefa.name }}</span>
-                <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
+            <div v-for="(tarefa, idx) in tarefas" :key="tarefa.id" class="mb-2">
+                <div class="text-lg flex justify-between items-center border">
+                    <span>{{ tarefa.name }}</span>
+                    <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
+                </div>
+                <p class="text-base border">{{ tarefa.description }}</p>
             </div>
         </DefaultCard>
     </main>
@@ -83,12 +86,19 @@
             />
         </el-select>
         <template #footer>
-            <span class="dialog-footer">
-                <el-button @click="dialogTarefa = false">Cancel</el-button>
-                <el-button type="primary" @click="salvarTarefa">
-                  Salvar
-                </el-button>
-            </span>
+            <el-row class="dialog-footer" justify="space-between">
+                <div>
+                    <el-button type="danger" plain v-show="modelTarefa.id" :icon="ElIconDelete" @click="deletarTarefa">
+                        Deletar Tarefa
+                    </el-button>
+                </div>
+                <div>
+                    <el-button @click="dialogTarefa = false">Cancel</el-button>
+                    <el-button type="primary" @click="salvarTarefa">
+                        Salvar
+                    </el-button>
+                </div>
+            </el-row>
         </template>
     </el-dialog>
 </template>
@@ -154,6 +164,11 @@ function salvarTarefa() {
                     message: 'Tarefa criada com sucesso',
                     type: 'success'
                 });
+                if (modelTarefa.value.atribuicao == 'self') {
+                    if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
+                        userStore.tasks.push(res.data);
+                    }
+                }
             }
         })
     } else {
@@ -168,8 +183,40 @@ function salvarTarefa() {
                 message: 'Tarefa editada com sucesso',
                 type: 'success'
             });
+            if (modelTarefa.value.atribuicao == 'self') {
+                if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
+                    userStore.tasks.push(res.data);
+                }
+            }
         })
     }
+}
+
+function deletarTarefa() {
+    ElMessageBox.confirm('Tem certeza que deseja deletar esta tarefa?', 'Aviso', {
+        confirmButtonText: 'Sim',
+        cancelButtonText: 'Não',
+        type: 'warning'
+    }).then(() => {
+        apiFetch(`/tasks/${modelTarefa.value.id}`, {
+            method: 'DELETE'
+        }).then((res) => {
+            tarefas.value.splice(posicaoTarefa.value, 1);
+            userStore.tasks = userStore.tasks.filter(tarefa => tarefa.id != modelTarefa.value.id);
+            dialogTarefa.value = false;
+            ElNotification({
+                title: 'Sucesso',
+                message: 'Tarefa deletada com sucesso',
+                type: 'success'
+            });
+        })
+    }).catch(() => {
+        ElNotification({
+            title: 'Aviso',
+            message: 'Exclusão cancelada',
+            type: 'info'
+        });
+    })
 }
 
 const projeto = ref({});

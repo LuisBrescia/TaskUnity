@@ -30,6 +30,10 @@ public class Convite {
     public Integer getId() {
         return this.id;
     }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getTask() {
         return this.task;

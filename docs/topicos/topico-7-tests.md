@@ -11,20 +11,113 @@ _Se quiser conhecer um pouco mais sobre os tipos de teste de software, leia o do
 
 _Nesta seção o grupo deverá documentar os testes de software que verificam a correta implementação dos requisitos funcionais e não funcionais do software. Preencha a tabela com o plano dos testes. Para cada Caso de Teste (CT), associe quais testes unitários são responsáveis por verificar a conformidade com o caso de teste. Associe também o componente que está sendo testado. Veja a tabela de exemplo._
 
+| **Caso de Teste** | **CT01 - Cadastrar usuário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Cadastrar novo usuário. |
+| **Dados de entrada** | Inserção de dados válidos no formulário de cadastro. |
+| **Resultado obtido** | Dado cadastrado com sucesso. |
+| **Teste unitário associado** | `UsuarioTest.testNewUser()` |
 
-**Caso de Teste** | **CT01 - Cadastrar usuário**
- :--------------: | ------------
-**Procedimento**  | Cadastrar novo usuário. |
-**Dados de entrada** | Inserção de dados válidos no formulário de cadastro. |
-**Resultado obtido** | Dado cadastrado com sucesso. |
-**Teste unitário associado** | `UsuarioTest.testNewUser()` |
+| **Caso de Teste** | **CT02 - Cadastrar usuário já existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Cadastrar usuário já existente. |
+| **Dados de entrada** | Inserção de dados válidos com nome de usuário já existente no banco. |
+| **Resultado obtido** | Dado não cadastrado. |
+| **Teste unitário associado** | `UsuarioTest.testExistingUser()` |
 
-**Caso de Teste** | **CT02 - Cadastrar usuário já existente**
- :--------------: | ------------
-**Procedimento**  | Cadastrar usuário já existente.
-**Dados de entrada** | Inserção de dados válidos com nome de usuário já existente no banco.
-**Resultado obtido** | Dado não cadastrado.
-**Teste unitário associado** | `UsuarioTest.testExistingUser()` |
+| **Caso de Teste** | **CT03 - Recuperar projeto por ID do proprietário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projetos com base no ID do proprietário. |
+| **Dados de entrada** | Informar um ID de proprietário válido. |
+| **Resultado obtido** | Projetos recuperados corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjetoPorIdOwner()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT04 - Recuperar projeto por ferramenta** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projetos com base no nome da ferramenta. |
+| **Dados de entrada** | Informar um nome de ferramenta válido. |
+| **Resultado obtido** | Projetos recuperados corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjetoPorTool()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT05 - Recuperar projeto por ID** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projeto com base no ID. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto recuperado corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT06 - Criar novo projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Criar um novo projeto. |
+| **Dados de entrada** | Fornecer dados válidos para criação do projeto. |
+| **Resultado obtido** | Projeto criado com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testCriarProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT07 - Atualizar projeto existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Atualizar um projeto existente. |
+| **Dados de entrada** | Fornecer dados válidos para a atualização do projeto. |
+| **Resultado obtido** | Projeto atualizado com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testAtualizarProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT08 - Atualizar projeto inexistente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Tentar atualizar um projeto inexistente. |
+| **Dados de entrada** | Fornecer dados válidos para a atualização do projeto. |
+| **Resultado obtido** | Projeto não encontrado para atualização. |
+| **Teste unitário associado** | `ProjectControllerTest.testAtualizarProjetoNaoEncontrado()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT09 - Excluir projeto existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Excluir um projeto existente. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto excluído com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testExcluirProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT10 - Excluir projeto inexistente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Tentar excluir um projeto inexistente. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto não encontrado para exclusão. |
+| **Teste unitário associado** | `ProjectControllerTest.testExcluirProjetoNaoEncontrado()` |
+| **Componente testado** | `ProjectController` |
+
+
+| **Caso de Teste** | **CT11 - Criação do Projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível criar uma instância da classe `Project`. |
+| **Dados de entrada** | Nenhum (criação da instância). |
+| **Resultado obtido** | Projeto não deve ser nulo. |
+| **Teste unitário associado** | `ProjectTest.testCriacaoDoProjeto()` |
+
+| **Caso de Teste** | **CT12 - Propriedades do Projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível definir e recuperar as propriedades do projeto. |
+| **Dados de entrada** | Definir valores para ID e nome do projeto. |
+| **Resultado obtido** | Valores recuperados devem ser iguais aos definidos. |
+| **Teste unitário associado** | `testPropriedadesDoProjeto()` |
+
+| **Caso de Teste** | **CT13 - Projetos Iguais** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se dois projetos com o mesmo ID e nome são considerados iguais. |
+| **Dados de entrada** | Criar dois projetos com o mesmo ID e nome. |
+| **Resultado obtido** | Os projetos devem ser considerados iguais. |
+| **Teste unitário associado** | `ProjectTest.testProjetosIguais()` |
+
+| **Caso de Teste** | **CT14 - Projetos Diferentes** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se dois projetos com ID ou nome diferentes são considerados diferentes. |
+| **Dados de entrada** | Criar dois projetos com IDs ou nomes diferentes. |
+| **Resultado obtido** | Os projetos devem ser considerados diferentes. |
+| **Teste unitário associado** | `ProjectTest.testProjetosDiferentes()` |
+
 
 
 ## Avaliação dos Testes de Unidade

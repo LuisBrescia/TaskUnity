@@ -12,6 +12,7 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
     List<Task> findByName(String name);
     List<Task> findByTasker(Integer tasker);
     List<Task> findByProject(Integer project);
+    List<Task> findByPublicTrue();
 
     @Modifying
     @Query("DELETE FROM Task t WHERE t.project = :projectId")

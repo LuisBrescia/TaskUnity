@@ -5,9 +5,9 @@ Visão geral da interação do usuário pelas telas do sistema. Apresente as pri
 
 ## 6.1. Telas principal do sistema
 
-Descrição da tela principal do sistema.
+Tela de boas vindas ao usuário, e também as iformações do site.
 
-![Tela principal do sistema](images/home-screen.png)
+![Tela principal do sistema](/..images/home-screen.png)
 
 
 ## 6.1. Telas do processo Gerenciar Projetos

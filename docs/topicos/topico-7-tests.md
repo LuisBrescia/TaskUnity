@@ -165,7 +165,7 @@ Você é um usuário interessado em obter detalhes de um projeto específico. En
 
 **Usuários Alvo:**
 - Desenvolvedores em busca de projetos para contribuir.
-- Empresas interessadas em parcerias.
+- Equipes interessadas em parcerias.
 
 **Ferramentas Utilizadas:**
 - Navegador Web

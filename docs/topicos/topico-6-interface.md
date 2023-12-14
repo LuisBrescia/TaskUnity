@@ -14,23 +14,23 @@ Descrição da tela principal do sistema.
 
 Assim que o usuário acessar tela projetos, sera possível ver quais os projetos que pertence ao usuário e também a opção de criar um novo projeto.
 
-![Acessar tela de projetos](docs/images/Telas/telaProjects.PNG)
+![Acessar tela de projetos](../images/Telas/telaProjects.PNG)
 
 Se o usuário ja tiver algum projeto cadastro, será possível abrir o detalhamento do projeto, onde terá todas as informações referentes ao projeto.
 
-![Acessar projeto](docs/images/Telas/telaAcessarProjeto.PNG)
+![Acessar projeto](../images/Telas/telaAcessarProjeto.PNG)
 
 se o usuário escolher criar um novo projeto, ele sera redirecionado para a tela de criação, onde ele informará todos os detalhes do projeto, como nome, descrição e as ferramentas que serão utilizadas.
 
-![Criar novo projeto](docs/images/Telas/telaCriarProjeto.PNG)
+![Criar novo projeto](../images/Telas/telaCriarProjeto.PNG)
 
 assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de excluir o projeto.
 
-![Excluir projeto](docs/images/Telas/telaDeletarProjeto.PNG)
+![Excluir projeto](../images/Telas/telaDeletarProjeto.PNG)
 
 assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de editar as informações do projeto.
 
-![Editar projeto](docs/images/Telas/telaEditarProjeto.PNG)
+![Editar projeto](../images/Telas/telaEditarProjeto.PNG)
 
 
 ## 6.1. Telas do processo 2

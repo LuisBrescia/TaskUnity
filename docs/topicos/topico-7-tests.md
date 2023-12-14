@@ -156,53 +156,61 @@ Apresente os cenários de testes utilizados na realização dos testes de usabil
 > - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
 
 
-## Cenários de Teste de Usabilidade
+## Cenários de Teste de Usabilidade para a Classe `Project`
 
-| Nº do Cenário | Descrição do cenário |
-|---------------|----------------------|
-| 1             | Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando. |
-| 2             | Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço. |
+### Cenário 1: Visualização de Detalhes de um Projeto Específico
 
+**Descrição do Cenário:**
+Você é um usuário interessado em obter detalhes de um projeto específico. Encontre no site informações sobre um projeto, incluindo seu nome, descrição, e data de início.
 
+**Usuários Alvo:**
+- Desenvolvedores em busca de projetos para contribuir.
+- Empresas interessadas em parcerias.
 
-## Registro de Testes de Usabilidade
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
 
-Cenário 1: Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando.
+**Registro de Testes de Usabilidade:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
 |---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 27.87 segundos                  |
-| 2       | SIM             | 5                    | 17.11 segundos                  |
-| 3       | SIM             | 5                    | 39.09 segundos                  |
+| 1       | SIM             | 4                    | 20.05 segundos                  |
+| 2       | SIM             | 5                    | 18.32 segundos                  |
+| 3       | SIM             | 4                    | 23.45 segundos                  |
 |  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 8.66 segundos |
+| **Média** | 100%            | 4.33               | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 15.94 segundos |
 
+**Comentários dos Usuários:**
+Os usuários expressaram que encontraram as informações desejadas facilmente, mas sugeriram a adição de mais detalhes sobre o projeto, como tecnologias utilizadas e a equipe responsável.
 
-    Comentários dos usuários: Achei o site muito bom e intuitivo. 
-    Não tive dificuldades e acho que ficou bem intuitivo.
+### Cenário 2: Listagem de Projetos por Categoria
 
+**Descrição do Cenário:**
+Você é um usuário que está interessado em projetos específicos em uma determinada categoria. Encontre no site projetos listados em uma categoria de sua escolha.
 
+**Usuários Alvo:**
+- Usuários que desejam explorar projetos em uma área específica.
+- Empresas em busca de projetos em setores específicos.
 
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
 
-Cenário 2: Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço.
+**Registro de Testes de Usabilidade:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
 |---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 22.54 segundos                          |
-| 2       | SIM             | 5                    | 31.42 segundos                          |
-| 3       | SIM             | 5                    | 36.21 segundos                          |
+| 1       | SIM             | 4                    | 25.20 segundos                  |
+| 2       | SIM             | 5                    | 22.15 segundos                  |
+| 3       | SIM             | 3                    | 28.36 segundos                  |
 |  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 13.57 segundos |
+| **Média** | 100%            | 4                 | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 20.57 segundos |
 
-
-    Comentários dos usuários: O site é fácil de acessar, mas algumas páginas poderiam 
-    redirecionar a gente automaticamente para outras. Senti a falta de mais opções de filtros, 
-    tanto na hora da pesquisa, quanto depois dela, nos resultados.
-
-
-
+**Comentários dos Usuários:**
+Os usuários acharam a busca por categorias eficiente, mas alguns sugeriram melhorias na interface de filtragem, tornando-a mais intuitiva.
 
 ## Avaliação dos Testes de Usabilidade
 

@@ -15,6 +15,7 @@ public class Task {
     private Boolean completed;
     private Integer project;
     private Integer tasker;
+    private boolean publico;
 
     public Task() {
     }
@@ -68,5 +69,13 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean getPublico(){
+        return this.publico;
+    }
+
+    public void setPublico(boolean publico){
+        this.publico = publico;
     }
 }

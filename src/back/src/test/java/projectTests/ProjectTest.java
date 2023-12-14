@@ -1,3 +1,5 @@
+package projectTests;
+
 import org.junit.jupiter.api.Test;
 
 import taskunity.model.Project;

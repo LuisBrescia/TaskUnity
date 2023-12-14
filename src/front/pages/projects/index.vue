@@ -1,20 +1,6 @@
 <template>
     <main class="gap-5 justify-center">
-
         <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header>
-
-        <!-- <div v-for="project in projects" :key="project.id">
-            <NuxtLink :to="`/projects/${project.id}`" exact>
-                <CardProject>
-                    <template #title>
-                        <h2 class="text-2xl font-semibold tracking-tighter">{{ project.name }}</h2>
-                    </template>
-                    <template #description>
-                        <p>{{ project.description }}</p>
-                    </template>
-                </CardProject>
-            </NuxtLink>
-        </div> -->
 
         <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto justify-center">
             <DefaultCard 
@@ -23,15 +9,17 @@
                 @click="abrirProjeto(project)"
                 v-for="project in projects" :key="project.id"
             >
-                <header>
-                    <h2 class="font-semibold tracking-tighter">{{ project.name }}</h2>                       
-                    <hr class="my-2 linha-colorida">
-                    <!-- <h4 class="text-2xl">Criação: {{ project.startDate }}</h4> -->
+                <header class="flex justify-between">
+                    <span>{{ project.name }}</span>
+                    <el-button type="info" text circle :icon="ElIconTools" />
                 </header>
-                <section class="text-base">
-                    <p>{{  project.description  }}</p>
-                </section>
-                <!-- <p class="text-base">{{ project.description }}</p> -->
+        
+                <hr class="mt-2 mb-5 linha-colorida">
+
+                <DefaultCard class="text-base mt-5 rounded-custom p-3 h-full">
+                    <small class="font-bold">Descrição:</small>
+                    <p class="font-thin">{{ project.description }}</p>
+                </DefaultCard>
             </DefaultCard>
             <DefaultCard 
                 v-for="i in 6 - projects.length" :key="i"

@@ -22,7 +22,7 @@
         <div class="flex-1 w-full py-3 px-5" style="height: 90svh">
             <slot />
         </div>
-        <div class="fixed w-full flex justify-center bottom-0 py-10 pointer-events-none">
+        <div class="fixed w-full flex justify-center bottom-0 py-5 pointer-events-none">
             <aside class="flex rounded-custom pointer-events-auto">
                 <NuxtLink to="/projects" exact>
                     <div class="item-dashboard primeiro-item text-neutral-300" :class="{ 'active': isLinkActive('/projects') }">

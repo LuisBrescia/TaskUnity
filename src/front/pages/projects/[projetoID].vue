@@ -21,7 +21,7 @@
                 </div>
             </p>
 
-            <DefaultCard class="text-base border mt-5 rounded-custom p-3">
+            <DefaultCard class="text-base mt-5 rounded-custom p-3">
                 <small class="font-bold">Descrição:</small>
                 <p class="font-thin">{{ projeto.description }}</p>
             </DefaultCard>
@@ -58,13 +58,13 @@
                 <section class="w-96">
                     <div class="text-lg flex justify-between items-center">
                         <span>{{ tarefa.tasker ? getTasker(tarefa.tasker).name : "Não atribuída" }}</span>  
-                        <el-button type="info" plain round @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconSwitch">
+                        <el-button type="info" plain round :icon="ElIconSwitch">
                             <span>Alterar</span>
                         </el-button>
                     </div>
                     <div class="text-base flex justify-between items-center my-2">
                         <span v-if="tarefa.completed" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>
-                        <el-button v-if="tarefa.completed" type="success" plain round @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconCheck">
+                        <el-button v-if="tarefa.completed" type="success" plain round :icon="ElIconCheck">
                             <span>Aceitar</span>
                         </el-button>  
                     </div>
@@ -97,7 +97,6 @@
 
         <div class="mt-5">Ferramentas:</div>
         <el-input v-model="projetoCopia.tools" placeholder="Ferramentas utilizadas" size="large" />
-
 
         <template #footer>
             <span class="dialog-footer flex justify-between">

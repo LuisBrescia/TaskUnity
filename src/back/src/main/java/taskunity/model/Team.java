@@ -2,13 +2,13 @@ package taskunity.model;
 
 import java.util.List;
 
-import jakarta.persistence.ElementCollection;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,7 +22,7 @@ public class Team {
     private String description;
     private Integer owner;
 
-    @ElementCollection
+    @ManyToMany
     private List<User> members;
 
     public Team() {

@@ -1,14 +1,16 @@
 <script setup>
-
 definePageMeta({
     layout: 'dashboard'
 })
 
+const userStore = useUserStore();
+const user = ref(userStore.info);
+
 var teams = ref([])
 
-apiFetch('/teams')
+apiFetch(`/teams/userId/${user.value.id}`)
     .then(res => {
-        console.log("Load teams")
+        console.log("Load teams from user: " + user.value.id)
         teams.value = res.data
         console.log(res)
     }).catch(err => {

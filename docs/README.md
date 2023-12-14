@@ -204,10 +204,4 @@ _Atualizar os links e adicionar novos links para que a estrutura do código este
 [Slides da apresentação final](./Apresenta%C3%A7%C3%B5es/Apresentacao%20final%20-%20TASKUNITY.pdf)
 
 
-[Vídeo da apresentação final](video/arquivo.mp4)
-
-
-
-
-
-
+[Vídeo da apresentação final](https://youtu.be/EeZhda45G_I)

@@ -11,9 +11,12 @@ public class Task {
     private Integer id;
 
     private String name;
+    private String description;
     private Boolean completed;
     private Integer project;
     private Integer tasker;
+    private boolean publico;
+    private String link;
 
     public Task() {
     }
@@ -53,11 +56,35 @@ public class Task {
         return this.project;
     }
 
-    public Integer gettasker() {
+    public Integer getTasker() {
         return this.tasker;
     }
 
-    public void settasker(Integer tasker) {
+    public void setTasker(Integer tasker) {
         this.tasker = tasker;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean getPublico(){
+        return this.publico;
+    }
+
+    public void setPublico(boolean publico){
+        this.publico = publico;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

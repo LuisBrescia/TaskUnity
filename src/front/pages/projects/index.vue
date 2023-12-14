@@ -1,49 +1,36 @@
 <template>
     <main class="gap-5 justify-center">
-
         <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header>
 
-        <!-- <div v-for="project in projects" :key="project.id">
-            <NuxtLink :to="`/projects/${project.id}`" exact>
-                <CardProject>
-                    <template #title>
-                        <h2 class="text-2xl font-semibold tracking-tighter">{{ project.name }}</h2>
-                    </template>
-                    <template #description>
-                        <p>{{ project.description }}</p>
-                    </template>
-                </CardProject>
-            </NuxtLink>
-        </div> -->
+        <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto justify-center">
+            <DefaultCard 
+                class="flex-1 cursor-pointer overflow-auto p-5" 
+                style="min-width: 24rem; height: 24rem;" 
+                @click="abrirProjeto(project)"
+                v-for="project in projects" :key="project.id"
+            >
+                <header class="flex justify-between">
+                    <span>{{ project.name }}</span>
+                    <el-button type="info" text circle :icon="ElIconTools" />
+                </header>
+        
+                <hr class="mt-2 mb-5 linha-colorida">
 
-        <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto">
-            <div v-for="project in projects" :key="project.id" class="flex-1">
-                <DefaultCard class="cursor-pointer overflow-auto w-full p-8" style="min-width: 360px; height: 360px;" @click="abrirProjeto(project)">
-                    <header>
-                        <h2 class="text-4xl font-semibold tracking-tighter">{{ project.name }} ({{ project.id }})</h2>                       
-                        <hr class="my-2 linha-colorida">
-                        <h4 class="text-2xl">Criação: {{ project.startDate }}</h4>
-                        <h4 class="text-2xl">Owner: {{ project.owner }}</h4>
-                    </header>
-                    
-                    <section>
-                        <h4 class="font-black uppercase">Feramentas:</h4>
-                        <p>{{  project.tools  }}</p>
-                    </section>
-                    <!-- <p class="text-base">{{ project.description }}</p> -->
+                <DefaultCard class="text-base mt-5 rounded-custom p-3 h-full">
+                    <small class="font-bold">Descrição:</small>
+                    <p class="font-thin">{{ project.description }}</p>
                 </DefaultCard>
-            </div>
-            <div class="flex-1">
-                <DefaultCard 
-                    class="cursor-pointer relative p-8" 
-                    style="min-width: 360px; height: 360px; border-style: dashed;" 
-                    @click="dialogCriarProjeto = true"
-                >
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <Icon name="carbon:add" size="5rem" />
-                    </div>
-                </DefaultCard>
-            </div>
+            </DefaultCard>
+            <DefaultCard 
+                v-for="i in 6 - projects.length" :key="i"
+                class="flex-1 cursor-pointer relative p-5" 
+                style="min-width: 24rem; height: 24rem; border-style: dashed;" 
+                @click="dialogCriarProjeto = true"
+            >
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <Icon name="carbon:add" size="5rem" />
+                </div>
+            </DefaultCard>
         </section>
     </main>
 
@@ -68,7 +55,7 @@
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="dialogCriarProjeto = false">Cancel</el-button>
-                <el-button type="success" @click="criarProjeto">
+                <el-button type="success" @click="criarProjeto" :loading="dialogButtonLoading">
                   Criar
                 </el-button>
             </span>
@@ -83,6 +70,8 @@ import { useUserStore } from '@/stores/userStore.js';
 definePageMeta({
     layout: 'dashboard'
 })
+
+const dialogButtonLoading = ref(false);
 
 const userStore = useUserStore();
 const projects = ref(userStore.projects);
@@ -100,7 +89,7 @@ const modelNovoProjeto = ref({
 });
 
 function criarProjeto() {
-    dialogCriarProjeto.value = true;
+    dialogButtonLoading.value = true;
     apiFetch('/projects', {
         method: 'POST',
         body: {
@@ -113,6 +102,7 @@ function criarProjeto() {
             
             userStore.projects.push(response.data);
             dialogCriarProjeto.value = false;
+            dialogButtonLoading.value = false;
 
             ElNotification({
                 title: 'Sucesso',

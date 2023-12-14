@@ -5,6 +5,7 @@ export const useUserStore = defineStore("userStore", {
         info: null,
         projects: null,
         tasks: null,
+        users: null,
     }),
     getters: {
         getInfo() {
@@ -18,6 +19,10 @@ export const useUserStore = defineStore("userStore", {
         getTasks() {
             return this.tasks
         },
+
+        getUsers() {
+            return this.users
+        }
     },
     actions: {
 
@@ -43,10 +48,15 @@ export const useUserStore = defineStore("userStore", {
             this.tasks = tasks;
         },
 
+        setUsers(users) {
+            this.users = users;
+        },
+
         logout() {
             this.info = null;
             this.projects = null;
             this.tasks = null;
+            this.users = null;
         },
     },
 })

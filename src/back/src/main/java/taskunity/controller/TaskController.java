@@ -33,8 +33,13 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Task> getUser(@PathVariable Integer id) {
+    public Optional<Task> getTask(@PathVariable Integer id) {
         return taskRepository.findById(id);
+    }
+
+    @GetMapping(params = "public=true")
+    public List<Task> getPublicTasks() {
+        return taskRepository.findByPublicoTrue();
     }
 
     @PostMapping

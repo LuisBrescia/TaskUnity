@@ -10,7 +10,7 @@ Tela de boas vindas ao usuário, e também as iformações do site.
 ![Tela principal do sistema](../images/Telas/telaHome.PNG)
 
 
-## 6.2. Telas do processo Gerenciar Projetos
+## 6.2. Telas do processo Gerenciar Projeto
 
 ### 6.2.1 Acessar tela de projetos
 
@@ -43,14 +43,18 @@ assim que o usuário abrir o detalhamento do projeto, ele tera uma opção de ed
 ![Editar projeto](../images/Telas/telaEditarProjeto.PNG)
 
 
-## 6.1. Telas do processo 2
+## 6.3. Telas do processo Gerenciar Login
 
-Descrição da tela relativa à atividade 1.
+### 6.3.1 Cadastrar uma nova conta
 
-![Tela da atividade 1](images/process-2-activity-1.png)
+O usuário insere seu email, senha, data de nascimento, e clica no botão cadastrar.
 
-Descrição da tela relativa à atividade 2.
+![Cadastrar uma nova conta](../images/Telas/telaCriarUsuario.PNG)
 
-![Tela da atividade 2](images/process-2-activity-2.png)
+### 6.3.2 Entrar com uma conta já cadastrada
+
+O usuário insere seu nome e senha, e clica no botão entrar.
+
+![Entrar com uma conta já cadastrada](../images/Telas/telaLogin.PNG)
 
 

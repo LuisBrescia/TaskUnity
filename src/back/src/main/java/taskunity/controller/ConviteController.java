@@ -20,7 +20,24 @@ public class ConviteController {
 
     @Transactional
     @GetMapping
-    public List<Convite> getAllConvites() {
+    public List<Convite> getAllConvites(
+        @RequestParam(name = "tasker", required = false) Integer taskerId, 
+        @RequestParam(name = "owner", required = false) Integer ownerId,
+        @RequestParam(name = "task", required = false) Integer taskId
+        ) {
+
+        if ( taskerId != null ) {
+            return conviteRepository.findByTasker(taskerId);
+        } 
+        
+        if ( ownerId != null ) {
+            return conviteRepository.findByOwner(ownerId);
+        }
+
+        if ( taskId != null ) {
+            return conviteRepository.findByTask(taskId);
+        }
+
         return conviteRepository.findAll();
     }
 

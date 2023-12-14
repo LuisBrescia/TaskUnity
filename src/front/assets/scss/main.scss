@@ -41,6 +41,15 @@ body {
     -webkit-text-fill-color: transparent;
 }  
 
+.text-brilhante {
+    background: linear-gradient(90deg, transparent, #bbb5 90%, transparent);
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .text-rainbow.link:hover {
     border-image: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185);
     border-image-slice: 1;

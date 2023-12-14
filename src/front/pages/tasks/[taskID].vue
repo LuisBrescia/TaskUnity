@@ -44,11 +44,11 @@
                     <span>Info</span>
                 </header>
                 <article class="mb-5">
-                    <span class="text-base text-neutral-300">Projeto</span>
+                    <span class="text-base text-brilhante">Projeto</span>
                     <div>{{ projeto?.name }}</div>
                 </article>
                 <article>
-                    <span class="text-base text-neutral-300">Dono</span>
+                    <span class="text-base text-brilhante">Dono</span>
                     <div>{{ owner?.name }}</div>
                 </article>
             </DefaultCard>

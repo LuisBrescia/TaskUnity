@@ -54,9 +54,9 @@
                 :key="tarefa.id" 
                 class="mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0 flex gap-5" 
                 :class="{ 
-                    'border-green-500': tarefa.completed === true, 
-                    'border-yellow-500': tarefa.completed === false, 
-                    'border-red-500': tarefa.completed === null 
+                    'border-green-500': tarefa.completed, 
+                    'border-yellow-500': !tarefa.completed && tarefa.link, 
+                    'border-red-500': !tarefa.completed && !tarefa.link
                 }"
             >
                 <section class="w-96">
@@ -72,7 +72,7 @@
                 <section class="w-96">
                     <div class="text-lg flex justify-between items-center">
                         <span>{{ tarefa.tasker ? getTasker(tarefa.tasker).name : "Não atribuída" }}</span>  
-                        <el-button type="info" plain round :icon="ElIconSwitch">
+                        <el-button type="info" plain round :icon="ElIconSwitch" @click="dialogAtribuirTarefa = true">
                             <span>Alterar</span>
                         </el-button>
                     </div>
@@ -123,15 +123,37 @@
         <div class="mt-5">Descrição:</div>
         <el-input v-model="modelTarefa.description" type="textarea" placeholder="Descrição da tarefa" size="large" />
 
-        <div class="mt-5">Atribuição:</div>
-        <el-select v-model="modelTarefa.atribuicao" size="large">
-            <el-option
-                v-for="atribuicao in atribuicoes"
-                :key="atribuicao.value"
-                :label="atribuicao.label"
-                :value="atribuicao.value"
-            />
-        </el-select>
+        <template #footer>
+            <el-row class="dialog-footer" justify="space-between">
+                <div>
+                    <el-button 
+                        type="danger" 
+                        plain 
+                        v-show="modelTarefa.id" 
+                        :icon="ElIconDelete" 
+                        @click="deletarTarefa" 
+                        :loading="dialogButtonLoading2"
+                    >
+                        Deletar Tarefa
+                    </el-button>
+                </div>
+                <div>
+                    <el-button @click="dialogTarefa = false">Cancel</el-button>
+                    <el-button type="primary" @click="salvarTarefa" :loading="dialogButtonLoading">
+                        Salvar
+                    </el-button>
+                </div>
+            </el-row>
+        </template>
+    </el-dialog>
+
+    <el-dialog v-model="dialogAtribuirTarefa" :title="`Atribuir tarefa ${modelTarefa.name}`">
+        <div>Nome:</div>
+        <el-input v-model="modelTarefa.name" placeholder="Nome da tarefa" size="large" />
+
+        <div class="mt-5">Descrição:</div>
+        <el-input v-model="modelTarefa.description" type="textarea" placeholder="Descrição da tarefa" size="large" />
+
         <template #footer>
             <el-row class="dialog-footer" justify="space-between">
                 <div>
@@ -176,6 +198,7 @@ apiFetch(`/tasks?project=${route.params.projetoID}`).then((res) => {
 })
 
 const dialogTarefa = ref(false);
+const dialogAtribuirTarefa = ref(false);
 const modelTarefa = ref({})
 const posicaoTarefa = ref(0);
 
@@ -307,6 +330,10 @@ function deletarTarefa() {
             type: 'info'
         });
     })
+}
+
+function atribuirTarefa() {
+
 }
 
 const projeto = ref({});

@@ -2,10 +2,6 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
   - TaskUnity
-abstract:
-  "
-  Criar um projeto e atribuir tarefas necessarias para completa-lo a outras pessoas
-  "
 authors:
   - family-names: Teixeira Dias Brescia
     given-names: Luís Felipe

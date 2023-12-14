@@ -56,6 +56,7 @@ export const useUserStore = defineStore("userStore", {
             this.info = null;
             this.projects = null;
             this.tasks = null;
+            this.users = null;
         },
     },
 })

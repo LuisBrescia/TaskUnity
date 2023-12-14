@@ -74,7 +74,7 @@ definePageMeta({
 const dialogButtonLoading = ref(false);
 
 const userStore = useUserStore();
-const projects = ref(userStore.projects || []);
+const projects = ref(userStore.projects);
 const router = useRouter();
 
 const dialogCriarProjeto = ref(false);

@@ -156,7 +156,10 @@ A sessão a seguir apresenta a descrição dos testes de unidade e testes de usa
 
 ## 8. Conclusão
 
-_Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo._
+Ao longo deste trabalho, percebemos que o gerenciamento eficiente de freelancers com as habilidades adequadas é crucial para garantir o desempenho e a entrega de alta qualidade. Além disso, a definição clara de expectativas e a comunicação regular são fundamentais para manter uma colaboração eficiente. Ferramentas de gerenciamento de projetos e plataformas específicas para freelancers desempenham um papel vital na simplificação das operações e no rastreamento do progresso.
+
+**Discussão do resultado obtido**
+Embora não tenhamos atingido o trabalho perfeito, acreditamos ter realizado um bom projeto. Enfrentamos desafios significativos, incluindo a conciliação com atividades extracurriculares, tendo em vista que muitos membros têm compromissos de trabalho e outras responsabilidades além dos estudos, resultando em um tempo menor para alcançar o resultado ideal. A comunicação eficaz também se destacou, uma vez que, em alguns momentos, divergências de visão sobre o projeto levaram a mal-entendidos e falta de alinhamento nas entregas. Por fim, o processo de aprendizado de novas tecnologias foi bastante desafiador, exigindo a aquisição de conhecimentos profundos em áreas do projeto em que tínhamos menos experiência e aplicação prática.
 
 # REFERÊNCIAS
 

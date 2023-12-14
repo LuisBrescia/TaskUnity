@@ -121,15 +121,17 @@ async function entrar() {
       onLoading.value = true;
     }, 1000);
 
-    const [projectsRes, tasksRes, usersRes] = await Promise.all([
+    const [projectsRes, tasksRes, usersRes, conviteRes] = await Promise.all([
       apiFetch(`/projects?owner=${res.data.id}`),
       apiFetch(`/tasks?tasker=${res.data.id}`),
-      apiFetch(`/users`)
+      apiFetch(`/users`),
+      apiFetch(`/convites?tasker=${res.data.id}`)
     ]);
 
     userStore.setProjects(projectsRes.data);
     userStore.setTasks(tasksRes.data);
     userStore.setUsers(usersRes.data);
+    userStore.setConvites(conviteRes.data);
     router.push('/projects');
   } catch (err) {
     success.value = false

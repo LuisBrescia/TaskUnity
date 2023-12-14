@@ -6,23 +6,24 @@ export const useUserStore = defineStore("userStore", {
         projects: null,
         tasks: null,
         users: null,
+        convites: null,
     }),
     getters: {
         getInfo() {
             return this.info
         },
-
         getProjects() {
             return this.projects
         },
-
         getTasks() {
             return this.tasks
         },
-
         getUsers() {
             return this.users
-        }
+        },
+        getConvites() {
+            return this.convites
+        },
     },
     actions: {
 
@@ -52,11 +53,16 @@ export const useUserStore = defineStore("userStore", {
             this.users = users;
         },
 
+        setConvites(convites) {
+            this.convites = convites;
+        },
+
         logout() {
             this.info = null;
             this.projects = null;
             this.tasks = null;
             this.users = null;
+            this.convites = null;
         },
     },
 })

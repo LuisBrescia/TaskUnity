@@ -3,25 +3,29 @@
         <el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">
             <!-- <header class="text-center">Clique em uma tarefa para acessá-la</header> -->
             <el-tab-pane label="Minhas Tarefas" name="myTasks">
-                <span>Suas tarefas</span>
-                <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5 my-5 cursor-pointer" @click="router.push(`tasks/${tarefa.id}`)">
-                    <div>{{ tarefa.name }}</div>
-                    <hr class="my-2 linha-colorida">
-                    <div>{{ tarefa.description }}</div>
-                    <div>Status: {{ tarefa.completed ? "Completa" : "Em andamento" }}</div>
-                    <div>Projeto: {{ tarefa.project }}</div>
-                    <div>User responsável: {{ tarefa.tasker }}</div>
+                <DefaultCard v-for="tarefa in tarefas" :key="tarefa.id" class="p-5 my-5 cursor-pointer w-1/2" @click="router.push(`tasks/${tarefa.id}`)">
+                    <div class="border-l-4 pl-5 py-2 rounded-sm" :class="{ 'border-green-500' : tarefa.link, 'border-red-500' : !tarefa.link  }">
+                        <header class="w-fit font-bold">
+                            {{ tarefa.name }}
+                        </header>
+                        <div class="text-base font-thin">{{ tarefa.description }}</div>
+                        <div class="text-base font-thin">Projeto: {{ tarefa.project }}</div>
+                    </div>
                 </DefaultCard>
             </el-tab-pane>
             <el-tab-pane label="Procurar uma tarefa" name="searchTasks">
-                <span>Tarefas publicas</span>
-                <DefaultCard v-for="tarefa in tarefasPublicas" :key="tarefa.id" class="p-5 my-5 cursor-pointer" @click="router.push(`tasks/${tarefa.id}`)">
-                    <div>{{ tarefa.name }}</div>
-                    <hr class="my-2 linha-colorida">
-                    <div>{{ tarefa.description }}</div>
-                    <div>Status: {{ tarefa.completed ? "Completa" : "Em andamento" }}</div>
-                    <div>Projeto: {{ tarefa.project }}</div>
-                    <div>User responsável: {{ tarefa.tasker }}</div>
+                <DefaultCard 
+                    v-for="tarefa in tarefasPublicas" :key="tarefa.id" 
+                    class="p-5 my-5 cursor-pointer w-1/2" 
+                    @click="router.push(`tasks/${tarefa.id}`)"
+                >
+                    <div class="border-l-4 pl-5 py-2 rounded-sm border-purple-500">
+                        <header class="w-fit font-bold">
+                            {{ tarefa.name }}
+                        </header>
+                        <div class="text-base font-thin">{{ tarefa.description }}</div>
+                        <div class="text-base font-thin">Projeto: {{ tarefa.project }}</div>
+                    </div>
                 </DefaultCard>
             </el-tab-pane>
             <el-tab-pane label="Cadidaturas Pendentes" name="pendingTasks">

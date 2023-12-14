@@ -16,7 +16,7 @@
         
                 <hr class="mt-2 mb-5 linha-colorida">
 
-                <DefaultCard class="text-base mt-5 rounded-custom p-3 h-full">
+                <DefaultCard class="text-base mt-5 p-3 h-full">
                     <small class="font-bold">Descrição:</small>
                     <p class="font-thin">{{ project.description }}</p>
                 </DefaultCard>

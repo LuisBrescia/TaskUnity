@@ -1,5 +1,19 @@
 <template>
-    <main v-if="carregado" class="flex h-screen justify-center gap-5 py-12">
+    <NuxtLink to="/projects">
+        <div class="fixed bottom-0 right-0 m-5 backdrop-brightness-50 rounded-custom">
+            <DefaultCard class="px-5 py-3">
+                <header class="text-2xl">Voltar</header>
+            </DefaultCard>
+        </div>
+    </NuxtLink>
+
+    <main v-if="!carregado" class="flex h-screen justify-center items-center">
+        <div class="relative max-w-xl w-full">
+            <div class="animate-pulse rounded-full h-28 flex justify-center items-center" />
+        </div>
+    </main>
+
+    <main v-else class="flex justify-center h-screen gap-5 py-12">
         <DefaultCard class="p-5 w-96 h-fit">
             <header class="flex justify-between">
                 <span>{{ projeto.name }}</span>
@@ -21,7 +35,7 @@
                 </div>
             </p>
 
-            <DefaultCard class="text-base mt-5 rounded-custom p-3">
+            <DefaultCard class="text-base mt-5 p-3">
                 <small class="font-bold">Descrição:</small>
                 <p class="font-thin">{{ projeto.description }}</p>
             </DefaultCard>
@@ -63,8 +77,10 @@
                         </el-button>
                     </div>
                     <div class="text-base flex justify-between items-center my-2">
-                        <span v-if="tarefa.completed" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>
-                        <el-button v-if="tarefa.completed" type="success" plain round :icon="ElIconCheck">
+                        <a :href="tarefa.link" target="_blank">
+                            <span v-if="tarefa.link" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>
+                        </a> 
+                        <el-button v-if="tarefa.link" type="success" plain round :icon="ElIconCheck">
                             <span>Aceitar</span>
                         </el-button>  
                     </div>
@@ -73,19 +89,6 @@
             <span v-if="tarefas.length == 0" class="text-lg">Este projeto ainda não possui tarefas</span>
         </DefaultCard>
     </main>
-    <main v-else class="flex h-screen justify-center items-center">
-        <div class="relative max-w-xl w-full">
-            <div class="animate-pulse rounded-full h-28 flex justify-center items-center" />
-        </div>
-    </main>
-
-    <NuxtLink to="/projects">
-        <div class="fixed bottom-0 right-0 m-5 backdrop-brightness-50 rounded-custom">
-            <DefaultCard class="px-5 py-3">
-                <header class="text-2xl">Voltar</header>
-            </DefaultCard>
-        </div>
-    </NuxtLink>
 
     <el-dialog v-model="dialogEditarProjeto" title="Configurações do projeto">
 
@@ -203,15 +206,15 @@ function abrirDialogTarefa(tarefa = {}, idx = 0) {
 }
 
 const tarefasCompletas = computed(() => {
-  return tarefas.value.filter(tarefa => tarefa.completed === true)
+  return tarefas.value.filter(tarefa => tarefa.completed)
 })
 
 const tarefasEmAnalise = computed(() => {
-  return tarefas.value.filter(tarefa => tarefa.completed === false)
+  return tarefas.value.filter(tarefa => !tarefa.completed && tarefa.link )
 })
 
 const tarefasIncompletas = computed(() => {
-    return tarefas.value.filter(tarefa => tarefa.completed === null)
+    return tarefas.value.filter(tarefa => !tarefa.completed && !tarefa.link)
 })
 
 function salvarTarefa() {

@@ -26,7 +26,7 @@
       <div class="my-12" style="transition: all 0.5s ease !important">
         <InputText value="Nome" v-model="formData.name" />
         <InputText value="Senha" type="password" v-model="formData.password"
-          @keypress.enter="modo.value == 'cadastrar' ? criarConta() : entrar()" />
+          @keypress.enter="modo == 'cadastrar' ? criarConta() : entrar()" />
         <InputText value="Email" type="email" v-model="formData.email" :class="modo == 'entrar' ? 'opacity-0' : ''"
           :disabled="modo == 'entrar'" />
         <div class="text-sm text-end">

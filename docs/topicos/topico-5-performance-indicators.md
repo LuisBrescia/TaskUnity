@@ -16,3 +16,6 @@ Perspectivas de medidas de avaliação de desempenho de processos:
 | Conversão de contratação de freelancers | Aumentar o número de freelancers contratados por busca | Percentual de freelancers contratados por busca feita por usuário | Tabela usuários e projetos | Processos internos |
 | Percentual de projetos concluídos | Avaliar quantitativamente os projetos concluídos | Percentual de projetos concluídos por total de projetos | Tabela projetos | Clientes |
 | Timeline de finalização de tasks | Avaliar quantas tasks estão sendo finalizadas no período de um mês | Mede com visão analítica de qual forma o usuário está utilizando a ferramenta de tasks | Tabela tasks | Clientes |
+
+Segue imagem da dashboard analítica do TaskUnity, feita em PowerBI e povoada com dados diretamente do banco PostgreSQL.
+![Imagem PowerBI](../images/Dashboard/PBI-TaskUnity.PNG)

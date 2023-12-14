@@ -35,11 +35,11 @@ public class TeamController {
         return teamRepository.findById(id);
     }
 
-    // @GetMapping("")
-    // public List<Team> getAllTeamsFromUserId(Integer id){
-    // System.out.println("Getting all teams from user: " + id);
-    //
-    // }
+    @GetMapping("/userId/{id}")
+    public List<Team> getAllTeamsFromUserId(@PathVariable Integer id) {
+        System.out.println("Getting all teams from user: " + id);
+        return teamRepository.findByOwner(id);
+    }
 
     @PostMapping
     public Team create(@RequestBody Team team) {
@@ -53,7 +53,6 @@ public class TeamController {
                 .map(record -> {
                     record.setName(team.getName());
                     record.setDescription(team.getDescription());
-                    record.setOwner(team.getOwner());
                     record.setMembers(team.getMembers());
                     Team updated = teamRepository.save(record);
                     return ResponseEntity.ok(updated);
@@ -85,31 +84,32 @@ public class TeamController {
     @PostMapping("/{teamId}/addMember")
     public ResponseEntity<?> addMemberToTeam(
             @PathVariable("teamId") Integer teamId,
-            @RequestBody User user
-    ) {
+            @RequestBody User user) {
         // Optional<Team> optionalTeam = teamRepository.findById(teamId);
         // User addUser = userRepository.findByName(user.getName());
 
         // int id = addUser.getId();
 
         // if (optionalTeam.isPresent()) {
-        //     Team team = optionalTeam.get();
-        //     if (userRepository.existsById(id)) {
-        //         team.addMembers(addUser);
-        //         return ResponseEntity.ok("Member added to the team successfully on team : " + team.getName() + " with : "+ team.getMemberNames());
-        //     } else {
-        //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        //     }
+        // Team team = optionalTeam.get();
+        // if (userRepository.existsById(id)) {
+        // team.addMembers(addUser);
+        // return ResponseEntity.ok("Member added to the team successfully on team : " +
+        // team.getName() + " with : "+ team.getMemberNames());
         // } else {
-        //     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team " + teamId + " not found, mr: " + user.getName());
+        // return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        // }
+        // } else {
+        // return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team " + teamId + "
+        // not found, mr: " + user.getName());
         // }
 
         User newMember = userRepository.findByName(user.getName());
         return teamRepository.findById(teamId)
-            .map(record -> {
-                record.addMembers(newMember);
-                Team updated = teamRepository.save(record);
-                return ResponseEntity.ok(updated);
-            }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+                .map(record -> {
+                    record.addMembers(newMember);
+                    Team updated = teamRepository.save(record);
+                    return ResponseEntity.ok(updated);
+                }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }

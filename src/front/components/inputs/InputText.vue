@@ -1,6 +1,7 @@
 <template>
     <div class="form__group field mb-3">
         <input 
+          :id="id"
           :type="type" 
           :name="value" 
           :disabled="disabled"
@@ -19,6 +20,10 @@
 
 <script setup>
     defineProps({
+        id: {
+          type: String,
+          default: ''
+        },
         value: {
             type: String,
             required: true

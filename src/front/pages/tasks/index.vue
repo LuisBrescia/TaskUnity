@@ -166,7 +166,6 @@ function enviarCandidatura() {
 }
 
 function cancelarCandidatura(candidatura) {
-    console.log("Candidatura", candidatura);
     ElMessageBox.confirm('Tem certeza que deseja cancelar essa candidatura?', 'Atenção', {
         confirmButtonText: 'Sim',
         cancelButtonText: 'Não',
@@ -197,7 +196,6 @@ function cancelarCandidatura(candidatura) {
 }
 
 function getUser(id) {
-    console.log(userStore.users);
     return userStore.users.find(user => user.id == id);
 }
 

@@ -7,7 +7,7 @@
                 class="flex-1 cursor-pointer overflow-auto p-5" 
                 style="min-width: 24rem; height: 24rem;" 
                 @click="abrirProjeto(project)"
-                v-for="project in projects" :key="project.id"
+                v-for="project in userStore.projects" :key="project.id"
             >
                 <header class="flex justify-between">
                     <span>{{ project.name }}</span>
@@ -22,7 +22,7 @@
                 </DefaultCard>
             </DefaultCard>
             <DefaultCard 
-                v-for="i in 6 - projects.length" :key="i"
+                v-for="i in 6 - userStore.projects" :key="i"
                 class="flex-1 cursor-pointer relative p-5" 
                 style="min-width: 24rem; height: 24rem; border-style: dashed;" 
                 @click="dialogCriarProjeto = true"
@@ -74,7 +74,7 @@ definePageMeta({
 const dialogButtonLoading = ref(false);
 
 const userStore = useUserStore();
-const projects = ref(userStore.projects);
+// const projects = ref(userStore.projects);
 const router = useRouter();
 
 const dialogCriarProjeto = ref(false);
@@ -92,11 +92,7 @@ function criarProjeto() {
     dialogButtonLoading.value = true;
     apiFetch('/projects', {
         method: 'POST',
-        body: {
-            name: modelNovoProjeto.value.name,
-            description: modelNovoProjeto.value.description,
-            owner: modelNovoProjeto.value.owner,
-        }
+        body: modelNovoProjeto.value
     }).then((response) => {    
         userStore.projects.push(response.data);
         dialogCriarProjeto.value = false;

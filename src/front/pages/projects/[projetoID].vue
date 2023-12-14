@@ -27,7 +27,7 @@
             </DefaultCard>
         </DefaultCard>
 
-        <DefaultCard class="p-5 h-fit">
+        <DefaultCard class="p-5 h-fit" style="min-width: 846px;">
             <header class="flex justify-between">
                 <span>Tarefas</span>
                 <el-button type="success" text circle @click="abrirDialogTarefa" :icon="ElIconPlus" />
@@ -38,7 +38,7 @@
             <div 
                 v-for="(tarefa, idx) in tarefas" 
                 :key="tarefa.id" 
-                class="item-tarefa mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0 flex gap-5" 
+                class="mb-5 border-l-2 rounded-sm pl-3 py-2 pr-0 flex gap-5" 
                 :class="{ 
                     'border-green-500': tarefa.completed === true, 
                     'border-yellow-500': tarefa.completed === false, 
@@ -50,18 +50,27 @@
                         <span>{{ tarefa.name }}</span>
                         <el-button type="primary" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconEdit" />
                     </div>
-                    <p class="text-base my-2">{{ tarefa.description }}</p>
+                    <div class="text-base flex justify-between items-center my-2">
+                        <span>{{ tarefa.description }}</span>
+                        <el-button type="primary" plain circle :icon="ElIconEdit" class="opacity-0" />
+                    </div>
                 </section>
                 <section class="w-96">
                     <div class="text-lg flex justify-between items-center">
-                        <span>Atribuição: {{ tarefa.tasker ? getTasker(tarefa.tasker).name : "Não atribuída" }}</span>  
-                        <el-button type="info" plain circle @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconSwitch" />
+                        <span>{{ tarefa.tasker ? getTasker(tarefa.tasker).name : "Não atribuída" }}</span>  
+                        <el-button type="info" plain round @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconSwitch">
+                            <span>Alterar</span>
+                        </el-button>
                     </div>
                     <div class="text-base flex justify-between items-center my-2">
-                        <span v-if="tarefa.completed" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>  
+                        <span v-if="tarefa.completed" class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>
+                        <el-button v-if="tarefa.completed" type="success" plain round @click="abrirDialogTarefa(tarefa, idx)" :icon="ElIconCheck">
+                            <span>Aceitar</span>
+                        </el-button>  
                     </div>
                 </section>
             </div>
+            <span v-if="tarefas.length == 0" class="text-lg">Este projeto ainda não possui tarefas</span>
         </DefaultCard>
     </main>
     <main v-else class="flex h-screen justify-center items-center">
@@ -92,12 +101,12 @@
 
         <template #footer>
             <span class="dialog-footer flex justify-between">
-                <el-button type="danger" @click="deletarProjeto" :icon="ElIconDelete">
+                <el-button type="danger" @click="deletarProjeto" :icon="ElIconDelete" :loading="dialogButtonLoading2">
                   Deletar Projeto
                 </el-button>
                 <div>
                     <el-button @click="dialogEditarProjeto = false">Cancelar</el-button>
-                    <el-button type="primary" @click="editarProjetoSubmit">
+                    <el-button type="primary" @click="editarProjetoSubmit" :loading="dialogButtonLoading">
                         Salvar
                     </el-button>
                 </div>
@@ -124,13 +133,20 @@
         <template #footer>
             <el-row class="dialog-footer" justify="space-between">
                 <div>
-                    <el-button type="danger" plain v-show="modelTarefa.id" :icon="ElIconDelete" @click="deletarTarefa">
+                    <el-button 
+                        type="danger" 
+                        plain 
+                        v-show="modelTarefa.id" 
+                        :icon="ElIconDelete" 
+                        @click="deletarTarefa" 
+                        :loading="dialogButtonLoading2"
+                    >
                         Deletar Tarefa
                     </el-button>
                 </div>
                 <div>
                     <el-button @click="dialogTarefa = false">Cancel</el-button>
-                    <el-button type="primary" @click="salvarTarefa">
+                    <el-button type="primary" @click="salvarTarefa" :loading="dialogButtonLoading">
                         Salvar
                     </el-button>
                 </div>
@@ -147,6 +163,9 @@ const route = useRoute();
 const router = useRouter();
 const userStore = useUserStore();
 const carregado = ref(false);
+
+const dialogButtonLoading = ref(false);
+const dialogButtonLoading2 = ref(false);
 
 const tarefas = ref({});
 apiFetch(`/tasks?project=${route.params.projetoID}`).then((res) => {
@@ -198,6 +217,7 @@ const tarefasIncompletas = computed(() => {
 
 function salvarTarefa() {
 
+    dialogButtonLoading.value = true;
     modelTarefa.value.project = route.params.projetoID;
 
     if (modelTarefa.value.atribuicao == 'self') 
@@ -208,26 +228,25 @@ function salvarTarefa() {
             method: 'POST',
             body: modelTarefa.value
         }).then((res) => {
-            if (res.status == 201) {
-                tarefas.value.push(res.data);
-                dialogTarefa.value = false;
-                ElNotification({
-                    title: 'Sucesso',
-                    message: 'Tarefa criada com sucesso',
-                    type: 'success'
-                });
-                if (modelTarefa.value.atribuicao == 'self' || modelTarefa.value.tasker == userStore.info.id) {
-                    if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
-                        userStore.tasks.push(res.data);
-                    }
-                    userStore.tasks = userStore.tasks.map(tarefa => {
-                        if (tarefa.id == modelTarefa.value.id) {
-                            return res.data;
-                        } else {
-                            return tarefa;
-                        }
-                    })
+            dialogTarefa.value = false;
+            dialogButtonLoading.value = false;
+            tarefas.value.push(res.data);
+            ElNotification({
+                title: 'Sucesso',
+                message: 'Tarefa criada com sucesso',
+                type: 'success'
+            });
+            if (modelTarefa.value.atribuicao == 'self' || modelTarefa.value.tasker == userStore.info.id) {
+                if (userStore.tasks.find(tarefa => tarefa.id == modelTarefa.value.id) == undefined) {
+                    userStore.tasks.push(res.data);
                 }
+                userStore.tasks = userStore.tasks.map(tarefa => {
+                    if (tarefa.id == modelTarefa.value.id) {
+                        return res.data;
+                    } else {
+                        return tarefa;
+                    }
+                })
             }
         })
     } else {
@@ -237,6 +256,7 @@ function salvarTarefa() {
         }).then((res) => {
             tarefas.value[posicaoTarefa.value] = res.data;
             dialogTarefa.value = false;
+            dialogButtonLoading.value = false;
             ElNotification({
                 title: 'Sucesso',
                 message: 'Tarefa editada com sucesso',
@@ -264,9 +284,11 @@ function deletarTarefa() {
         cancelButtonText: 'Não',
         type: 'warning'
     }).then(() => {
+        dialogButtonLoading2.value = true;
         apiFetch(`/tasks/${modelTarefa.value.id}`, {
             method: 'DELETE'
         }).then((res) => {
+            dialogButtonLoading2.value = false;
             tarefas.value.splice(posicaoTarefa.value, 1);
             userStore.tasks = userStore.tasks.filter(tarefa => tarefa.id != modelTarefa.value.id);
             dialogTarefa.value = false;
@@ -297,27 +319,26 @@ function abrirDialogEditarProjeto() {
 }
 
 function editarProjetoSubmit() {
+    dialogButtonLoading.value = true;
     apiFetch(`/projects/${route.params.projetoID}`, {
         method: 'PUT',
         body: projetoCopia.value
     }).then((res) => {
-        if (res.status == 200) {
-            dialogEditarProjeto.value = false;
-            projeto.value = res.data;
-            userStore.projects = userStore.projects.map(projeto => {
-                if (projeto.id == route.params.projetoID) {
-                    return res.data;
-                } else {
-                    return projeto;
-                }
-            })
-
-            ElNotification({
-                title: 'Sucesso',
-                message: 'Projeto editado com sucesso',
-                type: 'success'
-            });
-        }
+        dialogButtonLoading.value = false;
+        dialogEditarProjeto.value = false;
+        projeto.value = res.data;
+        userStore.projects = userStore.projects.map(projeto => {
+            if (projeto.id == route.params.projetoID) {
+                return res.data;
+            } else {
+                return projeto;
+            }
+        })
+        ElNotification({
+            title: 'Sucesso',
+            message: 'Projeto editado com sucesso',
+            type: 'success'
+        });
     })
 }
 

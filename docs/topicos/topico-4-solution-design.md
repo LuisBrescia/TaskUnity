@@ -2,7 +2,7 @@
 
 ### 4.1. Diagrama de classes
 
-![Diagrama de classes](../images/Diagrama%20de%20classes/DiagramaClasses.png "Diagrama de classes")
+![Diagrama de classes](../images/Diagrama%20de%20classes/taskunity_der.drawio.png "Diagrama de classes")
 
 #### Detalhamento do diagrama
 
@@ -18,7 +18,7 @@
 _O modelo entidade-relacionamento (MER) é uma representação visual das principais entidades e relacionamentos em um aplicativo.
 Ele ajudará a entender a estrutura dos dados e como as informações são organizadas no Task Unity_ 
 
-![Diagrama de Entidade Relacionamento](/assets/database/DiagramaEntidadeRelacionamento.png 'Diagrama de Entidade Relacionamento')
+![Diagrama de Entidade Relacionamento](/docs/images/Diagrama%20de%20classes/taskunity_mer.png 'Diagrama de Entidade Relacionamento')
 
 ### 4.3. Tecnologias
 

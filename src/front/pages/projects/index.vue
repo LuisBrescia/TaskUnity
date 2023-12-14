@@ -97,19 +97,16 @@ function criarProjeto() {
             description: modelNovoProjeto.value.description,
             owner: modelNovoProjeto.value.owner,
         }
-    }).then((response) => {
-        if (response.status === 201) {
-            
-            userStore.projects.push(response.data);
-            dialogCriarProjeto.value = false;
-            dialogButtonLoading.value = false;
+    }).then((response) => {    
+        userStore.projects.push(response.data);
+        dialogCriarProjeto.value = false;
+        dialogButtonLoading.value = false;
 
-            ElNotification({
-                title: 'Sucesso',
-                message: 'Projeto criado com sucesso',
-                type: 'success'
-            });
-        }
+        ElNotification({
+            title: 'Sucesso',
+            message: 'Projeto criado com sucesso',
+            type: 'success'
+        });
     });
 }
 

@@ -1,12 +1,4 @@
 <template>
-    <NuxtLink to="/projects">
-        <div class="fixed bottom-0 right-0 m-5 backdrop-brightness-50 rounded-custom">
-            <DefaultCard class="px-5 py-3">
-                <header class="text-2xl">Voltar</header>
-            </DefaultCard>
-        </div>
-    </NuxtLink>
-
     <main v-if="!carregado" class="flex h-screen justify-center items-center">
         <div class="relative max-w-xl w-full">
             <div class="animate-pulse rounded-full h-28 flex justify-center items-center" />
@@ -185,6 +177,14 @@
             </el-row>
         </template>
     </el-dialog>
+
+    <NuxtLink to="/projects">
+        <div class="fixed bottom-0 right-0 m-5 backdrop-brightness-50 rounded-custom">
+            <DefaultCard class="px-5 py-3">
+                <header class="text-2xl">Voltar</header>
+            </DefaultCard>
+        </div>
+    </NuxtLink>
 </template>
 
 <script setup>

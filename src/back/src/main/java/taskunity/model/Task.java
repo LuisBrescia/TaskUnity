@@ -16,6 +16,7 @@ public class Task {
     private Integer project;
     private Integer tasker;
     private boolean publico;
+    private String link;
 
     public Task() {
     }
@@ -77,5 +78,13 @@ public class Task {
 
     public void setPublico(boolean publico){
         this.publico = publico;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

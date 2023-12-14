@@ -39,7 +39,7 @@ public class TaskController {
 
     @GetMapping(params = "public=true")
     public List<Task> getPublicTasks() {
-        return taskRepository.findByPublicTrue();
+        return taskRepository.findByPublicoTrue();
     }
 
     @PostMapping

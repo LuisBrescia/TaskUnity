@@ -115,7 +115,7 @@ Outras seções podem ser adicionadas neste documento para apresentar padrões d
 
 ### **Homepage**
 
-![Homepage](/docs/images/home.png)
+![Homepage](../images/Telas/telaHome.PNG)
 
 > **Links Úteis**:
 >

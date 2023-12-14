@@ -192,7 +192,7 @@ Você é um usuário que está interessado em projetos específicos em uma deter
 
 **Usuários Alvo:**
 - Usuários que desejam explorar projetos em uma área específica.
-- Empresas em busca de projetos em setores específicos.
+- Equipes em busca de projetos em setores específicos.
 
 **Ferramentas Utilizadas:**
 - Navegador Web

@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import taskunity.model.Project;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProjectTest {

@@ -9,6 +9,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import taskunity.controller.ProjectController;
+import taskunity.model.Project;
+import taskunity.repository.ProjectRepository;
+import taskunity.repository.TaskRepository;
+
 import java.util.List;
 import java.util.Optional;
 

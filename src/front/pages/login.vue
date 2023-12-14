@@ -94,6 +94,11 @@ async function criarConta() {
     status.value = 'Conta criada com sucesso';
     userStore.setInfo(res.data);
     router.push('/projects');
+
+    setTimeout(() => {
+      onLoading.value = true;
+    }, 1000);
+
   } catch (err) {
     success.value = false;
 

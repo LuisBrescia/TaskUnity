@@ -327,7 +327,8 @@ function salvarAtribuicaoSomeone() {
             owner: userStore.info.id,
             task: modelTarefa.value.id,
             tasker: modelTarefa.value.taskerSelecionado,
-            message: modelTarefa.value.message
+            message: modelTarefa.value.message,
+            tipo: 'convite'
         }
     }).then((res) => {
         dialogButtonLoading.value = false;

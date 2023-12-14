@@ -51,7 +51,7 @@
         <el-input v-model="modelNovoProjeto.name" placeholder="Nome do projeto" size="large" />
 
         <div class="mt-5">Descrição:</div>
-        <el-input v-model="modelNovoProjeto.description" placeholder="Descrição do projeto" size="large" />
+        <el-input v-model="modelNovoProjeto.description" placeholder="Descrição do projeto" size="large" type="textarea" />
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="dialogCriarProjeto = false">Cancel</el-button>
@@ -74,7 +74,7 @@ definePageMeta({
 const dialogButtonLoading = ref(false);
 
 const userStore = useUserStore();
-const projects = ref(userStore.projects);
+const projects = ref(userStore.projects || []);
 const router = useRouter();
 
 const dialogCriarProjeto = ref(false);

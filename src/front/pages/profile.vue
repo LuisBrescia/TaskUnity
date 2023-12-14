@@ -40,8 +40,9 @@
     <div>Descricao: {{ conviteTask.description }}</div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogConvite = false">Cancelar</el-button>
-        <el-button type="primary" @click="aceitarConvite">Aceitar</el-button>
+        <el-button  @click="dialogConvite = false">Cancelar</el-button>
+        <el-button type="danger" @click="recusarConvite">Recusar</el-button>
+        <el-button type="primary" @click="aceitarConvite" :loading="dialogButtonLoading">Aceitar</el-button>
       </span>
     </template>
   </el-dialog>
@@ -82,7 +83,8 @@ const dialogButtonLoading = ref(false);
 const dialogConvite = ref(false);
 
 const convites = ref({})
-convites.value = userStore.convites;
+// user.convites do tipo 'convite0' quero so os convites com id maior que 25
+convites.value = userStore.convites.filter(convite => convite.tipo == 'convite');
 const conviteCopy = ref({})
 const conviteTask = ref({})
 
@@ -119,6 +121,16 @@ function aceitarConvite() {
       message: 'Convite aceito com sucesso',
       type: 'success'
     })
+    apagarConvite();
+  })
+}
+
+function recusarConvite() {
+  ElMessageBox.confirm('Tem certeza que deseja recusar este convite?', 'Aviso', {
+    confirmButtonText: 'Sim',
+    cancelButtonText: 'Não',
+    type: 'warning'
+  }).then(() => {
     apagarConvite();
   })
 }

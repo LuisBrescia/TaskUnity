@@ -90,14 +90,22 @@ async function criarConta() {
       body: formData.value
     });
 
+    userStore.setInfo(res.data);
     success.value = true;
     status.value = 'Conta criada com sucesso';
-    userStore.setInfo(res.data);
     router.push('/projects');
+
 
     setTimeout(() => {
       onLoading.value = true;
     }, 1000);
+    
+    const usersRes = await apiFetch(`/users`);
+
+    userStore.setProjects([]);
+    userStore.setTasks([]);
+    userStore.setUsers(usersRes.data);
+    userStore.setConvites([]);
 
   } catch (err) {
     success.value = false;

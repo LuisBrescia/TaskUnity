@@ -78,7 +78,7 @@
                             <span class="underline cursor-pointer text-rainbow link">Link para tarefa completa</span>
                         </a>
                         <span v-else class="text-brilhante">Link não enviado</span>
-                        <el-button :disabled="!tarefa.link" type="success" plain round :icon="ElIconCheck">
+                        <el-button :disabled="!tarefa.link" type="success" plain round :icon="ElIconCheck" @click="aceitarTarefa(tarefa)">
                             <span>Aceitar</span>
                         </el-button>
                     </div>
@@ -385,6 +385,38 @@ const tarefasEmAnalise = computed(() => {
 const tarefasIncompletas = computed(() => {
     return tarefas.value.filter(tarefa => !tarefa.completed && !tarefa.link)
 })
+
+function aceitarTarefa(tarefa) {
+    tarefa.completed = true;
+    apiFetch(`/tasks/${tarefa.id}`, {
+        method: 'PUT',
+        body: tarefa
+    }).then((res) => {
+        tarefas.value = tarefas.value.map(tarefa => {
+            if (tarefa.id == res.data.id) {
+                return res.data;
+            } else {
+                return tarefa;
+            }
+        })
+
+        if (userStore.tasks.find(tarefa => tarefa.id == res.data.id) != undefined) {
+            userStore.tasks = userStore.tasks.map(tarefa => {
+                if (tarefa.id == res.data.id) {
+                    return res.data;
+                } else {
+                    return tarefa;
+                }
+            })
+        }
+
+        ElNotification({
+            title: 'Sucesso',
+            message: 'Tarefa aceita com sucesso',
+            type: 'success'
+        });
+    })
+}
 
 function salvarTarefa() {
 

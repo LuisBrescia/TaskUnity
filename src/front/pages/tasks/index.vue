@@ -11,7 +11,7 @@
                         <div class="text-base font-thin">Projeto: {{ tarefa.project }}</div>
                     </div>
                 </DefaultCard>
-                <DefaultCard class="p-5 my-5 cursor-pointer w-1/2" @click="activeName = 'searchTasks'">
+                <DefaultCard v-if="tarefas.length == 0" class="p-5 my-5 cursor-pointer w-1/2" @click="activeName = 'searchTasks'">
                     <div class="border-l-4 pl-5 py-2 rounded-sm border-blue-500">
                         <header class="w-fit font-bold">
                             Procurar Tarefa
@@ -43,12 +43,11 @@
                 </DefaultCard>
             </el-tab-pane>
             <el-tab-pane label="Cadidaturas Pendentes" name="pendingTasks">
-                <span>Tarefas a quais usuario se candidatou</span>
                 <DefaultCard v-for="candidatura in candidaturasPendentes" :key="candidatura.id" class="p-5 my-5 w-1/2">
                     <div class="border-l-4 pl-5 py-2 rounded-sm border-lime-500">
                         <div class="text-base">Esperando resposta de</div> 
                         <header class="w-fit font-bold">
-                            {{ getUser(candidatura.tasker).name }}
+                            {{ getUser(candidatura.owner)?.name }}
                         </header>
                         <div class="text-base font-thin">{{ candidatura.message }}</div>
                         <el-row type="flex" justify="end">
@@ -56,6 +55,17 @@
                                 Cancelar
                             </el-button>
                         </el-row>
+                    </div>
+                </DefaultCard>
+                <DefaultCard v-if="candidaturasPendentes.length == 0" class="p-5 my-5 cursor-pointer w-1/2" @click="activeName = 'searchTasks'">
+                    <div class="border-l-4 pl-5 py-2 rounded-sm border-blue-500">
+                        <header class="w-fit font-bold">
+                            Procurar Tarefa
+                        </header>
+                        <div class="text-base font-thin">
+                            Encontre outras tarefas na seção de procurar uma tarefa <br/>
+                            Clique aqui e seja redirecionado
+                        </div>
                     </div>
                 </DefaultCard>
             </el-tab-pane>
@@ -89,12 +99,15 @@ const activeName = ref('myTasks');
 const dialogButtonLoading = ref(false);
 
 const tarefas = ref({})
-tarefas.value = userStore.tasks;
+tarefas.value = userStore.tasks || {}; 
 
 const tarefasPublicas = ref({})
 
 const candidaturasPendentes = computed(() => {
-    return userStore.convites.filter(convite => convite.tipo == 'candidatura');
+    if (userStore.convites) {
+        return userStore.convites.filter(convite => convite.tipo == 'candidatura');
+    }
+    return {};
 })
 
 apiFetch('/tasks?public=true').then(res => {
@@ -109,18 +122,22 @@ const tarefaSelecionadaProject = ref({});
 
 function abrirDialogEnviarCandidatura(tarefa) {
     dialogButtonLoading.value = true;
-    tarefaSelecionada.value = tarefa;
-    conviteCandidatura.value = {
-        task: tarefa.id,
-        tasker: userStore.info.id,
-        owner: tarefa.owner,
-        message: null,
-        tipo: 'candidatura'
-    }
+
     apiFetch(`/projects/${tarefa.project}`).then(res => {
-        tarefaSelecionadaProject.value = res.data;
-        dialogEnviarCandidatura.value = true;
+
         dialogButtonLoading.value = false;
+        dialogEnviarCandidatura.value = true;
+        
+        tarefaSelecionadaProject.value = res.data;
+        tarefaSelecionada.value = tarefa;
+
+        conviteCandidatura.value = {
+            task: tarefa.id,
+            tasker: userStore.info.id,
+            owner: tarefaSelecionadaProject.value.owner,
+            message: null,
+            tipo: 'candidatura'
+        }
     })
 }
 
@@ -137,9 +154,9 @@ function enviarCandidatura() {
         return;
     }
 
-    if (conviteCandidatura.value.message.length < 15) {
+    if (conviteCandidatura.value.message.length < 10) {
         ElMessage({
-            message: 'Escreva uma mensagem com pelo menos 15 caracteres',
+            message: 'Escreva uma mensagem com pelo menos 10 caracteres',
             type: 'error'
         })
         dialogButtonLoading.value = false;
@@ -166,7 +183,6 @@ function enviarCandidatura() {
 }
 
 function cancelarCandidatura(candidatura) {
-    console.log("Candidatura", candidatura);
     ElMessageBox.confirm('Tem certeza que deseja cancelar essa candidatura?', 'Atenção', {
         confirmButtonText: 'Sim',
         cancelButtonText: 'Não',
@@ -197,8 +213,7 @@ function cancelarCandidatura(candidatura) {
 }
 
 function getUser(id) {
-    console.log(userStore.users);
-    return userStore.users.find(user => user.id == id);
+    return userStore.users.find(user => user.id == id) || {};
 }
 
 const handleClick = (tab, event) => {

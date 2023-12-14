@@ -83,8 +83,11 @@ const dialogButtonLoading = ref(false);
 const dialogConvite = ref(false);
 
 const convites = ref({})
-// user.convites do tipo 'convite0' quero so os convites com id maior que 25
-convites.value = userStore.convites.filter(convite => convite.tipo == 'convite');
+
+if (userStore.convites) {
+  convites.value = userStore.convites.filter(convite => convite.tipo == 'convite');
+}
+
 const conviteCopy = ref({})
 const conviteTask = ref({})
 

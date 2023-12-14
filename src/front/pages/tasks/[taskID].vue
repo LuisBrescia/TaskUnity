@@ -70,11 +70,15 @@
 
 import { useUserStore } from '@/stores/userStore.js';
 
-// const userStore = useUserStore();
-// const route = useRoute();
+const userStore = useUserStore();
+const route = useRoute();
 
-// const tarefa = ref({});
-// tarefa.value = userStore.tasks.find(task => task.id == route.value.params.taskID);
+console.log(route.params.taskID)
+
+const tarefa = ref({});
+tarefa.value = userStore.tasks.find(task => task.id == route.value.params.taskID);
+
+console.log("Valor da tarefa", tarefa.value)
 
 // const tarefaTasker = ref({});
 // tarefaTasker.value = userStore.info;

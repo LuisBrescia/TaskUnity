@@ -118,6 +118,77 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Resultado obtido** | Os projetos devem ser considerados diferentes. |
 | **Teste unitário associado** | `ProjectTest.testProjetosDiferentes()` |
 
+## `Task`
+
+| **Caso de Teste** | **Task - CT1 - Criação do Task** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível criar uma instância da classe `Task`. |
+| **Dados de entrada** | Nenhum (criação da instância). |
+| **Resultado obtido** | Task não deve ser nula. |
+| **Teste unitário associado** | `TaskTest.testCriacaoDaTask()` |
+
+| **Caso de Teste** | **Task - CT2 - Propriedades da Task** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível definir e recuperar as propriedades da task. |
+| **Dados de entrada** | Definir valores nome e descrição da task. |
+| **Resultado obtido** | Valores recuperados devem ser iguais aos definidos. |
+| **Teste unitário associado** | `TaskTest.testPropriedadesDaTask()` |
+
+| **Caso de Teste** | **Task - CT3 - Tasks Iguais** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se duas tasks com o mesmo nome e descrição são consideradas iguais. |
+| **Dados de entrada** | Criar duas tasks com o mesmo nome e descrição. |
+| **Resultado obtido** | As tasks devem ser consideradas iguais. |
+| **Teste unitário associado** | `TaskTest.testTasksIguais()` |
+
+| **Caso de Teste** | **Task - CT4 - Tasks Diferentes** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se duas tasks com nome ou descrição diferentes são consideradas diferentes. |
+| **Dados de entrada** | Criar duas tasks com nomes ou descrições diferentes. |
+| **Resultado obtido** | As tasks devem ser consideradas diferentes. |
+| **Teste unitário associado** | `TaskTest.testTasksDiferentes()` |
+
+| **Caso de Teste** | **Task - CT5 - Recuperar task por projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar tasks com base no ID do projeto. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Tasks recuperadas corretamente. |
+| **Teste unitário associado** | `TaskControllerTest.testGetTaskPorProjeto()` |
+
+| **Caso de Teste** | **Task - CT6 - Recuperar task por tasker** |
+| :--------------: | ------------ |
+| **Procedimento** | Recuperar tasks com base no ID do tasker. |
+| **Dados de entrada** | Informar um ID de tasker válido. |
+| **Resultado obtido** | Tasks recuperadas corretamente. |
+| **Teste unitário associado** | `TaskControllerTest.testGetTaskPorTasker()` |
+
+| **Caso de Teste** | **Task - CT7 - Apagar task** |
+| :--------------: | ------------ |
+| **Procedimento** | Apagar uma task. |
+| **Dados de entrada** | Informar um ID de task válido. |
+| **Resultado obtido** | Task apagada com sucesso. |
+| **Teste unitário associado** | `TaskControllerTest.testApagarTask()` |
+
+| **Caso de Teste** | **Task - CT8 - Atualizar task** |
+| :--------------: | ------------ |
+| **Procedimento** | Atualizar uma task. |
+| **Dados de entrada** | Informar um ID de task válido. |
+| **Resultado obtido** | Task atualizada com sucesso. |
+| **Teste unitário associado** | `TaskControllerTest.testAtualizarTask()` |
+
+| **Caso de Teste** | **Task - CT9 - Atualizar task inexistente** |
+| :--------------: | ------------ |
+| **Procedimento** | Tentar atualizar uma task inexistente. |
+| **Dados de entrada** | Informar um ID de task válido. |
+| **Resultado obtido** | Task não encontrada para atualização. |
+| **Teste unitário associado** | `TaskControllerTest.testAtualizarTaskNaoEncontrada()` |
+
+| **Caso de Teste** | **Task - CT10 - Aceitar uma task** |
+| :--------------: | ------------ |
+| **Procedimento** | Aceitar uma task. |
+| **Dados de entrada** | Informar um ID de task válido. |
+| **Resultado obtido** | Task aceita com sucesso. |
+| **Teste unitário associado** | `TaskControllerTest.testAceitarTask()` |
 
 
 ## Avaliação dos Testes de Unidade
@@ -212,8 +283,64 @@ Você é um usuário que está interessado em projetos específicos em uma deter
 **Comentários dos Usuários:**
 Os usuários acharam a busca por categorias eficiente, mas alguns sugeriram melhorias na interface de filtragem, tornando-a mais intuitiva.
 
-## Avaliação dos Testes de Usabilidade
+## Cenários de Teste de Usabilidade para a Classe `Task`
 
+### Cenário 1: Visualização de Detalhes de uma Task Específica
+
+**Descrição do Cenário:**
+
+Você é um usuário interessado em obter detalhes de uma task específica. Encontre no site informações sobre uma task, incluindo seu nome, descrição, e data de início.
+
+**Usuários Alvo:**
+- Desenvolvedores em busca de projetos para contribuir.
+- Equipes interessadas em parcerias.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 4                    | 20.05 segundos                  |
+| 2       | SIM             | 5                    | 18.32 segundos                  |
+| 3       | SIM             | 4                    | 23.45 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4.33               | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 15.94 segundos |
+
+**Comentários dos Usuários:**
+Os usuários expressaram que encontraram as informações desejadas facilmente, mas sugeriram a adição de mais detalhes sobre a task, como tecnologias utilizadas e a equipe responsável.
+
+### Cenário 2: Listagem de Tasks por Categoria
+
+**Descrição do Cenário:**
+Você é um usuário que está interessado em tasks específicas em uma determinada categoria. Encontre no site tasks listadas em uma categoria de sua escolha.
+
+**Usuários Alvo:**
+- Usuários que desejam explorar tasks em uma área específica.
+- Equipes em busca de tasks em setores específicos.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 4                    | 25.20 segundos                  |
+| 2       | SIM             | 5                    | 22.15 segundos                  |
+| 3       | SIM             | 3                    | 28.36 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4                 | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 20.57 segundos |
+
+**Comentários dos Usuários:**
+Os usuários acharam a busca por categorias eficiente, mas alguns sugeriram melhorias na interface de filtragem, tornando-a mais intuitiva.
+
+## Avaliação dos Testes de Usabilidade
 
 Tomando como base os resultados obtidos, foi possível verificar que a aplicação web apresenta bons resultados quanto à taxa de sucesso na interação dos usuários, tendo em vista que os cenários propostos foram concluídos com sucesso.
 
@@ -222,6 +349,3 @@ Além disso, a aplicação obteve também uma elevada satisfação subjetiva dos
 Com relação ao tempo para conclusão de cada tarefa/cenário, notamos discrepância entre a média de tempo dos usuários e o tempo do especialista/desenvolvedor em todos os cenários. Tal discrepância, em certa medida, é esperada, tendo em vista que o desenvolvedor já tem prévio conhecimento de toda a interface da aplicação, do posicionamento dos elementos, lógica de organização das páginas, etc.
 
 Contudo, tendo em vista que a diferença foi relevante (por exemplo, 113 segundos — média usuários — contra 25 segundos — especialista — no cenário três), e ainda os comentários feitos por alguns usuários, entendemos haver oportunidades de melhoria na usabilidade da aplicação.
-
-
-

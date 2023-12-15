@@ -89,7 +89,6 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Teste unitário associado** | `ProjectControllerTest.testExcluirProjetoNaoEncontrado()` |
 | **Componente testado** | `ProjectController` |
 
-
 | **Caso de Teste** | **CT11 - Criação do Projeto** |
 | :--------------: | ------------ |
 | **Procedimento**  | Verificar se é possível criar uma instância da classe `Project`. |
@@ -118,7 +117,33 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Resultado obtido** | Os projetos devem ser considerados diferentes. |
 | **Teste unitário associado** | `ProjectTest.testProjetosDiferentes()` |
 
-## `Task`
+| **Caso de Teste** | **CT15 - Listar Equipe por Usuário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Listagem de equipes que possuem o mesmo dono. |
+| **Dados de entrada** | ID do usuário selecionado. |
+| **Resultado obtido** | As equipes recuperadas devem possuir o mesmo ID de dono. |
+| **Teste unitário associado** | `TeamTest.testListagemEquipes()` |
+
+| **Caso de Teste** | **CT16 - Criar Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Criar uma nova equipe com os dados corretos. |
+| **Dados de entrada** | Nome, descrição e membros da equipe. |
+| **Resultado obtido** | A equipe deve estar criado e com os dados corretos. |
+| **Teste unitário associado** | `TeamTest.testCriarEquipe()` |
+
+| **Caso de Teste** | **CT17 - Atualizar Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Edição de equipe existente. |
+| **Dados de entrada** | ID da equipe selecionada e dados novos da equipe (nome, descrição e membros). |
+| **Resultado obtido** | A equipe deve possuir os novos dados. |
+| **Teste unitário associado** | `TeamTest.testAtualizarEquipe()` |
+
+| **Caso de Teste** | **CT18 - Excluir Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Eclusão de equipe existente. |
+| **Dados de entrada** | ID da equipe selecionada. |
+| **Resultado obtido** | A equipe não deve existir mais. |
+| **Teste unitário associado** | `TeamTest.testExcluirEquipe()` |## `Task`
 
 | **Caso de Teste** | **Task - CT1 - Criação do Task** |
 | :--------------: | ------------ |
@@ -339,6 +364,61 @@ Você é um usuário que está interessado em tasks específicas em uma determin
 
 **Comentários dos Usuários:**
 Os usuários acharam a busca por categorias eficiente, mas alguns sugeriram melhorias na interface de filtragem, tornando-a mais intuitiva.
+
+## Cenários de Teste de Usabilidade para a Classe `User`
+
+### Cenário 1: Cadastrar uma nova conta
+
+**Descrição do Cenário:**
+Você é um usuário interessado em se cadastrar no TaskUnity.
+
+**Usuários Alvo:**
+- Usuários que queiram uma conta no TaskUnity.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 5                    | 15.05 segundos                  |
+| 2       | SIM             | 5                    | 18.32 segundos                  |
+| 3       | SIM             | 4                    | 23.45 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4.66               | 18,93 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 15.94 segundos |
+
+**Comentários dos Usuários:**
+Os usuários expressaram que conseguiram se cadastrar facilmente, e as verificações não foram um problema.
+
+### Cenário 2: Logar em uma conta já existente
+
+**Descrição do Cenário:**
+Você é um usuário que está interessado em se conectar na sua conta do Task Unity.
+
+**Usuários Alvo:**
+- Usuários que já possuem conta no TaskUnity.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 5                    | 10.20 segundos                  |
+| 2       | SIM             | 5                    | 13.15 segundos                  |
+| 3       | SIM             | 5                    | 12.36 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 5                   | 11,90 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 10.57 segundos |
+
+**Comentários dos Usuários:**
+Os usuários gostaram da simplicidade da tela de login e não tiveram maiores dificuldades ao se conectar.
+
 
 ## Avaliação dos Testes de Usabilidade
 

@@ -89,7 +89,6 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Teste unitário associado** | `ProjectControllerTest.testExcluirProjetoNaoEncontrado()` |
 | **Componente testado** | `ProjectController` |
 
-
 | **Caso de Teste** | **CT11 - Criação do Projeto** |
 | :--------------: | ------------ |
 | **Procedimento**  | Verificar se é possível criar uma instância da classe `Project`. |
@@ -118,7 +117,33 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Resultado obtido** | Os projetos devem ser considerados diferentes. |
 | **Teste unitário associado** | `ProjectTest.testProjetosDiferentes()` |
 
+| **Caso de Teste** | **CT15 - Listar Equipe por Usuário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Listagem de equipes que possuem o mesmo dono. |
+| **Dados de entrada** | ID do usuário selecionado. |
+| **Resultado obtido** | As equipes recuperadas devem possuir o mesmo ID de dono. |
+| **Teste unitário associado** | `TeamTest.testListagemEquipes()` |
 
+| **Caso de Teste** | **CT16 - Criar Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Criar uma nova equipe com os dados corretos. |
+| **Dados de entrada** | Nome, descrição e membros da equipe. |
+| **Resultado obtido** | A equipe deve estar criado e com os dados corretos. |
+| **Teste unitário associado** | `TeamTest.testCriarEquipe()` |
+
+| **Caso de Teste** | **CT17 - Atualizar Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Edição de equipe existente. |
+| **Dados de entrada** | ID da equipe selecionada e dados novos da equipe (nome, descrição e membros). |
+| **Resultado obtido** | A equipe deve possuir os novos dados. |
+| **Teste unitário associado** | `TeamTest.testAtualizarEquipe()` |
+
+| **Caso de Teste** | **CT18 - Excluir Equipe** |
+| :--------------: | ------------ |
+| **Procedimento**  | Eclusão de equipe existente. |
+| **Dados de entrada** | ID da equipe selecionada. |
+| **Resultado obtido** | A equipe não deve existir mais. |
+| **Teste unitário associado** | `TeamTest.testExcluirEquipe()` |
 
 ## Avaliação dos Testes de Unidade
 

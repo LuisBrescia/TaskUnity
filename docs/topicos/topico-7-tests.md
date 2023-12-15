@@ -215,7 +215,7 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Resultado obtido** | Task aceita com sucesso. |
 | **Teste unitário associado** | `TaskControllerTest.testAceitarTask()` |
 
-| **Caso de Teste** | **Convite - CT1 - Enviar uma convite** |
+| **Caso de Teste** | **Convite - CT1 - Enviar um convite** |
 | :--------------: | ------------ |
 | **Procedimento** | Enviar um convite de atribuição de tarefa. |
 | **Dados de entrada** | Nome do tasker selecionado. |

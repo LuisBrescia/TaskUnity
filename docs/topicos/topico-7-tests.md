@@ -291,6 +291,33 @@ Você é um usuário que está interessado em se conectar na sua conta do Task U
 **Comentários dos Usuários:**
 Os usuários gostaram da simplicidade da tela de login e não tiveram maiores dificuldades ao se conectar.
 
+### Cenário 3: Editar perfil
+
+**Descrição do Cenário:**
+Você é um usuário que está interessado em editar seu perfil do TaskUnity.
+
+**Usuários Alvo:**
+- Usuários que já possuem conta no TaskUnity.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 5                    | 15.10 segundos                  |
+| 2       | SIM             | 4                    | 14.25 segundos                  |
+| 3       | SIM             | 5                    | 13.36 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4,66                   | 14,23 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 12.57 segundos |
+
+**Comentários dos Usuários:**
+Os usuários gostaram do design da tela de login e de seu fácil entendimento.
+
+
 
 ## Avaliação dos Testes de Usabilidade
 

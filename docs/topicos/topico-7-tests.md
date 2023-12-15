@@ -215,6 +215,24 @@ _Nesta seção o grupo deverá documentar os testes de software que verificam a 
 | **Resultado obtido** | Task aceita com sucesso. |
 | **Teste unitário associado** | `TaskControllerTest.testAceitarTask()` |
 
+| **Caso de Teste** | **Convite - CT1 - Enviar uma convite** |
+| :--------------: | ------------ |
+| **Procedimento** | Enviar um convite de atribuição de tarefa. |
+| **Dados de entrada** | Nome do tasker selecionado. |
+| **Resultado obtido** | Convite enviado com sucesso. |
+
+| **Caso de Teste** | **Convite - CT2 - Receber um convite** |
+| :--------------: | ------------ |
+| **Procedimento** | Receber um convite de atribuição de tarefa. |
+| **Dados de entrada** | ID do usuário que enviou o convite e ID da tarefa que está relacionada. |
+| **Resultado obtido** | Convite visível na página do tasker. |
+
+| **Caso de Teste** | **Convite - CT3 - Enviar candidatura** |
+| :--------------: | ------------ |
+| **Procedimento** | Enviar candidatura para participar de tarefa que está pública. |
+| **Dados de entrada** | ID do usuário que está enviando a candidatura e ID da tarefa relacionada. |
+| **Resultado obtido** | Candidatura pendente na aba "Candidaturas Pendentes" na página do tasker e recebimento da candidatura na página do user que criou a tarefa. |
+
 
 ## Avaliação dos Testes de Unidade
 

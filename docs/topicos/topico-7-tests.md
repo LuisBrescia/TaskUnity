@@ -445,6 +445,86 @@ Você é um usuário que está interessado em editar seu perfil do TaskUnity.
 **Comentários dos Usuários:**
 Os usuários gostaram do design da tela de login e de seu fácil entendimento.
 
+## Cenários de Teste de Usabilidade para a Classe `Convite`
+
+### Cenário 1: Enviar convite de atrivuição de tarefa 
+
+**Descrição do Cenário:**
+Você é um gerenciador de projeto e deseja atribuir tarefa a um tasker específico.
+
+**Usuários Alvo:**
+- Usuários gerenciadores de projetos.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 5                    | 05.25 segundos                  |
+| 2       | SIM             | 5                    | 04.20 segundos                  |
+| 3       | SIM             | 5                    | 05.28 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 5              | 04.91 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 04.65 segundos |
+
+**Comentários dos Usuários:**
+Os usuários expressaram que conseguiram atribuir tarefas com facilidade.
+
+### Cenário 2: Aceitar ou recusar convite recebido
+
+**Descrição do Cenário:**
+Você é um usuário que recebeu a atribuição de uma tarefa e poderá aceitar ou recusar.
+
+**Usuários Alvo:**
+- Tasker que já possui conta no TaskUnity.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 4                    | 10.20 segundos                  |
+| 2       | SIM             | 4                    | 11.25 segundos                  |
+| 3       | SIM             | 5                    | 08.34 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4.67                   | 09.93 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 09.15 segundos |
+
+**Comentários dos Usuários:**
+Os usuários gostaram da opção de receber convites para tarefas e poderem escolher rapidamente se aceitam ou não.
+
+### Cenário 3: Enviar candidatura para tarefas públicas
+
+**Descrição do Cenário:**
+Você é um usuário que deseja enviar participar de tarefa que está pública e envia sua candidatura.
+
+**Usuários Alvo:**
+- Tasker que já possui conta no TaskUnity.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 5                    | 12.20 segundos                  |
+| 2       | SIM             | 4                    | 15.45 segundos                  |
+| 3       | SIM             | 5                    | 11,45 segundos                  |
+|  |  |  |  |
+| **Média** | 100%            | 4.66                  | 13.03 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 10.05 segundos |
+
+**Comentários dos Usuários:**
+Os usuários gostaram da possibilidade de se candidatar para tarefas que aparecem como "públicas" em sua tela.
+
 
 
 ## Avaliação dos Testes de Usabilidade

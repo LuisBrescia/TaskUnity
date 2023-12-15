@@ -16,7 +16,7 @@
         
                 <hr class="mt-2 mb-5 linha-colorida">
 
-                <DefaultCard class="text-base mt-5 rounded-custom p-3 h-full">
+                <DefaultCard class="text-base mt-5 p-3 h-full">
                     <small class="font-bold">Descrição:</small>
                     <p class="font-thin">{{ project.description }}</p>
                 </DefaultCard>
@@ -51,7 +51,7 @@
         <el-input v-model="modelNovoProjeto.name" placeholder="Nome do projeto" size="large" />
 
         <div class="mt-5">Descrição:</div>
-        <el-input v-model="modelNovoProjeto.description" placeholder="Descrição do projeto" size="large" />
+        <el-input v-model="modelNovoProjeto.description" placeholder="Descrição do projeto" size="large" type="textarea" />
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="dialogCriarProjeto = false">Cancel</el-button>
@@ -97,19 +97,16 @@ function criarProjeto() {
             description: modelNovoProjeto.value.description,
             owner: modelNovoProjeto.value.owner,
         }
-    }).then((response) => {
-        if (response.status === 201) {
-            
-            userStore.projects.push(response.data);
-            dialogCriarProjeto.value = false;
-            dialogButtonLoading.value = false;
+    }).then((response) => {    
+        userStore.projects.push(response.data);
+        dialogCriarProjeto.value = false;
+        dialogButtonLoading.value = false;
 
-            ElNotification({
-                title: 'Sucesso',
-                message: 'Projeto criado com sucesso',
-                type: 'success'
-            });
-        }
+        ElNotification({
+            title: 'Sucesso',
+            message: 'Projeto criado com sucesso',
+            type: 'success'
+        });
     });
 }
 

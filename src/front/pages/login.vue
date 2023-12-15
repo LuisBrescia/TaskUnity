@@ -26,7 +26,7 @@
       <div class="my-12" style="transition: all 0.5s ease !important">
         <InputText value="Nome" v-model="formData.name" />
         <InputText value="Senha" type="password" v-model="formData.password"
-          @keypress.enter="modo.value == 'cadastrar' ? criarConta() : entrar()" />
+          @keypress.enter="modo == 'cadastrar' ? criarConta() : entrar()" />
         <InputText value="Email" type="email" v-model="formData.email" :class="modo == 'entrar' ? 'opacity-0' : ''"
           :disabled="modo == 'entrar'" />
         <div class="text-sm text-end">
@@ -90,10 +90,23 @@ async function criarConta() {
       body: formData.value
     });
 
+    userStore.setInfo(res.data);
     success.value = true;
     status.value = 'Conta criada com sucesso';
-    userStore.setInfo(res.data);
     router.push('/projects');
+
+
+    setTimeout(() => {
+      onLoading.value = true;
+    }, 1000);
+    
+    const usersRes = await apiFetch(`/users`);
+
+    userStore.setProjects([]);
+    userStore.setTasks([]);
+    userStore.setUsers(usersRes.data);
+    userStore.setConvites([]);
+
   } catch (err) {
     success.value = false;
 
@@ -121,15 +134,17 @@ async function entrar() {
       onLoading.value = true;
     }, 1000);
 
-    const [projectsRes, tasksRes, usersRes] = await Promise.all([
+    const [projectsRes, tasksRes, usersRes, conviteRes] = await Promise.all([
       apiFetch(`/projects?owner=${res.data.id}`),
       apiFetch(`/tasks?tasker=${res.data.id}`),
-      apiFetch(`/users`)
+      apiFetch(`/users`),
+      apiFetch(`/convites?tasker=${res.data.id}`)
     ]);
 
     userStore.setProjects(projectsRes.data);
     userStore.setTasks(tasksRes.data);
     userStore.setUsers(usersRes.data);
+    userStore.setConvites(conviteRes.data);
     router.push('/projects');
   } catch (err) {
     success.value = false

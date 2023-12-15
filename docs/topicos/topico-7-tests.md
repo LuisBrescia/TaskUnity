@@ -11,20 +11,113 @@ _Se quiser conhecer um pouco mais sobre os tipos de teste de software, leia o do
 
 _Nesta seção o grupo deverá documentar os testes de software que verificam a correta implementação dos requisitos funcionais e não funcionais do software. Preencha a tabela com o plano dos testes. Para cada Caso de Teste (CT), associe quais testes unitários são responsáveis por verificar a conformidade com o caso de teste. Associe também o componente que está sendo testado. Veja a tabela de exemplo._
 
+| **Caso de Teste** | **CT01 - Cadastrar usuário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Cadastrar novo usuário. |
+| **Dados de entrada** | Inserção de dados válidos no formulário de cadastro. |
+| **Resultado obtido** | Dado cadastrado com sucesso. |
+| **Teste unitário associado** | `UsuarioTest.testNewUser()` |
 
-**Caso de Teste** | **CT01 - Cadastrar usuário**
- :--------------: | ------------
-**Procedimento**  | Cadastrar novo usuário. |
-**Dados de entrada** | Inserção de dados válidos no formulário de cadastro. |
-**Resultado obtido** | Dado cadastrado com sucesso. |
-**Teste unitário associado** | `UsuarioTest.testNewUser()` |
+| **Caso de Teste** | **CT02 - Cadastrar usuário já existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Cadastrar usuário já existente. |
+| **Dados de entrada** | Inserção de dados válidos com nome de usuário já existente no banco. |
+| **Resultado obtido** | Dado não cadastrado. |
+| **Teste unitário associado** | `UsuarioTest.testExistingUser()` |
 
-**Caso de Teste** | **CT02 - Cadastrar usuário já existente**
- :--------------: | ------------
-**Procedimento**  | Cadastrar usuário já existente.
-**Dados de entrada** | Inserção de dados válidos com nome de usuário já existente no banco.
-**Resultado obtido** | Dado não cadastrado.
-**Teste unitário associado** | `UsuarioTest.testExistingUser()` |
+| **Caso de Teste** | **CT03 - Recuperar projeto por ID do proprietário** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projetos com base no ID do proprietário. |
+| **Dados de entrada** | Informar um ID de proprietário válido. |
+| **Resultado obtido** | Projetos recuperados corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjetoPorIdOwner()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT04 - Recuperar projeto por ferramenta** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projetos com base no nome da ferramenta. |
+| **Dados de entrada** | Informar um nome de ferramenta válido. |
+| **Resultado obtido** | Projetos recuperados corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjetoPorTool()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT05 - Recuperar projeto por ID** |
+| :--------------: | ------------ |
+| **Procedimento**  | Recuperar projeto com base no ID. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto recuperado corretamente. |
+| **Teste unitário associado** | `ProjectControllerTest.testGetProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT06 - Criar novo projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Criar um novo projeto. |
+| **Dados de entrada** | Fornecer dados válidos para criação do projeto. |
+| **Resultado obtido** | Projeto criado com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testCriarProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT07 - Atualizar projeto existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Atualizar um projeto existente. |
+| **Dados de entrada** | Fornecer dados válidos para a atualização do projeto. |
+| **Resultado obtido** | Projeto atualizado com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testAtualizarProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT08 - Atualizar projeto inexistente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Tentar atualizar um projeto inexistente. |
+| **Dados de entrada** | Fornecer dados válidos para a atualização do projeto. |
+| **Resultado obtido** | Projeto não encontrado para atualização. |
+| **Teste unitário associado** | `ProjectControllerTest.testAtualizarProjetoNaoEncontrado()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT09 - Excluir projeto existente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Excluir um projeto existente. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto excluído com sucesso. |
+| **Teste unitário associado** | `ProjectControllerTest.testExcluirProjeto()` |
+| **Componente testado** | `ProjectController` |
+
+| **Caso de Teste** | **CT10 - Excluir projeto inexistente** |
+| :--------------: | ------------ |
+| **Procedimento**  | Tentar excluir um projeto inexistente. |
+| **Dados de entrada** | Informar um ID de projeto válido. |
+| **Resultado obtido** | Projeto não encontrado para exclusão. |
+| **Teste unitário associado** | `ProjectControllerTest.testExcluirProjetoNaoEncontrado()` |
+| **Componente testado** | `ProjectController` |
+
+
+| **Caso de Teste** | **CT11 - Criação do Projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível criar uma instância da classe `Project`. |
+| **Dados de entrada** | Nenhum (criação da instância). |
+| **Resultado obtido** | Projeto não deve ser nulo. |
+| **Teste unitário associado** | `ProjectTest.testCriacaoDoProjeto()` |
+
+| **Caso de Teste** | **CT12 - Propriedades do Projeto** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se é possível definir e recuperar as propriedades do projeto. |
+| **Dados de entrada** | Definir valores para ID e nome do projeto. |
+| **Resultado obtido** | Valores recuperados devem ser iguais aos definidos. |
+| **Teste unitário associado** | `testPropriedadesDoProjeto()` |
+
+| **Caso de Teste** | **CT13 - Projetos Iguais** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se dois projetos com o mesmo ID e nome são considerados iguais. |
+| **Dados de entrada** | Criar dois projetos com o mesmo ID e nome. |
+| **Resultado obtido** | Os projetos devem ser considerados iguais. |
+| **Teste unitário associado** | `ProjectTest.testProjetosIguais()` |
+
+| **Caso de Teste** | **CT14 - Projetos Diferentes** |
+| :--------------: | ------------ |
+| **Procedimento**  | Verificar se dois projetos com ID ou nome diferentes são considerados diferentes. |
+| **Dados de entrada** | Criar dois projetos com IDs ou nomes diferentes. |
+| **Resultado obtido** | Os projetos devem ser considerados diferentes. |
+| **Teste unitário associado** | `ProjectTest.testProjetosDiferentes()` |
+
 
 
 ## Avaliação dos Testes de Unidade
@@ -63,53 +156,61 @@ Apresente os cenários de testes utilizados na realização dos testes de usabil
 > - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
 
 
-## Cenários de Teste de Usabilidade
+## Cenários de Teste de Usabilidade para a Classe `Project`
 
-| Nº do Cenário | Descrição do cenário |
-|---------------|----------------------|
-| 1             | Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando. |
-| 2             | Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço. |
+### Cenário 1: Visualização de Detalhes de um Projeto Específico
 
+**Descrição do Cenário:**
+Você é um usuário interessado em obter detalhes de um projeto específico. Encontre no site informações sobre um projeto, incluindo seu nome, descrição, e data de início.
 
+**Usuários Alvo:**
+- Desenvolvedores em busca de projetos para contribuir.
+- Equipes interessadas em parcerias.
 
-## Registro de Testes de Usabilidade
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
 
-Cenário 1: Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando.
+**Registro de Testes de Usabilidade:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
 |---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 27.87 segundos                  |
-| 2       | SIM             | 5                    | 17.11 segundos                  |
-| 3       | SIM             | 5                    | 39.09 segundos                  |
+| 1       | SIM             | 4                    | 20.05 segundos                  |
+| 2       | SIM             | 5                    | 18.32 segundos                  |
+| 3       | SIM             | 4                    | 23.45 segundos                  |
 |  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 8.66 segundos |
+| **Média** | 100%            | 4.33               | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 15.94 segundos |
 
+**Comentários dos Usuários:**
+Os usuários expressaram que encontraram as informações desejadas facilmente, mas sugeriram a adição de mais detalhes sobre o projeto, como tecnologias utilizadas e a equipe responsável.
 
-    Comentários dos usuários: Achei o site muito bom e intuitivo. 
-    Não tive dificuldades e acho que ficou bem intuitivo.
+### Cenário 2: Listagem de Projetos por Categoria
 
+**Descrição do Cenário:**
+Você é um usuário que está interessado em projetos específicos em uma determinada categoria. Encontre no site projetos listados em uma categoria de sua escolha.
 
+**Usuários Alvo:**
+- Usuários que desejam explorar projetos em uma área específica.
+- Equipes em busca de projetos em setores específicos.
 
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
 
-Cenário 2: Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço.
+**Registro de Testes de Usabilidade:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
 |---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 22.54 segundos                          |
-| 2       | SIM             | 5                    | 31.42 segundos                          |
-| 3       | SIM             | 5                    | 36.21 segundos                          |
+| 1       | SIM             | 4                    | 25.20 segundos                  |
+| 2       | SIM             | 5                    | 22.15 segundos                  |
+| 3       | SIM             | 3                    | 28.36 segundos                  |
 |  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 13.57 segundos |
+| **Média** | 100%            | 4                 | 0 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 20.57 segundos |
 
-
-    Comentários dos usuários: O site é fácil de acessar, mas algumas páginas poderiam 
-    redirecionar a gente automaticamente para outras. Senti a falta de mais opções de filtros, 
-    tanto na hora da pesquisa, quanto depois dela, nos resultados.
-
-
-
+**Comentários dos Usuários:**
+Os usuários acharam a busca por categorias eficiente, mas alguns sugeriram melhorias na interface de filtragem, tornando-a mais intuitiva.
 
 ## Avaliação dos Testes de Usabilidade
 

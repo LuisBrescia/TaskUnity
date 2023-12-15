@@ -13,6 +13,7 @@ public class Convite {
     private Integer task;
     private Integer tasker;
     private Integer owner;
+    private String tipo; // OS TIPOS SAO 'candidatura' E 'convite'
 
     @Lob
     private String message;
@@ -25,7 +26,7 @@ public class Convite {
         this.tasker = tasker;
         this.owner = owner;
         this.message = message;
-    }
+    } 
 
     public Integer getId() {
         return this.id;
@@ -65,5 +66,13 @@ public class Convite {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

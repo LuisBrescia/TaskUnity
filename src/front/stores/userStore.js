@@ -2,27 +2,28 @@ import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore("userStore", {
     state: () => ({
-        info: null,
-        projects: null,
-        tasks: null,
-        users: null,
+        info: [],
+        projects: [],
+        tasks: [],
+        users: [],
+        convites: [],
     }),
     getters: {
         getInfo() {
             return this.info
         },
-
         getProjects() {
             return this.projects
         },
-
         getTasks() {
             return this.tasks
         },
-
         getUsers() {
             return this.users
-        }
+        },
+        getConvites() {
+            return this.convites
+        },
     },
     actions: {
 
@@ -52,11 +53,16 @@ export const useUserStore = defineStore("userStore", {
             this.users = users;
         },
 
+        setConvites(convites) {
+            this.convites = convites;
+        },
+
         logout() {
-            this.info = null;
-            this.projects = null;
-            this.tasks = null;
-            this.users = null;
+            this.info = [];
+            this.projects = [];
+            this.tasks = [];
+            this.users = [];
+            this.convites = [];
         },
     },
 })

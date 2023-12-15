@@ -19,7 +19,7 @@ authors:
     given-names: Luiz Henrique
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Peixoto
+    family-names: Xavier
     given-names: José Laerte
 keywords:
   - Springboot
@@ -30,6 +30,8 @@ keywords:
   - Tailwind Css
   - Trabalho Interdisciplinar
   - Java
+  - Pina
+  - Element Plus
 repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2023-2-ti2-3740100-taskunity 
 license: CC-BY-4.0
 version: 1.0.0

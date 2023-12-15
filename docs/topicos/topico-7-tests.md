@@ -543,7 +543,59 @@ Você é um usuário que deseja enviar participar de tarefa que está pública e
 **Comentários dos Usuários:**
 Os usuários gostaram da possibilidade de se candidatar para tarefas que aparecem como "públicas" em sua tela.
 
+## Cenários de Teste de Usabilidade para a Classe `Equipe`
 
+### Cenário 1: Listagem de equipes
+
+**Descrição do Cenário:**
+Você é um usuário que está interessado em montar uma equipe de freelancers para realização de seu projeto. Encontre listado no site, todas suas equipes criadas.
+
+**Usuários Alvo:**
+- Usuários que desejam organizar e armazenar suas equipes em um só lugar.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 4                    | 0.2 segundos                  |
+| 2       | SIM             | 5                    | 0.3 segundos                  |
+| 3       | SIM             | 4                    | 0.3 segundos                  |
+| **Média** | 100%            | 4.33                 | 0.2666 segundos segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 4 | 0.3 segundos |
+
+**Comentários dos Usuários:**
+Os usuários acharam a listagem de equipes eficiente e rápida, mas alguns sugeriram um loading melhorado.
+
+### Cenário 2: Criação de equipe
+
+**Descrição do Cenário:**
+
+Você é um usuário interessado em criar uma equipe de freelancers. Encontre no site uma maneira rápida e simples de criar sua equipe.
+
+**Usuários Alvo:**
+- Donos de projeto em busca de montar uma equipe de freelancers.
+- Freelancers em busca de se juntar a outros freelancers para criação de projetos.
+
+**Ferramentas Utilizadas:**
+- Navegador Web
+- Ferramentas de acessibilidade (opcional)
+
+**Registro de Testes de Usabilidade:**
+
+| Usuário | Taxa de Sucesso | Satisfação Subjetiva | Tempo para Conclusão do Cenário |
+|---------|-----------------|----------------------|---------------------------------|
+| 1       | SIM             | 4                    | 21.1 segundos                  |
+| 2       | SIM             | 5                    | 19.2 segundos                  |
+| 3       | SIM             | 5                    | 15.2 segundos                  |
+| **Média** | 100%            | 4.66               | 18.5 segundos                       |
+| **Tempo para Conclusão pelo Especialista** | SIM | 5 | 15.8 segundos |
+
+**Comentários dos Usuários:**
+Os usuários expressaram que a criação de equipe está simples e eficiente, mas alguns sugeriram uma padronização de estilo com outras telas.
 
 ## Avaliação dos Testes de Usabilidade
 

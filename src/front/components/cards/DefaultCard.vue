@@ -1,5 +1,5 @@
 <template>
-    <div class="border card rounded-custom">
+    <div class="border card rounded-custom afterglow">
         <slot />
     </div>
 </template>
@@ -19,4 +19,5 @@
     background: rgba(255, 255, 255, 0.05);
     /* transform: translateY(-0.5rem); */
 }
+
 </style>

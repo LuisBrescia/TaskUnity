@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="flex w-full">
-                    <header class="flex-1 text-center py-8 px-0 md:px-5 rounded-custom shadow-lg">
+                    <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
                         <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                             Desenvolvimento <br />
                             <span class="text-rainbow font-mono">
@@ -94,13 +94,13 @@
                 </div>
 
                 <div class="flex w-full sm:gap-5 flex-wrap">
-                    <article class="flex-1 rounded-custom text-center shadow-lg p-5 xl:hidden block">
+                    <article class="flex-1 sm:rounded-2xl text-center shadow-lg p-5 xl:hidden block">
                         <Icon name="cryptocurrency-color:btg" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
                     </article>
 
-                    <article class="flex-1 rounded-custom text-center shadow-lg p-5">
+                    <article class="flex-1 sm:rounded-2xl text-center shadow-lg p-5">
                         <Icon name="cryptocurrency-color:chsb" size="2rem" />
                         <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                         <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
@@ -112,7 +112,7 @@
 
         <section id="guia" class="flex items-start">
 
-            <header class="text-center max-w-3xl mx-auto p-8 rounded-custom shadow-lg">
+            <header class="text-center max-w-3xl mx-auto p-8 sm:rounded-2xl shadow-lg afterglow">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
@@ -253,8 +253,6 @@ ul li:hover::after {
 #menuMobile {
     filter: blur(5px);
     background: rgb(0, 0, 0);
-    /* backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); */
     border-left: 1px solid rgba(255, 255, 255, 0.10);
     transform: translate(100%) scaleX(75%);
     transition: all .5s ease;

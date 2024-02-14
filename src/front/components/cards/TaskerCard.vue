@@ -1,15 +1,11 @@
 <template>
-    <article class="border rounded-custom p-5 text-center shadow overflow-hidden">
+    <article class="border sm:rounded-2xl p-5 text-center shadow overflow-hidden">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
         <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
         <div class="text-2xl font-black tracking-wider text-rainbow">{{ name }}</div>
         <div class="text-base text-start mt-3 max-w-xs">
             <slot/>
         </div>
-        <!-- <RedBlob class="animate-ping left-3/4" style="top: 75%;" />
-        <YellowBlob class="animate-ping left-3/4" style="top: 50%;" />
-        <BlueBlob class="animate-ping right-3/4" style="top: 25%;" />
-        <GreenBlob class="animate-ping right-3/4" style="top: 0%;" /> -->
     </article>
 </template>
 

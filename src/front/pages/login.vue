@@ -1,6 +1,7 @@
 <template>
-  <main v-if="!onLoading" class="flex justify-center items-center">
-    <DefaultCard class="p-12 max-w-xl w-11/12">
+  <main v-if="!onLoading" class="flex flex-col justify-center items-center">
+    <DefaultAlert class="max-w-xl w-11/12" type="warning" description="" />
+    <DefaultCard class="my-3 p-12 max-w-xl w-11/12">
       <NuxtLink to="/">
         <header
           class="text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
@@ -83,6 +84,7 @@ async function criarConta() {
   validarCampo(formData.value.name, 4, 'Nome deve conter ao menos 4 caracteres');
   validarCampo(formData.value.password, 8, 'Senha deve conter ao menos 8 caracteres');
   validarCampo(formData.value.email, 10, 'Email inválido');
+  status.value = '';
 
   try {
     const res = await apiFetch('/users', {
@@ -109,13 +111,18 @@ async function criarConta() {
 
   } catch (err) {
     success.value = false;
-
     if (err.status === 409)
       status.value = 'Já existe um usuário com esse nome';
     else if (err.status === 400)
       status.value = 'Preencha todos os campos';
+      else if (err.code === 'ECONNREFUSED') 
+      status.value = 'Servidor indisponível, tente novamente mais tarde';
+    else if (err.code === 'ETIMEDOUT') 
+      status.value = 'Tempo limite de conexão excedido';
     else
-      console.error(err);
+      status.value = 'Erro desconhecido';
+    
+    console.log(err);
   }
 }
 
@@ -167,5 +174,6 @@ function changeModo() {
 <style scoped>
 main {
   min-height: 100svh;
+  transition: all 0.5s ease;
 }
 </style>

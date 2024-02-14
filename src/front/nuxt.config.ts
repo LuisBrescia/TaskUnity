@@ -23,9 +23,10 @@ export default defineNuxtConfig({
     },
 
     components: [
+        { path: '~/components/alerts', pathPrefix: false },
+        { path: '~/components/blobs', pathPrefix: false },
         { path: '~/components/buttons', pathPrefix: false },
         { path: '~/components/cards', pathPrefix: false },
-        { path: '~/components/blobs', pathPrefix: false },
         { path: '~/components/inputs', pathPrefix: false }
     ],
 

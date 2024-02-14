@@ -146,7 +146,7 @@
                         quasi.
                     </TaskerCard>
 
-                    <TaskerCard name="Luís Brescia" role="Guitarrista" img="brescia">
+                    <TaskerCard name="Luís Felipe Brescia" role="Dev Vue e Flutter" img="brescia">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
                     </TaskerCard>
 
@@ -168,7 +168,7 @@
                         quasi.
                     </TaskerCard>
 
-                    <TaskerCard name="Luís Brescia" role="Guitarrista" img="brescia">
+                    <TaskerCard name="Luís Felipe Brescia" role="Dev Vue e Flutter" img="brescia">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
                     </TaskerCard>
 

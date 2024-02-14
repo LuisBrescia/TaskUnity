@@ -1,10 +1,8 @@
 <template>
-    <button 
-        class="font-bold text-sm md:text-base
-        px-5 pt-3 pb-3 rounded-custom
-        uppercase tracking-widest shadow"
-    >
-    <span class="flex items-center justify-center text-rainbow">
+    <button class="font-bold text-sm md:text-base
+    px-5 pt-3 pb-3 rounded-custom 
+    uppercase tracking-widest">
+    <span class="flex items-center justify-center">
         <slot />
     </span>
     </button>
@@ -15,20 +13,27 @@ button {
     transition: all .5s ease;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border: 2px solid #eab30833;
+    background-color: #eab3081a;
+    color: #eab308;
+}
+
+button.disabled {
+    border: 2px solid #eab3081a;
+    color: #ffffff1d;
 }
 
 button:hover {
     transform: translateY(-0.25rem);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: #eab30866;
+    background-color: #eab30833;
 }
 
 button:active {
     transform: translateY(0);
 }
 
-button::after {
+button::before {
     filter: blur(25px);
     content: "";
     position: absolute;
@@ -38,20 +43,10 @@ button::after {
     top: 0;
     background: linear-gradient(to right, transparent 1%, #fff 40%, #fff 60%, transparent 100%);
     opacity: .2;
-    transition: all 1.5s ease;
+    transition: transform 1.5s ease;
 }
 
-button span {
-    filter: grayscale(1) brightness(2);
-    transition: filter 1s ease;
-}
-
-button:hover span {
-    filter: grayscale(0);
-}
-
-button:hover::after {
+button:hover::before {
     transform: translateX(16rem);
-    opacity: 0;
 }
 </style>

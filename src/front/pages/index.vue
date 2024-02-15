@@ -128,26 +128,26 @@
                     </WhiteButton>
                 </header>
             </div>
-            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/projects.png" alt="Tela de projetos" class="w-full" />
-            </div> -->
             <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/projeto.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/projects.png'" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/projeto.png'" alt="Tela de projetos" class="w-full" />
             </div>
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/projectSendTask.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/projectSendTask.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
             <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/tasks.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/tasks.png'" alt="Tela de projetos" class="w-full" />
             </div>
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/tasksFindNew.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/tasksFindNew.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
             <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/profile.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/profile.png'" alt="Tela de projetos" class="w-full" />
             </div>
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img src="/img/guia/profileInvite.png" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/profileInvite.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
         </div>
     </section>

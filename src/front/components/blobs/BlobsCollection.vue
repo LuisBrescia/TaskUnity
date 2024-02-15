@@ -1,5 +1,5 @@
 <template>
-    <div class="blobs fixed pointer-events-none" style="height: 100vh; width: 100vw;">
+    <div class="blobs fixed pointer-events-none hidden sm:block" style="height: 100vh; width: 100vw;">
         <BlueBlob class="animate-ping right-full" style="top: 0%;" />
         <BlueBlob class="animate-spin right-full" style="top: 0%;" />
         <GreenBlob class="animate-ping right-full" style="top: 25%;" />

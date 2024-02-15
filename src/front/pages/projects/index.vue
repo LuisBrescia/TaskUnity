@@ -1,8 +1,10 @@
 <template>
     <main class="gap-5 justify-center">
-        <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header>
-
-        <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto justify-center">
+        <!-- <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header> -->
+        <section v-if="projects.length == 0" class="w-full max-w-7xl mx-auto mb-4">
+            <DefaultAlert class="mx-auto" type="info" message="Dica" description="Clique em um projeto para editá-lo" />
+        </section>
+        <section class="flex gap-5 flex-wrap w-full max-w-7xl mx-auto justify-center my-3">
             <DefaultCard 
                 class="flex-1 cursor-pointer overflow-auto p-5" 
                 style="min-width: 24rem; height: 24rem;" 

@@ -1,6 +1,6 @@
 <template>
   <main v-if="!onLoading" class="flex flex-col justify-center items-center">
-    <DefaultAlert class="max-w-xl w-11/12" type="warning" description="" />
+    <DefaultAlert class="max-w-xl w-11/12" type="warning" description="Estimativa de 2 minutos." message="Aviso" />
     <DefaultCard class="my-3 p-12 max-w-xl w-11/12 afterglow">
       <NuxtLink to="/">
         <header

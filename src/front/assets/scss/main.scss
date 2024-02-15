@@ -11,11 +11,10 @@
 body {
     font-family: 'Quicksand', sans-serif;
     // background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626);
-    // background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15));
     background: #030303;
+    // background: linear-gradient(144deg, rgb(0, 0, 15), rgb(0, 15, 15));
     color: #fafafa;
     font-size: x-large;
-    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f0f0f0' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
     overflow-x: hidden;
     min-height: 100vh;
 }
@@ -36,6 +35,13 @@ body {
     background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     background-size: 200%;
     animation: move-background 3s linear infinite;
+}
+
+.bg-rainbow-dark {
+    background: linear-gradient(to right, #0ea5e9, #22c55e, #eab308, #f43f5e, #eab308, #22c55e, #0ea5e9);
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+
 }
 
 .text-rainbow {

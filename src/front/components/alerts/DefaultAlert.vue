@@ -1,12 +1,12 @@
 <template>
     <div class="border rounded-custom flex items-center relative" :class="`${type} ${hidden}`">
         <section class="mr-3">
-            <Icon name="ph:warning-duotone" size="3rem" />
+            <Icon :name="icon[type]" size="3rem" />
         </section>
         <section>
-            <header class="font-bold text-lg md:text-xl">Aviso!</header>
+            <header class="font-bold text-lg md:text-xl">{{ message }}</header>
             <p class="text-base">
-                Servidor sendo inicializado, estimativa de {{ time }} segundos.
+                {{ description }}
             </p>
         </section>
         <!-- botao de fechar -->
@@ -18,8 +18,7 @@
 
 import { ref } from 'vue';
 
-const time = ref(150);
-const message = ref('Aguarde');
+// const time = ref(150);
 const hidden = ref('');
 
 function fechaAlert() {
@@ -27,20 +26,30 @@ function fechaAlert() {
     remove();
 }
 
+const icon = {
+    warning: 'ph:warning-duotone',
+    success: 'ph:check-circle-duotone',
+    error: 'ph:x-circle-duotone',
+    info: 'ph:info-duotone'
+};
 const props = defineProps({
     type: {
         type: String,
-        default: 'warning'
+        default: ''
     },
     description: {
+        type: String,
+        default: ''
+    },
+    message: {
         type: String,
         default: ''
     }
 });
 
-setInterval(() => {
-    time.value--;
-}, 1000);
+// setInterval(() => {
+//     time.value--;
+// }, 1000);
 
 function remove() {
     setInterval(() => {
@@ -51,6 +60,19 @@ function remove() {
 </script>
 
 <style scoped lang="scss">
+
+$warning: #eab308;
+$success: #198754;
+$error: #dc3545;
+$info: #0d6efd;
+
+$colors: (
+    warning: $warning,
+    success: $success,
+    error: $error,
+    info: $info
+);
+
 div {
     transition: all .8s ease-in-out;
     position: relative;
@@ -67,7 +89,25 @@ div.fechado {
     opacity: 0;
 }
 
-div.warning {
+.success {
+    border: 2px solid #22c55e33;
+    background-color: #22c55e1a;
+    color: #22c55e;
+}
+
+.error {
+    border: 2px solid #f43f5e33;
+    background-color: #f43f5e1a;
+    color: #f43f5e;
+}
+
+.info {
+    border: 2px solid #0ea5e933;
+    background-color: #0ea5e91a;
+    color: #0ea5e9;
+}
+
+.warning {
     border: 2px solid #eab30833;
     background-color: #eab3081a;
     color: #eab308;
@@ -80,7 +120,23 @@ div.warning {
     transition: all .5s ease;
     &:hover {
         transform: scale(1.1);
-        filter: drop-shadow(0 0 0.5rem #eab308) brightness(1.2);
     }
 }
+
+.success .cursor-pointer:hover {
+    filter: drop-shadow(0 0 0.5rem #22c55e) brightness(1.2);
+}
+
+.error .cursor-pointer:hover {
+    filter: drop-shadow(0 0 0.5rem #f43f5e) brightness(1.2);
+}
+
+.info .cursor-pointer:hover {
+    filter: drop-shadow(0 0 0.5rem #0ea5e9) brightness(1.2);
+}
+
+.warning .cursor-pointer:hover {
+    filter: drop-shadow(0 0 0.5rem #eab308) brightness(1.2);
+}
+
 </style>

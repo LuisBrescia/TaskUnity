@@ -1,6 +1,10 @@
 <template>
-    <main class="overflow-hidden">
-        <nav class="fixed top-0 z-30 w-full" :class="{ 'nav-blur': isScrolling }">
+    <div class="py-1 bg-rainbow flex justify-center">
+        <span class="text-base">
+            Desenvolvido em 2023 por motivos de estudo.
+        </span>
+    </div>
+        <nav class="sticky top-0 z-40 w-full" :class="{ 'nav-blur': isScrolling }">
             <!-- * Menu fixo -->
             <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
                 id="menuFixo">
@@ -106,13 +110,11 @@
                         <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
                     </article>
                 </div>
-
             </div>
         </section>
 
-        <section id="guia" class="flex items-start">
-
-            <header class="text-center max-w-3xl mx-auto p-8 sm:rounded-2xl shadow-lg afterglow">
+        <section id="guia" class="flex items-start mx-auto container">
+            <header class="flex-1 text-center py-8 px-0 md:px-5 max-w-3xl mx-auto sm:rounded-2xl shadow-lg afterglow">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
@@ -124,7 +126,6 @@
                     <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
                 </WhiteButton>
             </header>
-
         </section>
 
         <section id="equipe">
@@ -208,7 +209,6 @@
         <!-- * Efeito de escurecer a tela -->
         <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
             class="escurecer fixed inset-0 bg-black opacity-80 z-10" />
-    </main>
 </template>
 
 <script setup>
@@ -283,7 +283,7 @@ section {
 }
 
 section:first-of-type {
-    min-height: 100vh;
+    min-height: 75vh;
 }
 
 header {

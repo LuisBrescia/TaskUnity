@@ -32,6 +32,12 @@ body {
     animation: background-pan 3s linear infinite; */
 }
 
+.bg-rainbow {
+    background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+}
+
 .text-rainbow {
     background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     background-size: 200%;
@@ -110,9 +116,9 @@ html {
 
 /* scroll */
 
-::-webkit-scrollbar {
-    width: 0;
-}
+// ::-webkit-scrollbar {
+//     width: 0;
+// }
 
 .text-border {
     -webkit-text-stroke-width: 1px;

@@ -1,6 +1,5 @@
 <template>
     <main class="gap-5 justify-center">
-        <!-- <header class="mx-auto text-center mb-5">Clique em um projeto para editá-lo</header> -->
         <section v-if="projects.length == 0" class="w-full max-w-7xl mx-auto mb-4">
             <DefaultAlert class="mx-auto" type="info" message="Dica" description="Clique em um projeto para editá-lo" />
         </section>

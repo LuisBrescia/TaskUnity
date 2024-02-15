@@ -78,7 +78,7 @@
             </div>
 
             <div class="flex w-full">
-                <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg">
+                <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
                     <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                         Desenvolvimento <br />
                         <span class="text-rainbow font-mono">

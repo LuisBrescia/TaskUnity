@@ -11,7 +11,7 @@
                         <div class="text-base font-thin">Projeto: {{ tarefa.project }}</div>
                     </div>
                 </DefaultCard>
-                <DefaultCard v-if="tarefas.length == 0" class="p-5 my-5 cursor-pointer w-1/2" @click="activeName = 'searchTasks'">
+                <DefaultCard v-if="tarefas.length == 0" class="p-5 my-5 cursor-pointer w-1/2 afterglow" @click="activeName = 'searchTasks'">
                     <div class="border-l-4 pl-5 py-2 rounded-sm border-blue-500">
                         <header class="w-fit font-bold">
                             Procurar Tarefa
@@ -57,7 +57,7 @@
                         </el-row>
                     </div>
                 </DefaultCard>
-                <DefaultCard v-if="candidaturasPendentes.length == 0" class="p-5 my-5 cursor-pointer w-1/2" @click="activeName = 'searchTasks'">
+                <DefaultCard v-if="candidaturasPendentes.length == 0" class="p-5 my-5 cursor-pointer w-1/2 afterglow" @click="activeName = 'searchTasks'">
                     <div class="border-l-4 pl-5 py-2 rounded-sm border-blue-500">
                         <header class="w-fit font-bold">
                             Procurar Tarefa

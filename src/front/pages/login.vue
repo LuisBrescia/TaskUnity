@@ -1,7 +1,7 @@
 <template>
   <main v-if="!onLoading" class="flex flex-col justify-center items-center">
     <DefaultAlert class="max-w-xl w-11/12" type="warning" description="" />
-    <DefaultCard class="my-3 p-12 max-w-xl w-11/12">
+    <DefaultCard class="my-3 p-12 max-w-xl w-11/12 afterglow">
       <NuxtLink to="/">
         <header
           class="text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">

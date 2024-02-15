@@ -1,5 +1,5 @@
 <template>
-    <div class="border card rounded-custom afterglow">
+    <div class="border card rounded-custom">
         <slot />
     </div>
 </template>

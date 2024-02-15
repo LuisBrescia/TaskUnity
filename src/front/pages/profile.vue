@@ -6,9 +6,7 @@
         <el-button type="info" text circle :icon="ElIconTools" @click="abrirDialogEditarUsuario" />
       </header>
       <hr class="mt-2 mb-5 linha-colorida">
-      <section class="text-base">
-        <div>{{ user.email  }}</div>
-      </section>
+      <span class="text-lg">{{user.email}}</span>
     </DefaultCard> 
     <DefaultCard class="p-5 h-fit w-96">
       <header class="flex justify-between items-center">
@@ -30,6 +28,7 @@
           </el-button>
         </el-row>
       </DefaultCard>
+      <span class="text-lg" v-if="convites.length == 0">Nenhum convite</span>
     </DefaultCard>
   </div>
 

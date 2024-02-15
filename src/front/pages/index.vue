@@ -1,6 +1,6 @@
 <template>
     <div class="py-1 bg-rainbow flex justify-center">
-        <span class="text-base">
+        <span class="text-base font-bold">
             Desenvolvido em 2023 por motivos de estudo.
         </span>
     </div>
@@ -113,19 +113,40 @@
             </div>
         </section>
 
-        <section id="guia" class="flex items-start mx-auto container">
+        <section id="guia" class="flex flex-col items-center mx-auto container">
             <header class="flex-1 text-center py-8 px-0 md:px-5 max-w-3xl mx-auto sm:rounded-2xl shadow-lg afterglow">
                 <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                     Guia
                 </h1>
                 <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                    Mini tutorial sobre o funcionamento do site, será desenvolvido assim que as telas principais estiverem
-                    prontas.
+                    Mini tutorial sobre o funcionamento do site.
                 </p>
                 <WhiteButton class="mt-12 w-36 animate-bounce">
                     <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
                 </WhiteButton>
             </header>
+
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/projects.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/projeto.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/projectSendTask.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/tasks.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/tasksFindNew.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/profile.png" alt="Tela de projetos" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img src="/img/guia/profileInvite.png" alt="Tela de projetos" class="w-full" />
+            </div>
         </section>
 
         <section id="equipe">

@@ -17,7 +17,7 @@ const props = defineProps({
     img: String
 });
 
-const filename = ref(`/img/${props.img}.jpg`); 
+const filename = ref(`/img/profile/${props.img}.jpg`); 
 
 </script>
 

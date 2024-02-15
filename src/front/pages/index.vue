@@ -292,8 +292,6 @@ header {
 
 #equipe article {
     min-width: 364px;
-    backdrop-filter: blur(50px) !important;
-    -webkit-backdrop-filter: blur(50px) !important;
     background-size: 200%;
     animation: move-background 3s linear infinite;
 }
@@ -304,8 +302,8 @@ article {
 
 header,
 article {
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: brightness(0);
+    -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
     border-top: 2px solid #ffffff1a;
     border-bottom: 2px solid #ffffff1a;

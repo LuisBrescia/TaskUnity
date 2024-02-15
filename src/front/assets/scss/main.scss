@@ -90,7 +90,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    border-image: linear-gradient(to right, transparent, #0ea5e9, transparent, #22c55e, transparent, #eab308, transparent, #f43f5e, transparent) 27;
+    border-image: linear-gradient(to right, transparent, #38bdf8, transparent, #4ade80, transparent, #fbbf24, transparent, #fb7185, transparent) 27;
     border-image-width: 2px; 
     z-index: -1;
     transition: all .5s ease;
@@ -105,7 +105,7 @@ html {
 }
 
 .afterglow:hover::after, .afterglow:hover::before {
-    scale: 1.3;
+    scale: 1.2;
 }
 
 /* scroll */
@@ -152,7 +152,7 @@ html {
     }
     50% {
         transform: rotate(180deg) skewX(16deg) skewY(8deg);
-        filter: blur(3px) brightness(0.5);
+        filter: blur(1px) brightness(0.5);
     }
     100% {
         transform: rotate(360deg) skewX(8deg) skewY(16deg);

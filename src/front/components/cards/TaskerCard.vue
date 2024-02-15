@@ -23,9 +23,13 @@ const filename = ref(`/img/${props.img}.jpg`);
 
 <style scoped>
 
+    article {
+        background: rgb(0, 0, 0);
+    }
+
     article:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.02);
+        border-color: rgb(64, 64, 64) !important;
+        background: rgb(16, 16, 16) !important;
         transform: translateY(-0.5rem);
     }
 

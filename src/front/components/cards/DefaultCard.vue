@@ -7,8 +7,8 @@
 <style scoped>
 .card {
     border: 2px solid #ffffff1a;
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: brightness(0);
+    -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
     overflow: hidden;
 }

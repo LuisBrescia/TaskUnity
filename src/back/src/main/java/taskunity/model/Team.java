@@ -29,10 +29,11 @@ public class Team {
 
     }
 
-    public Team(String name, String description, List<User> members) {
+    public Team(String name, String description, List<User> members, Integer owner) {
         this.name = name;
         this.description = description;
         this.members = members;
+        this.owner = owner;
     }
 
     public Integer getId() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="py-1 bg-rainbow-dark flex justify-center">
+    <div class="py-1 bg-rainbow-dark flex justify-center z-50">
         <span class="text-base font-bold">
             TIS2: Modelagem e processos de negócios
         </span>

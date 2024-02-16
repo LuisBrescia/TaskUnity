@@ -5,14 +5,9 @@
 }
 
 #assinatura {
-    letter-spacing: 0.1em;
-    line-height: 1.5;
-    font-size: 1.5rem;
-    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-#assinatura:hover {
-    letter-spacing: 0.2em;
+    letter-spacing: -0.1rem;
+    font-size: 1.25rem;
+    transition: all 0.5s ease;
 }
 
 $color: rgba(114, 114, 114, 0.3);

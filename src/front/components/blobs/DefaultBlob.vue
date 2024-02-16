@@ -16,37 +16,47 @@ const gradient = {
     blue: 'from-indigo-800 via-sky-600 to-cyan-400',
     green: 'from-emerald-800 via-green-600 to-lime-400',
     yellow: 'from-orange-600 via-amber-500 to-yellow-300',
-    black: 'from-gray-800 via-gray-600 to-gray-400'
+    black: 'from-black via-neutral-950 to-black'
 }
-
-// red .25
-// green .5
-// yellow .75
 
 </script>
 
 <style scoped>
 
-/* span.from-red-800 {
-    animation-delay: 0.25s;
-}
-
-span.from-emerald-800 {
-    animation-delay: 0.5s;
-}
-
-span.from-orange-600 {
-    animation-delay: 0.75s;
-} */
-
 span {
-    width: 150px;
+    width: 25vh;
     aspect-ratio: 1;
     border-radius: 9999px;
     position: absolute;
     z-index: -1;
-    filter: blur(50px);
-    /* animation: move 8s infinite linear; */
+    filter: blur(100px);
+    /* animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; */
+    animation: ping 4s linear infinite;
+}
+
+/* @keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+} */
+
+@keyframes ping {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2);
+    }
+    60% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes move {

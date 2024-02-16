@@ -16,7 +16,6 @@
 @media (min-width: 640px) {
     .card:hover {
         border-color: #ffffff3a;
-        border-color: rgba(255, 255, 255, 0.5);
         background: rgba(255, 255, 255, 0.05);
     }
 }

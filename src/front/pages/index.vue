@@ -130,7 +130,7 @@
             </div>
 
 
-            <div class="flex max-w-7xl">
+            <!-- <div class="flex max-w-7xl">
                 <div class="m-5 w-1/2 flex flex-col justify-center gap-5">
                     <div class="text-4xl font-black tracking-widest">
                         Desenvolvimento de projeto
@@ -142,6 +142,14 @@
                 <div class="w-1/2">
                     <img :src="'/img/guia/projeto.png'" alt="Desenvolvimento de um projeto" class="w-full rounded-custom overflow-hidden m-5 rotate-1" />
                 </div>
+            </div> -->
+            
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/projects.png'" alt="Projects" class="w-full" />
+            </div>
+
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/project.png'" alt="Projects" class="w-full" />
             </div>
 
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">

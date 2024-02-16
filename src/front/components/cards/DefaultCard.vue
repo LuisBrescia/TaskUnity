@@ -1,23 +1,24 @@
 <template>
-    <div class="border card rounded-custom">
+    <div class="card rounded-custom border-none sm:border-solid">
         <slot />
     </div>
 </template>
 
 <style scoped>
 .card {
-    border: 2px solid #ffffff1a;
+    border-color: #ffffff1a;
+    border-width: 2px;
     backdrop-filter: brightness(0);
     -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
-    overflow: hidden;
 }
 
-.card:hover {
-    border: 2px solid #ffffff3a;
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.05);
-    /* transform: translateY(-0.5rem); */
+@media (min-width: 640px) {
+    .card:hover {
+        border-color: #ffffff3a;
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.05);
+    }
 }
 
 </style>

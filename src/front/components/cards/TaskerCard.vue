@@ -27,10 +27,12 @@ const filename = ref(`/img/profile/${props.img}.jpg`);
         background: rgb(0, 0, 0);
     }
 
-    article:hover {
-        border-color: rgb(64, 64, 64) !important;
-        background: rgb(16, 16, 16) !important;
-        transform: translateY(-0.5rem);
+    @media screen and (min-width: 640px) {   
+        article:hover {
+            border-color: rgb(64, 64, 64) !important;
+            background: rgb(16, 16, 16) !important;
+            transform: translateY(-0.5rem);
+        }
     }
 
     .text-rainbow {

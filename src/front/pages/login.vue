@@ -1,7 +1,7 @@
 <template>
   <main v-if="!onLoading" class="flex flex-col justify-center items-center">
     <DefaultAlert class="max-w-xl w-11/12" type="warning" description="Estimativa de 2 minutos." message="Aviso" />
-    <DefaultCard class="my-3 p-12 max-w-xl w-11/12 afterglow">
+    <DefaultCard class="my-3 p-5 sm:p-12 max-w-xl w-11/12 afterglow">
       <NuxtLink to="/">
         <header
           class="text-4xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
@@ -11,9 +11,9 @@
       </NuxtLink>
 
       <article class="mt-12" v-if="modo == 'cadastrar'">
-        <div class="text-2xl font-bold">Crie uma conta e começe agora mesmo!</div>
+        <div class="text-2xl font-bold">Crie uma conta rapidamente!</div>
         <div class="text-lg">
-          Já cadastrado na plataforma? <span @click="changeModo" class="cursor-pointer text-rainbow link">Entre com sua
+          Já cadastrado no site? <span @click="changeModo" class="cursor-pointer text-rainbow link">Entre com sua
             conta.</span>
         </div>
       </article>

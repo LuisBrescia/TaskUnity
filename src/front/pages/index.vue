@@ -116,7 +116,7 @@
     <section id="guia" class="flex items-center">
         <div class="container flex flex-col items-center mx-auto gap-5 xl:gap-12">
             <div class="flex w-full">
-                <header class="flex-1 mx-auto text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
+                <header class="flex-1 xl:flex-none mx-auto text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg">
                     <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
                         Guia
                     </h1>
@@ -128,24 +128,40 @@
                     </WhiteButton>
                 </header>
             </div>
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projects.png'" alt="Tela de projetos" class="w-full" />
+
+
+            <div class="flex max-w-7xl">
+                <div class="m-5 w-1/2 flex flex-col justify-center gap-5">
+                    <div class="text-4xl font-black tracking-widest">
+                        Desenvolvimento de projeto
+                    </div>
+                    <p class="text-lg font-light text-neutral-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, in! Vitae explicabo, voluptas perspiciatis blanditiis, sequi aspernatur sapiente earum aliquid iste minus illum voluptate vel et quia obcaecati mollitia quis autem pariatur assumenda voluptatibus eos error repudiandae consequuntur. Deleniti consequuntur minus voluptatibus reiciendis voluptatum omnis ut itaque ratione minima.
+                    </p>
+                </div>
+                <div class="w-1/2">
+                    <img :src="'/img/guia/projeto.png'" alt="Desenvolvimento de um projeto" class="w-full rounded-custom overflow-hidden m-5 rotate-1" />
+                </div>
+            </div>
+
+            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/projects.png'" alt="Projects" class="w-full" />
             </div>
             <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projeto.png'" alt="Tela de projetos" class="w-full" />
+                <img :src="'/img/guia/projeto.png'" alt="Desenvolvimento de um projeto" class="w-full" />
             </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/tasks.png'" alt="Minhas tarefas" class="w-full" />
+            </div>
+            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
+                <img :src="'/img/guia/profile.png'" alt="Perfil" class="w-full" />
+            </div> -->
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
                 <img :src="'/img/guia/projectSendTask.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/tasks.png'" alt="Tela de projetos" class="w-full" />
-            </div>
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
                 <img :src="'/img/guia/tasksFindNew.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/profile.png'" alt="Tela de projetos" class="w-full" />
-            </div>
             <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
                 <img :src="'/img/guia/profileInvite.png'" alt="Tela de projetos" class="w-full" />
             </div> -->
@@ -216,10 +232,9 @@
                     class="cursor-pointer opacity-80 hover:opacity-100" />
             </div>
 
-            <div class="opacity-80">
+            <div id="assinatura" class="font-mono font-black text-rainbow reveal">
                 <NuxtLink to="https://luisbrescia.onrender.com" target="_blank">
-                    <Icon name="noto:desktop-computer" color="red" size="1rem" />
-                    <span class="text-base font-sans ml-2">Luís Brescia</span>
+                    <span>Luís Brescia</span>
                 </NuxtLink>
             </div>
 
@@ -253,6 +268,10 @@ const handleScroll = () => {
 </script>
 
 <style scoped>
+body {
+    background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626, #3b82f6, #22c55e);
+}
+
 ul li::after {
     content: "";
     display: block;
@@ -327,15 +346,6 @@ article {
     backdrop-filter: brightness(0);
     -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
-    /* border-top: 2px solid #ffffff1a;
-    border-bottom: 2px solid #ffffff1a; */
-}
-
-header:hover,
-article:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-0.5rem);
 }
 
 .escurecer.block {
@@ -360,11 +370,17 @@ article:hover {
 }
 
 @media screen and (min-width: 640px) {
+
     header,
     article {
-        /* border-right: 2px solid #ffffff1a;
-        border-left: 2px solid #ffffff1a; */
         border: 2px solid #ffffff1a;
+    }
+
+    header:hover,
+    article:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-0.5rem);
     }
 }
 
@@ -403,5 +419,4 @@ article:hover {
     to {
         transform: translateX(calc(-50% - 0.625rem));
     }
-}
-</style>
+}</style>

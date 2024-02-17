@@ -39,7 +39,7 @@
 
         <!-- * Menu mobile-->
         <div id="menuMobile" :class="{ 'pointer-events-none': !menuAberto, 'active': menuAberto }"
-            class="lg:opacity-0 absolute text-neutral-100 top-0 right-0 z-50 p-4 h-screen">
+            class="lg:opacity-0 text-neutral-100 top-0 right-0 z-50 p-4 h-screen fixed">
 
             <div class="flex items-center gap-2 mb-12 text-xl justify-between ps-3">
                 <span class="text-xl font-bold tracking-widest">MENU</span>
@@ -294,11 +294,11 @@ ul li:hover::after {
     width: 100%;
 }
 
-.nav-blur {
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+.nav-blur, nav {
+    background-color: rgba(0, 0, 0);
+    /* backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px); */
 }
-
 #menuMobile {
     filter: blur(5px);
     background: rgb(0, 0, 0);

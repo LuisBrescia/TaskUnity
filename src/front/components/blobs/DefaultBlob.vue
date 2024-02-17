@@ -24,38 +24,57 @@ const gradient = {
 <style scoped>
 
 span {
-    width: 25vh;
-    aspect-ratio: 1;
-    border-radius: 9999px;
-    position: absolute;
-    z-index: -1;
-    filter: blur(100px);
+    width: 2px;
+    height: 60vh;
+    border-radius: 100%;
+    z-index: -9999;
     /* animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; */
     animation: ping 4s linear infinite;
+    transition: all 1s ease;
+    filter: brightness(0);
 }
+
+span:hover {
+    animation: none !important;
+    filter: blur(0px) invert(1) brightness(1.5) contrast(1.5) saturate(1.5) hue-rotate(180deg);
+}
+
+/* span::before {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: inherit;
+    filter: blur(10px);
+    animation: move 4s linear infinite;
+    transition: all 1s;
+} */
 
 /* @keyframes ping {
     75%, 100% {
-        transform: scale(2);
+        filter: brightness(0) blur(10px);
         opacity: 0;
     }
 } */
 
 @keyframes ping {
     0% {
-        transform: scale(1);
-        opacity: 1;
+        filter: brightness(0) blur(5px); 
+        transform: translateX(-5rem) scaleY(0.5);
+    }
+    5% {
+        filter: brightness(1) blur(0px);
     }
     50% {
-        transform: scale(2);
-    }
-    60% {
-        transform: scale(1);
-        opacity: 0;
+        transform: translateX(0) scaleY(1);
     }
     100% {
-        transform: scale(1);
-        opacity: 1;
+        filter: brightness(0) blur(5px);   
+        transform: translateX(5rem);
     }
 }
 

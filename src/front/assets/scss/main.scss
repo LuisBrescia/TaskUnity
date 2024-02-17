@@ -147,6 +147,12 @@ html {
     scale: 1.2;
 }
 
+@media screen and (max-width: 640px){
+    .afterglow {
+        box-shadow: inset 0 0 20px 2px #030303;
+    }
+}
+
 /* scroll */
 
 ::-webkit-scrollbar {
@@ -160,8 +166,8 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background-color: #030303;
-    border-radius: 8px;
-    border: 2px solid #ffffff1a;
+    border-radius: 1rem;
+    border: 1px solid #ffffff1a;
 }
 
 ::-webkit-scrollbar-thumb:hover {

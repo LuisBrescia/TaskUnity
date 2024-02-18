@@ -24,14 +24,13 @@ const gradient = {
 <style scoped>
 
 span {
-    width: 25vh;
-    aspect-ratio: 1/1;
-    border-radius: 9999px;
-    z-index: -9998;
-    /* position: absolute; */
-    /* animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; */
-    /* transition: all 1s ease; */
-    /* filter: blur(50px); */
+    width: 2px;
+    height: 60vh;
+    border-radius: 100%;
+    z-index: -9999;
+    animation: ping 4s linear infinite;
+    transition: all 1s ease;
+    filter: brightness(0);
 }
 
 /* span::before {
@@ -50,9 +49,19 @@ span {
 } */
 
 @keyframes ping {
-    75%, 100% {
-        filter: brightness(0) blur(10px);
-        opacity: 0;
+    0% {
+        filter: brightness(0) blur(5px); 
+        transform: translateX(-5rem) scaleY(0.5);
+    }
+    5% {
+        filter: brightness(1) blur(0px);
+    }
+    50% {
+        transform: translateX(0) scaleY(1);
+    }
+    100% {
+        filter: brightness(0) blur(5px);   
+        transform: translateX(5rem);
     }
 }
 

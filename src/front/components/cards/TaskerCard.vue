@@ -1,5 +1,5 @@
 <template>
-    <article class="border sm:rounded-2xl p-5 text-center shadow overflow-hidden border-none sm:border-solid">
+    <article class="article-card border sm:rounded-2xl p-5 text-center shadow overflow-hidden border-none sm:border-solid">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
         <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
         <div class="text-2xl font-black tracking-wider text-rainbow">{{ name }}</div>
@@ -23,7 +23,7 @@ const filename = ref(`/img/profile/${props.img}.jpg`);
 
 <style scoped>
 
-    article {
+    .article-card {
         background: rgb(0, 0, 0);
     }
 

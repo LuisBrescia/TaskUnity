@@ -148,4 +148,7 @@ function abrirProjeto(projeto) {
     background-color: #ffffff1a;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
 </style>

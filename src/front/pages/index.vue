@@ -6,8 +6,7 @@
     </div>
     <nav class="sticky top-0 z-40 w-full" :class="{ 'nav-blur': isScrolling }">
         <!-- * Menu fixo -->
-        <div class="container mx-auto relative overflow-hidden flex items-center justify-between p-3 lg:p-5 xl:rounded-t"
-            id="menuFixo">
+        <div class="container mx-auto relative flex items-center justify-between p-3 lg:p-5 xl:rounded-t" id="menuFixo">
             <h2
                 class="flex-1 text-2xl font-black tracking-tight text-neutral-50 cursor-pointer text-border font-sans flex items-center">
                 <Icon name="iconamoon:3d-light" color="white" size="2.75rem" />
@@ -70,7 +69,7 @@
     <section id="home" class="flex items-center">
         <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
             <div class="flex w-full">
-                <article class="flex-1 rounded-custom text-center shadow-lg p-5 hidden xl:block">
+                <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5 hidden xl:block">
                     <Icon name="cryptocurrency-color:btg" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
@@ -78,7 +77,7 @@
             </div>
 
             <div class="flex w-full">
-                <header class="flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
+                <header class="header-card flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
                     <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
                         Desenvolvimento <br />
                         <span class="text-rainbow font-mono">
@@ -98,13 +97,13 @@
             </div>
 
             <div class="flex w-full sm:gap-5 flex-wrap">
-                <article class="flex-1 sm:rounded-2xl text-center shadow-lg p-5 xl:hidden block">
+                <article class="article-card flex-1 sm:rounded-2xl text-center shadow-lg p-5 xl:hidden block">
                     <Icon name="cryptocurrency-color:btg" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
                 </article>
 
-                <article class="flex-1 sm:rounded-2xl text-center shadow-lg p-5">
+                <article class="article-card flex-1 sm:rounded-2xl text-center shadow-lg p-5">
                     <Icon name="cryptocurrency-color:chsb" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
@@ -113,66 +112,67 @@
         </div>
     </section>
 
-    <section id="guia" class="flex items-center">
-        <div class="container flex flex-col items-center mx-auto gap-5 xl:gap-12">
-            <div class="flex w-full">
-                <header class="flex-1 xl:flex-none mx-auto text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg">
-                    <h1 class="text-neutral-50 text-5xl md:text-7xl tracking-tight font-black mb-12">
-                        Guia
-                    </h1>
-                    <p class="text-lg md:text-2xl font-light px-3 md:px-0">
-                        Mini tutorial sobre o funcionamento do site.
+    <section id="guia">
+
+        <!-- <h1 class="mb-12 mx-auto text-5xl md:text-7xl font-black text-rainbow font-mono tracking-tighter w-fit">
+            &lt; Guia /&gt;
+        </h1> -->
+
+        <div class="container flex flex-col-reverse xl:flex-row mx-auto gap-5 items-stretch">
+            <div class="flex flex-col lg:flex-row xl:flex-col justify-between gap-5 slider-items">
+                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
+                    :class="{ 'slider-active': guiaImgAtual == 'projects' }" @click="handleCardClick(0)">
+                    <div class="super-rainbow" />
+                    <header class="text-2xl font-bold flex items-center">
+                        <Icon name="material-symbols:ad-group-outline-rounded" />
+                        <span class="ml-2">Projetos</span>
+                    </header>
+                    <p class="text-neutral-300 text-xl font-light">
+                        Manage your issues in a real-time automated kanban board with a drag and drop interface.
                     </p>
-                    <WhiteButton class="mt-12 w-36 animate-bounce">
-                        <Icon name="solar:notebook-minimalistic-line-duotone" size="1.75rem" />
-                    </WhiteButton>
-                </header>
-            </div>
+                    <footer class="text-xl font-bold flex items-center justify-end">
+                        <span class="mr-2">Mais detalhes</span>
+                        <Icon class="Icon" name="mdi:arrow-right" />
+                    </footer>
+                </DefaultCard>
 
-
-            <!-- <div class="flex max-w-7xl">
-                <div class="m-5 w-1/2 flex flex-col justify-center gap-5">
-                    <div class="text-4xl font-black tracking-widest">
-                        Desenvolvimento de projeto
-                    </div>
-                    <p class="text-lg font-light text-neutral-300">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, in! Vitae explicabo, voluptas perspiciatis blanditiis, sequi aspernatur sapiente earum aliquid iste minus illum voluptate vel et quia obcaecati mollitia quis autem pariatur assumenda voluptatibus eos error repudiandae consequuntur. Deleniti consequuntur minus voluptatibus reiciendis voluptatum omnis ut itaque ratione minima.
+                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
+                    :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCardClick(1)">
+                    <div class="super-rainbow" />
+                    <header class="text-2xl font-bold flex items-center">
+                        <Icon name="tdesign:task" />
+                        <span class="ml-2">Tarefas</span>
+                    </header>
+                    <p class="text-neutral-300 text-xl font-light">
+                        Browse your issues and group them by labels, assignees, milestones, and more.
                     </p>
-                </div>
-                <div class="w-1/2">
-                    <img :src="'/img/guia/projeto.png'" alt="Desenvolvimento de um projeto" class="w-full rounded-custom overflow-hidden m-5 rotate-1" />
-                </div>
-            </div> -->
-            
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projects.png'" alt="Projects" class="w-full" />
+                    <footer class="text-xl font-bold flex items-center justify-end">
+                        <span class="mr-2">Mais detalhes</span>
+                        <Icon class="Icon" name="mdi:arrow-right" />
+                    </footer>
+                </DefaultCard>
+
+                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
+                    :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCardClick(2)">
+                    <div class="super-rainbow" />
+                    <header class="text-2xl font-bold flex items-center">
+                        <Icon name="tdesign:work" />
+                        <span class="ml-2">Desenvolvimento</span>
+                    </header>
+                    <p class="text-neutral-300 text-xl font-light">
+                        Plan your issues by scheduling milestones and see the progress in a timeline.
+                    </p>
+                    <footer class="text-xl font-bold flex items-center justify-end">
+                        <span class="mr-2">Mais detalhes</span>
+                        <Icon class="Icon" name="mdi:arrow-right" />
+                    </footer>
+                </DefaultCard>
             </div>
 
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/project.png'" alt="Projects" class="w-full" />
-            </div>
-
-            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projects.png'" alt="Projects" class="w-full" />
-            </div>
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projeto.png'" alt="Desenvolvimento de um projeto" class="w-full" />
-            </div>
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/tasks.png'" alt="Minhas tarefas" class="w-full" />
-            </div>
-            <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/profile.png'" alt="Perfil" class="w-full" />
-            </div> -->
-            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/projectSendTask.png'" alt="Tela de projetos" class="w-full" />
-            </div> -->
-            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/tasksFindNew.png'" alt="Tela de projetos" class="w-full" />
-            </div> -->
-            <!-- <div class="max-w-3xl my-5 rounded-custom overflow-hidden">
-                <img :src="'/img/guia/profileInvite.png'" alt="Tela de projetos" class="w-full" />
-            </div> -->
+            <DefaultCard class="flex-1 overflow-hidden flex items-center relative" id="slider-carousel" v-on:animationend="console.log('endeeee')">
+                <span class="font-bold tracking-widest">{{ telaExibida[guiaImgAtual] }}</span>
+                <img :src="`/img/guia/${guiaImgAtual}.png`" alt="Projects" class="w-full h-full object-cover" />
+            </DefaultCard>
         </div>
     </section>
 
@@ -194,7 +194,7 @@
                     quasi.
                 </TaskerCard>
 
-                <TaskerCard name="Luís Felipe Brescia" role="Dev Vue e Flutter" img="brescia">
+                <TaskerCard name="Luís Felipe Brescia" role="Web developer" img="brescia">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
                 </TaskerCard>
 
@@ -216,7 +216,7 @@
                     quasi.
                 </TaskerCard>
 
-                <TaskerCard name="Luís Felipe Brescia" role="Dev Vue e Flutter" img="brescia">
+                <TaskerCard name="Luís Felipe Brescia" role="Web developer" img="brescia">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
                 </TaskerCard>
 
@@ -261,21 +261,156 @@
 
 const menuAberto = ref(false);
 const isScrolling = ref(false);
+const guiaImgAtual = ref('projects');
+const guiaImgs = ['projects', 'tasks', 'project'];
+const telaExibida = {
+    projects: 'Projetos',
+    tasks: 'Tarefas',
+    project: 'Desenvolvimento'
+}
+
+let guiaAtualIndex = 0;
+let intervalId;
+
+function handleCardClick(index) {
+    guiaImgAtual.value = guiaImgs[index];
+    guiaAtualIndex = index;
+    clearInterval(intervalId);
+    startInterval(); 
+}
+
+function startInterval() {
+    intervalId = setInterval(() => {
+        guiaImgAtual.value = guiaImgs[guiaAtualIndex++ % guiaImgs.length];
+    }, 5000);
+};
+
+function handleScroll() {
+    isScrolling.value = window.scrollY > 100;
+}
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+    startInterval();
 });
 
 onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll);
+    clearInterval(intervalId);
 });
-
-const handleScroll = () => {
-    isScrolling.value = window.scrollY > 100;
-}
 </script>
 
 <style scoped>
+.slider-items .card {
+    filter: brightness(0.8);
+}
+
+.slider-items .card:hover {
+    filter: brightness(1);
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.slider-items .card:hover footer {
+    text-decoration: underline;
+}
+
+.slider-items .card:hover .Icon {
+    transform: translateX(0.125rem);
+}
+
+.slider-items .card.slider-active {
+    filter: brightness(1);
+    transform: scale(1);
+}
+
+.slider-items .card:hover .super-rainbow::after {
+    background-color: #0f0f0f;
+}
+
+.super-rainbow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
+    z-index: -1;
+    background-size: 200%;
+    animation: move-background 3s linear infinite;
+    filter: brightness(0);
+    transition: all .5s ease;
+    opacity: 0;
+}
+
+.super-rainbow::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #030303;
+    border-radius: .75rem;
+    z-index: 10;
+    transform: scaleX(0.99) scaleY(0.97);
+    transition: all .5s ease;
+}
+
+.slider-active .super-rainbow {
+    filter: brightness(1);
+    opacity: 1;
+}
+
+.slide-active .super-rainbow:hover .super-rainbow::after {
+    opacity: 0;
+}
+
+#slider-carousel {
+    position: relative;
+}
+
+#slider-carousel:hover span {
+    border-color: #ffffff3a;
+    background: #0f0f0f;
+}
+
+#slider-carousel span {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    min-width: 10rem;
+    background-color: #030303;
+    border-top-left-radius: 1rem;
+    border-top: 2px solid #ffffff1a;
+    border-left: 2px solid #ffffff1a;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: all .5s ease;
+}
+
+#slider-carousel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    border-radius: 1.5rem;
+    background: linear-gradient(90deg, #38bdf8, #4ade80, #fbbf24, #fb7185);
+    animation: slider-move 5s linear infinite;
+    /* animation-play-state: running; */
+}
+
+@keyframes slider-move {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
 body {
     background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626, #3b82f6, #22c55e);
 }
@@ -294,11 +429,13 @@ ul li:hover::after {
     width: 100%;
 }
 
-.nav-blur, nav {
-    background-color: rgba(0, 0, 0);
+.nav-blur,
+nav {
+    background-color: #030303f0;
     /* backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px); */
 }
+
 #menuMobile {
     filter: blur(5px);
     background: rgb(0, 0, 0);
@@ -335,22 +472,16 @@ section:first-of-type {
     min-height: 75vh;
 }
 
-header {
+.header-card {
     width: 50rem;
 }
 
-#equipe article {
-    min-width: 364px;
-    background-size: 200%;
-    animation: move-background 3s linear infinite;
-}
-
-article {
+.article-card {
     min-width: 10rem;
 }
 
-header,
-article {
+.header-card,
+.article-card {
     backdrop-filter: brightness(0);
     -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
@@ -379,13 +510,13 @@ article {
 
 @media screen and (min-width: 640px) {
 
-    header,
-    article {
+    .header-card,
+    .article-card {
         border: 2px solid #ffffff1a;
     }
 
-    header:hover,
-    article:hover {
+    .header-card:hover,
+    .article-card:hover {
         border-color: rgba(255, 255, 255, 0.2);
         background: rgba(255, 255, 255, 0.05);
         transform: translateY(-0.5rem);
@@ -427,4 +558,5 @@ article {
     to {
         transform: translateX(calc(-50% - 0.625rem));
     }
-}</style>
+}
+</style>

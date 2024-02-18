@@ -16,7 +16,6 @@ body {
     font-family: 'Quicksand', sans-serif;
     color: #fafafa;
     font-size: x-large;
-    overflow-x: hidden;
     min-height: 100vh;
     background: #030303;
     // background: linear-gradient(144deg, #3b82f6, #22c55e, #eab308, #dc2626, #3b82f6, #22c55e);
@@ -97,6 +96,10 @@ html {
     scroll-behavior: smooth;
 }
 
+.Icon {
+    transition: all 0.5s ease;
+}
+
 .linha-colorida {
     background: linear-gradient(to right, #38bdf8, #4ade80, #fbbf24, #fb7185, #fbbf24, #4ade80, #38bdf8);
     height: 3px;
@@ -127,24 +130,25 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    border-image: linear-gradient(to right, transparent, #38bdf8, transparent, #4ade80, transparent, #fbbf24, transparent, #fb7185, transparent) 27;
+    border-image: linear-gradient(to right, transparent, #fbbf24, transparent, #38bdf8, transparent, #4ade80, transparent, #fb7185, transparent) 27;
     border-image-width: 2px;
     z-index: -1;
     transition: all .5s ease;
     scale: 1;
+    filter: brightness(0);
 }
 
 .afterglow::before {
-    animation: rotate 5s infinite linear;
+    animation: afterglow-animation 5s infinite linear;
 }
 
 .afterglow::after {
-    animation: rotate 20s infinite linear;
+    animation: afterglow-animation 20s infinite linear;
 }
 
 .afterglow:hover::after,
 .afterglow:hover::before {
-    scale: 1.2;
+    scale: 1.3;
 }
 
 @media screen and (max-width: 640px){
@@ -207,19 +211,19 @@ html {
     }
 }
 
-@keyframes rotate {
+@keyframes afterglow-animation {
     0% {
-        transform: rotate(0deg) skewX(8deg) skewY(16deg);
+        transform: rotate(0deg) skewX(16deg) skewY(32deg) scale(1.1);
         filter: blur(5px) brightness(1);
     }
 
     50% {
-        transform: rotate(180deg) skewX(16deg) skewY(8deg);
-        filter: blur(1px) brightness(0.5);
+        transform: rotate(180deg) skewX(32deg) skewY(16deg) scale(1.1);
+        filter: blur(1px) brightness(0.9);
     }
 
     100% {
-        transform: rotate(360deg) skewX(8deg) skewY(16deg);
+        transform: rotate(360deg) skewX(16deg) skewY(32deg) scale(1.1);
         filter: blur(5px) brightness(1);
     }
 }

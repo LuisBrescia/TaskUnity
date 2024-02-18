@@ -144,7 +144,7 @@
                         <span class="ml-2">Desenvolvimento</span>
                     </header>
                     <p class="text-neutral-300 text-lg font-light">
-                        Onde o projeto é gerenciado, editando dados, adicionando e atribuindo tarefas. 
+                        Onde o projeto é gerenciado, editando seus dados, adicionando e atribuindo tarefas. 
                     </p>
                     <footer class="text-lg font-bold flex items-center justify-end mt-3">
                         <span class="mr-2">Mais detalhes</span>
@@ -249,7 +249,7 @@
     <footer class="px-12 py-2">
         <div class="container mx-auto flex justify-between items-center">
 
-            <div class="text-xl font-sans">
+            <div class="flex-1 text-xl font-sans">
                 <Icon name="octicon:logo-github-16" color="white" size="4rem"
                     class="cursor-pointer opacity-80 hover:opacity-100" />
             </div>
@@ -260,7 +260,7 @@
                 </NuxtLink>
             </div>
 
-            <div class="flex gap-5">
+            <div class="flex-1 flex gap-5  justify-end">
                 <Icon name="mdi:nuxt" color="white" size="2rem" class="cursor-pointer opacity-80 hover:opacity-100" />
             </div>
         </div>

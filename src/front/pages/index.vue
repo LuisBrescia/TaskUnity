@@ -238,10 +238,9 @@
                 </TaskerCard>
 
                 <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
-                    Jogou a toalha, já formado pelo Cotemig, de Ciência da computação veio para 
+                    "Ia fazer, mas você já tinha feito", formado pelo Cotemig, de Ciência da computação veio para 
                     Engenharia de software, trabalha como Dev Flutter.
                 </TaskerCard>
-
             </div>
         </div>
     </section>
@@ -268,9 +267,11 @@
         </div>
     </footer>
 
-    <!-- * Efeito de escurecer a tela -->
-    <div @click="menuAberto = !menuAberto" :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
-        class="escurecer fixed inset-0 bg-black opacity-80 z-10" />
+    <div 
+        @click="menuAberto = !menuAberto" 
+        :class="{ 'hidden': !menuAberto, 'block': menuAberto }"
+        class="escurecer fixed inset-0 bg-black opacity-80 z-10" 
+    />
 </template>
 
 <script setup>

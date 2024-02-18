@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="blobs fixed pointer-events-none hidden sm:flex -z-50 justify-center items-center overflow-visible" 
+        class="blobs fixed pointer-events-none hidden sm:flex -z-50 justify-center items-center overflow-visible gap-5" 
         style="height: 100vh; width: 100vw;"
         :style="`transform: scale(${1 + scrollBlob * 0.0005}); gap: ${scrollBlob * 0.1}px;`"
     >
@@ -16,7 +16,7 @@
     </div>
 
     <div 
-        class="blobs fixed pointer-events-none flex sm:hidden -z-50 justify-center items-center gap-3" 
+        class="blobs fixed pointer-events-none flex sm:hidden -z-50 justify-center items-center gap-5" 
         style="height: 100vh; width: 100vw;"
         :style="`transform: scale(${1 + scrollBlob * 0.0005});`"
     >

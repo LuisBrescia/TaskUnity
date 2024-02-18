@@ -121,7 +121,7 @@
         <div class="container flex flex-col-reverse xl:flex-row mx-auto gap-5 items-stretch">
             <div class="flex flex-col lg:flex-row xl:flex-col justify-between gap-5 slider-items">
                 <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
-                    :class="{ 'slider-active': guiaImgAtual == 'projects' }" @click="handleCardClick(0)">
+                    :class="{ 'slider-active': guiaImgAtual == 'projects' }" @click="handleCarouselChange(0)">
                     <div class="super-rainbow" />
                     <header class="text-2xl font-bold flex items-center">
                         <Icon name="material-symbols:ad-group-outline-rounded" />
@@ -137,14 +137,14 @@
                 </DefaultCard>
 
                 <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
-                    :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCardClick(1)">
+                    :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCarouselChange(1)">
                     <div class="super-rainbow" />
                     <header class="text-2xl font-bold flex items-center">
                         <Icon name="material-symbols:bookmark-manager-outline" />
                         <span class="ml-2">Desenvolvimento</span>
                     </header>
                     <p class="text-neutral-300 text-xl font-light">
-                        Onde o projeto é gerenciado, seja editando seus dados quanto adicionando e atribuindo tarefas. 
+                        Onde o projeto é gerenciado, seja editando seus dados ou adicionando e atribuindo tarefas. 
                     </p>
                     <footer class="text-xl font-bold flex items-center justify-end mt-5">
                         <span class="mr-2">Mais detalhes</span>
@@ -153,7 +153,7 @@
                 </DefaultCard>
 
                 <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
-                    :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCardClick(2)">
+                    :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCarouselChange(2)">
                     <div class="super-rainbow" />
                     <header class="text-2xl font-bold flex items-center">
                         <Icon name="tdesign:task" />
@@ -169,8 +169,16 @@
                 </DefaultCard>
             </div>
 
-            <DefaultCard class="flex-1 overflow-hidden flex items-center relative cursor-pointer" id="slider-carousel">
-                <span class="font-bold tracking-widest">{{ telaExibida[guiaImgAtual] }}</span>
+            <DefaultCard 
+                class="flex-1 overflow-hidden flex items-center relative cursor-pointer" id="slider-carousel"
+            >
+                <div 
+                    id="slider-loading" 
+                    :style="{ width: loadingWidth + '%' }"
+                />
+                <span class="text-xl tracking-widest capitalize font-mono font-black">
+                    {{ telaExibida[guiaImgAtual] }}
+                </span>
                 <img :src="`/img/guia/${guiaImgAtual}.png`" alt="Projects" class="w-full h-full object-cover" />
             </DefaultCard>
         </div>
@@ -268,22 +276,31 @@ const telaExibida = {
     tasks: 'Tarefas',
     project: 'Desenvolvimento'
 }
-
-let guiaAtualIndex = 1;
+const loadingWidth = ref(0);
+const guiaAtualIndex = ref(0);
 let intervalId;
 
-function handleCardClick(index) {
-    guiaImgAtual.value = guiaImgs[index];
-    guiaAtualIndex = index;
+function handleCarouselChange(index, animationEnd = false) {
     clearInterval(intervalId);
-    startInterval(); 
+    loadingWidth.value = 0;
+    carregarLoading();
+    if (animationEnd) {
+        guiaAtualIndex.value = index + 1;
+    } else {
+        guiaAtualIndex.value = index;
+    }
+    guiaImgAtual.value = guiaImgs[guiaAtualIndex.value % guiaImgs.length];
 }
 
-function startInterval() {
-    intervalId = setInterval(() => {
-        guiaImgAtual.value = guiaImgs[guiaAtualIndex++ % guiaImgs.length];
-    }, 5000);
-};
+function carregarLoading() {
+    intervalId = intervalId = setInterval(() => {
+        loadingWidth.value += 0.5;
+        if (loadingWidth.value > 100) {
+            clearInterval(intervalId);
+            handleCarouselChange(guiaAtualIndex.value, true);
+        }
+    }, 25);
+}
 
 function handleScroll() {
     isScrolling.value = window.scrollY > 100;
@@ -291,12 +308,11 @@ function handleScroll() {
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
-    startInterval();
+    carregarLoading();
 });
 
 onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll);
-    clearInterval(intervalId);
 });
 </script>
 
@@ -368,51 +384,32 @@ onBeforeUnmount(() => {
     position: relative;
 }
 
+#slider-carousel span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #030303;
+    border-top-left-radius: 1rem;
+    border-top: 2px solid #ffffff1a;
+    border-left: 2px solid #ffffff1a;
+    padding: 0.5rem 1rem;
+    transition: all .5s ease;
+}
+
 #slider-carousel:hover span {
     border-color: #ffffff3a;
     background: #0f0f0f;
 }
 
-#slider-carousel span {
-    position: absolute;
-    text-align: center;
-    right: 0;
-    bottom: 0;
-    min-width: 10rem;
-    background-color: #030303;
-    border-top-left-radius: 1rem;
-    border-top: 2px solid #ffffff1a;
-    border-left: 2px solid #ffffff1a;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    transition: all .5s ease;
-}
-
-#slider-carousel::before {
+#slider-loading {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 5px;
-    width: 100%;
-    border-radius: 1.5rem;
+    width: 0%;
     background: linear-gradient(90deg, #38bdf8, #4ade80, #fbbf24, #fb7185);
-    animation: slider-move 5s linear infinite;
-    /* animation-play-state: running; */
-}
-
-.animation-slider-move {
-    animation: slider-move 5s linear fowards;
-}
-
-@keyframes slider-move {
-    from {
-        width: 0%;
-    }
-
-    to {
-        width: 100%;
-    }
+    /* border-radius: 1.5rem; */
 }
 
 body {

@@ -1,9 +1,9 @@
 <template>
-    <article class="article-card border sm:rounded-2xl p-5 text-center shadow overflow-hidden border-none sm:border-solid">
+    <article class="article-card border rounded-custom p-5 text-center shadow overflow-hidden">
         <img :src="filename" class="rounded-full mb-3 h-24 aspect-square mx-auto">
-        <div class="text-lg uppercase font-light tracking-widest">{{ role }}</div>
+        <div class="text-base uppercase font-light tracking-widest text-neutral-200">{{ role }}</div>
         <div class="text-2xl font-black tracking-wider text-rainbow">{{ name }}</div>
-        <div class="text-base text-start mt-3 max-w-xs">
+        <div class="text-base text-center mt-3 max-w-xs">
             <slot/>
         </div>
     </article>

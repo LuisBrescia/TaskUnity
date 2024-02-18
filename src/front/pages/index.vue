@@ -67,9 +67,9 @@
     </nav>
 
     <section id="home" class="flex items-center px-3">
-        <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
-            <div class="flex w-full">
-                <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5 hidden xl:block">
+        <div class="container flex flex-col xl:flex-row items-center mx-auto gap-3 xl:gap-12">
+            <div class="w-full hidden xl:flex">
+                <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5">
                     <Icon name="cryptocurrency-color:btg" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
@@ -77,9 +77,9 @@
             </div>
 
             <div class="flex w-full">
-                <header class="header-card flex-1 text-center py-8 px-0 md:px-5 sm:rounded-2xl shadow-lg afterglow">
+                <header class="header-card flex-1 text-center py-8 px-0 md:px-5 rounded-custom shadow-lg afterglow">
                     <h1 class="text-5xl md:text-7xl tracking-tighter font-black mb-12">
-                        Desenvolvimento <br />
+                        <div>Desenvolvimento</div>
                         <span class="text-rainbow font-mono">
                             &lt;re-imaginado/&gt;
                         </span>
@@ -96,14 +96,14 @@
                 </header>
             </div>
 
-            <div class="flex w-full sm:gap-5 flex-wrap">
-                <article class="article-card flex-1 sm:rounded-2xl text-center shadow-lg p-5 xl:hidden block">
+            <div class="flex w-full gap-3 sm:gap-5 flex-wrap">
+                <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5 xl:hidden block">
                     <Icon name="cryptocurrency-color:btg" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">Tasker</h3>
                 </article>
 
-                <article class="article-card flex-1 sm:rounded-2xl text-center shadow-lg p-5">
+                <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5">
                     <Icon name="cryptocurrency-color:chsb" size="2rem" />
                     <div class="text-xs tracking-wide font-thin mt-3 opacity-50">Seja um</div>
                     <h3 class="text-base uppercase font-bold tracking-widest">MANAGER</h3>
@@ -120,49 +120,49 @@
         </div>
         <div class="container flex flex-col-reverse xl:flex-row mx-auto gap-5 items-stretch">
             <div class="flex flex-col lg:flex-row xl:flex-col justify-between gap-5 slider-items">
-                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
+                <DefaultCard class="p-5 border xl:max-w-md flex flex-col gap-3 relative overflow-hidden flex-1"
                     :class="{ 'slider-active': guiaImgAtual == 'projects' }" @click="handleCarouselChange(0)">
                     <div class="super-rainbow" />
-                    <header class="text-2xl font-bold flex items-center">
+                    <header class="text-xl font-bold flex items-center">
                         <Icon name="material-symbols:ad-group-outline-rounded" />
                         <span class="ml-2">Projetos</span>
                     </header>
-                    <p class="text-neutral-300 text-xl font-light">
+                    <p class="text-neutral-300 text-lg font-light">
                         Primeira tela após o login, onde você pode criar um projeto novo ou acessar um já existente.
                     </p>
-                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
+                    <footer class="text-lg font-bold flex items-center justify-end mt-3">
                         <span class="mr-2">Mais detalhes</span>
                         <Icon class="Icon" name="mdi:arrow-right" />
                     </footer>
                 </DefaultCard>
 
-                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
+                <DefaultCard class="p-5 border xl:max-w-md flex flex-col gap-3 relative overflow-hidden flex-1"
                     :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCarouselChange(1)">
                     <div class="super-rainbow" />
-                    <header class="text-2xl font-bold flex items-center">
+                    <header class="text-xl font-bold flex items-center">
                         <Icon name="material-symbols:bookmark-manager-outline" />
                         <span class="ml-2">Desenvolvimento</span>
                     </header>
-                    <p class="text-neutral-300 text-xl font-light">
-                        Onde o projeto é gerenciado, seja editando seus dados ou adicionando e atribuindo tarefas. 
+                    <p class="text-neutral-300 text-lg font-light">
+                        Onde o projeto é gerenciado, editando dados, adicionando e atribuindo tarefas. 
                     </p>
-                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
+                    <footer class="text-lg font-bold flex items-center justify-end mt-3">
                         <span class="mr-2">Mais detalhes</span>
                         <Icon class="Icon" name="mdi:arrow-right" />
                     </footer>
                 </DefaultCard>
 
-                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
+                <DefaultCard class="p-5 border xl:max-w-md flex flex-col gap-3 relative overflow-hidden flex-1"
                     :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCarouselChange(2)">
                     <div class="super-rainbow" />
-                    <header class="text-2xl font-bold flex items-center">
+                    <header class="text-xl font-bold flex items-center">
                         <Icon name="tdesign:task" />
                         <span class="ml-2">Tarefas</span>
                     </header>
-                    <p class="text-neutral-300 text-xl font-light">
+                    <p class="text-neutral-300 text-lg font-light">
                         Tela para acessar tarefas já atribuídas, encontrar novas e gerenciar candidaturas.
                     </p>
-                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
+                    <footer class="text-lg font-bold flex items-center justify-end mt-3">
                         <span class="mr-2">Mais detalhes</span>
                         <Icon class="Icon" name="mdi:arrow-right" />
                     </footer>
@@ -176,9 +176,9 @@
                     id="slider-loading" 
                     :style="{ width: loadingWidth + '%' }"
                 />
-                <span class="text-xl tracking-widest capitalize font-mono font-black">
+                <!-- <span class="text-xl tracking-widest capitalize font-mono font-black">
                     {{ telaExibida[guiaImgAtual] }}
-                </span>
+                </span> -->
                 <img :src="`/img/guia/${guiaImgAtual}.png`" alt="Projects" class="w-full h-full object-cover" />
             </DefaultCard>
         </div>
@@ -191,49 +191,55 @@
         </h1>
 
         <div class="container mx-auto" id="scroll">
-            <div class="flex sm:gap-5 py-5" id="scroll-inner">
-                <TaskerCard name="André Hyodo" role="Roteirista" img="andre">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sapiente magnam labore itaque
-                    vero consectetur, corporis necessitatibus!
+            <div class="flex gap-5 py-5" id="scroll-inner">
+                <TaskerCard name="André Hyodo Teichi" role="Dev Java IoT" img="andre">
+                    Descobriu que o trabalho existia depois de 2 meses de desenvolvimento, formado na UFMG,
+                    atualmente trabalha na Stellantis como desenvolvedor Java.
                 </TaskerCard>
 
-                <TaskerCard name="Gustavo Pereira" role="Dublador" img="gustavo">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta non tempora vel quibusdam
-                    quasi.
-                </TaskerCard>
-
-                <TaskerCard name="Luís Felipe Brescia" role="Web developer" img="brescia">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
-                </TaskerCard>
-
-                <TaskerCard name="Luiz Campos" role="Fotógrafo" img="luiz">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat corporis ea sed?
-                </TaskerCard>
-
-                <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, suscipit adipisci! Porro.
-                </TaskerCard>
-
-                <TaskerCard name="André Hyodo" role="Roteirista" img="andre">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sapiente magnam labore itaque
-                    vero consectetur, corporis necessitatibus!
-                </TaskerCard>
-
-                <TaskerCard name="Gustavo Pereira" role="Dublador" img="gustavo">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta non tempora vel quibusdam
-                    quasi.
+                <TaskerCard name="Gustavo Pereira" role="Tosador Pro" img="gustavo">
+                    Fez a parte dele, formado em mecatrônica pelo Senai, está se preparando para seguir
+                    carreira como engenheiro de software, hoje trabalha em um petshop.
                 </TaskerCard>
 
                 <TaskerCard name="Luís Felipe Brescia" role="Web developer" img="brescia">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque pariatur incidunt sapiente modi!
+                    Fez o trabalho todo praticamente sozinho, já formado no CEFET-MG,
+                    atualmente trabalha na startup Atendeaí como desenvolvedor Vue e Flutter.
                 </TaskerCard>
 
-                <TaskerCard name="Luiz Campos" role="Fotógrafo" img="luiz">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat corporis ea sed?
+                <TaskerCard name="Luiz Felipe Campos" role="Analista de dados" img="luiz">
+                    Apoio moral do grupo, outro que veio de Ciência da Computação, trabalha
+                    como analista de dados em uma empresa parceira da Arcellor Mittal.   
                 </TaskerCard>
 
                 <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, suscipit adipisci! Porro.
+                    "Ia fazer, mas você já tinha feito", formado pelo Cotemig, de Ciência da computação veio para 
+                    Engenharia de software, trabalha como Dev Flutter.
+                </TaskerCard>
+
+                <TaskerCard name="André Hyodo Teichi" role="Dev Java IoT" img="andre">
+                    Descobriu que o trabalho existia depois de 2 meses de desenvolvimento, formado na UFMG,
+                    atualmente trabalha na Stellantis como desenvolvedor Java.
+                </TaskerCard>
+
+                <TaskerCard name="Gustavo Pereira" role="Tosador Pro" img="gustavo">
+                    Fez a parte dele, formado em mecatrônica pelo Senai, está se preparando para seguir
+                    carreira como engenheiro de software, hoje trabalha em um petshop.
+                </TaskerCard>
+
+                <TaskerCard name="Luís Felipe Brescia" role="Web developer" img="brescia">
+                    Fez o trabalho todo praticamente sozinho, já formado no CEFET-MG,
+                    atualmente trabalha na startup Atendeaí como desenvolvedor Vue e Flutter.
+                </TaskerCard>
+
+                <TaskerCard name="Luiz Felipe Campos" role="Analista de dados" img="luiz">
+                    Apoio moral do grupo, outro que veio de Ciência da Computação, trabalha
+                    como analista de dados em uma empresa parceira da Arcellor Mittal.   
+                </TaskerCard>
+
+                <TaskerCard name="Marcus Viniciús" role="Dev Flutter" img="marcus">
+                    Jogou a toalha, já formado pelo Cotemig, de Ciência da computação veio para 
+                    Engenharia de software, trabalha como Dev Flutter.
                 </TaskerCard>
 
             </div>
@@ -289,7 +295,8 @@ function handleCarouselChange(index, animationEnd = false) {
     } else {
         guiaAtualIndex.value = index;
     }
-    guiaImgAtual.value = guiaImgs[guiaAtualIndex.value % guiaImgs.length];
+    guiaAtualIndex.value = guiaAtualIndex.value % guiaImgs.length;
+    guiaImgAtual.value = guiaImgs[guiaAtualIndex.value];
 }
 
 function carregarLoading() {
@@ -486,6 +493,7 @@ section:first-of-type {
     backdrop-filter: brightness(0);
     -webkit-backdrop-filter: brightness(0);
     transition: all .5s ease;
+    border: 2px solid #ffffff1a;
 }
 
 .escurecer.block {
@@ -510,12 +518,6 @@ section:first-of-type {
 }
 
 @media screen and (min-width: 640px) {
-
-    .header-card,
-    .article-card {
-        border: 2px solid #ffffff1a;
-    }
-
     .header-card:hover,
     .article-card:hover {
         border-color: rgba(255, 255, 255, 0.2);

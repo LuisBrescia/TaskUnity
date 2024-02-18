@@ -246,12 +246,12 @@
         </div>
     </section>
 
-    <footer class="px-12 py-2">
+    <footer class="px-12 py-3">
         <div class="container mx-auto flex justify-between items-center">
-
-            <div class="flex-1 text-xl font-sans">
-                <Icon name="octicon:logo-github-16" color="white" size="4rem"
-                    class="cursor-pointer opacity-80 hover:opacity-100" />
+            <div class="flex-1 text-start">
+                <NuxtLink to="https://nuxt.com" target="_blank">
+                    <Icon name="cib:nuxt-js" color="white" class="cursor-pointer opacity-80 hover:opacity-100" />
+                </NuxtLink>
             </div>
 
             <div id="assinatura" class="font-mono font-black text-rainbow reveal">
@@ -260,8 +260,10 @@
                 </NuxtLink>
             </div>
 
-            <div class="flex-1 flex gap-5  justify-end">
-                <Icon name="mdi:nuxt" color="white" size="2rem" class="cursor-pointer opacity-80 hover:opacity-100" />
+            <div class="flex-1 text-end">
+                <NuxtLink to="https://spring.io" target="_blank">
+                    <Icon name="cib:spring" color="white" class="cursor-pointer opacity-80 hover:opacity-100" />
+                </NuxtLink>
             </div>
         </div>
     </footer>

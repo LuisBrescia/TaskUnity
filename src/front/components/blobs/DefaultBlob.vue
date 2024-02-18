@@ -28,30 +28,14 @@ span {
     aspect-ratio: 1/1;
     border-radius: 9999px;
     z-index: -9998;
-    /* position: absolute; */
-    /* animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; */
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     /* transition: all 1s ease; */
-    /* filter: blur(50px); */
+    filter: blur(50px);
 }
-
-/* span::before {
-    content: ' ';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background: inherit;
-    filter: blur(10px);
-    animation: move 4s linear infinite;
-    transition: all 1s;
-} */
 
 @keyframes ping {
     75%, 100% {
-        filter: brightness(0) blur(10px);
+        /* filter: brightness(0) blur(10px); */
         opacity: 0;
     }
 }

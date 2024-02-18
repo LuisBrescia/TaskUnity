@@ -66,7 +66,7 @@
         </div>
     </nav>
 
-    <section id="home" class="flex items-center">
+    <section id="home" class="flex items-center px-3">
         <div class="container flex flex-col xl:flex-row items-center mx-auto gap-5 xl:gap-12">
             <div class="flex w-full">
                 <article class="article-card flex-1 rounded-custom text-center shadow-lg p-5 hidden xl:block">
@@ -112,15 +112,15 @@
         </div>
     </section>
 
-    <section id="guia">
-
-        <!-- <h1 class="mb-12 mx-auto text-5xl md:text-7xl font-black text-rainbow font-mono tracking-tighter w-fit">
-            &lt; Guia /&gt;
-        </h1> -->
-
+    <section id="guia" class="px-3">
+        <div class="container mx-auto mb-5">
+            <header class="text-4xl font-bold pl-5">
+                Guia de uso	
+            </header>
+        </div>
         <div class="container flex flex-col-reverse xl:flex-row mx-auto gap-5 items-stretch">
             <div class="flex flex-col lg:flex-row xl:flex-col justify-between gap-5 slider-items">
-                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
+                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
                     :class="{ 'slider-active': guiaImgAtual == 'projects' }" @click="handleCardClick(0)">
                     <div class="super-rainbow" />
                     <header class="text-2xl font-bold flex items-center">
@@ -128,48 +128,48 @@
                         <span class="ml-2">Projetos</span>
                     </header>
                     <p class="text-neutral-300 text-xl font-light">
-                        Manage your issues in a real-time automated kanban board with a drag and drop interface.
+                        Primeira tela após o login, onde você pode criar um projeto novo ou acessar um já existente.
                     </p>
-                    <footer class="text-xl font-bold flex items-center justify-end">
+                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
                         <span class="mr-2">Mais detalhes</span>
                         <Icon class="Icon" name="mdi:arrow-right" />
                     </footer>
                 </DefaultCard>
 
-                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
-                    :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCardClick(1)">
+                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
+                    :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCardClick(1)">
+                    <div class="super-rainbow" />
+                    <header class="text-2xl font-bold flex items-center">
+                        <Icon name="material-symbols:bookmark-manager-outline" />
+                        <span class="ml-2">Desenvolvimento</span>
+                    </header>
+                    <p class="text-neutral-300 text-xl font-light">
+                        Onde o projeto é gerenciado, seja editando seus dados quanto adicionando e atribuindo tarefas. 
+                    </p>
+                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
+                        <span class="mr-2">Mais detalhes</span>
+                        <Icon class="Icon" name="mdi:arrow-right" />
+                    </footer>
+                </DefaultCard>
+
+                <DefaultCard class="p-5 border xl:max-w-lg flex flex-col gap-3 relative overflow-hidden flex-1"
+                    :class="{ 'slider-active': guiaImgAtual == 'tasks' }" @click="handleCardClick(2)">
                     <div class="super-rainbow" />
                     <header class="text-2xl font-bold flex items-center">
                         <Icon name="tdesign:task" />
                         <span class="ml-2">Tarefas</span>
                     </header>
                     <p class="text-neutral-300 text-xl font-light">
-                        Browse your issues and group them by labels, assignees, milestones, and more.
+                        Tela para acessar tarefas já atribuídas, encontrar novas e gerenciar candidaturas.
                     </p>
-                    <footer class="text-xl font-bold flex items-center justify-end">
-                        <span class="mr-2">Mais detalhes</span>
-                        <Icon class="Icon" name="mdi:arrow-right" />
-                    </footer>
-                </DefaultCard>
-
-                <DefaultCard class="p-5 border xl:max-w-xl flex flex-col gap-3 relative overflow-hidden flex-1"
-                    :class="{ 'slider-active': guiaImgAtual == 'project' }" @click="handleCardClick(2)">
-                    <div class="super-rainbow" />
-                    <header class="text-2xl font-bold flex items-center">
-                        <Icon name="tdesign:work" />
-                        <span class="ml-2">Desenvolvimento</span>
-                    </header>
-                    <p class="text-neutral-300 text-xl font-light">
-                        Plan your issues by scheduling milestones and see the progress in a timeline.
-                    </p>
-                    <footer class="text-xl font-bold flex items-center justify-end">
+                    <footer class="text-xl font-bold flex items-center justify-end mt-5">
                         <span class="mr-2">Mais detalhes</span>
                         <Icon class="Icon" name="mdi:arrow-right" />
                     </footer>
                 </DefaultCard>
             </div>
 
-            <DefaultCard class="flex-1 overflow-hidden flex items-center relative" id="slider-carousel" v-on:animationend="console.log('endeeee')">
+            <DefaultCard class="flex-1 overflow-hidden flex items-center relative cursor-pointer" id="slider-carousel">
                 <span class="font-bold tracking-widest">{{ telaExibida[guiaImgAtual] }}</span>
                 <img :src="`/img/guia/${guiaImgAtual}.png`" alt="Projects" class="w-full h-full object-cover" />
             </DefaultCard>
@@ -262,14 +262,14 @@
 const menuAberto = ref(false);
 const isScrolling = ref(false);
 const guiaImgAtual = ref('projects');
-const guiaImgs = ['projects', 'tasks', 'project'];
+const guiaImgs = ['projects', 'project', 'tasks'];
 const telaExibida = {
     projects: 'Projetos',
     tasks: 'Tarefas',
     project: 'Desenvolvimento'
 }
 
-let guiaAtualIndex = 0;
+let guiaAtualIndex = 1;
 let intervalId;
 
 function handleCardClick(index) {
@@ -399,6 +399,10 @@ onBeforeUnmount(() => {
     background: linear-gradient(90deg, #38bdf8, #4ade80, #fbbf24, #fb7185);
     animation: slider-move 5s linear infinite;
     /* animation-play-state: running; */
+}
+
+.animation-slider-move {
+    animation: slider-move 5s linear fowards;
 }
 
 @keyframes slider-move {

@@ -172,11 +172,12 @@
         </DefaultCard>
       </div>
 
-      <DefaultCard class="flex-1 overflow-hidden flex items-center relative cursor-pointer" id="slider-carousel">
+      <DefaultCard class="flex-1 overflow-hidden flex items-center relative cursor-pointer" id="slider-carousel"
+        @mouseenter="loadingCharge = false" @mouseleave="loadingCharge = true">
         <div id="slider-loading" :style="{ width: loadingWidth + '%' }" />
-        <!-- <span class="text-xl tracking-widest capitalize font-mono font-black">
-                    {{ telaExibida[guiaImgAtual] }}
-                </span> -->
+        <span class="text-xl tracking-widest capitalize font-mono font-black">
+          {{ telaExibida[guiaImgAtual] }}
+        </span>
         <img :src="`/img/guia/${guiaImgAtual}.png`" alt="Projects" class="w-full h-full object-cover" />
       </DefaultCard>
     </div>
@@ -292,6 +293,8 @@ const loadingWidth = ref(0);
 const guiaAtualIndex = ref(0);
 let intervalId;
 
+const loadingCharge = ref(true);
+
 function handleCarouselChange(index, animationEnd = false) {
   clearInterval(intervalId);
   loadingWidth.value = 0;
@@ -307,10 +310,12 @@ function handleCarouselChange(index, animationEnd = false) {
 
 function carregarLoading() {
   intervalId = intervalId = setInterval(() => {
-    loadingWidth.value += 0.5;
-    if (loadingWidth.value > 100) {
-      clearInterval(intervalId);
-      handleCarouselChange(guiaAtualIndex.value, true);
+    if (loadingCharge.value) {
+      loadingWidth.value += 0.5;
+      if (loadingWidth.value > 100) {
+        clearInterval(intervalId);
+        handleCarouselChange(guiaAtualIndex.value, true);
+      }
     }
   }, 25);
 }
